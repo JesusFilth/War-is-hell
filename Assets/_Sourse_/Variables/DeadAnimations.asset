@@ -29,6 +29,8 @@ MonoBehaviour:
         m_Source:
         - rid: 3147619291185808338
         - rid: 3147619291185808340
+        - rid: 3147619297791574395
+        - rid: 3147619297791574393
         m_TypeID:
           m_String: animation-clip
     - rid: 3147619291185808338
@@ -57,3 +59,29 @@ MonoBehaviour:
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Value: {fileID: -203655887218126122, guid: 3a2ea3d7e179c9846aaecb6a9c8f2378, type: 3}
+    - rid: 3147619297791574393
+      type: {class: IndexVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 3147619297791574394
+    - rid: 3147619297791574394
+      type: {class: ValueAnimClip, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: {fileID: -203655887218126122, guid: 9bb0675829f799645a293ba68d25e9f0, type: 3}
+    - rid: 3147619297791574395
+      type: {class: IndexVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 3147619297791574396
+    - rid: 3147619297791574396
+      type: {class: ValueAnimClip, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: {fileID: -203655887218126122, guid: 492760974c373a24bb3c2fda08057aab, type: 3}

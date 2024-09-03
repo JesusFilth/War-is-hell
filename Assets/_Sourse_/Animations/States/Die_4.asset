@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 232752578b594dac8363ce5618d051fa, type: 3}
-  m_Name: Animation State
+  m_Name: Die_4
   m_EditorClassIdentifier: 
   m_StateMask: {fileID: 0}
   m_Entry:
-    m_EntryClip: {fileID: 0}
+    m_EntryClip: {fileID: -203655887218126122, guid: 9bb0675829f799645a293ba68d25e9f0, type: 3}
     m_EntryMask: {fileID: 0}
     m_RootMotion: 0
   m_Exit:
@@ -82,12 +82,12 @@ MonoBehaviour:
   m_OnChange:
     m_Instructions:
       m_Instructions: []
-  m_Controller: {fileID: 4631744924579430929}
-  m_StateClip: {fileID: 0}
+  m_Controller: {fileID: 1795268337272789220}
+  m_StateClip: {fileID: 7400000, guid: 7cc2265a22ba5af4a91b5d9b9eae05b9, type: 2}
   references:
     version: 2
     RefIds: []
---- !u!221 &4631744924579430929
+--- !u!221 &1795268337272789220
 AnimatorOverrideController:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,4 +97,4 @@ AnimatorOverrideController:
   m_Controller: {fileID: 9100000, guid: 2c8b7312f36f04157932300782d990e0, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 3fd1b37d27b754527950ef1a42916157, type: 2}
-    m_OverrideClip: {fileID: 0}
+    m_OverrideClip: {fileID: 7400000, guid: 7cc2265a22ba5af4a91b5d9b9eae05b9, type: 2}
