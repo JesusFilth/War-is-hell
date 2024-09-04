@@ -1,10 +1,7 @@
 using Reflex.Attributes;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class MovementBarrel : MonoBehaviour
+public class MovementTrap : MonoBehaviour
 {
     [SerializeField] private float _speed = 10;
 
@@ -16,7 +13,9 @@ public class MovementBarrel : MonoBehaviour
     private void Awake()
     {
         _transform = transform;
-        DIGameConteiner.Instance.InjectRecursive(gameObject);
+
+        if (DIGameConteiner.Instance != null)
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
     }
 
     private void Start()

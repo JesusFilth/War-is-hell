@@ -15,7 +15,9 @@ public class RotateBarrel : MonoBehaviour
     private void Awake()
     {
         _transform = transform;
-        DIGameConteiner.Instance.InjectRecursive(gameObject);
+
+        if (DIGameConteiner.Instance != null)
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
     }
 
     private void Start()
