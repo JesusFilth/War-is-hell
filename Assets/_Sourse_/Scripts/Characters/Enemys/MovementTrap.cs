@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MovementTrap : MonoBehaviour
 {
+    private const float AngleX = 1f;
+
     [SerializeField] private float _speed = 10;
 
     private Transform _transform;
@@ -21,7 +23,7 @@ public class MovementTrap : MonoBehaviour
     private void Start()
     {
         Vector3 direction = _player.Transform.position - _transform.position;
-        _direction.x = direction.x > 0 ? 1 : -1;
+        _direction.x = direction.x > 0 ? AngleX : -AngleX;
     }
 
     private void Update()
