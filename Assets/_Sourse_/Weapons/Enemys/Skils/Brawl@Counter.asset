@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 926b1857c61f413faedb2dbfeb093099, type: 3}
-  m_Name: Brawl@Combo3
+  m_Name: Brawl@Counter
   m_EditorClassIdentifier: 
   m_Title:
     m_Property:
@@ -27,9 +27,7 @@ MonoBehaviour:
   m_Charge:
     m_State:
       m_StateType: 2
-      m_AnimationClip:
-        m_Property:
-          rid: 3147619271063109867
+      m_AnimationClip: {fileID: 0}
       m_RuntimeController: {fileID: 0}
       m_State: {fileID: 0}
       m_AvatarMask: {fileID: 0}
@@ -39,7 +37,7 @@ MonoBehaviour:
     m_Predictions: 1
     m_UseStrikers: 2
     m_Id:
-      m_String: right-hand
+      m_String: right-foot
   m_Trail:
     m_IsActive: 1
     m_Length:
@@ -73,13 +71,13 @@ MonoBehaviour:
     m_HitPauseDuration: 0.1
     m_HitEffect:
       m_Property:
-        rid: 4340017107664372363
-  m_Animation: {fileID: 7400000, guid: a017114838f1e46cea1a81fe9675a393, type: 2}
+        rid: 4340017107664372364
+  m_Animation: {fileID: 7400000, guid: d13a561c5dabd42748a896702284b665, type: 2}
   m_Mask: {fileID: 0}
-  m_Motion: 0
+  m_Motion: 2
   m_SyncReaction: {fileID: 0}
   m_Gravity: 1
-  m_TransitionIn: 0.25
+  m_TransitionIn: 0.1
   m_TransitionOut: 0.25
   m_MeleeSequence:
     m_Sequence:
@@ -110,80 +108,26 @@ MonoBehaviour:
       rid: 4340017107664372158
   m_OnStart:
     m_Instructions:
-      m_Instructions: []
+      m_Instructions:
+      - rid: 4340017107664372296
   m_OnFinish:
     m_Instructions:
       m_Instructions: []
   m_CanHit:
     m_Conditions:
-      m_Conditions:
-      - rid: 3147619290554040491
+      m_Conditions: []
   m_OnHit:
     m_Instructions:
       m_Instructions:
       - rid: 4340017107664372204
-      - rid: 3147619290999422979
   <EditorModelPath>k__BackingField: 
   references:
     version: 2
     RefIds:
-    - rid: 3147619271063109867
-      type: {class: GetAnimationInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: {fileID: 0}
-    - rid: 3147619290554040491
-      type: {class: ConditionGameObjectLayerMask, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Sign: 1
-        m_GameObject:
-          m_Property:
-            rid: 3147619290554040492
-        m_LayerMask:
-          serializedVersion: 2
-          m_Bits: 512
-    - rid: 3147619290554040492
-      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 3147619290999422979
-      type: {class: InstructionArithmeticIncrementNumber, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 3147619290999422980
-        m_Value:
-          m_Property:
-            rid: 3147619290999422981
-    - rid: 3147619290999422980
-      type: {class: SetNumberLocalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: number
-          m_Variable:
-            rid: 3147619290999422982
-          m_Name:
-            m_String: HP
-            m_ID: 303203846
-    - rid: 3147619290999422981
-      type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: -1
-    - rid: 3147619290999422982
-      type: {class: PropertyGetGameObject, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Property:
-          rid: 3147619290999422983
-    - rid: 3147619290999422983
-      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
     - rid: 4340017107664372137
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: Combo 3
+        m_Value: Counter
     - rid: 4340017107664372138
       type: {class: GetStringTextArea, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
@@ -240,12 +184,12 @@ MonoBehaviour:
       type: {class: ClipMeleePhases, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
         m_Time: 0.33333334
-        m_Duration: 0.15555556
+        m_Duration: 0.14285715
     - rid: 4340017107664372160
       type: {class: ClipMeleeCancel, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
-        m_Time: 0.33333334
-        m_Duration: 0.33333334
+        m_Time: 0
+        m_Duration: 0.6666667
     - rid: 4340017107664372161
       type: {class: ClipMeleeRootMotionPosition, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
@@ -260,7 +204,7 @@ MonoBehaviour:
       type: {class: ClipMeleeMotionWarping, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
         m_Time: 0
-        m_Duration: 0.3
+        m_Duration: 0.33333334
         m_Conditions:
           m_Conditions:
             m_Conditions: []
@@ -279,7 +223,7 @@ MonoBehaviour:
             rid: 4340017107664372166
         m_Axis: 5
         m_TrackTarget: 0
-        m_Rotation: 0
+        m_Rotation: 1
     - rid: 4340017107664372165
       type: {class: GetLocationNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
@@ -306,15 +250,15 @@ MonoBehaviour:
     - rid: 4340017107664372201
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 3
+        m_Value: 1.5
     - rid: 4340017107664372202
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 2
+        m_Value: 1
     - rid: 4340017107664372203
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 1.1
+        m_Value: 1.2
     - rid: 4340017107664372204
       type: {class: InstructionCameraShakeBurst, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -324,18 +268,29 @@ MonoBehaviour:
           m_Property:
             rid: 4340017107664372205
         m_Delay: 0
-        m_Duration: 0.3
+        m_Duration: 0.5
         m_ShakeEffect:
           m_ShakePosition: 1
           m_ShakeRotation: 1
-          m_Magnitude: 0.7
-          m_Roughness: 1
+          m_Magnitude: 1
+          m_Roughness: 2
           m_Transform: {fileID: 0}
           m_Radius: 10
     - rid: 4340017107664372205
       type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data: 
-    - rid: 4340017107664372363
+    - rid: 4340017107664372296
+      type: {class: InstructionMeleeResetParryTime, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 4340017107664372298
+    - rid: 4340017107664372298
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 4340017107664372364
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 5339739117810204693, guid: a426016fadb1a164f85488a1b583b90f, type: 3}
+        m_GameObject: {fileID: 3135502183617210236, guid: 04124b357ce5f44f790264435901c671, type: 3}

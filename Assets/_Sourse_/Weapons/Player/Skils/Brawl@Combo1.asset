@@ -76,7 +76,7 @@ MonoBehaviour:
         rid: 4340017107664372361
   m_Animation: {fileID: 7400000, guid: 874f2f6ab9de14277955386eaef49fde, type: 2}
   m_Mask: {fileID: 0}
-  m_Motion: 1
+  m_Motion: 0
   m_SyncReaction: {fileID: 0}
   m_Gravity: 1
   m_TransitionIn: 0.25
@@ -142,7 +142,7 @@ MonoBehaviour:
             rid: 3147619290554040488
         m_LayerMask:
           serializedVersion: 2
-          m_Bits: 768
+          m_Bits: 512
     - rid: 3147619290554040488
       type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
