@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ public abstract class WaveSpawner : MonoBehaviour
     [SerializeField] private List<EnemySpawnModel> _enemyModels;
     [SerializeField] private SpawnPoint[] _points;
     [SerializeField] private int _capasity;
+
+    [Inject] private FollowCameraToPlayerX _camera;
 
     protected bool HasEnemys => _enemysOnLine.Count > 0;
     protected int CountEnemysOnBattlefield => _enemysOnBattlefield.Count;
@@ -38,12 +41,14 @@ public abstract class WaveSpawner : MonoBehaviour
 
     public void On()
     {
+        _camera.Off();
         Execute();
     }
 
     public void Off()
     {
         Debug.Log("Wave is the end");
+        _camera.On();
     }
 
     protected abstract void Execute();
