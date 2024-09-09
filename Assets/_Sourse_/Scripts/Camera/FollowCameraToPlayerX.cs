@@ -4,7 +4,7 @@ using UnityEngine;
 public class FollowCameraToPlayerX : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private float _offsetY = 2.0f;
+    [SerializeField] private float _offsetY = 2.2f;
     [SerializeField] private float _offsetX = .0f;
     [SerializeField] private float _smoothSpeed = 0.125f;
     [SerializeField] private bool _isBackReturn = false;
