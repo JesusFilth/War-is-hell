@@ -51,7 +51,7 @@ public abstract class WaveSpawner : MonoBehaviour
     protected void Create()
     {
         if (HasEnemys == false)
-            throw new InvalidOperationException(nameof(HasEnemys));
+            return;
 
         int randomIndex = Random.Range(0, _enemysOnLine.Count);
         var enemySpawn = _enemysOnLine.ElementAt(randomIndex);
