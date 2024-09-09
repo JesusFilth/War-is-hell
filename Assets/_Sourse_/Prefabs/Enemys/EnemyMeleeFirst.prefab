@@ -1219,6 +1219,7 @@ MonoBehaviour:
     - rid: 3147619298614444312
     - rid: 3147619311979593907
     - rid: 3147619297960133590
+    - rid: 3147619428780474393
     - rid: 3147619297960133215
   references:
     version: 2
@@ -1444,6 +1445,26 @@ MonoBehaviour:
       type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
+    - rid: 3147619428780474393
+      type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Method:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 2827726370604837918}
+              m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+              m_MethodName: Die
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
 --- !u!1 &1941236915160628738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,6 +1959,7 @@ GameObject:
   - component: {fileID: 7969822991951923261}
   - component: {fileID: 2192333671880591982}
   - component: {fileID: 5785793059615532790}
+  - component: {fileID: 2827726370604837918}
   m_Layer: 9
   m_Name: EnemyMeleeFirst
   m_TagString: Untagged
@@ -1953,15 +1975,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3316326862081667494}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7229013, z: -0, w: 0.6909514}
-  m_LocalPosition: {x: 6.5, y: 2.42, z: 5.7008643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1322015751696257209}
   - {fileID: 5347722268363200749}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -92.589, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7969822991951923261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,7 +2219,19 @@ MonoBehaviour:
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Value: 6
+        m_Value: 4
+--- !u!114 &2827726370604837918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316326862081667494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103b885c9f2c87f4995b76a90bc59cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3374116137079809846
 GameObject:
   m_ObjectHideFlags: 0
