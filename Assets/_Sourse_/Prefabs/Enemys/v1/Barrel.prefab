@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7455836369699676489}
-  - component: {fileID: 6246652423745535536}
+  - component: {fileID: 5079604232896184131}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 1790926817501020460}
   m_Father: {fileID: 6198144582875465714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6246652423745535536
+--- !u!114 &5079604232896184131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2725688409341115522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124e611d4d316f744bb19f6c36411763, type: 3}
+  m_Script: {fileID: 11500000, guid: 000f31169a83c9145a67e091e9a38686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 10
 --- !u!1 &3294366561105802208
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,8 +174,8 @@ GameObject:
   - component: {fileID: 7199109040003078259}
   - component: {fileID: 7015541900395212416}
   - component: {fileID: 2222977894015022453}
-  - component: {fileID: 7251624958980429952}
   - component: {fileID: 288804306928023396}
+  - component: {fileID: 8520890867206540508}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -272,19 +272,6 @@ CapsuleCollider:
   m_Height: 1.23
   m_Direction: 1
   m_Center: {x: 0, y: 0.5227199, z: 0}
---- !u!114 &7251624958980429952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7297013315748576162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fde2b556419274f94016ccbb1cd487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 150
 --- !u!114 &288804306928023396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +392,19 @@ MonoBehaviour:
     - rid: 3147619313453892059
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
+--- !u!114 &8520890867206540508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7297013315748576162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573f047afd7c3ee49ae97afbec0bceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 50
 --- !u!1001 &1786307974832004756
 PrefabInstance:
   m_ObjectHideFlags: 0
