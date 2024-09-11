@@ -3,14 +3,17 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Active", order = 2)]
-public abstract class SkillActive : Skill
+public class SkillActive : Skill
 {
     protected const float MaxChance = 100;
     protected const float MinCooldawn = 1;
 
+    private const float CooldawnUPLevel = 0.1f;
+    private const float ChanceUpLevel = 2f;
+
     [SerializeField] private SkillEffect _effect;  
     [SerializeField] protected float Cooldawn = 3f;
-    [SerializeField] protected float Chance = 100f;
+    [SerializeField] protected float Chance = 50f;
 
     public SkillEffect Effect => _effect;
 
@@ -30,6 +33,15 @@ public abstract class SkillActive : Skill
 
         Stratigy.Execute(abilitys, this);
         Level++;
+    }
+
+    public virtual void UpSkill()
+    {
+        if (Level == 0)
+            return;
+
+        Cooldawn += CooldawnUPLevel;
+        Chance += ChanceUpLevel;
     }
 
     public virtual void Active()

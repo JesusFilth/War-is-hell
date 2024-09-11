@@ -6139,6 +6139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1417908533}
+  - {fileID: 1197637042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030756015
@@ -7050,6 +7051,59 @@ MonoBehaviour:
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 50
+--- !u!1 &1197637040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1197637042}
+  - component: {fileID: 1197637041}
+  m_Layer: 0
+  m_Name: SkillsStorage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1197637041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197637040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ba1f98e88587e4f92d5a7989ce4e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skills:
+  - {fileID: 11400000, guid: 3599cd5b4c5e83f4a8603afc089c39be, type: 2}
+  - {fileID: 11400000, guid: 1aaa8eb3edd72fb4aa3793e3ade36539, type: 2}
+  - {fileID: 11400000, guid: ab5737119e6af3444a435c398d357ee0, type: 2}
+  - {fileID: 11400000, guid: e6b6d3b3fb2576d4b9449d7e0c6fb1f7, type: 2}
+  - {fileID: 11400000, guid: decba1887db1f694d9896fd7e34b60b0, type: 2}
+  - {fileID: 11400000, guid: d7fd11463ed6f2b488877b124c1a09dc, type: 2}
+  - {fileID: 11400000, guid: 85cb87e2e16603841989c601b36da91a, type: 2}
+  - {fileID: 11400000, guid: 87af295a0d2170744b053e6a584e6e71, type: 2}
+--- !u!4 &1197637042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197637040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1020410142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200929186
 GameObject:
   m_ObjectHideFlags: 0
@@ -11606,7 +11660,7 @@ GameObject:
   - component: {fileID: 1934690782}
   - component: {fileID: 1934690781}
   m_Layer: 0
-  m_Name: Input_test
+  m_Name: Input_test_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11660,13 +11714,13 @@ MonoBehaviour:
         m_Method:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 1985814091}
-              m_TargetAssemblyTypeName: PlayerAbilitys, Assembly-CSharp
-              m_MethodName: AddSkill
-              m_Mode: 2
+            - m_Target: {fileID: 1197637041}
+              m_TargetAssemblyTypeName: SkillStorage, Assembly-CSharp
+              m_MethodName: AddSkill_Test
+              m_Mode: 1
               m_Arguments:
-                m_ObjectArgument: {fileID: 11400000, guid: 3599cd5b4c5e83f4a8603afc089c39be, type: 2}
-                m_ObjectArgumentAssemblyTypeName: Skill, Assembly-CSharp
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: 
@@ -23002,9 +23056,9 @@ SceneRoots:
   - {fileID: 7632483754077748530}
   - {fileID: 1369231425}
   - {fileID: 1934690782}
-  - {fileID: 1386860680}
   - {fileID: 1063013920}
   - {fileID: 8496101361952293792}
+  - {fileID: 1386860680}
   - {fileID: 942539196}
   - {fileID: 4818515133620507316}
   - {fileID: 1745914533}

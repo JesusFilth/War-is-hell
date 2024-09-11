@@ -4,10 +4,10 @@ using UnityEngine;
 public class PlayerAbilitys : MonoBehaviour
 {
     [SerializeField] private Stats _stats;
-    [SerializeField] private SkillsStorage _skillsStorage;
+    [SerializeField] private ActiveSkillsStorage _skillsStorage;
 
     public Stats Stats => _stats;
-    public SkillsStorage SkillsStorage => _skillsStorage;
+    public ActiveSkillsStorage SkillsStorage => _skillsStorage;
 
     private void OnValidate()
     {

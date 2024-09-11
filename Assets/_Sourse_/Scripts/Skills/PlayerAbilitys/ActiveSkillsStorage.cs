@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SkillsStorage : MonoBehaviour
+public class ActiveSkillsStorage : MonoBehaviour
 {
     [SerializeField] private SkillsEnemyConteiner _conteiner;
     [SerializeField] private List<SkillActive> _skills = new();
@@ -31,7 +32,25 @@ public class SkillsStorage : MonoBehaviour
     public void AddSkill(SkillActive skillActive)
     {
         Debug.Log("Add Action Skill");
-        _skills.Add(Instantiate(skillActive));
+
+        if(_skills.Count == 0)
+        {
+            _skills.Add(Instantiate(skillActive));
+            return;
+        }
+
+        SkillActive findSkill = _skills.Where(skill=>skill.Name == skillActive.Name).First();
+
+        if(findSkill == null)
+        {
+            Debug.Log("Add");
+            _skills.Add(Instantiate(skillActive));
+        }
+        else
+        {
+            Debug.Log("Up");
+            findSkill.UpSkill();
+        }
     }
 
     private void Initialize()
