@@ -2,25 +2,15 @@ using UnityEngine;
 
 public abstract class Skill : ScriptableObject
 {
-    protected const float MaxChance = 100;
-    protected const float MinCooldawn = 1;
+    [SerializeField] private string Name;
+    [SerializeField] private Sprite _icon;
 
-    [SerializeField] private SkillEffect _effect;
-    [SerializeField] protected float Cooldawn = 3f;
-    [SerializeField] protected float Chance = 100f;
+    protected ISkillStratigy Stratigy;
+    protected int Level = 1;
 
-    public SkillEffect Effect => _effect;
-    private float _currentTime = 0;
-    public bool IsCooldawn => _currentTime + Cooldawn >= Time.time;
+    public Sprite Icon => _icon;
 
-    public virtual void Active()
-    {
-        _currentTime = Time.time;
-    }
+    public abstract void ExecuteStratigy(PlayerAbilitys abilitys);
 
-    public bool CanActiveEffectForChance()
-    {
-        float randomChance = Random.Range(0, MaxChance);
-        return randomChance <= Chance;
-    }
+    public virtual string GetDescription() => "";
 }

@@ -9,11 +9,6 @@ public class SkillsEnemyConteiner : MonoBehaviour
 
     private List<Enemy> _enemys = new();
 
-    private void Update()
-    {
-        Debug.Log("Counts: "+ _enemys.Count);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out Enemy enemy))
