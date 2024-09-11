@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SkillsStorage : MonoBehaviour
+public class SkillsStorage : MonoBehaviour, ISkillVisitor
 {
     [SerializeField] private SkillsEnemyConteiner _conteiner;
     [SerializeField] private List<Skill> _skills;
@@ -30,47 +30,37 @@ public class SkillsStorage : MonoBehaviour
         foreach (Skill skill in _skills)
         {
             if (skill.IsCooldawn == false)
-                ExecuteSkill(skill);
+                Execute(skill);
         }
     }
 
-    private void ExecuteSkill(Skill skill)
+    public void Execute(Skill skill)
     {
-        if(skill is SkillCurce curce)
-        {
-            ExecureCurce(curce);
-        }
+        if (skill is SkillCurce curse)
+            Execute(curse);
         if(skill is SkillRotation rotation)
-        {
-            ExecureRotation(rotation);
-        }
+            Execute(rotation);
 
-
-        skill.Active(Time.time);
+        skill.Active();
     }
 
-    private void ExecureRotation(SkillRotation rotation)
+    private void Execute(SkillCurce curse)
     {
-        if (rotation.CanActiveEffect())
+        for (int i = 0; i < curse.EnemyCount; i++)
         {
-            Instantiate(rotation.Effect);
-        }
-    }
-
-    private void ExecureCurce(SkillCurce curce)
-    {
-        for (int i = 0; i < curce.EnemyCount; i++)
-        {
-            if (curce.CanActiveEffect())
+            if (curse.CanActiveEffectForChance())
             {
-                CreateEffectRandomEnemy(curce.Effect);
+                int randomIndex = Random.Range(0, _conteiner.Enemys.Count);
+                Instantiate(curse.Effect, _conteiner.Enemys.ElementAt(randomIndex).transform);
             }
         }
     }
 
-    private void CreateEffectRandomEnemy(SkillEffect effect)
+    private void Execute(SkillRotation rotation)
     {
-        int randomIndex = Random.Range(0, _conteiner.Enemys.Count);
-        Instantiate(effect, _conteiner.Enemys.ElementAt(randomIndex).transform);
+        if (rotation.CanActiveEffectForChance())
+        {
+            Instantiate(rotation.Effect);
+        }
     }
 }

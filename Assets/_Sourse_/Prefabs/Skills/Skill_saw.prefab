@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 33890444128239540}
   - component: {fileID: 23941951452018580}
   - component: {fileID: 8703670034990063857}
+  - component: {fileID: 6768846731236631962}
   - component: {fileID: 3932059724985701030}
   - component: {fileID: 1348410719250723368}
-  - component: {fileID: 6768846731236631962}
   m_Layer: 0
   m_Name: Skill_saw
   m_TagString: Untagged
@@ -101,6 +101,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 220
   _distance: 1
+--- !u!114 &6768846731236631962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976874687991484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d915d58067c29cb45994df1b6a413262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &3932059724985701030
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -299,15 +311,3 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 1976874687991484}
---- !u!114 &6768846731236631962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976874687991484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d915d58067c29cb45994df1b6a413262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

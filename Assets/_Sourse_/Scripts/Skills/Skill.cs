@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Skill : ScriptableObject
@@ -11,17 +10,15 @@ public abstract class Skill : ScriptableObject
     [SerializeField] protected float Chance = 100f;
 
     public SkillEffect Effect => _effect;
-
     private float _currentTime = 0;
-
     public bool IsCooldawn => _currentTime + Cooldawn >= Time.time;
 
-    public virtual void Active(float time)
+    public virtual void Active()
     {
-        _currentTime = time;
+        _currentTime = Time.time;
     }
 
-    public bool CanActiveEffect()
+    public bool CanActiveEffectForChance()
     {
         float randomChance = Random.Range(0, MaxChance);
         return randomChance <= Chance;
