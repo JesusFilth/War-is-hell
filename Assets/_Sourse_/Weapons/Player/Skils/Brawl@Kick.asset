@@ -123,6 +123,7 @@ MonoBehaviour:
       m_Instructions:
       - rid: 4340017107664372204
       - rid: 3147619290999422984
+      - rid: 4164758969480642780
   <EditorModelPath>k__BackingField: 
   references:
     version: 2
@@ -178,6 +179,40 @@ MonoBehaviour:
         m_Property:
           rid: 3147619290999422988
     - rid: 3147619290999422988
+      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 4164758969480642780
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 4164758969480642783
+        m_From:
+          m_Property:
+            rid: 4164758969480642782
+    - rid: 4164758969480642782
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 4164758969480642783
+      type: {class: SetBoolLocalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable:
+            rid: 4164758969480642784
+          m_Name:
+            m_String: isHit
+            m_ID: -1235987232
+    - rid: 4164758969480642784
+      type: {class: PropertyGetGameObject, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Property:
+          rid: 4164758969480642786
+    - rid: 4164758969480642786
       type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
     - rid: 4340017107664372137
