@@ -35,12 +35,12 @@ public class SkillActive : Skill
         Level++;
     }
 
-    public virtual void UpSkill()
+    public virtual void UpSkill()//?
     {
         if (Level == 0)
             return;
 
-        Cooldawn += CooldawnUPLevel;
+        Cooldawn -= CooldawnUPLevel;
         Chance += ChanceUpLevel;
     }
 
