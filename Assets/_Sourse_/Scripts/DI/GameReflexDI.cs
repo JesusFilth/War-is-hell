@@ -7,6 +7,7 @@ public class GameReflexDI : MonoBehaviour, IInstaller
     [SerializeField] private Player _player;
     [SerializeField] private PlayerAbilitys _playerAbility;
     [SerializeField] private SkillStorage _skillStorage;
+    [SerializeField] private SkillsConteinerUI _skillConteinerUI;
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
@@ -14,5 +15,6 @@ public class GameReflexDI : MonoBehaviour, IInstaller
         containerBuilder.AddSingleton(_player);
         containerBuilder.AddSingleton(_playerAbility);
         containerBuilder.AddSingleton(_skillStorage);
+        containerBuilder.AddSingleton(_skillConteinerUI);
     }
 }

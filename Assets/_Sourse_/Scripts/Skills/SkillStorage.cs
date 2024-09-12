@@ -1,6 +1,7 @@
 using Reflex.Attributes;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SkillStorage : MonoBehaviour
 {
@@ -19,6 +20,24 @@ public class SkillStorage : MonoBehaviour
         {
             _skills[i] = Instantiate(_skills[i]);
         }
+    }
+
+    public Skill[] GetThreeRandomSkill()
+    {
+        const int CountSkills = 3;
+
+        List<Skill> result = new List<Skill>();
+
+        do
+        {
+            int random = Random.Range(0, _skills.Count);
+
+            if (result.Contains(_skills[random]) == false)
+                result.Add(_skills[random]);
+        }
+        while (result.Count != CountSkills);
+
+        return result.ToArray();
     }
 
     public void AddSkill_Test()//temp

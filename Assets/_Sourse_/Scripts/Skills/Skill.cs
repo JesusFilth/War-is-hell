@@ -5,8 +5,9 @@ public abstract class Skill : ScriptableObject
     [SerializeField] private string _name;
     [SerializeField] private Sprite _icon;
 
+    public int Level { get; protected set; } = 0;
+
     protected ISkillStratigy Stratigy;
-    protected int Level = 0;
 
     public string Name => _name;
     public Sprite Icon => _icon;
