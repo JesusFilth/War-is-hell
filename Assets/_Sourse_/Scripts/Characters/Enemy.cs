@@ -5,5 +5,11 @@ public class Enemy : MonoBehaviour
 {
     public event Action<Enemy> Died;
 
-    public void Die() => Died?.Invoke(this);
+    public bool IsDead { get; private set; }
+
+    public void Die()
+    {
+        IsDead = true;
+        Died?.Invoke(this);
+    }
 }

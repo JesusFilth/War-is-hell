@@ -1,7 +1,7 @@
-using Reflex.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Reflex.Attributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -49,6 +49,7 @@ public abstract class WaveSpawner : MonoBehaviour
     {
         Debug.Log("Wave is the end");
         _camera.On();
+        gameObject.SetActive(false);
     }
 
     protected abstract void Execute();

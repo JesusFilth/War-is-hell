@@ -27,7 +27,9 @@ MonoBehaviour:
   m_Charge:
     m_State:
       m_StateType: 2
-      m_AnimationClip: {fileID: 0}
+      m_AnimationClip:
+        m_Property:
+          rid: 3147619449845841932
       m_RuntimeController: {fileID: 0}
       m_State: {fileID: 0}
       m_AvatarMask: {fileID: 0}
@@ -117,11 +119,43 @@ MonoBehaviour:
       m_Conditions: []
   m_OnHit:
     m_Instructions:
-      m_Instructions: []
+      m_Instructions:
+      - rid: 3147619449845841934
   <EditorModelPath>k__BackingField: 
   references:
     version: 2
     RefIds:
+    - rid: 3147619449845841932
+      type: {class: GetAnimationInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: {fileID: 0}
+    - rid: 3147619449845841934
+      type: {class: InstructionStatsChangeAttribute, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Target:
+          m_Property:
+            rid: 3147619449845841935
+        m_Attribute:
+          m_Property:
+            rid: 3147619449845841936
+        m_Change:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 3147619449845841937
+    - rid: 3147619449845841935
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 3147619449845841936
+      type: {class: GetAttributeInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Attribute: {fileID: 0}
+    - rid: 3147619449845841937
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 100
     - rid: 4340017107664372137
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
