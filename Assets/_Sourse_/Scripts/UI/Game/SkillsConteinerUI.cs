@@ -22,6 +22,8 @@ public class SkillsConteinerUI : MonoBehaviour
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
 
+        Time.timeScale = 0;
+
         UpdateData();
     }
 
@@ -30,6 +32,8 @@ public class SkillsConteinerUI : MonoBehaviour
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.interactable = false;
+
+        Time.timeScale = 1;
     }
 
     public void UpdateData()

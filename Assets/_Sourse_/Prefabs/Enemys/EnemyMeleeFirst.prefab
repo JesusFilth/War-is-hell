@@ -4973,6 +4973,7 @@ MonoBehaviour:
   m_Branches:
     m_Branches:
     - rid: 3147619271498793550
+    - rid: 3147619503898362864
   references:
     version: 2
     RefIds:
@@ -4998,7 +4999,7 @@ MonoBehaviour:
           m_Property:
             rid: 3147619271498793554
         m_CompareTo:
-          m_Comparison: 0
+          m_Comparison: 4
           m_CompareTo:
             m_Property:
               rid: 3147619271498793553
@@ -5039,6 +5040,16 @@ MonoBehaviour:
       type: {class: GetGameObjectActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Actions: {fileID: 3946384819568761802}
+    - rid: 3147619503898362864
+      type: {class: Branch, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Description: 
+        m_ConditionList:
+          m_Conditions: []
+        m_InstructionList:
+          m_Instructions: []
 --- !u!1 &8443222154878579271
 GameObject:
   m_ObjectHideFlags: 0

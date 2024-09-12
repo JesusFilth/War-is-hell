@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,7 +24,7 @@ public class ActiveSkillsStorage : MonoBehaviour
         foreach (SkillActive skill in _skills)
         {
             if (skill.IsCooldawn == false)
-                Execute(skill);
+                ChoseExecute(skill);
         }
     }
 
@@ -45,12 +44,12 @@ public class ActiveSkillsStorage : MonoBehaviour
         }
     }
 
-    private void Execute(SkillActive skill)//?
+    private void ChoseExecute(SkillActive skill)
     {
         if (skill is SkillCurce curse)
             Execute(curse);
-        if(skill is SkillRotation rotation)
-            Execute(rotation);
+        else
+            Execute(skill); 
 
         skill.Active();
     }
@@ -67,11 +66,11 @@ public class ActiveSkillsStorage : MonoBehaviour
         }
     }
 
-    private void Execute(SkillRotation rotation)
+    private void Execute(SkillActive skill)
     {
-        if (rotation.CanActiveEffectForChance())
+        if (skill.CanActiveEffectForChance())
         {
-            Instantiate(rotation.Effect);
+            Instantiate(skill.Effect);
         }
     }
 }

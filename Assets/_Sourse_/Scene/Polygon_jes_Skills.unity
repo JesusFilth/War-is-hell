@@ -198,7 +198,7 @@ MonoBehaviour:
     - rid: 3147619358847795203
       type: {class: GetWeaponMeleeInstance, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
-        m_Weapon: {fileID: 11400000, guid: 52ddda83756f32b459931c4f54f1f972, type: 2}
+        m_Weapon: {fileID: 11400000, guid: 2177e7cf19c93b046aabd6ad1f311e48, type: 2}
     - rid: 3147619358847795204
       type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
@@ -8219,11 +8219,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skills:
   - {fileID: 11400000, guid: 3599cd5b4c5e83f4a8603afc089c39be, type: 2}
+  - {fileID: 11400000, guid: 0db760fd737c0d748b59d20d3f6c4d82, type: 2}
   - {fileID: 11400000, guid: 1aaa8eb3edd72fb4aa3793e3ade36539, type: 2}
-  - {fileID: 11400000, guid: ab5737119e6af3444a435c398d357ee0, type: 2}
   - {fileID: 11400000, guid: e6b6d3b3fb2576d4b9449d7e0c6fb1f7, type: 2}
   - {fileID: 11400000, guid: decba1887db1f694d9896fd7e34b60b0, type: 2}
-  - {fileID: 11400000, guid: d7fd11463ed6f2b488877b124c1a09dc, type: 2}
   - {fileID: 11400000, guid: 85cb87e2e16603841989c601b36da91a, type: 2}
   - {fileID: 11400000, guid: 87af295a0d2170744b053e6a584e6e71, type: 2}
 --- !u!4 &1197637042
@@ -15486,11 +15485,47 @@ MonoBehaviour:
     - rid: 4340017060664574298
     - rid: 4340017060664574336
     - rid: 4340017060664574349
+    - rid: 3147619503898361856
+    - rid: 3147619503898361858
   m_TriggerEvent:
     rid: 4340017060664574277
   references:
     version: 2
     RefIds:
+    - rid: 3147619503898361856
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Seconds:
+          m_Property:
+            rid: 3147619503898361857
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 3147619503898361857
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 2
+    - rid: 3147619503898361858
+      type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Method:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 298751641}
+              m_TargetAssemblyTypeName: SkillsConteinerUI, Assembly-CSharp
+              m_MethodName: Open
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
     - rid: 4340017060664574277
       type: {class: EventStatsStatChange, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
