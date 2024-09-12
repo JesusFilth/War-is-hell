@@ -24,7 +24,7 @@ public class Stats : MonoBehaviour
         float hp = Convert.ToSingle(_variables.Get(HP));
         float maxHp = Convert.ToSingle(_variables.Get(MaxHP));
 
-        hp = Mathf.Clamp(hp+=value, 0, float.MaxValue);
+        hp = Mathf.Clamp(hp+=value, 0, maxHp);
         _variables.Set(HP, hp);
     }
 

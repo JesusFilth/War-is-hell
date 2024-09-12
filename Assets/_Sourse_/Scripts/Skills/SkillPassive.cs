@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillPassive : Skill
 {
     [SerializeField] private float _value;
+    [SerializeField] private float _maxValue = 10;
     [SerializeField] private PassiveSkillOperationType _operation;
 
     private void Awake()
@@ -17,13 +18,27 @@ public class SkillPassive : Skill
         if (Stratigy == null)
             throw new ArgumentNullException(nameof(Stratigy));
 
-        Stratigy.Execute(abilitys, _value + Level);
-        Level++;
+        Stratigy.Execute(abilitys, _value);
+        UpSkill();
     }
 
     public override string GetDescription()
     {
         return $"+ {_value + Level} {Name}";
+    }
+
+    public override void UpSkill()
+    {
+        Level++;
+        _value++;
+
+        CheckMaxLevel();
+    }
+
+    protected override void CheckMaxLevel()
+    {
+        if(_value == _maxValue)
+            IsMaxLevel = true;
     }
 
     private void Initialize()

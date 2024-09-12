@@ -8,12 +8,11 @@ public class SkillActive : Skill
     protected const float MaxChance = 100;
     protected const float MinCooldawn = 1;
 
-    private const float CooldawnUPLevel = 0.1f;
-    private const float ChanceUpLevel = 2f;
-
     [SerializeField] private SkillEffect _effect;  
     [SerializeField] protected float Cooldawn = 3f;
     [SerializeField] protected float Chance = 50f;
+    [SerializeField] private float _upCooldawnLevel = 0.1f;
+    [SerializeField] private float _upChanceLevel = 2f;
 
     public SkillEffect Effect => _effect;
 
@@ -32,16 +31,16 @@ public class SkillActive : Skill
             throw new ArgumentNullException(nameof(Stratigy));
 
         Stratigy.Execute(abilitys, this);
-        Level++;
     }
 
-    public virtual void UpSkill()//?
+    public override void UpSkill()
     {
-        if (Level == 0)
-            return;
+        Level++;
 
-        Cooldawn -= CooldawnUPLevel;
-        Chance += ChanceUpLevel;
+        Cooldawn = Mathf.Clamp(Cooldawn - _upCooldawnLevel, MinCooldawn, float.MaxValue);
+        Chance = Mathf.Clamp(Chance + _upChanceLevel, 0, MaxChance);
+
+        CheckMaxLevel();
     }
 
     public virtual void Active()
@@ -53,5 +52,11 @@ public class SkillActive : Skill
     {
         float randomChance = Random.Range(0, MaxChance);
         return randomChance <= Chance;
+    }
+
+    protected override void CheckMaxLevel()
+    {
+        if(Cooldawn == MinCooldawn && Chance == MaxChance)
+            IsMaxLevel = true;
     }
 }

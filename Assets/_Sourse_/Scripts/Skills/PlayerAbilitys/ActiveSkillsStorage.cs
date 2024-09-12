@@ -31,26 +31,10 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     public void AddSkill(SkillActive skillActive)
     {
-        Debug.Log("Add Action Skill");
-
-        if(_skills.Count == 0)
-        {
-            _skills.Add(Instantiate(skillActive));
-            return;
-        }
-
-        SkillActive findSkill = _skills.Where(skill=>skill.Name == skillActive.Name).First();
-
-        if(findSkill == null)
-        {
-            Debug.Log("Add");
-            _skills.Add(Instantiate(skillActive));
-        }
+        if(_skills.Contains(skillActive))
+            skillActive.UpSkill();
         else
-        {
-            Debug.Log("Up");
-            findSkill.UpSkill();
-        }
+            _skills.Add(skillActive);
     }
 
     private void Initialize()
