@@ -123,6 +123,7 @@ MonoBehaviour:
       m_Instructions:
       - rid: 4164758993182916833
       - rid: 4164758993884414237
+      - rid: 4164759011774694166
   <EditorModelPath>k__BackingField: 
   references:
     version: 2
@@ -344,4 +345,38 @@ MonoBehaviour:
           rid: 4164758993884414243
     - rid: 4164758993884414243
       type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 4164759011774694166
+      type: {class: InstructionArithmeticIncrementNumber, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 4164759011774694169
+        m_Value:
+          m_Property:
+            rid: 4164759011774694168
+    - rid: 4164759011774694168
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: -1
+    - rid: 4164759011774694169
+      type: {class: SetNumberLocalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: number
+          m_Variable:
+            rid: 4164759011774694170
+          m_Name:
+            m_String: Durability
+            m_ID: -2009469287
+    - rid: 4164759011774694170
+      type: {class: PropertyGetGameObject, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Property:
+          rid: 4164759011774694172
+    - rid: 4164759011774694172
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
