@@ -8,8 +8,6 @@ public class SkillStorage : MonoBehaviour
 {
     [SerializeField] private List<Skill> _skills = new List<Skill>();
 
-    [Inject] private PlayerAbilitys _abilitys;
-
     private void Awake()
     {
         Initialize();
@@ -40,10 +38,5 @@ public class SkillStorage : MonoBehaviour
         while (result.Count != CountSkills);
 
         return result.ToArray();
-    }
-
-    public void AddSkill_Test()//temp
-    {
-        _abilitys.AddSkill(_skills[0]);
     }
 }

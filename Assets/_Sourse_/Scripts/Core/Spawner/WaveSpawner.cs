@@ -30,6 +30,9 @@ public abstract class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
+        if(DIGameConteiner.Instance != null)
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
+
         Initialize();
     }
 

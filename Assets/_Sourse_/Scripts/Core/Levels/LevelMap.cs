@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LevelMap", menuName = "Pig Punch/Level/Level", order = 2)]
-public class LevelMap : MonoBehaviour
+public class LevelMap : MonoBehaviour//?
 {
-    [SerializeField] private GameObject _map;
+    [SerializeField] private LevelLocation _map;
 }

@@ -1,11 +1,15 @@
 using Reflex.Attributes;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NextLevelPoint : MonoBehaviour
 {
-    [Inject] LevelStorage _levelStorage;
+    [Inject] private LevelStorage _levelStorage;
+
+    private void Awake()
+    {
+        if (DIGameConteiner.Instance != null)
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
