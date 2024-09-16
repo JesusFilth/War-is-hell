@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class StartGameButtonTemp : MonoBehaviour
 {
-    [Inject] private LevelStorage _levelStorage;
+    [Inject] private GameLevelStorage _levelStorage;
 
     public void StartGame()
     {
-        _levelStorage.LoadStartGameLevel();
+        _levelStorage.LoadGameLevel();
     }
 }

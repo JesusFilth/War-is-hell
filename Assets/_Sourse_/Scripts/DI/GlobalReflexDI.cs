@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GlobalReflexDI : MonoBehaviour, IInstaller
 {
-    [SerializeField] private LevelStorage _levelStorage;
+    [SerializeField] private GameLevelStorage _levelStorage;
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {

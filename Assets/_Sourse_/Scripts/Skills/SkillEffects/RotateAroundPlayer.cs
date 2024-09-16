@@ -9,7 +9,7 @@ public class RotateAroundPlayer : MonoBehaviour
     private float _currentAngle = 0f;
     private Transform _transform;
 
-    [Inject] private LevelStorage _levalStorage;
+    [Inject] private GameLevelStorage _levalStorage;
 
     private void Awake()
     {

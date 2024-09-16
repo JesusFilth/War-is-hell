@@ -1,14 +1,23 @@
 using Reflex.Attributes;
 using UnityEngine;
 
-public class SkillsConteinerUI : MonoBehaviour
+[RequireComponent(typeof(CanvasGroup))]
+public class SkillsConteinerUI : MonoBehaviour, IGameUI
 {
     private const int MaxSkill = 3;
 
-    [SerializeField] CanvasGroup _canvasGroup;
     [SerializeField] private SkillItemUI[] _skillItems = new SkillItemUI[MaxSkill];
 
+    private CanvasGroup _canvasGroup;
+
     [Inject] private SkillStorage _skillStorage;
+    [Inject] private StateMashineUI _stateMashineUI;
+
+    private void Awake()
+    {
+        _canvasGroup = GetComponent<CanvasGroup>();
+        //Hide();
+    }
 
     private void OnValidate()
     {
@@ -17,6 +26,11 @@ public class SkillsConteinerUI : MonoBehaviour
     }
 
     public void Open()
+    {
+        _stateMashineUI.EnterIn<SkillUIState>();
+    }
+
+    public void Show()
     {
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;

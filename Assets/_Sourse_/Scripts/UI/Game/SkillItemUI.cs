@@ -13,8 +13,8 @@ public class SkillItemUI : MonoBehaviour
 
     private Skill _currentSkill;
 
-    [Inject] private LevelStorage _levelStorage;
-    [Inject] private SkillsConteinerUI _skillsConteinerUI;
+    [Inject] private GameLevelStorage _levelStorage;
+    [Inject] private StateMashineUI _stateMashineUI;
 
     private void OnEnable()
     {
@@ -47,6 +47,6 @@ public class SkillItemUI : MonoBehaviour
             throw new ArgumentNullException(nameof(_currentSkill));
 
         _currentSkill.ExecuteStratigy(_levelStorage.Player.Abilitys);
-        _skillsConteinerUI.Hide();
+        _stateMashineUI.EnterIn<GameLevelUIState>();
     }
 }

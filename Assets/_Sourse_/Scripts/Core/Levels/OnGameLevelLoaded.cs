@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class OnGameLevelLoaded : MonoBehaviour, ISceneLoadHandler<LevelLocation>
 {
-    [Inject] private LevelStorage _levelStorage;
+    [Inject] private GameLevelStorage _levelStorage;
     [Inject] private FollowCameraToPlayerX _camera;
     [Inject] private DIGameConteiner _dIConteiner;
+    [Inject] private StateMashineUI _stateMashineUI;
 
     public void OnSceneLoaded(LevelLocation level)
     {
         _dIConteiner.InitHot();
 
         LevelLocation levelLocation = Instantiate(level);
-        _levelStorage.Player.transform.position = levelLocation.PlayerStartPosition.position;
+        _levelStorage.InitPlayer(levelLocation.PlayerStartPosition.position);
+        _levelStorage.Player.Progress.AddLevel();
 
-        _camera.SetTarget(_levelStorage.Player.transform);
+        _camera.SetTarget(_levelStorage.Player.Transform);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class NextLevelPoint : MonoBehaviour
 {
-    [Inject] private LevelStorage _levelStorage;
+    [Inject] private GameLevelStorage _levelStorage;
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class NextLevelPoint : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            _levelStorage.ToNextRandomLevel();
+            _levelStorage.LoadGameLevel();
         }
     }
 }
