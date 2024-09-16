@@ -7,7 +7,6 @@ public class OnGameLevelLoaded : MonoBehaviour, ISceneLoadHandler<LevelLocation>
     [Inject] private GameLevelStorage _levelStorage;
     [Inject] private FollowCameraToPlayerX _camera;
     [Inject] private DIGameConteiner _dIConteiner;
-    [Inject] private StateMashineUI _stateMashineUI;
 
     public void OnSceneLoaded(LevelLocation level)
     {

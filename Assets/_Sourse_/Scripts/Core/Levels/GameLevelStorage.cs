@@ -20,6 +20,6 @@ public class GameLevelStorage : MonoBehaviour
         if(Player == null)
             Player = Instantiate(_playerPrefab);
 
-        Player.Transform.position = position;
+        Player.SetPosition(position);
     }
 }

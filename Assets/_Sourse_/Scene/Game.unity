@@ -5003,6 +5003,7 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 3147619474318557393
+    - rid: 3147619586665087185
   m_TriggerEvent:
     rid: 3147619383621976242
   references:
@@ -5048,6 +5049,30 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
+    - rid: 3147619586665087185
+      type: {class: InstructionCharacterNavigationTeleport, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 3147619586665087186
+        m_Location:
+          m_Property:
+            rid: 3147619586665087187
+    - rid: 3147619586665087186
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 3147619586665087187
+      type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Marker:
+          m_Property:
+            rid: 3147619586665087188
+    - rid: 3147619586665087188
+      type: {class: GetGameObjectNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Marker: {fileID: 0}
 --- !u!4 &1934690782
 Transform:
   m_ObjectHideFlags: 0

@@ -1,8 +1,10 @@
+using GameCreator.Runtime.Characters;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerAbilitys _ability;
+    [SerializeField] private Character _character;
     [SerializeField] private bool _isDontDestroy = true;
 
     public Transform Transform { get; private set; }
@@ -13,13 +15,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Transform = transform;
-        Debug.Log("Awake");
+
         if(_isDontDestroy)
             DontDestroyOnLoad(gameObject);
     }
 
-    private void OnEnable()
+    public void SetPosition(Vector3 position)
     {
-        Debug.Log("OnEnable");
+        _character.Driver.SetPosition(position);
     }
 }
