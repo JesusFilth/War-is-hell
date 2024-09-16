@@ -1288,11 +1288,11 @@ GameObject:
   m_Component:
   - component: {fileID: 821182454159395754}
   - component: {fileID: 2881914526134846307}
-  - component: {fileID: 3739001201173413125}
+  - component: {fileID: 5605507062132865703}
   - component: {fileID: 1833326516952716758}
   - component: {fileID: 6325234000152492583}
   m_Layer: 0
-  m_Name: WaveSqureSpawner (1)
+  m_Name: PermonentSqureSpawner
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1335,7 +1335,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.40503454, y: 1.3718535, z: 3.8756673}
   m_Center: {x: -0.29748273, y: -0.40903884, z: 0.012395024}
---- !u!114 &3739001201173413125
+--- !u!114 &5605507062132865703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1344,11 +1344,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2984377480107114044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62e33b18378037c45a9586970ecbbc27, type: 3}
+  m_Script: {fileID: 11500000, guid: fb839b3b6bab7ba4ab4897179fe9e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyModels:
-  - _enemy: {fileID: 7540502482692371658, guid: 08edf763219d300478a7f40308bbf235, type: 3}
+  - _enemy: {fileID: 7540502482692371658, guid: e59a315de399da349992ab3dcf1a783b, type: 3}
     _weight: 100
   _points:
   - {fileID: 3033160723989533360}
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   - {fileID: 8089214362245847176}
   - {fileID: 6116328062904173756}
   _capasity: 5
-  _count: 2
+  _maxEnemys: 3
 --- !u!114 &1833326516952716758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,7 +1411,7 @@ MonoBehaviour:
         m_Method:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 3739001201173413125}
+            - m_Target: {fileID: 5605507062132865703}
               m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
               m_MethodName: On
               m_Mode: 1
@@ -1542,7 +1542,7 @@ Transform:
   m_GameObject: {fileID: 3617503223504716712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -86.209, y: 6.26, z: 5.065}
+  m_LocalPosition: {x: -86.209, y: 3.64, z: 5.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1746,6 +1746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStartPosition: {fileID: 1341100416416245401}
+  _isRandomX: 1
 --- !u!1 &4592715499852519076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,7 +2663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3688991478204966582
 Transform:
   m_ObjectHideFlags: 0

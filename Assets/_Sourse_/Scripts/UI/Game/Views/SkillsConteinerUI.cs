@@ -1,3 +1,4 @@
+using GameCreator.Runtime.Common;
 using Reflex.Attributes;
 using UnityEngine;
 
@@ -16,7 +17,6 @@ public class SkillsConteinerUI : MonoBehaviour, IGameUI
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        //Hide();
     }
 
     private void OnValidate()
@@ -36,7 +36,7 @@ public class SkillsConteinerUI : MonoBehaviour, IGameUI
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
 
-        Time.timeScale = 0;
+        TimeManager.Instance.SetTimeScale(0,5);
 
         UpdateData();
     }
@@ -47,7 +47,7 @@ public class SkillsConteinerUI : MonoBehaviour, IGameUI
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.interactable = false;
 
-        Time.timeScale = 1;
+        TimeManager.Instance.SetTimeScale(1, 5);
     }
 
     public void UpdateData()

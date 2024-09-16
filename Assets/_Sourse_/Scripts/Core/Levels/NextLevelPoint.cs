@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class NextLevelPoint : MonoBehaviour
 {
-    [Inject] private GameLevelStorage _levelStorage;
+    [Inject] private GameStateMashine _stateMashine;
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class NextLevelPoint : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            _levelStorage.LoadGameLevel();
+            _stateMashine.EnterIn<LoadGameSceneState>();
         }
     }
 }

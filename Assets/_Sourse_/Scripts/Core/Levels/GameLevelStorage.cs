@@ -22,4 +22,10 @@ public class GameLevelStorage : MonoBehaviour
 
         Player.SetPosition(position);
     }
+
+    public void DestroyPlayer()
+    {
+        if(Player != null)
+            Destroy(Player.gameObject);
+    }
 }
