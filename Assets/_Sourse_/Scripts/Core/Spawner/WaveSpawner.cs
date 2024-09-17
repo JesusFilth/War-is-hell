@@ -10,8 +10,13 @@ public abstract class WaveSpawner : MonoBehaviour
     [SerializeField] private List<EnemySpawnModel> _enemyModels;
     [SerializeField] private SpawnPoint[] _points;
     [SerializeField] private int _capasity;
+    [SerializeField] private bool _isUselevelSettings = true;
+    [SerializeField] private float _experiance = 50;
 
     [Inject] private FollowCameraToPlayerX _camera;
+    [Inject] private IGamePlayer _player;
+    [Inject] private IGameProgress _gameProgress;
+    [Inject] protected IGameLevelSettings Settings;
 
     protected bool HasEnemys => _enemysOnLine.Count > 0;
     protected int CountEnemysOnBattlefield => _enemysOnBattlefield.Count;
@@ -30,6 +35,7 @@ public abstract class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
+        UseLevelSettings();
         Initialize();
     }
 
@@ -49,10 +55,20 @@ public abstract class WaveSpawner : MonoBehaviour
     {
         Debug.Log("Wave is the end");
         _camera.On();
+
+        AddExperiance();
         gameObject.SetActive(false);
     }
 
     protected abstract void Execute();
+
+    protected virtual void UseLevelSettings()
+    {
+        if (_isUselevelSettings == false)
+            return;
+
+        _capasity = Random.Range(Settings.GetMinWaveSize(), Settings.GetMaxWaveSize());
+    }
 
     protected void Create()
     {
@@ -73,6 +89,14 @@ public abstract class WaveSpawner : MonoBehaviour
 
         if (_enemysOnLine[enemySpawn.Key] == 0)
             _enemysOnLine.Remove(enemySpawn.Key);
+    }
+
+    private void AddExperiance()
+    {
+        float percentUp = Settings.GetUpExceptionPercent();
+        int level = _gameProgress.GetPlayerProgress().LevelCount;
+        float exp = (_experiance / 100) * (percentUp * level);
+        _player.AddExpirience(exp);
     }
 
     private void Initialize()

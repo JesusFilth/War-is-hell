@@ -28,4 +28,9 @@ public class Player : MonoBehaviour
     {
         Progress.AddGold(gold);
     }
+
+    public void AddExperience(float exp)
+    {
+        Debug.Log("Add Exp");
+    }
 }

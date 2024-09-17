@@ -6,10 +6,12 @@ public class GameLevelStorage : MonoBehaviour,
     IGameLevels,
     IGamePlayer,
     IGameProgress,
-    IPlayerAbilities
+    IPlayerAbilities,
+    IGameLevelSettings
 {
     [SerializeField] private LevelLocation[] _levels;
     [SerializeField] private Player _playerPrefab;
+    [SerializeField] private LevelSettings _levelSettings;
 
     private Player _player;
     private LevelLocation _currentLevel;
@@ -51,6 +53,11 @@ public class GameLevelStorage : MonoBehaviour,
         return _player.Transform;
     }
 
+    public void AddExpirience(float exp)
+    {
+        _player.AddExperience(exp);
+    }
+
     public PlayerProgress GetPlayerProgress()
     {
         if (_player == null)
@@ -66,4 +73,20 @@ public class GameLevelStorage : MonoBehaviour,
 
         return _player.Abilitys;
     }
+
+    public float GetUpEnemyStat() => _levelSettings.UpEnemyStatForLevel;
+
+    public int GetMinWaveSize() => _levelSettings.MinWaveSize;
+
+    public int GetMaxWaveSize() => _levelSettings.MaxWaveSize;
+
+    public int GetMinSquadEnemy() => _levelSettings.MinSquadEnemy;
+
+    public int GetMaxSquadEnemy() => _levelSettings.MaxSquadEnemy;
+
+    public int GetMinPermonentEnemy() => _levelSettings.MinPermonentEnemy;
+
+    public int GetMaxPermonentEnemy() => _levelSettings.MaxPermonentEnemy;
+
+    public float GetUpExceptionPercent() => _levelSettings.UpExeptionPercentForLevel;
 }

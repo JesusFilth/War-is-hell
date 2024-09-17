@@ -13,7 +13,8 @@ public class GlobalReflexDI : MonoBehaviour, IInstaller
             typeof(IGameLevels),
             typeof(IGamePlayer),
             typeof(IGameProgress),
-            typeof(IPlayerAbilities));
+            typeof(IPlayerAbilities),
+            typeof(IGameLevelSettings));
 
         containerBuilder.AddSingleton(new UserStorage());
         containerBuilder.AddSingleton(new GameStateMashine());
