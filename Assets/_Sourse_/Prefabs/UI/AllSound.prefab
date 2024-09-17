@@ -448,7 +448,6 @@ MonoBehaviour:
         m_InstructionList:
           m_Instructions:
           - rid: 4164759104895845022
-          - rid: 4164759106339733757
           - rid: 4164759105844281443
     - rid: 4164759104895845015
       type: {class: ConditionMathCompareBooleans, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
@@ -514,7 +513,6 @@ MonoBehaviour:
           m_Instructions:
           - rid: 4164759104895845059
           - rid: 4164759105844281446
-          - rid: 4164759106339733760
     - rid: 4164759104895845050
       type: {class: ConditionMathCompareBooleans, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -622,43 +620,3 @@ MonoBehaviour:
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
-    - rid: 4164759106339733757
-      type: {class: InstructionUIChangeImage, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_OverrideSprite: 1
-        m_Image:
-          m_Property:
-            rid: 4164759106339733758
-        m_Sprite:
-          m_Property:
-            rid: 4164759106339733759
-    - rid: 4164759106339733758
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 3142354707770022497}
-    - rid: 4164759106339733759
-      type: {class: GetSpriteInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Sprite: {fileID: 21300000, guid: b563029dc2e212547889dc9e725094eb, type: 3}
-    - rid: 4164759106339733760
-      type: {class: InstructionUIChangeImage, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_OverrideSprite: 1
-        m_Image:
-          m_Property:
-            rid: 4164759106339733761
-        m_Sprite:
-          m_Property:
-            rid: 4164759106339733762
-    - rid: 4164759106339733761
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 0}
-    - rid: 4164759106339733762
-      type: {class: GetSpriteInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Sprite: {fileID: 21300000, guid: 1fcec6a778d7be749a12c7805caa2b2b, type: 3}
