@@ -5,4 +5,5 @@ using UnityEngine.Scripting;
 public class UserModel
 {
     [field: Preserve] public string Name;
+    [field: Preserve] public int Gold;
 }

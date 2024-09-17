@@ -76,6 +76,6 @@ public class LoadDataState : IGameState
 
     private UserModel GetDefaultUser()
     {
-        return new UserModel() { Name = "Player" };
+        return new UserModel() { Name = "Player", Gold = 100 };
     }
 }

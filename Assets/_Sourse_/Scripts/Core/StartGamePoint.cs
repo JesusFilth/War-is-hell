@@ -5,11 +5,11 @@ public class StartGamePoint : MonoBehaviour
 {
     [Inject] private GameStateMashine _stateMashine;
     [Inject] private UserStorage _userStorage;
-    [Inject] private GameLevelStorage _levelStorage;
+    [Inject] private IGameLevels _gameLevels;
 
     private void Start()
     {
-        _stateMashine.Init(_userStorage, _levelStorage);
+        _stateMashine.Init(_userStorage, _gameLevels);
         _stateMashine.EnterIn<BootstrapState>();
     }
 }

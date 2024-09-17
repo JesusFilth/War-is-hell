@@ -13,7 +13,7 @@ public class SkillItemUI : MonoBehaviour
 
     private Skill _currentSkill;
 
-    [Inject] private GameLevelStorage _levelStorage;
+    [Inject] private IPlayerAbilities _playerAbilities;
     [Inject] private StateMashineUI _stateMashineUI;
 
     private void OnEnable()
@@ -46,7 +46,7 @@ public class SkillItemUI : MonoBehaviour
         if (_currentSkill == null)
             throw new ArgumentNullException(nameof(_currentSkill));
 
-        _currentSkill.ExecuteStratigy(_levelStorage.Player.Abilitys);
+        _currentSkill.ExecuteStratigy(_playerAbilities.GetAbilities());
         _stateMashineUI.EnterIn<GameLevelUIState>();
     }
 }

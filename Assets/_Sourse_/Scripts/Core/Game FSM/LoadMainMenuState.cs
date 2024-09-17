@@ -3,19 +3,19 @@ using IJunior.TypedScenes;
 
 public class LoadMainMenuState : IGameState
 {
-    private readonly GameLevelStorage _gameLevelStorage; 
+    private readonly IGameLevels _gameLevels; 
 
-    public LoadMainMenuState(GameLevelStorage gameLevelStorage)
+    public LoadMainMenuState(IGameLevels gameLevels)
     {
-        if (gameLevelStorage == null)
-            throw new ArgumentNullException(nameof(gameLevelStorage));
+        if (gameLevels == null)
+            throw new ArgumentNullException(nameof(gameLevels));
 
-        _gameLevelStorage = gameLevelStorage;
+        _gameLevels = gameLevels;
     }
 
     public void Execute()
     {
-        _gameLevelStorage.DestroyPlayer();
+        _gameLevels.DestroyPlayer();
         Menu_Jes.Load();
     }
 }

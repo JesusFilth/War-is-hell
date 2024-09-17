@@ -8,7 +8,13 @@ public class GlobalReflexDI : MonoBehaviour, IInstaller
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
-        containerBuilder.AddSingleton(_levelStorage);
+        containerBuilder.AddSingleton(
+            _levelStorage, 
+            typeof(IGameLevels),
+            typeof(IGamePlayer),
+            typeof(IGameProgress),
+            typeof(IPlayerAbilities));
+
         containerBuilder.AddSingleton(new UserStorage());
         containerBuilder.AddSingleton(new GameStateMashine());
     }

@@ -8,9 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _isDontDestroy = true;
 
     public Transform Transform { get; private set; }
-    public PlayerAbilitys Abilitys => _ability;
-
     public PlayerProgress Progress { get; private set; } = new();
+    public PlayerAbilitys Abilitys => _ability;
 
     private void Awake()
     {

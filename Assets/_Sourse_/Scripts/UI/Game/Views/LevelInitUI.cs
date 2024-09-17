@@ -13,7 +13,7 @@ public class LevelInitUI : MonoBehaviour, IGameUI
     private Coroutine _coroutine;
     private WaitForSeconds _waitForSeconds;
 
-    [Inject] private GameLevelStorage _levelStorage;
+    [Inject] private IGameProgress _progress;
     [Inject] private StateMashineUI _stateMashineUI;
 
     private void Awake()
@@ -44,9 +44,7 @@ public class LevelInitUI : MonoBehaviour, IGameUI
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
 
-        //Time.timeScale = 0;
-
-        _level.text = _levelStorage.Player.Progress.LevelCount.ToString();
+        _level.text = _progress.GetPlayerProgress().LevelCount.ToString();
 
         if (_coroutine == null)
             _coroutine = StartCoroutine(Showing());
