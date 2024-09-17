@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5639493552208572263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32,7 +32,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245912244977209}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -103,6 +102,7 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689786
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5136922393973848887
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +135,6 @@ RectTransform:
   m_Children:
   - {fileID: 5844245911747182372}
   m_Father: {fileID: 5844245910494551494}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -213,7 +212,6 @@ RectTransform:
   - {fileID: 5974902968272395260}
   - {fileID: 5844245911676470893}
   m_Father: {fileID: 5844245912244977209}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -290,7 +288,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245912359405493}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -398,6 +395,7 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689775
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5844245911120135321
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +428,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245912359405493}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -538,6 +535,7 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689774
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5844245911287641959
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +569,6 @@ RectTransform:
   - {fileID: 5844245911373666335}
   - {fileID: 5844245912142938400}
   m_Father: {fileID: 5844245912244977209}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -648,7 +645,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245911287641960}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -756,6 +752,7 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689772
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5844245911585506088
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5844245911585506089
 RectTransform:
   m_ObjectHideFlags: 0
@@ -788,7 +785,6 @@ RectTransform:
   m_Children:
   - {fileID: 5844245911779820938}
   m_Father: {fileID: 5844245912244977209}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -865,7 +861,6 @@ RectTransform:
   m_Children:
   - {fileID: 5844245912313901748}
   m_Father: {fileID: 5844245910494551494}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -942,7 +937,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5974902968272395260}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1016,8 +1010,10 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689769
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
     - rid: 4340017059695689770
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5844245911779820937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1046,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245911585506089}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1158,6 +1153,7 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689776
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5844245912142938431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1186,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245911287641960}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1298,6 +1293,7 @@ MonoBehaviour:
     RefIds:
     - rid: 4340017059695689773
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &5844245912244977205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1330,6 @@ RectTransform:
   - {fileID: 5844245911585506089}
   - {fileID: 5639493552208572263}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1420,7 +1415,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5844245911676470893}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1471,11 +1465,14 @@ MonoBehaviour:
     m_Text: {fileID: 0}
     m_TMP: {fileID: 0}
   m_RatioFill: {fileID: 0}
+  m_ActiveIfModifiers: {fileID: 0}
+  m_ActiveIfNotModifiers: {fileID: 0}
   references:
     version: 2
     RefIds:
     - rid: 4340017059695689771
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!222 &5844245912313901750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1550,7 +1547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5844245912359405493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1566,7 +1563,6 @@ RectTransform:
   - {fileID: 5844245911120135322}
   - {fileID: 5844245910854889222}
   m_Father: {fileID: 5844245912244977209}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
