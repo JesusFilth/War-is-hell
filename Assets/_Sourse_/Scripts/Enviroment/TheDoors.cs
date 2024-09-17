@@ -1,6 +1,5 @@
+using System;
 using Reflex.Attributes;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TheDoors : MonoBehaviour
@@ -9,9 +8,21 @@ public class TheDoors : MonoBehaviour
 
     [Inject] private SkillStorage _skillStorage;
 
-    private void Awake()
+    private void Start()
     {
-        if (DIGameConteiner.Instance != null)
-            DIGameConteiner.Instance.InjectRecursive(gameObject);
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        if (_doors == null || _doors.Length == 0)
+            throw new ArgumentNullException(nameof(_doors));
+
+        Skill[] skills = _skillStorage.GetRandomSkills(_doors.Length);
+
+        for (int i = 0; i < skills.Length; i++)
+        {
+            _doors[i].SetSkill(skills[i]);
+        }
     }
 }

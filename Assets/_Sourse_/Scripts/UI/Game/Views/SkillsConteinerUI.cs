@@ -52,7 +52,7 @@ public class SkillsConteinerUI : MonoBehaviour, IGameUI
 
     public void UpdateData()
     {
-        Skill[] skills = _skillStorage.GetThreeRandomSkill();
+        Skill[] skills = _skillStorage.GetRandomSkills(MaxSkill);
 
         for (int i = 0; i <_skillItems.Length; i++)
         {

@@ -1,6 +1,4 @@
 using System;
-using IJunior.TypedScenes;
-using Reflex.Attributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,21 +14,19 @@ public class GameLevelStorage : MonoBehaviour,
     private Player _player;
     private LevelLocation _currentLevel;
 
-    public void LoadGameLevel()
+    public void LoadGameLevel(Skill skill = null)
     {
+        Skill currentSkill = skill;
+
         if(_currentLevel != null)
             Destroy(_currentLevel.gameObject);
 
         int randomLevelIndex = Random.Range(0, _levels.Length);
         _currentLevel = Instantiate(_levels[randomLevelIndex]);
+        _currentLevel.SetPriseSkill(currentSkill);
 
         InitPlayer(_currentLevel.PlayerStartPosition.position);
         _player.Progress.AddLevel();
-    }
-
-    public void NextGameLevelLoad()
-    {
-
     }
 
     public void InitPlayer(Vector3 position)

@@ -1,4 +1,4 @@
-using Reflex.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,12 +21,16 @@ public class SkillStorage : MonoBehaviour
         }
     }
 
-    public Skill[] GetThreeRandomSkill()
+    public Skill[] GetRandomSkills(int count)
     {
-        const int CountSkills = 3;
+        if (_skills == null || _skills.Count == 0)
+            throw new ArgumentNullException(nameof(_skills));
+
+        if (_skills.Count <= count)
+            throw new InvalidOperationException(nameof(count));
 
         List<Skill> result = new List<Skill>();
-        Skill[] skills = _skills.Where(skill=>skill.IsMaxLevel == false).ToArray();
+        Skill[] skills = _skills.Where(skill => skill.IsMaxLevel == false).ToArray();
 
         do
         {
@@ -35,7 +39,7 @@ public class SkillStorage : MonoBehaviour
             if (result.Contains(skills[random]) == false)
                 result.Add(skills[random]);
         }
-        while (result.Count != CountSkills);
+        while (result.Count != count);
 
         return result.ToArray();
     }

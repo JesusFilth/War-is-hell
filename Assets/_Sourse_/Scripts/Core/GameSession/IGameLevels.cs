@@ -2,7 +2,7 @@
 
 public interface IGameLevels
 {
-    void LoadGameLevel();
+    void LoadGameLevel(Skill skill = null);
 
     void DestroyPlayer();
 

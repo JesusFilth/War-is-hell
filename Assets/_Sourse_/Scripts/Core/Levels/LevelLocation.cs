@@ -8,6 +8,7 @@ public class LevelLocation : MonoBehaviour
     private const float MaxPositionX = 50;
 
     [SerializeField] private Transform _playerStartPosition;
+    [SerializeField] private Transform _priseSkillPosition;
     [SerializeField] private bool _isRandomX = true;
 
     public Transform PlayerStartPosition => _playerStartPosition;
@@ -25,6 +26,15 @@ public class LevelLocation : MonoBehaviour
     private void Start()
     {
         _stateMashineUI.EnterIn<LevelInitUIState>();
+    }
+
+    public void SetPriseSkill(Skill skill)
+    {
+        if (skill == null)
+            return;
+
+        SkillItem skillItem = Instantiate(skill.Item, _priseSkillPosition);
+        skillItem.Buinding(skill);
     }
 
     private void ChangeRandomPositionX()
