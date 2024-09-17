@@ -1,19 +1,11 @@
-using System;
+using IJunior.TypedScenes;
+using UnityEngine;
 
 public class LoadGameSceneState : IGameState
 {
-    private IGameLevels _gameLevels;
-
-    public LoadGameSceneState(IGameLevels gameLevels)
-    {
-        if(gameLevels == null)
-            throw new ArgumentNullException(nameof(gameLevels));
-
-        _gameLevels = gameLevels;
-    }
-
     public void Execute()
     {
-        _gameLevels.LoadGameLevel();
+        Debug.Log("Changed? - Game.Load(null)");
+        Game.Load(null);
     }
 }

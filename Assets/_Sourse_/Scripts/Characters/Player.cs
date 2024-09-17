@@ -23,4 +23,9 @@ public class Player : MonoBehaviour
     {
         _character.Driver.SetPosition(position);
     }
+
+    public void AddGold(int gold)
+    {
+        Progress.AddGold(gold);
+    }
 }

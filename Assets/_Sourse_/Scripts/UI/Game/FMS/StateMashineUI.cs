@@ -48,6 +48,6 @@ public class StateMashineUI : MonoBehaviour
             [typeof(SkillUIState)] = new SkillUIState(_skillUI.GetComponent<IGameUI>()),
         };
 
-        EnterIn<LevelInitUIState>();
+        //EnterIn<LevelInitUIState>();
     }
 }

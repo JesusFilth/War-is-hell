@@ -4,6 +4,7 @@ using UnityEngine;
 public class NextLevelPoint : MonoBehaviour
 {
     [Inject] private GameStateMashine _stateMashine;
+    [Inject] private IGameLevels _gameLevels;
 
     private void Awake()
     {

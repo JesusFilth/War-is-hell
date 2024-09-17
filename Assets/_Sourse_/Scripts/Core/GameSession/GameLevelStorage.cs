@@ -1,5 +1,6 @@
 using System;
 using IJunior.TypedScenes;
+using Reflex.Attributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,11 +14,23 @@ public class GameLevelStorage : MonoBehaviour,
     [SerializeField] private Player _playerPrefab;
 
     private Player _player;
+    private LevelLocation _currentLevel;
 
     public void LoadGameLevel()
     {
+        if(_currentLevel != null)
+            Destroy(_currentLevel.gameObject);
+
         int randomLevelIndex = Random.Range(0, _levels.Length);
-        Game.Load(_levels[randomLevelIndex]);
+        _currentLevel = Instantiate(_levels[randomLevelIndex]);
+
+        InitPlayer(_currentLevel.PlayerStartPosition.position);
+        _player.Progress.AddLevel();
+    }
+
+    public void NextGameLevelLoad()
+    {
+
     }
 
     public void InitPlayer(Vector3 position)

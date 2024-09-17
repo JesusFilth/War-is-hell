@@ -13,7 +13,7 @@ public class GameStateMashine
             [typeof(BootstrapState)] = new BootstrapState(this),
             [typeof(LoadDataState)] = new LoadDataState(this, userStorage),
             [typeof(LoadMainMenuState)] = new LoadMainMenuState(gameLevels),
-            [typeof(LoadGameSceneState)] = new LoadGameSceneState(gameLevels),
+            [typeof(LoadGameSceneState)] = new LoadGameSceneState(),
         };
     }
 

@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,10 +12,19 @@ public class LevelLocation : MonoBehaviour
 
     public Transform PlayerStartPosition => _playerStartPosition;
 
+    [Inject] private StateMashineUI _stateMashineUI;
+
     private void Awake()
     {
         if(_isRandomX)
             ChangeRandomPositionX();
+
+        DIGameConteiner.Instance.InjectRecursive(gameObject);
+    }
+
+    private void Start()
+    {
+        _stateMashineUI.EnterIn<LevelInitUIState>();
     }
 
     private void ChangeRandomPositionX()

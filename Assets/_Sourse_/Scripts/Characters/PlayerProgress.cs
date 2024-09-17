@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class PlayerProgress
 {
@@ -16,8 +17,8 @@ public class PlayerProgress
     public void UpdateGold()    =>  GoldChanged?.Invoke(Gold);
 
     public void AddGold(int gold)
-    { 
-        Gold += gold;
+    {
+        Gold = Mathf.Clamp(Gold += gold, 0, int.MaxValue);
         GoldChanged?.Invoke(Gold);
     }
 }

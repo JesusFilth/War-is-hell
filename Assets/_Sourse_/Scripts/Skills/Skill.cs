@@ -4,6 +4,7 @@ public abstract class Skill : ScriptableObject
 {
     [SerializeField] private string _name;
     [SerializeField] private Sprite _icon;
+    [SerializeField] private GameObject _prefab;
 
     public int Level { get; protected set; } = 1;
     public bool IsMaxLevel { get; protected set; }
