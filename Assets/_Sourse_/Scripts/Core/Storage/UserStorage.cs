@@ -1,5 +1,5 @@
-using System;
 using Agava.YandexGames;
+using System;
 using UnityEngine;
 
 public class UserStorage
@@ -15,6 +15,12 @@ public class UserStorage
             throw new ArgumentNullException(nameof(user));
 
         _user = user;
+    }
+
+    public void AddGold(int value)
+    {
+        _user.Gold += value;
+        Save();
     }
 
     private void Save()

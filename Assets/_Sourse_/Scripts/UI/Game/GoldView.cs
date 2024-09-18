@@ -16,7 +16,8 @@ public class GoldView : MonoBehaviour
 
     private void OnDisable()
     {
-        _progress.GetPlayerProgress().GoldChanged -= UpdateData;
+        if(_progress.GetPlayerProgress() != null)
+            _progress.GetPlayerProgress().GoldChanged -= UpdateData;
     }
 
     private void UpdateData(int gold)

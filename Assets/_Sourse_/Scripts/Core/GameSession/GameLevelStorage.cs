@@ -42,7 +42,9 @@ public class GameLevelStorage : MonoBehaviour,
     public void DestroyPlayer()
     {
         if(_player != null)
+        {
             Destroy(_player.gameObject);
+        }
     }
 
     public Transform GetPlayerPosition()
@@ -58,10 +60,15 @@ public class GameLevelStorage : MonoBehaviour,
         _player.AddExperience(exp);
     }
 
+    public void Resurrect()
+    {
+        _player.Abilitys.Resurrect();
+    }
+
     public PlayerProgress GetPlayerProgress()
     {
         if (_player == null)
-            throw new ArgumentNullException(nameof(_player));
+            return null;
 
         return _player.Progress;
     }

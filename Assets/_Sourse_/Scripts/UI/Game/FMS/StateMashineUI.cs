@@ -7,6 +7,8 @@ public class StateMashineUI : MonoBehaviour
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _gameUI;
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _skillUI;
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _levelInitUI;
+    [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _rewardLifeUI;
+    [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _gameOverUI;
 
     private GameUIState _currentState;
     private Dictionary<Type, GameUIState> _states;
@@ -38,7 +40,7 @@ public class StateMashineUI : MonoBehaviour
             _currentState.Open();
         }
     }
-
+    
     private void Initialize()
     {
         _states = new Dictionary<Type, GameUIState>()
@@ -46,8 +48,8 @@ public class StateMashineUI : MonoBehaviour
             [typeof(GameLevelUIState)] = new GameLevelUIState(_gameUI.GetComponent<IGameUI>()),
             [typeof(LevelInitUIState)] = new LevelInitUIState(_levelInitUI.GetComponent<IGameUI>()),
             [typeof(SkillUIState)] = new SkillUIState(_skillUI.GetComponent<IGameUI>()),
+            [typeof(LifeRewardUIState)] = new LifeRewardUIState(_rewardLifeUI.GetComponent<IGameUI>()),
+            [typeof(GameOverUIState)] = new GameOverUIState(_gameOverUI.GetComponent<IGameUI>()),
         };
-
-        //EnterIn<LevelInitUIState>();
     }
 }

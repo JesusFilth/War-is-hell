@@ -10735,10 +10735,10 @@ MonoBehaviour:
     - m_String: mp
     - m_String: stamina
     m_Values:
-    - m_IsExpanded: 0
+    - m_IsExpanded: 1
       m_ChangeStartPercent:
-        m_IsEnabled: 0
-        m_Value: 1
+        m_IsEnabled: 1
+        m_Value: 0.504
     - m_IsExpanded: 0
       m_ChangeStartPercent:
         m_IsEnabled: 0
@@ -13368,7 +13368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
-    - rid: 3147619629483688101
+    - rid: 3147619629483688615
   m_TriggerEvent:
     rid: 3147619383621976242
   references:
@@ -13394,7 +13394,7 @@ MonoBehaviour:
       type: {class: InputButtonKeyboardPress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Key: 19
-    - rid: 3147619629483688101
+    - rid: 3147619629483688615
       type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Breakpoint: 0
@@ -13404,11 +13404,11 @@ MonoBehaviour:
             m_Calls:
             - m_Target: {fileID: 1985814091}
               m_TargetAssemblyTypeName: PlayerAbilitys, Assembly-CSharp
-              m_MethodName: AddSkill
-              m_Mode: 2
+              m_MethodName: Resurrect
+              m_Mode: 1
               m_Arguments:
-                m_ObjectArgument: {fileID: 11400000, guid: e6b6d3b3fb2576d4b9449d7e0c6fb1f7, type: 2}
-                m_ObjectArgumentAssemblyTypeName: Skill, Assembly-CSharp
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
                 m_IntArgument: 0
                 m_FloatArgument: 0
                 m_StringArgument: 
@@ -13826,6 +13826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _traits: {fileID: 1493252832}
+  _HP: {fileID: 11400000, guid: 4cf7ae5caa4804d0ea2548dceac15ffb, type: 2}
   _skillsStorage: {fileID: 1985814090}
 --- !u!1 &1986650055
 GameObject:
