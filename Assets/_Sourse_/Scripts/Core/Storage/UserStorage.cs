@@ -26,9 +26,34 @@ public class UserStorage
         Save();
     }
 
+    public void AddScore(int score)
+    {
+        if(_user.Score < score)
+            _user.Score = score;
+
+        Save();
+        UpdatePlayerScore();
+    }
+
     public void UpdateGold()
     {
         GoldChanged.Invoke(_user.Gold);
+    }
+
+    private void UpdatePlayerScore()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+   if (PlayerAccount.IsAuthorized == false)
+            return;
+
+        int score = _user.Score;
+
+        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+        {
+            if (result == null || result.score < score)
+                Leaderboard.SetScore(LeaderboardName, score);
+        });
+#endif
     }
 
     private void Save()
