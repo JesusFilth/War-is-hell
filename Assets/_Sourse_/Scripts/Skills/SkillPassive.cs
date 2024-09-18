@@ -1,3 +1,4 @@
+using GameCreator.Runtime.Stats;
 using System;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ public class SkillPassive : Skill
 {
     [SerializeField] private float _value;
     [SerializeField] private float _maxValue = 10;
-    [SerializeField] private PassiveSkillOperationType _operation;
+    [SerializeField] private ModifierType _type = ModifierType.Constant;
+    [SerializeField] private Stat _stat;
 
     private void Awake()
     {
@@ -18,7 +20,7 @@ public class SkillPassive : Skill
         if (Stratigy == null)
             throw new ArgumentNullException(nameof(Stratigy));
 
-        Stratigy.Execute(abilitys, _value);
+        Stratigy.Execute(abilitys, new StatParameterModel(_stat, _type, _value));
         UpSkill();
     }
 
@@ -43,7 +45,6 @@ public class SkillPassive : Skill
 
     private void Initialize()
     {
-        PassiveSkillFactory skillFactory = new PassiveSkillFactory();
-        Stratigy = skillFactory.GetStratigy(_operation);
+        Stratigy = new AddModifireStat();
     }
 }

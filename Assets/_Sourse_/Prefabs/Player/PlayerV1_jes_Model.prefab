@@ -854,7 +854,6 @@ GameObject:
   - component: {fileID: 1063040469670444058}
   - component: {fileID: 1867725599609515038}
   - component: {fileID: 938609834166391805}
-  - component: {fileID: 1652857104860577307}
   m_Layer: 8
   m_Name: Skills
   m_TagString: Untagged
@@ -910,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee82f8f8f723ecb40bb9371727dc74d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 1652857104860577307}
+  _traits: {fileID: 9176206398805185616}
   _skillsStorage: {fileID: 938609834166391805}
 --- !u!114 &1867725599609515038
 MonoBehaviour:
@@ -938,19 +937,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _conteiner: {fileID: 1867725599609515038}
   _skills: []
---- !u!114 &1652857104860577307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063845896835044248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c7d99283b05cf40b71022d6d709050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _variables: {fileID: 3617039581689542282}
 --- !u!1 &1263857189308665103
 GameObject:
   m_ObjectHideFlags: 0

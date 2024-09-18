@@ -2,7 +2,7 @@
 
 public class ActiveSkillStratigy : ISkillStratigy
 {
-    public void Execute(PlayerAbilitys abilitys, float value)
+    public void Execute(PlayerAbilitys abilitys, StatParameterModel statModel)
     {
         throw new NotImplementedException();
     }

@@ -2553,7 +2553,7 @@ MonoBehaviour:
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
-    - m_IsExpanded: 1
+    - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
@@ -2561,7 +2561,7 @@ MonoBehaviour:
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
-    - m_IsExpanded: 1
+    - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
@@ -2714,7 +2714,6 @@ GameObject:
   - component: {fileID: 6196029432280538101}
   - component: {fileID: 1973459922748989246}
   - component: {fileID: 2680490720712415915}
-  - component: {fileID: 5844818228038456212}
   m_Layer: 8
   m_Name: Skills
   m_TagString: Untagged
@@ -2770,7 +2769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee82f8f8f723ecb40bb9371727dc74d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 5844818228038456212}
+  _traits: {fileID: 3785913121563373218}
   _skillsStorage: {fileID: 2680490720712415915}
 --- !u!114 &1973459922748989246
 MonoBehaviour:
@@ -2798,19 +2797,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _conteiner: {fileID: 1973459922748989246}
   _skills: []
---- !u!114 &5844818228038456212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248112685225744036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c7d99283b05cf40b71022d6d709050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _variables: {fileID: 5224946502183360548}
 --- !u!1 &4319092562444607628
 GameObject:
   m_ObjectHideFlags: 0
