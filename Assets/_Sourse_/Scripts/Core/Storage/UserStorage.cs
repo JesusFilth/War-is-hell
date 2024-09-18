@@ -9,6 +9,8 @@ public class UserStorage
 
     private UserModel _user;
 
+    public event Action<int> GoldChanged;
+
     public void SetUser(UserModel user)
     {
         if (user == null)
@@ -20,7 +22,13 @@ public class UserStorage
     public void AddGold(int value)
     {
         _user.Gold += value;
+        GoldChanged?.Invoke(_user.Gold);
         Save();
+    }
+
+    public void UpdateGold()
+    {
+        GoldChanged.Invoke(_user.Gold);
     }
 
     private void Save()

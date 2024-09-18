@@ -34,7 +34,9 @@ public class GameLevelStorage : MonoBehaviour,
     public void InitPlayer(Vector3 position)
     {
         if(_player == null)
+        {
             _player = Instantiate(_playerPrefab);
+        }
 
         _player.SetPosition(position);
     }
