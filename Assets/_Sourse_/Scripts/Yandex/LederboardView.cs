@@ -1,5 +1,4 @@
 using Agava.YandexGames;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine;
 public class LederboardView : MonoBehaviour
 {
     private const string LeaderboardName = "Leaderboard";
-    private const int MaxElements = 5;
+    private const int MaxElements = 7;
 
     [SerializeField] private LeaderboadElement _prefab;
     [SerializeField] private Transform _conteiner;
@@ -17,8 +16,10 @@ public class LederboardView : MonoBehaviour
 
     private void OnEnable()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
         UpdateData();
         CreateElements();
+#endif
     }
 
     private void UpdateData()
