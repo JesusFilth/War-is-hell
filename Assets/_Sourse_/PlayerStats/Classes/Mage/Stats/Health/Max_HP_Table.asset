@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Max_HP_Table
   m_EditorClassIdentifier: 
   m_Table:
-    rid: 3147619655186121180
+    rid: 3147619655186121211
   references:
     version: 2
     RefIds:
-    - rid: 3147619655186121180
-      type: {class: TableGeometricProgression, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+    - rid: 3147619655186121211
+      type: {class: TableLinearProgression, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
         m_MaxLevel: 99
-        m_Increment: 50
-        m_Rate: 1.05
+        m_IncrementPerLevel: 40

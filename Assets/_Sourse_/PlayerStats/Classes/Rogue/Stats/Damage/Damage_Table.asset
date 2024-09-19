@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73fe122dab5f49ae8144ee8903acbaf6, type: 3}
-  m_Name: Max_HP_Table
+  m_Name: Damage_Table
   m_EditorClassIdentifier: 
   m_Table:
-    rid: 3147619655186121180
+    rid: 3147619655186121376
   references:
     version: 2
     RefIds:
-    - rid: 3147619655186121180
-      type: {class: TableGeometricProgression, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+    - rid: 3147619655186121376
+      type: {class: TableLinearProgression, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
         m_MaxLevel: 99
-        m_Increment: 50
-        m_Rate: 1.05
+        m_IncrementPerLevel: 10
