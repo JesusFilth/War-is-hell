@@ -14,4 +14,10 @@ public class SquadWaveSpawner : WaveSpawner
             }
         }
     }
+
+    protected override void UseLevelSettings()
+    {
+        base.UseLevelSettings();
+        _count = Random.Range(Settings.GetMinSquadEnemy(), Settings.GetMaxSquadEnemy());
+    }
 }
