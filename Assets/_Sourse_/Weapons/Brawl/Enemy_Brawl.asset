@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c07b738becbd473c92520c1cdf024b76, type: 3}
-  m_Name: Player_Brawl
+  m_Name: Enemy_Brawl
   m_EditorClassIdentifier: 
   m_Id:
     m_SerializedID:
-      m_String: 7d341f7a-e8c3-4c8e-869c-c950e95dd55d
+      m_String: 5035c0b9-0b75-4e46-a83b-f07f7b6a64f6
   m_Title:
     m_Property:
       rid: 6655073706169598024
@@ -53,7 +53,7 @@ MonoBehaviour:
       m_Property:
         rid: 3147619271063109762
     m_RuntimeController: {fileID: 0}
-    m_State: {fileID: 11400000, guid: dbd6d6c3d984c4a279cbf4bc5404fd16, type: 2}
+    m_State: {fileID: 11400000, guid: 060bf9fd3de2dbd4bb4fd9330fd7c375, type: 2}
     m_AvatarMask: {fileID: 0}
   m_Layer:
     m_Property:
@@ -94,7 +94,7 @@ MonoBehaviour:
     - rid: 3592961695864062607
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: dfe6f5d0bb4fdce4eab760e29afa78ea, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: 96d427667d4a5f3459bfdb7a8cafd087, type: 3}
     - rid: 3592961695864062609
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
@@ -125,7 +125,7 @@ MonoBehaviour:
     - rid: 3592961695864062612
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: 61f9aab36f950e445b37a3b3add9fd1a, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: 0adb9367234d375418bd6d0611e17b15, type: 3}
     - rid: 3592961695864062613
       type: {class: InstructionCharacterAttachProp, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -153,7 +153,7 @@ MonoBehaviour:
     - rid: 3592961695864062615
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: aa562aebe23d6db41b9f5f55c5135480, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: 92eb920ba755f5d47926e5fc98117a44, type: 3}
     - rid: 3592961695864062616
       type: {class: InstructionCharacterAttachProp, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -181,7 +181,7 @@ MonoBehaviour:
     - rid: 3592961695864062618
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: bbd3337c01db84f4087a9027331e37a4, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: a0e307a729cad964199978cb2a052c47, type: 3}
     - rid: 3592961695864062619
       type: {class: InstructionCharacterRemoveProp, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -197,7 +197,7 @@ MonoBehaviour:
     - rid: 3592961695864062621
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: dfe6f5d0bb4fdce4eab760e29afa78ea, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: 96d427667d4a5f3459bfdb7a8cafd087, type: 3}
     - rid: 3592961695864062622
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
@@ -219,7 +219,7 @@ MonoBehaviour:
     - rid: 3592961695864062625
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: 61f9aab36f950e445b37a3b3add9fd1a, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: 0adb9367234d375418bd6d0611e17b15, type: 3}
     - rid: 3592961695864062626
       type: {class: InstructionCharacterRemoveProp, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -238,7 +238,7 @@ MonoBehaviour:
     - rid: 3592961695864062628
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: aa562aebe23d6db41b9f5f55c5135480, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: 92eb920ba755f5d47926e5fc98117a44, type: 3}
     - rid: 3592961695864062629
       type: {class: InstructionCharacterRemoveProp, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -257,7 +257,7 @@ MonoBehaviour:
     - rid: 3592961695864062631
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 1805659447825900147, guid: bbd3337c01db84f4087a9027331e37a4, type: 3}
+        m_GameObject: {fileID: 1805659447825900147, guid: a0e307a729cad964199978cb2a052c47, type: 3}
     - rid: 6655073706169598024
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
