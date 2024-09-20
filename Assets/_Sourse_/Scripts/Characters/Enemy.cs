@@ -1,23 +1,27 @@
-using Reflex.Attributes;
 using System;
+using GameCreator.Runtime.Stats;
+using Reflex.Attributes;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public event Action<Enemy> Died;
+    private const string LevelID = "level";
 
-    [Inject] private IGameLevelSettings _settings;
+    [SerializeField] private Traits _traits;
+
+    [Inject] private IGameProgress _progress;
 
     public bool IsDead { get; private set; }
 
+    public event Action<Enemy> Died;
+
     private void Awake()
     {
-        DIGameConteiner.Instance.InjectRecursive(gameObject);
-    }
-
-    private void Start()
-    {
-        Initialize();
+        if(DIGameConteiner.Instance != null)
+        {
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
+            Initialize();
+        }
     }
 
     public void Die()
@@ -28,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     private void Initialize()
     {
-        Debug.Log("Enemy Stat Init");
+        RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(LevelID);
+        runtimeStat.AddModifier(ModifierType.Constant, _progress.GetPlayerProgress().LevelCount);
     }
 }

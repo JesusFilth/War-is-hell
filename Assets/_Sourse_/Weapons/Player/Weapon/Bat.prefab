@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7368055683753871673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6984944868904706144}
+  - component: {fileID: 6079302508740765087}
+  m_Layer: 0
+  m_Name: Striker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6984944868904706144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368055683753871673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.587}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4226733051662468449}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &6079302508740765087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368055683753871673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84eb03fec763407d9d0eb8bf3f0b2701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID:
+    m_SerializedID:
+      m_String: BatStriker
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Section:
+    m_Property:
+      rid: 4164758989435568852
+  m_Shape:
+    rid: 4164758989435568854
+  m_Trail:
+    m_PointA: {x: 0.25, y: 0, z: 0}
+    m_PointB: {x: -0.25, y: 0, z: 0}
+    m_Quads: 32
+    m_Length: 2
+    m_Material: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4164758989435568852
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 7368055683753871673}
+    - rid: 4164758989435568854
+      type: {class: StrikerCapsule, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Position: {x: 0, y: 0, z: 0}
+        m_Height: 0.75
+        m_Radius: 0.2
+--- !u!1 &7737059348553826205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4226733051662468449}
+  m_Layer: 0
+  m_Name: Bat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4226733051662468449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737059348553826205}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.089367, y: -0.62995344, z: -0.16235892, w: 0.7541961}
+  m_LocalPosition: {x: 3.63, y: -4.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1140301363537471674}
+  - {fileID: 6984944868904706144}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -4, y: -79, z: -21}
+--- !u!1001 &1135981295616369344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4226733051662468449}
+    m_Modifications:
+    - target: {fileID: 1145237178023060, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_Name
+      value: SM_Wep_Bat_Wood_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+--- !u!4 &1140301363537471674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4779526885788282, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+  m_PrefabInstance: {fileID: 1135981295616369344}
+  m_PrefabAsset: {fileID: 0}

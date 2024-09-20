@@ -27,7 +27,9 @@ MonoBehaviour:
   m_Charge:
     m_State:
       m_StateType: 2
-      m_AnimationClip: {fileID: 0}
+      m_AnimationClip:
+        m_Property:
+          rid: 3147619674404159612
       m_RuntimeController: {fileID: 0}
       m_State: {fileID: 0}
       m_AvatarMask: {fileID: 0}
@@ -74,7 +76,7 @@ MonoBehaviour:
         rid: 4340017107664372364
   m_Animation: {fileID: 7400000, guid: d13a561c5dabd42748a896702284b665, type: 2}
   m_Mask: {fileID: 0}
-  m_Motion: 2
+  m_Motion: 0
   m_SyncReaction: {fileID: 0}
   m_Gravity: 1
   m_TransitionIn: 0.1
@@ -119,11 +121,110 @@ MonoBehaviour:
   m_OnHit:
     m_Instructions:
       m_Instructions:
-      - rid: 4340017107664372204
+      - rid: 3147619674404160413
+      - rid: 3147619674404159618
+      - rid: 3147619674404160419
   <EditorModelPath>k__BackingField: 
   references:
     version: 2
     RefIds:
+    - rid: 3147619674404159612
+      type: {class: GetAnimationInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: {fileID: 0}
+    - rid: 3147619674404159618
+      type: {class: InstructionCameraShakeBurst, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Camera:
+          m_Property:
+            rid: 3147619674404159619
+        m_Delay: 0
+        m_Duration: 0.3
+        m_ShakeEffect:
+          m_ShakePosition: 1
+          m_ShakeRotation: 1
+          m_Magnitude: 0.7
+          m_Roughness: 1
+          m_Transform: {fileID: 0}
+          m_Radius: 10
+    - rid: 3147619674404159619
+      type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 3147619674404160413
+      type: {class: InstructionStatsChangeAttribute, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Target:
+          m_Property:
+            rid: 3147619674404160414
+        m_Attribute:
+          m_Property:
+            rid: 3147619674404160415
+        m_Change:
+          m_Operation: 2
+          m_Value:
+            m_Property:
+              rid: 3147619674404160416
+    - rid: 3147619674404160414
+      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 3147619674404160415
+      type: {class: GetAttributeInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Attribute: {fileID: 11400000, guid: 9b5707bf8615e96468895005648f1690, type: 2}
+    - rid: 3147619674404160416
+      type: {class: GetDecimalStatValue, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Traits:
+          m_Property:
+            rid: 3147619674404160417
+        m_Stat:
+          m_Property:
+            rid: 3147619674404160418
+    - rid: 3147619674404160417
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 3147619674404160418
+      type: {class: GetStatInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Stat: {fileID: 11400000, guid: 25abbe64b2bcb3446939c8fc9d95db1e, type: 2}
+    - rid: 3147619674404160419
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3147619674404160420
+        m_From:
+          m_Property:
+            rid: 3147619674404160421
+    - rid: 3147619674404160420
+      type: {class: SetBoolLocalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable:
+            rid: 3147619674404160422
+          m_Name:
+            m_String: isHit
+            m_ID: -1235987232
+    - rid: 3147619674404160421
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 3147619674404160422
+      type: {class: PropertyGetGameObject, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Property:
+          rid: 3147619674404160423
+    - rid: 3147619674404160423
+      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
     - rid: 4340017107664372137
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
@@ -250,35 +351,15 @@ MonoBehaviour:
     - rid: 4340017107664372201
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 1.5
+        m_Value: 3
     - rid: 4340017107664372202
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 1
+        m_Value: 2
     - rid: 4340017107664372203
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 1.2
-    - rid: 4340017107664372204
-      type: {class: InstructionCameraShakeBurst, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Camera:
-          m_Property:
-            rid: 4340017107664372205
-        m_Delay: 0
-        m_Duration: 0.5
-        m_ShakeEffect:
-          m_ShakePosition: 1
-          m_ShakeRotation: 1
-          m_Magnitude: 1
-          m_Roughness: 2
-          m_Transform: {fileID: 0}
-          m_Radius: 10
-    - rid: 4340017107664372205
-      type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
-      data: 
     - rid: 4340017107664372296
       type: {class: InstructionMeleeResetParryTime, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
