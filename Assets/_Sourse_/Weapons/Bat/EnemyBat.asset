@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c07b738becbd473c92520c1cdf024b76, type: 3}
-  m_Name: PlayerBat
+  m_Name: EnemyBat
   m_EditorClassIdentifier: 
   m_Id:
     m_SerializedID:
-      m_String: 7b9d7074-89bd-4a0b-9dd4-1f7a9c472c6f
+      m_String: b6216d6c-2541-4969-afc7-ff2f4a82ae71
   m_Title:
     m_Property:
       rid: 4164758989435568451
@@ -33,30 +33,28 @@ MonoBehaviour:
     m_Instructions:
       m_Instructions:
       - rid: 4164758989435568958
-      - rid: 4164758989435568961
   m_OnUnequip:
     m_Instructions:
       m_Instructions:
       - rid: 4164758989435568967
-      - rid: 4164758989435568970
   m_OnDodge:
     m_Instructions:
       m_Instructions: []
-  m_Shield: {fileID: 0}
+  m_Shield: {fileID: 11400000, guid: 014bd5a4cb2e9524fb9cda60a6f3836a, type: 2}
   m_State:
     m_StateType: 2
     m_AnimationClip:
       m_Property:
         rid: 4164758989435568455
     m_RuntimeController: {fileID: 0}
-    m_State: {fileID: 11400000, guid: a93a713c1d8eeec41aa9b57b6ecdf89e, type: 2}
+    m_State: {fileID: 11400000, guid: 7019be783f4565145ad2e2019e3d8338, type: 2}
     m_AvatarMask: {fileID: 0}
   m_Layer:
     m_Property:
       rid: 4164758989435568456
   m_Combos:
-    m_CombosFrom: 1
-    m_CombosAsset: {fileID: 0}
+    m_CombosFrom: 0
+    m_CombosAsset: {fileID: 11400000, guid: 47ddb61f5985a4e4ebdfb7f5fc6b6e8d, type: 2}
     m_CombosEmbed:
       rid: 4164758989435568457
   references:
@@ -147,30 +145,7 @@ MonoBehaviour:
     - rid: 4164758989435568960
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 7737059348553826205, guid: c150e13910fbea9408f504511251d710, type: 3}
-    - rid: 4164758989435568961
-      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Character:
-          m_Property:
-            rid: 4164758989435568962
-        m_Rotation:
-          m_Facing:
-            rid: 4164758989435568965
-    - rid: 4164758989435568962
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 4164758989435568965
-      type: {class: UnitFacingObjectDirection, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data:
-        m_DirectionOf:
-          m_Property:
-            rid: 4164758989435568966
-    - rid: 4164758989435568966
-      type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
-      data: 
+        m_GameObject: {fileID: 7737059348553826205, guid: 4c5660c36aa1dcf478dfc29d5651e9bb, type: 3}
     - rid: 4164758989435568967
       type: {class: InstructionCharacterRemoveProp, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -186,31 +161,7 @@ MonoBehaviour:
     - rid: 4164758989435568969
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_GameObject: {fileID: 7737059348553826205, guid: c150e13910fbea9408f504511251d710, type: 3}
-    - rid: 4164758989435568970
-      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Character:
-          m_Property:
-            rid: 4164758989435568971
-        m_Rotation:
-          m_Facing:
-            rid: 4164758989435568972
-    - rid: 4164758989435568971
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 4164758989435568972
-      type: {class: UnitFacingPivot, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data:
-        m_DirectionFrom: 0
-        m_Axonometry:
-          m_Axonometry:
-            rid: 4164758989435568973
-    - rid: 4164758989435568973
-      type: {class: AxonometryNone, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data: 
+        m_GameObject: {fileID: 7737059348553826205, guid: 4c5660c36aa1dcf478dfc29d5651e9bb, type: 3}
     - rid: 4164758992877781845
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
