@@ -2695,7 +2695,7 @@ MonoBehaviour:
           m_Focus:
             m_InteractionMode:
               rid: 3147619289330090348
-        m_Speed: 2
+        m_Speed: 2.5
         m_Rotation:
           m_IsEnabled: 1
           m_Value: 1800
@@ -2805,22 +2805,6 @@ MonoBehaviour:
       data:
         m_Source:
         - rid: 4164758969480642963
-        - rid: 3147619676617442060
-    - rid: 3147619676617442060
-      type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Value:
-          rid: 3147619676617442062
-        m_Name:
-          m_String: isPlayer
-    - rid: 3147619676617442062
-      type: {class: ValueBool, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Value: 0
     - rid: 4164758969480642963
       type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
@@ -2852,13 +2836,18 @@ MonoBehaviour:
   m_OverrideAttributes:
     m_Keys:
     - m_String: hp
+    - m_String: durability
     - m_String: RandomObservation
     m_Values:
     - m_IsExpanded: 0
       m_ChangeStartPercent:
         m_IsEnabled: 0
         m_Value: 1
-    - m_IsExpanded: 1
+    - m_IsExpanded: 0
+      m_ChangeStartPercent:
+        m_IsEnabled: 0
+        m_Value: 1
+    - m_IsExpanded: 0
       m_ChangeStartPercent:
         m_IsEnabled: 1
         m_Value: 0
@@ -2869,11 +2858,16 @@ MonoBehaviour:
     - m_String: Damage
     - m_String: WeaponDamage
     - m_String: MaxRandomObservation
+    - m_String: maxDurability
     m_Values:
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
+    - m_IsExpanded: 1
+      m_ChangeBase:
+        m_IsEnabled: 1
+        m_Value: 170
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0
@@ -4356,7 +4350,6 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 4164758968148951248
-    - rid: 4164758971903640295
   m_TriggerEvent:
     rid: 4164758967658479975
   references:
@@ -4397,32 +4390,6 @@ MonoBehaviour:
       type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
-    - rid: 4164758971903640295
-      type: {class: InstructionCharacterPropertyMoveSpeed, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Character:
-          m_Property:
-            rid: 4164758971903640418
-        m_Speed:
-          m_Operation: 0
-          m_Value:
-            m_Property:
-              rid: 4164758971903640297
-        m_Transition:
-          m_Duration: 0
-          m_Easing: 3
-          m_Time: 0
-          m_WaitToComplete: 1
-    - rid: 4164758971903640297
-      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0.1
-    - rid: 4164758971903640418
-      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data:
-        m_Character: {fileID: 4405420817377713195}
 --- !u!114 &3356111498622465685
 MonoBehaviour:
   m_ObjectHideFlags: 0
