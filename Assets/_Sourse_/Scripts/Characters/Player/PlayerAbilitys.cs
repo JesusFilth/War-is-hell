@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerAbilitys : MonoBehaviour
 {
     private const float ResurectedHP = 1000;
+    private const string HealthID = "hp";
 
     [SerializeField] private Traits _traits;
-    [SerializeField] private Attribute _HP;
     [SerializeField] private ActiveSkillsStorage _skillsStorage;
 
     public ActiveSkillsStorage SkillsStorage => _skillsStorage;
@@ -28,7 +28,7 @@ public class PlayerAbilitys : MonoBehaviour
 
     public void AddHealth(float value)
     {
-        RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(_HP.ID);
+        RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(HealthID);
         runtimeAttribute.Value = value;
     }
 
