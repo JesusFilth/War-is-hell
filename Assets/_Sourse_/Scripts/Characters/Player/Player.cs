@@ -1,7 +1,6 @@
 using GameCreator.Runtime.Characters;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
