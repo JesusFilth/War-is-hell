@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8580756368090555898}
   - component: {fileID: 4110140987872977899}
   - component: {fileID: 7419322056795167112}
-  - component: {fileID: 2100517921359335391}
   m_Layer: 0
   m_Name: Trench_Straight
   m_TagString: Untagged
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2100517921359335391
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144437625093490638}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 20e10ad414d2e0f46bfa16f26063dc83, type: 3}
 --- !u!1 &1425877452640876925
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +216,6 @@ GameObject:
   - component: {fileID: 6578788449650556132}
   - component: {fileID: 6858272444058970705}
   - component: {fileID: 4568473110806027010}
-  - component: {fileID: 6038864631949254121}
   m_Layer: 0
   m_Name: Trench_Straight
   m_TagString: Untagged
@@ -313,28 +289,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6038864631949254121
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335625422309872898}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 907e8b9887f844049a01416e0554adec, type: 3}
 --- !u!1 &4051590309038694801
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +315,7 @@ Transform:
   m_GameObject: {fileID: 4051590309038694801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 32.56, z: -29.25}
+  m_LocalPosition: {x: 0, y: 32.499, z: -29.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -414,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 4467715957594821679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 34.52, z: -30.49}
+  m_LocalPosition: {x: 0, y: 34.52, z: -30.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,7 +406,6 @@ GameObject:
   - component: {fileID: 85990267860786619}
   - component: {fileID: 3890322019396071399}
   - component: {fileID: 4701069572623484423}
-  - component: {fileID: 2892864556721734280}
   m_Layer: 0
   m_Name: Trench_Straight
   m_TagString: Untagged
@@ -525,28 +478,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2892864556721734280
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4905274583775160953}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 20e10ad414d2e0f46bfa16f26063dc83, type: 3}
 --- !u!1 &5243662097201276776
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 5243662097201276776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 34.52, z: -28.15}
+  m_LocalPosition: {x: 0, y: 34.52, z: -27.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,7 +542,6 @@ GameObject:
   - component: {fileID: 1012626733121240295}
   - component: {fileID: 5575388932462837132}
   - component: {fileID: 2805002642173798772}
-  - component: {fileID: 1383798701787502945}
   m_Layer: 0
   m_Name: Trench_Straight
   m_TagString: Untagged
@@ -684,28 +614,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1383798701787502945
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5769702176636960737}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 907e8b9887f844049a01416e0554adec, type: 3}
 --- !u!1 &6448981678890099296
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +625,6 @@ GameObject:
   - component: {fileID: 7424543596386721468}
   - component: {fileID: 4665802245783180342}
   - component: {fileID: 2394968756106535936}
-  - component: {fileID: 4751954233547106526}
   m_Layer: 0
   m_Name: Trench_Straight
   m_TagString: Untagged
@@ -791,28 +698,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4751954233547106526
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6448981678890099296}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 907e8b9887f844049a01416e0554adec, type: 3}
 --- !u!1 &7129441188258520105
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +743,6 @@ GameObject:
   - component: {fileID: 6159829961834199089}
   - component: {fileID: 3238373151302517199}
   - component: {fileID: 9203344853331105}
-  - component: {fileID: 1186234253455995132}
   m_Layer: 0
   m_Name: Trench_Straight
   m_TagString: Untagged
@@ -931,28 +815,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1186234253455995132
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8143158944772959003}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 20e10ad414d2e0f46bfa16f26063dc83, type: 3}
 --- !u!1001 &4809744165637163339
 PrefabInstance:
   m_ObjectHideFlags: 0

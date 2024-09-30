@@ -6,6 +6,7 @@ public class FollowCameraToPlayerX : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _offsetY = 2.2f;
     [SerializeField] private float _offsetX = .0f;
+    [SerializeField] private float _offsetZ = 10.0f;
     [SerializeField] private float _smoothSpeed = 0.125f;
 
     private Transform _transform;
@@ -24,7 +25,7 @@ public class FollowCameraToPlayerX : MonoBehaviour
         if (_isActive == false)
             return;
 
-        Vector3 desiredPosition = new Vector3(_target.position.x + _offsetX, _target.position.y + _offsetY, _transform.position.z);
+        Vector3 desiredPosition = new Vector3(_target.position.x + _offsetX, _target.position.y + _offsetY, _target.position.z+_offsetZ);
 
         _transform.position = Vector3.Lerp(_transform.position, desiredPosition, _smoothSpeed * Time.deltaTime);
     }

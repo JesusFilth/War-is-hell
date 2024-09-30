@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7564048764124215351}
   - component: {fileID: 7214703939458026976}
   - component: {fileID: 5792982142472871467}
-  - component: {fileID: 8249235439431751311}
   - component: {fileID: 8467550347893405488}
   m_Layer: 0
   m_Name: Trench_Bridge
@@ -85,28 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8249235439431751311
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545017124660091761}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 5ab2c30f1c272e8449e0ffe11871aabc, type: 3}
 --- !u!65 &8467550347893405488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126,8 +103,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 3, z: 1}
-  m_Center: {x: -0.0000019073486, y: 0, z: 1.76}
+  m_Size: {x: 4.999999, y: 3, z: 0.80200416}
+  m_Center: {x: -0.0000019073486, y: 0, z: 1.6610022}
 --- !u!1 &6249257328610684891
 GameObject:
   m_ObjectHideFlags: 0
