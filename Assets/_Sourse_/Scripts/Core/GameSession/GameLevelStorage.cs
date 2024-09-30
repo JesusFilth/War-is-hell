@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,6 +29,7 @@ public class GameLevelStorage : MonoBehaviour,
         _currentLevel.SetPriseSkill(currentSkill);
 
         InitPlayer(_currentLevel.PlayerStartPosition.position);
+
         _player.Progress.AddLevel();
     }
 
@@ -98,4 +100,10 @@ public class GameLevelStorage : MonoBehaviour,
     public int GetMaxPermonentEnemy() => _levelSettings.MaxPermonentEnemy;
 
     public float GetUpExceptionPercent() => _levelSettings.UpExeptionPercentForLevel;
+
+    private IEnumerator PlayerToStarting()
+    {
+        yield return new WaitForSeconds(0.5f);
+        InitPlayer(_currentLevel.PlayerStartPosition.position);
+    }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private const string LevelID = "level";
+    private const float DelayDieDestroy = 10f;
 
     [SerializeField] private Traits _traits;
 
@@ -26,6 +27,9 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        transform.parent = null;
+        Destroy(gameObject, DelayDieDestroy);
+
         IsDead = true;
         Died?.Invoke(this);
     }
