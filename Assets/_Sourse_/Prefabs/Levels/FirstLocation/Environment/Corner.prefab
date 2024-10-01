@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3653058184139283409}
   - component: {fileID: 6076697967197494195}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SmallWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1108264382328632893}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.24, y: 33.75, z: -26.79}
+  m_LocalPosition: {x: 9.052, y: 33.75, z: -26.585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 5461351158309968883}
   - component: {fileID: 5601786447154487852}
   - component: {fileID: 398447136273180303}
-  - component: {fileID: 1301837943841419802}
   m_Layer: 0
   m_Name: Trench_Corner
   m_TagString: Untagged
@@ -172,28 +171,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1301837943841419802
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2186337649632761716}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c6f4aadbe7ea84a448c479d05aa7f735, type: 3}
 --- !u!1 &5046523032642324182
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6844483263062176262}
   - component: {fileID: 2137757639575743978}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BigWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 5046523032642324182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 12.84, y: 34.52, z: -28.4}
+  m_LocalPosition: {x: 13.045, y: 34.52, z: -28.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -339,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6411272382321858916}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6431870640217454685}
   - component: {fileID: 3101414821081094506}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FloorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 6782240318059243939}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.88, y: 32.56, z: -28.4}
+  m_LocalPosition: {x: 10.88, y: 32.527, z: -28.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -511,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878932788253245301}
   - component: {fileID: 1415629062405142092}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BigWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 8508353883094620030}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: 34.52, z: -30.49}
+  m_LocalPosition: {x: 11, y: 34.52, z: -30.555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,12 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class FollowCameraToPlayerX : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private float _offsetY = 3f;
-    [SerializeField] private float _offsetX = .0f;
-    [SerializeField] private float _offsetZ = -3.0f;
+    [SerializeField] private GameObject _border;
+    [SerializeField] private Vector3 _offset = new Vector3(.0f, 3f, -3.0f);
     [SerializeField] private float _smoothSpeed = 6.0f;
     [Space]
     [SerializeField] private bool _isBackReturn = false;
@@ -17,7 +17,9 @@ public class FollowCameraToPlayerX : MonoBehaviour
 
     private void Awake()
     {
-        _transform = transform;
+        if(_transform == null)
+            _transform = transform;
+
         _lastPointBorderX = _transform.position.x;
     }
 
@@ -31,7 +33,7 @@ public class FollowCameraToPlayerX : MonoBehaviour
         if (_isActive == false)
             return;
 
-        Vector3 desiredPosition = new Vector3(_target.position.x + _offsetX, _target.position.y + _offsetY, _target.position.z + _offsetZ);
+        Vector3 desiredPosition = new Vector3(_target.position.x + _offset.x, _target.position.y + _offset.y, _target.position.z + _offset.z);
 
         if (_isBackReturn == false)
             desiredPosition.x = Mathf.Max(desiredPosition.x, _lastPointBorderX);
@@ -44,10 +46,29 @@ public class FollowCameraToPlayerX : MonoBehaviour
         if(target == null)
             throw new ArgumentNullException(nameof(target));
 
+        if (_transform == null)
+            _transform = transform;
+
+        _transform.position = target.position;
         _target = target;
+
+        StartCoroutine(OnBorders());
+    }
+
+    public void SetPosition(Vector3 offset)
+    {
+        _offset = offset;
     }
 
     public void On() => _isActive = true;
 
     public void Off() =>_isActive = false;
+
+    private IEnumerator OnBorders()
+    {
+        const float Delay = 1.0f;
+
+        yield return new WaitForSeconds(Delay);
+        _border.SetActive(true);
+    }
 }

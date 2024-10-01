@@ -1862,7 +1862,7 @@ MonoBehaviour:
     - rid: 4164758971903640129
     - rid: 4164758972369469817
   m_TriggerEvent:
-    rid: 4164759060433076932
+    rid: 6066312449122108364
   references:
     version: 2
     RefIds:
@@ -1983,11 +1983,6 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 4586760229489006032}
-    - rid: 4164759060433076932
-      type: {class: EventTriggerEnterTag, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Tag:
-          m_Value: Player
     - rid: 4164759060972044288
       type: {class: InstructionLogicRunActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -2001,6 +1996,17 @@ MonoBehaviour:
       type: {class: GetGameObjectActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Actions: {fileID: 6460707543698945940}
+    - rid: 6066312449122108364
+      type: {class: EventTriggerEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Collider:
+          m_Option: 1
+          m_GameObject:
+            m_Property:
+              rid: 6066312449122108365
+    - rid: 6066312449122108365
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!114 &4508488675344306317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2020,7 +2026,7 @@ MonoBehaviour:
     - rid: 4164758969859703735
     - rid: 4164759061385707520
   m_TriggerEvent:
-    rid: 4164759060433076993
+    rid: 6066312449122108366
   references:
     version: 2
     RefIds:
@@ -2106,11 +2112,6 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 7481421977235060090}
-    - rid: 4164759060433076993
-      type: {class: EventTriggerExitTag, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Tag:
-          m_Value: Player
     - rid: 4164759061385707520
       type: {class: InstructionCharacterNavigationFollowStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -2143,6 +2144,17 @@ MonoBehaviour:
       type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
         m_Character: {fileID: 2875788802598249871}
+    - rid: 6066312449122108366
+      type: {class: EventTriggerExit, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Collider:
+          m_Option: 1
+          m_GameObject:
+            m_Property:
+              rid: 6066312449122108367
+    - rid: 6066312449122108367
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &2604077768306335436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,7 +2924,7 @@ MonoBehaviour:
       m_Save: 0
     m_UniqueID:
       m_SerializedID:
-        m_String: 451ac982-9ec6-4bc8-830b-2452e8ecbb8a
+        m_String: 8272b169-26c3-4968-8243-f18bea748824
   m_Runtime:
     rid: 4164758968944296170
   references:
@@ -4413,7 +4425,7 @@ MonoBehaviour:
           m_Focus:
             m_InteractionMode:
               rid: 3147619289330090348
-        m_Speed: 2.5
+        m_Speed: 2.8
         m_Rotation:
           m_IsEnabled: 1
           m_Value: 1800

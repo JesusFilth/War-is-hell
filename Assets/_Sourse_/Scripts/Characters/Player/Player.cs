@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private const float DelayPlayerPosition = 1f;
+
     [SerializeField] private PlayerAbilitys _ability;
     [SerializeField] private Character _character;
     [SerializeField] private bool _isDontDestroy = true;
@@ -12,9 +14,8 @@ public class Player : MonoBehaviour
     public PlayerProgress Progress { get; private set; } = new();
     public PlayerAbilitys Abilitys => _ability;
 
-    private Coroutine _coroutine;
-    private WaitForSeconds _waitStartPosition = new WaitForSeconds(1.0f);
-    private WaitForSeconds _waitInterval = new WaitForSeconds(0.1f);
+    private Coroutine _positionStarting;
+    private WaitForSeconds _waitStartPosition = new WaitForSeconds(DelayPlayerPosition);
 
     private void Awake()
     {
@@ -26,10 +27,10 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_coroutine != null)
+        if (_positionStarting != null)
         {
-            StopCoroutine(_coroutine);
-            _coroutine = null;
+            StopCoroutine(_positionStarting);
+            _positionStarting = null;
         }
     }
 
@@ -37,9 +38,9 @@ public class Player : MonoBehaviour
     {
         _character.Driver.SetPosition(position);
 
-        if(_coroutine == null)
+        if(_positionStarting == null)
         {
-            _coroutine = StartCoroutine(StartingPosition(position));
+            _positionStarting = StartCoroutine(StartingPosition(position));
         }
     }
 
@@ -58,6 +59,6 @@ public class Player : MonoBehaviour
         yield return _waitStartPosition;
         _character.Driver.SetPosition(position);
 
-        _coroutine = null;
+        _positionStarting = null;
     }
 }
