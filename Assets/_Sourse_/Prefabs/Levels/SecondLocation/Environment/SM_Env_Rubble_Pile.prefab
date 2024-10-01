@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 914639530226935184}
   - component: {fileID: 8766668398172263889}
   - component: {fileID: 6889207854111949836}
-  - component: {fileID: 4793059953321154302}
   m_Layer: 0
   m_Name: SM_Env_Rubble_Pile
   m_TagString: Untagged
@@ -168,25 +167,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4793059953321154302
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250881518604629910}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43123241646202824, guid: 678a76ff6d1f42e4d93c70e98bc87e0a, type: 2}
