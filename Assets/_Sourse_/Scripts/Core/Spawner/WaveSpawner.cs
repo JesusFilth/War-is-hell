@@ -106,6 +106,10 @@ public abstract class WaveSpawner : MonoBehaviour
         foreach (EnemySpawnModel spawnModel in _enemyModels)
         {
             int count = (int)Mathf.Round(spawnModel.Weight / totalWeight * _capasity);
+
+            if(count == 0)
+                count = 1;
+
             _enemysOnLine.Add(spawnModel.Enemy, count);
         }
     }
