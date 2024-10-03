@@ -13,7 +13,7 @@ public abstract class WaveSpawner : MonoBehaviour
     [SerializeField] private bool _isUselevelSettings = true;
     [SerializeField] private float _experiance = 50;
 
-    [Inject] private FollowCameraToPlayerX _camera;
+    [Inject] private GameLevelCamera _camera;
     [Inject] private IGamePlayer _player;
     [Inject] private IGameProgress _gameProgress;
     [Inject] protected IGameLevelSettings Settings;

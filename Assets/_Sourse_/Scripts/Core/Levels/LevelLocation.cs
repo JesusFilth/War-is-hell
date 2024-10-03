@@ -15,7 +15,7 @@ public class LevelLocation : MonoBehaviour
     public Transform PlayerStartPosition => _playerStartPosition;
 
     [Inject] private StateMashineUI _stateMashineUI;
-    [Inject] private FollowCameraToPlayerX _camera;
+    [Inject] private GameLevelCamera _camera;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class LevelLocation : MonoBehaviour
     private void Start()
     {
         _stateMashineUI.EnterIn<LevelInitUIState>();
-        _camera.SetPosition(_offsetCamera);
+        _camera.SetDistance(_offsetCamera);
     }
 
     public void SetPriseSkill(Skill skill)

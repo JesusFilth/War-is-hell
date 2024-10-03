@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameReflexDI : MonoBehaviour, IInstaller
 {
-    [SerializeField] private FollowCameraToPlayerX _followCamera;
+    [SerializeField] private GameLevelCamera _followCamera;
     [SerializeField] private SkillStorage _skillStorage;
     [SerializeField] private SkillsConteinerUI _skillConteinerUI;
     [SerializeField] private DIGameConteiner _dIGameConteiner;
