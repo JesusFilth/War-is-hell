@@ -21,15 +21,8 @@ public class GameLevelCamera : MonoBehaviour
         ShotTypeFollow cameraType = _shotCamera.ShotType as ShotTypeFollow;
 
         if (cameraType != null)
-        {
-            Debug.Log("Good");
-
             cameraType.Follow.Distance = offset;
-        }
         else
-        {
             throw new InvalidCastException(nameof(cameraType));
-        }
-        
     }
 }
