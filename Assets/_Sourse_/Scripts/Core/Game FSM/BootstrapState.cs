@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Agava.YandexGames;
+using UnityEngine;
 
 public class BootstrapState : IGameState
 {
@@ -16,6 +17,10 @@ public class BootstrapState : IGameState
 
     public void Execute()
     {
+        Debug.Log("SDK Disable. temp");
+        _stateMashine.EnterIn<LoadDataState>();
+        return;
+
 #if UNITY_WEBGL && !UNITY_EDITOR
         YandexGamesSdk.CallbackLogging = true;
         CoroutineRunner.Instance.Run(Initialize());

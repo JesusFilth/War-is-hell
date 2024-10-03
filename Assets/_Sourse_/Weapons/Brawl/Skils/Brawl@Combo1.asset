@@ -120,6 +120,7 @@ MonoBehaviour:
   m_OnHit:
     m_Instructions:
       m_Instructions:
+      - rid: 6066312488025587974
       - rid: 4340017107664372204
       - rid: 3147619674404160392
       - rid: 4164758969480642755
@@ -363,3 +364,15 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 8547867254204328264, guid: dc5de1e345c30604dab0ecf231985cca, type: 3}
+    - rid: 6066312488025587974
+      type: {class: InstructionCommonDebugText, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Message:
+          m_Property:
+            rid: 6066312488025587975
+    - rid: 6066312488025587975
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: Attack

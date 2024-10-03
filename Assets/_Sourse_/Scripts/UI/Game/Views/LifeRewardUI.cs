@@ -38,8 +38,6 @@ public class LifeRewardUI : MonoBehaviour, IGameUI
         _canvasGroup.alpha = 0;
         _canvasGroup.interactable = false;
         _canvasGroup.blocksRaycasts = false;
-
-        TimeManager.Instance.SetTimeScale(1, 5);
     }
 
     public void Show()

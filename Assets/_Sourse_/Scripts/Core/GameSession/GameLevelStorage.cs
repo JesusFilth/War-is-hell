@@ -10,27 +10,42 @@ public class GameLevelStorage : MonoBehaviour,
     IPlayerAbilities,
     IGameLevelSettings
 {
-    [SerializeField] private LevelLocation[] _levels;
     [SerializeField] private Player _playerPrefab;
     [SerializeField] private LevelSettings _levelSettings;
 
     private Player _player;
     private LevelLocation _currentLevel;
 
+    private string[] _levelNames = new string[] 
+    {
+        "Levels/Level_1.1",
+        "Levels/Level_1.2",
+    };
+
     public void LoadGameLevel(Skill skill = null)
     {
         Skill currentSkill = skill;
 
         if(_currentLevel != null)
+        {
             Destroy(_currentLevel.gameObject);
+            Resources.UnloadUnusedAssets();
+        }
 
-        int randomLevelIndex = Random.Range(0, _levels.Length);
-        _currentLevel = Instantiate(_levels[randomLevelIndex]);
+        _currentLevel = GetLoadLocation();
         _currentLevel.SetPriseSkill(currentSkill);
 
         InitPlayer(_currentLevel.PlayerStartPosition.position);
 
         _player.Progress.AddLevel();
+    }
+
+    private LevelLocation GetLoadLocation()
+    {
+        int index = Random.Range(0, _levelNames.Length);
+        LevelLocation levelLocation = Resources.Load<LevelLocation>(_levelNames[index]);
+
+        return Instantiate(levelLocation);
     }
 
     public void InitPlayer(Vector3 position)
@@ -39,7 +54,7 @@ public class GameLevelStorage : MonoBehaviour,
         {
             _player = Instantiate(_playerPrefab);
         }
-
+        
         _player.SetPosition(position);
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Reflex.Attributes;
@@ -7,36 +8,28 @@ using Random = UnityEngine.Random;
 
 public abstract class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private List<EnemySpawnModel> _enemyModels;
+    [SerializeField] private EnemySpawnModel[] _enemyModels;
     [SerializeField] private SpawnPoint[] _points;
     [SerializeField] private int _capasity;
-    [SerializeField] private bool _isUselevelSettings = true;
     [SerializeField] private float _experiance = 50;
 
     [Inject] private FollowCameraToPlayerX _camera;
     [Inject] private IGamePlayer _player;
     [Inject] private IGameProgress _gameProgress;
-    [Inject] protected IGameLevelSettings Settings;
 
     protected bool HasEnemys => _enemysOnLine.Count > 0;
     protected int CountEnemysOnBattlefield => _enemysOnBattlefield.Count;
 
-    private Dictionary<Enemy, int> _enemysOnLine = new();
+    private Dictionary<string, int> _enemysOnLine = new();
     private List<Enemy> _enemysOnBattlefield = new();
 
     private void OnValidate()
     {
-        if (_enemyModels == null || _enemyModels.Count == 0)
+        if (_enemyModels == null || _enemyModels.Length == 0)
             throw new ArgumentNullException(nameof(_enemyModels));
 
         if (_points == null || _points.Length == 0)
             throw new ArgumentNullException(nameof(_points));
-    }
-
-    private void Awake()
-    {
-        UseLevelSettings();
-        Initialize();
     }
 
     private void OnDisable()
@@ -45,30 +38,34 @@ public abstract class WaveSpawner : MonoBehaviour
             enemy.Died -= DieEnemy;
     }
 
+    private void OnDestroy()
+    {
+        _enemysOnLine = null;
+        _enemysOnBattlefield = null;
+        _enemyModels = null;
+        _points = null;
+    }
+
     public void On()
     {
         _camera.Off();
+        Initialize();
         Execute();
     }
 
     public void Off()
     {
-        Debug.Log("Wave is the end");
         _camera.On();
 
         AddExperiance();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        Resources.UnloadUnusedAssets();
+        //gameObject.SetActive(false);
+
+        //StartCoroutine(Destroying());//?
     }
 
     protected abstract void Execute();
-
-    protected virtual void UseLevelSettings()
-    {
-        if (_isUselevelSettings == false)
-            return;
-
-        _capasity = Random.Range(Settings.GetMinWaveSize(), Settings.GetMaxWaveSize());
-    }
 
     protected void Create()
     {
@@ -80,7 +77,11 @@ public abstract class WaveSpawner : MonoBehaviour
 
         SpawnPoint freePoint = GetRandomFreePoint();
 
-        Enemy enemy = Instantiate(enemySpawn.Key, freePoint.Transform);
+        //Enemy enemy = Instantiate(enemySpawn.Key, freePoint.Transform);//?
+
+        Enemy enemy = Resources.Load<Enemy>($"Enemys/{enemySpawn.Key}");//?
+        enemy = Instantiate(enemy, freePoint.Transform);
+
         freePoint.SetEnemy(enemy);
         enemy.Died += DieEnemy;
         _enemysOnBattlefield.Add(enemy);
@@ -91,12 +92,19 @@ public abstract class WaveSpawner : MonoBehaviour
             _enemysOnLine.Remove(enemySpawn.Key);
     }
 
+    private IEnumerator Destroying()
+    {
+        yield return new WaitForSeconds(5);
+
+        Destroy(gameObject);
+        Resources.UnloadUnusedAssets();
+    }
+
     private void AddExperiance()
     {
-        float percentUp = Settings.GetUpExceptionPercent();
-        int level = _gameProgress.GetPlayerProgress().LevelCount;
-        float exp = (_experiance / 100) * (percentUp * level);
-        _player.AddExpirience(exp);
+        //int level = _gameProgress.GetPlayerProgress().LevelCount;
+        //float exp = (_experiance / 100) * (percentUp * level);
+        //_player.AddExpirience(exp);
     }
 
     private void Initialize()

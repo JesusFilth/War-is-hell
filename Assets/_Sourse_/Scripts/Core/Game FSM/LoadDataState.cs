@@ -28,6 +28,10 @@ public class LoadDataState : IGameState
 
     private void Load()
     {
+        Debug.Log("SDK Disable. temp");
+        LoadPlayerPrefs();
+        return;
+
 #if UNITY_WEBGL && !UNITY_EDITOR
             if (PlayerAccount.IsAuthorized)
                 LoadCloud();

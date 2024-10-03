@@ -15,11 +15,4 @@ public class PermanentWaveSpawner : WaveSpawner
             Create();
         }
     }
-
-    protected override void UseLevelSettings()
-    {
-        base.UseLevelSettings();
-
-        _maxEnemys = Random.Range(Settings.GetMinPermonentEnemy(), Settings.GetMaxPermonentEnemy());
-    }
 }

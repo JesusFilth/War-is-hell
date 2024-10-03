@@ -28,7 +28,7 @@ MonoBehaviour:
           m_Load: 0
           m_Scene:
             m_Property:
-              rid: 3147619269217091590
+              rid: 6066312474524647424
         m_Audio:
           soundEffectsMixer: {fileID: 0}
           ambientMixer: {fileID: 0}
@@ -41,6 +41,13 @@ MonoBehaviour:
     - rid: 3147619269217091589
       type: {class: StoragePlayerPrefs, ns: GameCreator.Runtime.Common.SaveSystem, asm: GameCreator.Runtime.Core}
       data: 
-    - rid: 3147619269217091590
-      type: {class: GetSceneActive, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
+    - rid: 6066312474524647424
+      type: {class: GetSceneName, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_SceneName:
+          m_Property:
+            rid: 6066312474524647425
+    - rid: 6066312474524647425
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 
