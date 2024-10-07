@@ -59,16 +59,16 @@ public class ActiveSkillsStorage : MonoBehaviour
     private void Execute(SkillDeadTarget skill)
     {
         Debug.Log("1");
-
         for (int i = 0; i < skill.DeadCount; i++)
         {
             if (skill.CanActiveEffectForChance())
             {
+                Debug.Log("2");
                 Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead).ToArray();
 
                 if (deads == null || deads.Length == 0)
                     continue;
-
+                Debug.Log("Exp");
                 int randomIndex = Random.Range(0, deads.Length);
                 Instantiate(skill.Effect, deads[randomIndex].SkillPoint);
             }
