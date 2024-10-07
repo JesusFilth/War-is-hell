@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public abstract class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private List<EnemySpawnModel> _enemyModels;
-    [SerializeField] private SpawnPoint[] _points;
+    [SerializeField] private EnemySpawnPoint[] _points;
     [SerializeField] private int _capasity;
     [SerializeField] private bool _isUselevelSettings = true;
     [SerializeField] private float _experiance = 50;
@@ -53,7 +53,6 @@ public abstract class WaveSpawner : MonoBehaviour
 
     public void Off()
     {
-        Debug.Log("Wave is the end");
         _camera.On();
 
         AddExperiance();
@@ -78,7 +77,7 @@ public abstract class WaveSpawner : MonoBehaviour
         int randomIndex = Random.Range(0, _enemysOnLine.Count);
         var enemySpawn = _enemysOnLine.ElementAt(randomIndex);
 
-        SpawnPoint freePoint = GetRandomFreePoint();
+        EnemySpawnPoint freePoint = GetRandomFreePoint();
 
         Enemy enemy = Instantiate(enemySpawn.Key, freePoint.Transform);
         freePoint.SetEnemy(enemy);
@@ -97,6 +96,7 @@ public abstract class WaveSpawner : MonoBehaviour
         int level = _gameProgress.GetPlayerProgress().LevelCount;
         float exp = (_experiance / 100) * (percentUp * level);
         _player.AddExpirience(exp);
+        Debug.Log("Add exp");
     }
 
     private void Initialize()
@@ -114,9 +114,9 @@ public abstract class WaveSpawner : MonoBehaviour
         }
     }
 
-    private SpawnPoint GetRandomFreePoint()
+    private EnemySpawnPoint GetRandomFreePoint()
     {
-        SpawnPoint[] freePoints = _points.Where(point => point.IsBusy == false).ToArray();
+        EnemySpawnPoint[] freePoints = _points.Where(point => point.IsBusy == false).ToArray();
 
         if(freePoints == null || freePoints.Length == 0)
             throw new ArgumentNullException(nameof(freePoints));

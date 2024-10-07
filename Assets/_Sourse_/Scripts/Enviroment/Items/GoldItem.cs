@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoldItem : MonoBehaviour
+public class GoldItem : Item
 {
     [SerializeField] private int _count;
 
