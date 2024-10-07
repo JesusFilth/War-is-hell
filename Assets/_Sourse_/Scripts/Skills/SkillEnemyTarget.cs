@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Curce", order = 2)]
-public class SkillCurce : SkillActive
+[CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/EnemyTarget", order = 2)]
+public class SkillEnemyTarget : SkillActive
 {
     [SerializeField] private int _enemyCount = 1;
     [SerializeField] private int _maxEnemyCount;

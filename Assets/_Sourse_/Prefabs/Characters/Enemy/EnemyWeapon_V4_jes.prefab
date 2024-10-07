@@ -684,6 +684,37 @@ Transform:
   - {fileID: 6241922075190259586}
   m_Father: {fileID: 7870376680423904846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1109343279533524170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4438975871174468695}
+  m_Layer: 0
+  m_Name: SkillTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4438975871174468695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109343279533524170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5565995985137970429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122895664060087522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _traits: {fileID: 8018921245332764367}
+  _skillPoint: {fileID: 4438975871174468695}
 --- !u!114 &6098010646278552891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4633,6 +4665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3527529505567514178}
+  - {fileID: 4438975871174468695}
   m_Father: {fileID: 554010004032209033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7444522182359899787
@@ -4923,15 +4956,10 @@ MonoBehaviour:
     - rid: 4164758971400323341
     - rid: 4164758987449303545
   m_TriggerEvent:
-    rid: 4164758971400323284
+    rid: 6066312586022355219
   references:
     version: 2
     RefIds:
-    - rid: 4164758971400323284
-      type: {class: EventTriggerEnterTag, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Tag:
-          m_Value: Player
     - rid: 4164758971400323341
       type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -4980,6 +5008,17 @@ MonoBehaviour:
       type: {class: GetGameObjectActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Actions: {fileID: 4115667951868771899}
+    - rid: 6066312586022355219
+      type: {class: EventTriggerEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Collider:
+          m_Option: 1
+          m_GameObject:
+            m_Property:
+              rid: 6066312586022355220
+    - rid: 6066312586022355220
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!114 &8901028371401545082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4996,15 +5035,10 @@ MonoBehaviour:
     m_Instructions:
     - rid: 4164758971400323886
   m_TriggerEvent:
-    rid: 4164758971400323827
+    rid: 6066312586022355221
   references:
     version: 2
     RefIds:
-    - rid: 4164758971400323827
-      type: {class: EventTriggerExitTag, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Tag:
-          m_Value: Player
     - rid: 4164758971400323886
       type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -5040,6 +5074,17 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 2128004782706560077}
+    - rid: 6066312586022355221
+      type: {class: EventTriggerExit, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Collider:
+          m_Option: 1
+          m_GameObject:
+            m_Property:
+              rid: 6066312586022355222
+    - rid: 6066312586022355222
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &8074417220899759899
 GameObject:
   m_ObjectHideFlags: 0
@@ -5968,7 +6013,7 @@ MonoBehaviour:
             rid: 3147619311979593900
         m_Layer:
           m_Value: 11
-        m_ChildrenToo: 1
+        m_ChildrenToo: 0
     - rid: 3147619311979593900
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:

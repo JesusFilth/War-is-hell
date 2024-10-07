@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124410693870fbf46b174bbae740cf87, type: 3}
-  m_Name: Durability
+  m_Script: {fileID: 11500000, guid: 03c8f3f9ba1c53b439c8d18c114eaa3e, type: 3}
+  m_Name: AddDurability
   m_EditorClassIdentifier: 
   _name: Durability
-  _icon: {fileID: 21300000, guid: 51109914ecfd0416b94b342f0e517b64, type: 3}
+  _icon: {fileID: 21300000, guid: 2b11c0c83ed774f6695365ab6b6be41c, type: 3}
   _item: {fileID: -2076314886443237936, guid: 249197c4e0cb7df42a960dd37fdf5860, type: 3}
-  _value: 1
-  _maxValue: 50
-  _type: 0
-  _stat: {fileID: 11400000, guid: 8703f195b99df09448a3a86786506dec, type: 2}
+  Value: 1
+  MaxValue: 25
+  _attribute: {fileID: 11400000, guid: a2e2304802e9ec04e990eb6d47425f50, type: 2}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Skill : ScriptableObject
@@ -10,10 +11,16 @@ public abstract class Skill : ScriptableObject
     public bool IsMaxLevel { get; protected set; }
     public SkillItem Item => _item;
 
-    protected ISkillStratigy Stratigy;
+    protected SkillExecuteStratigy Stratigy = new SkillExecuteStratigy();
 
     public string Name => _name;
     public Sprite Icon => _icon;
+
+    private void OnValidate()
+    {
+        if (_item == null)
+            throw new ArgumentNullException(nameof(_item));
+    }
 
     public abstract void ExecuteStratigy(PlayerAbilitys abilitys);
 

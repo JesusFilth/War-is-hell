@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour
     private const float DelayDieDestroy = 10f;
 
     [SerializeField] private Traits _traits;
+    [SerializeField] private Transform _skillPoint;
 
     [Inject] private IGameProgress _progress;
 
+    public Transform SkillPoint => _skillPoint;
     public bool IsDead { get; private set; }
 
     public event Action<Enemy> Died;

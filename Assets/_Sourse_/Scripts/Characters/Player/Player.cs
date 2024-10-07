@@ -61,4 +61,9 @@ public class Player : MonoBehaviour
 
         _positionStarting = null;
     }
+
+    public void AddSkill_TEST(Skill skill)//temp
+    {
+        skill.ExecuteStratigy(Abilitys);
+    }
 }

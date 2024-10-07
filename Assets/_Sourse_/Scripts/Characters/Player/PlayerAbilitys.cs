@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerAbilitys : MonoBehaviour
 {
-    private const float ResurectedHP = 1000;
+    private const float ResurectedHP = 10000;
     private const string HealthID = "hp";
 
     [SerializeField] private Traits _traits;
@@ -24,6 +24,15 @@ public class PlayerAbilitys : MonoBehaviour
     {
         RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(statModel.Stat.ID);
         runtimeStat.AddModifier(statModel.Type, statModel.Value);
+    }
+
+    public void AddModifier(AttributeParameterModel attributeModel)
+    {
+        RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(attributeModel.Attribute.ID);
+        runtimeAttribute.Value = Mathf.Clamp(
+            (float)runtimeAttribute.Value + attributeModel.Value,
+            (float)runtimeAttribute.MinValue,
+            (float)runtimeAttribute.MaxValue);
     }
 
     public void AddHealth(float value)

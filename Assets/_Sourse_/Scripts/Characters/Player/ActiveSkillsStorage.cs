@@ -46,22 +46,48 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     private void ChoseExecute(SkillActive skill)
     {
-        if (skill is SkillCurce curse)
-            Execute(curse);
+        if (skill is SkillEnemyTarget enemyTarget)
+            Execute(enemyTarget);
+        else if (skill is SkillDeadTarget deadTarget)
+            Execute(deadTarget);
         else
             Execute(skill); 
 
         skill.Active();
     }
 
-    private void Execute(SkillCurce curse)
+    private void Execute(SkillDeadTarget skill)
     {
-        for (int i = 0; i < curse.EnemyCount; i++)
+        Debug.Log("1");
+
+        for (int i = 0; i < skill.DeadCount; i++)
         {
-            if (curse.CanActiveEffectForChance())
+            if (skill.CanActiveEffectForChance())
             {
-                int randomIndex = Random.Range(0, _conteiner.Enemys.Count);
-                Instantiate(curse.Effect, _conteiner.Enemys.ElementAt(randomIndex).transform);
+                Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead).ToArray();
+
+                if (deads == null || deads.Length == 0)
+                    continue;
+
+                int randomIndex = Random.Range(0, deads.Length);
+                Instantiate(skill.Effect, deads[randomIndex].SkillPoint);
+            }
+        }
+    }
+
+    private void Execute(SkillEnemyTarget skill)
+    {
+        for (int i = 0; i < skill.EnemyCount; i++)
+        {
+            if (skill.CanActiveEffectForChance())
+            {
+                Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead == false).ToArray();
+
+                if (deads == null || deads.Length == 0)
+                    continue;
+
+                int randomIndex = Random.Range(0, deads.Length);
+                Instantiate(skill.Effect, deads[randomIndex].transform);
             }
         }
     }
