@@ -32,6 +32,8 @@ namespace GameCreator.Runtime.Cameras
         private readonly CameraShakeSustain m_ShakeSustain = new CameraShakeSustain();
         private readonly CameraShakeBurst m_ShakeBurst = new CameraShakeBurst();
 
+        private bool _isLock;
+
         // PROPERTIES: ----------------------------------------------------------------------------
         
         public CameraViewport Viewport => this.m_Viewport;
@@ -86,7 +88,14 @@ namespace GameCreator.Runtime.Cameras
             {
                 this.Transition.NormalUpdate();
                 Transform cameraTransform = this.transform;
-            
+
+                if (_isLock)//change 08102014
+                {
+                    cameraTransform.position = new Vector3(cameraTransform.position.x, cameraTransform.position.y, this.Transition.Position.z);
+                    cameraTransform.rotation = this.Transition.Rotation;
+                    return;
+                }
+
                 cameraTransform.position = this.Transition.Position;
                 cameraTransform.rotation = this.Transition.Rotation;
             }
@@ -108,6 +117,9 @@ namespace GameCreator.Runtime.Cameras
                 cameraTransform.rotation = this.Transition.Rotation;
             }
         }
+
+        public void Lock() => _isLock = true;
+        public void UnLock() => _isLock = false;
 
         private void UpdateShakeEffect()
         {

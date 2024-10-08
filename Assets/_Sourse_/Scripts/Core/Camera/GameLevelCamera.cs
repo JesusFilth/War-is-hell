@@ -5,10 +5,17 @@ using UnityEngine;
 public class GameLevelCamera : MonoBehaviour
 {
     [SerializeField] private ShotCamera _shotCamera;
+    [SerializeField] private MainCamera _mainCamera;
 
-    public void On() => _shotCamera.enabled = true;
+    public void On()
+    {
+        _mainCamera.UnLock();
+    }
 
-    public void Off() => _shotCamera.enabled = false;
+    public void Off()
+    {
+        _mainCamera.Lock();
+    }
 
     private void OnValidate()
     {

@@ -35,7 +35,6 @@ public abstract class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
-        UseLevelSettings();
         Initialize();
     }
 
@@ -60,14 +59,6 @@ public abstract class WaveSpawner : MonoBehaviour
     }
 
     protected abstract void Execute();
-
-    protected virtual void UseLevelSettings()
-    {
-        if (_isUselevelSettings == false)
-            return;
-
-        _capasity = Random.Range(Settings.GetMinWaveSize(), Settings.GetMaxWaveSize());
-    }
 
     protected void Create()
     {
