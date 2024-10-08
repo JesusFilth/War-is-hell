@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            _gameLevels.LoadGameLevel(_currentSkill);
+            _gameLevels.LoadNextLevel(_currentSkill);
         }
     }
 

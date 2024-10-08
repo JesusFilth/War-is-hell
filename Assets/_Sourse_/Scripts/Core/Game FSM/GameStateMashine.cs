@@ -6,13 +6,13 @@ public class GameStateMashine
     private Dictionary<Type, IGameState> _states;
     private IGameState _currentState;
 
-    public void Init(UserStorage userStorage, IGameLevels gameLevels)
+    public void Init(UserStorage userStorage)
     {
         _states = new Dictionary<Type, IGameState>()
         {
             [typeof(BootstrapState)] = new BootstrapState(this),
             [typeof(LoadDataState)] = new LoadDataState(this, userStorage),
-            [typeof(LoadMainMenuState)] = new LoadMainMenuState(gameLevels),
+            [typeof(LoadMainMenuState)] = new LoadMainMenuState(),
             [typeof(LoadGameSceneState)] = new LoadGameSceneState(),
         };
     }

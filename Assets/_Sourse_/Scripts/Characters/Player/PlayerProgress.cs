@@ -10,11 +10,11 @@ public class PlayerProgress
 
     public event Action<int> GoldChanged;
 
-    public void AddLevel() => LevelCount++;
+    public void SetLevelNumber(int level) => LevelCount = level;
 
     public void AddPoins(int points) => Points += points;
 
-    public void UpdateGold()    =>  GoldChanged?.Invoke(Gold);
+    public void UpdateGold() => GoldChanged?.Invoke(Gold);
 
     public void AddGold(int gold)
     {

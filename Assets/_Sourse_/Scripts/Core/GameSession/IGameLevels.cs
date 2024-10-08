@@ -2,9 +2,9 @@
 
 public interface IGameLevels
 {
-    void LoadGameLevel(Skill skill = null);
+    void StartGame();
 
-    void DestroyPlayer();
+    void LoadNextLevel(Skill skill = null);
 
     void InitPlayer(Vector3 position);
 }

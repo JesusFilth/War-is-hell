@@ -10,6 +10,6 @@ public class OnGameLevelLoaded : MonoBehaviour, ISceneLoadHandler<LevelLocation>
     public void OnSceneLoaded(LevelLocation level)
     {
         _dIConteiner.InitHot();
-        _gameLevels.LoadGameLevel();
+        _gameLevels.StartGame();
     }
 }

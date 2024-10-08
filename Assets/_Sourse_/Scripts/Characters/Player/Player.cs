@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        DIGameConteiner.Instance.InjectRecursive(gameObject);
+
         Transform = transform;
 
         if(_isDontDestroy)
