@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Reflex.Attributes;
@@ -7,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public abstract class WaveSpawner : MonoBehaviour
 {
+    protected const float DelaySpawn = 0.5f;
+
     [SerializeField] private List<EnemySpawnModel> _enemyModels;
     [SerializeField] private EnemySpawnPoint[] _points;
     [SerializeField] private int _capasity;
@@ -20,6 +23,8 @@ public abstract class WaveSpawner : MonoBehaviour
 
     protected bool HasEnemys => _enemysOnLine.Count > 0;
     protected int CountEnemysOnBattlefield => _enemysOnBattlefield.Count;
+
+    protected Coroutine Executing;
 
     private Dictionary<Enemy, int> _enemysOnLine = new();
     private List<Enemy> _enemysOnBattlefield = new();
@@ -42,12 +47,20 @@ public abstract class WaveSpawner : MonoBehaviour
     {
         foreach (Enemy enemy in _enemysOnBattlefield)
             enemy.Died -= DieEnemy;
+
+        if (Executing != null)
+        {
+            StopCoroutine(Executing);
+            Executing = null;
+        }
     }
 
     public void On()
     {
         _camera.Off();
-        Execute();
+
+        if(Executing==null)
+            Executing = StartCoroutine(Execute());
     }
 
     public void Off()
@@ -58,7 +71,7 @@ public abstract class WaveSpawner : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    protected abstract void Execute();
+    protected abstract IEnumerator Execute();
 
     protected void Create()
     {
@@ -129,7 +142,10 @@ public abstract class WaveSpawner : MonoBehaviour
             return;
         }
 
-        if(HasEnemys)
-            Execute();
+        if (HasEnemys)
+        {
+            if (Executing == null)
+                Executing = StartCoroutine(Execute());
+        }
     }
 }
