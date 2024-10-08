@@ -1986,7 +1986,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1744557090}
+  - {fileID: 5473479021776342328}
   - {fileID: 1433210431}
   - {fileID: 1278999368}
   m_Father: {fileID: 0}
@@ -6496,7 +6496,7 @@ MonoBehaviour:
     - rid: 6066312606560027039
       type: {class: GetGameObjectShot, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
-        m_Shot: {fileID: 1809429467}
+        m_Shot: {fileID: 0}
 --- !u!4 &1496145257
 Transform:
   m_ObjectHideFlags: 0
@@ -7506,181 +7506,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1744557089
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1744557090}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1744557090
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744557089}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5473479021776342328}
-  - {fileID: 1809429466}
-  m_Father: {fileID: 451944353}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1809429465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1809429466}
-  - component: {fileID: 1809429467}
-  m_Layer: 0
-  m_Name: Ancor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1809429466
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809429465}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1744557090}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1809429467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809429465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55db089f35f4457a8ff1981374b2de6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsMainShot: 0
-  m_TimeMode:
-    m_UpdateTime: 0
-  m_Clipping: 0
-  m_ShotType:
-    rid: 6066312606560027026
-  references:
-    version: 2
-    RefIds:
-    - rid: 6066312606560027026
-      type: {class: ShotTypeAnchorPeek, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
-      data:
-        m_ShotSystemViewport:
-          m_Projection:
-            m_IsEnabled: 0
-            m_Value: 0
-          m_FieldOfView:
-            m_IsEnabled: 0
-            m_Value: 60
-          m_OrthographicSize:
-            m_IsEnabled: 0
-            m_Value: 5
-          m_ClipPlaneNear:
-            m_IsEnabled: 0
-            m_Value: 0.3
-          m_ClipPlaneFar:
-            m_IsEnabled: 0
-            m_Value: 1000
-        m_ShotSystemAnchor:
-          m_Target:
-            m_Property:
-              rid: 6066312606560027027
-          m_Offset:
-            m_Property:
-              rid: 6066312606560027028
-          m_Distance:
-            m_Property:
-              rid: 6066312606560027029
-        m_ShotSystemPeek:
-          m_Pan: 1
-          m_Tilt: 30
-          m_Input:
-            m_Input:
-              rid: 6066312606560027030
-          m_SmoothTime: 0.15
-          m_Restitute: 0
-          m_SensitivityX:
-            m_Property:
-              rid: 6066312606560027031
-          m_SensitivityY:
-            m_Property:
-              rid: 6066312606560027032
-    - rid: 6066312606560027027
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 6066312606560027028
-      type: {class: GetDirectionLocalValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Transform:
-          m_Property:
-            rid: 6066312606560027033
-        m_Direction:
-          m_Property:
-            rid: 6066312606560027034
-    - rid: 6066312606560027029
-      type: {class: GetDirectionLocalValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Transform:
-          m_Property:
-            rid: 6066312606560027035
-        m_Direction:
-          m_Property:
-            rid: 6066312606560027036
-    - rid: 6066312606560027030
-      type: {class: InputValueVector2MotionSecondary, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 6066312606560027031
-      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 60
-    - rid: 6066312606560027032
-      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 60
-    - rid: 6066312606560027033
-      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 6066312606560027034
-      type: {class: GetDirectionVector, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Direction: {x: 0, y: 0, z: 0}
-    - rid: 6066312606560027035
-      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 6066312606560027036
-      type: {class: GetDirectionVector, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Direction: {x: 0, y: 0, z: -3}
 --- !u!1 &1934428502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9223,7 +9048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1744557090}
+  m_Father: {fileID: 451944353}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!20 &5495852487276304286
 Camera:
