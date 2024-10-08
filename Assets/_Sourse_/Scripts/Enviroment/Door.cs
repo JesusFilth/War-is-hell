@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
 
     private Skill _currentSkill;
 
-    [Inject] private IGameLevels _gameLevels;
+    [Inject] private IGameLevel _gameLevels;
 
     private void OnTriggerEnter(Collider other)
     {

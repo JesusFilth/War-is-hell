@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Traits _traits;
     [SerializeField] private Transform _skillPoint;
 
-    [Inject] private IGameProgress _progress;
+    [Inject] private IGameLevel _gameLevel;
 
     public Transform SkillPoint => _skillPoint;
     public bool IsDead { get; private set; }
@@ -39,6 +39,6 @@ public class Enemy : MonoBehaviour
     private void Initialize()
     {
         RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(LevelID);
-        runtimeStat.AddModifier(ModifierType.Constant, _progress.GetPlayerProgress().LevelCount);
+        runtimeStat.AddModifier(ModifierType.Constant, _gameLevel.GetCurrentLevelNumber());
     }
 }

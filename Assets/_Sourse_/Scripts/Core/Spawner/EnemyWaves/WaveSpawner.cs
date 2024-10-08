@@ -14,9 +14,9 @@ public abstract class WaveSpawner : MonoBehaviour
     [SerializeField] private float _experiance = 50;
 
     [Inject] private GameLevelCamera _camera;
-    [Inject] private IGamePlayer _player;
-    [Inject] private IGameProgress _gameProgress;
-    [Inject] protected IGameLevelSettings Settings;
+    [Inject] private IGamePlayer _player;//?
+    [Inject] private IGameLevel _gameLevel;
+    [Inject] protected IGameLevelSettings Settings;//?
 
     protected bool HasEnemys => _enemysOnLine.Count > 0;
     protected int CountEnemysOnBattlefield => _enemysOnBattlefield.Count;
@@ -84,7 +84,7 @@ public abstract class WaveSpawner : MonoBehaviour
     private void AddExperiance()
     {
         float percentUp = Settings.GetUpExceptionPercent();
-        int level = _gameProgress.GetPlayerProgress().LevelCount;
+        int level = _gameLevel.GetCurrentLevelNumber();
         float exp = (_experiance / 100) * (percentUp * level);
         _player.AddExpirience(exp);
         Debug.Log("Add exp");
