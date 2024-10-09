@@ -11,8 +11,11 @@ public class LevelsStorage : MonoBehaviour,
 
     public LevelLocation GetLevelLocation(int index)
     {
-        if (index < 0 || index > _levels.Length - 1)
+        if (index < 0)
             throw new ArgumentOutOfRangeException(nameof(index));
+
+        if (index == _levels.Length)
+            index = 0;
 
         return _levels[index];
     }
