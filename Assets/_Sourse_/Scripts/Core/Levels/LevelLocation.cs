@@ -10,10 +10,12 @@ public class LevelLocation : MonoBehaviour
     [SerializeField] private Transform _playerStartPosition;
     [SerializeField] private Transform _priseSkillPosition;
     [SerializeField] private bool _isRandomX = true;
+    [SerializeField] private Vector3 _offsetCamera = new Vector3(.0f, 3f, -3.0f);
 
     public Transform PlayerStartPosition => _playerStartPosition;
 
     [Inject] private StateMashineUI _stateMashineUI;
+    [Inject] private GameLevelCamera _camera;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class LevelLocation : MonoBehaviour
     private void Start()
     {
         _stateMashineUI.EnterIn<LevelInitUIState>();
+        _camera.SetDistance(_offsetCamera);
     }
 
     public void SetPriseSkill(Skill skill)

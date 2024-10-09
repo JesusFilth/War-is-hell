@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class GameReflexDI : MonoBehaviour, IInstaller
 {
-    [SerializeField] private FollowCameraToPlayerX _followCamera;
+    [SerializeField] private GameSession _gameSession;
+    [SerializeField] private Player _player;
+    [SerializeField] private GameLevelCamera _followCamera;
     [SerializeField] private SkillStorage _skillStorage;
     [SerializeField] private SkillsConteinerUI _skillConteinerUI;
     [SerializeField] private DIGameConteiner _dIGameConteiner;
@@ -11,6 +13,16 @@ public class GameReflexDI : MonoBehaviour, IInstaller
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
+        containerBuilder.AddSingleton(
+            _player,
+            typeof(IGamePlayer),
+            typeof(IGameProgress),
+            typeof(IPlayerAbilities));
+
+        containerBuilder.AddSingleton(
+            _gameSession,
+            typeof(IGameLevel));
+
         containerBuilder.AddSingleton(_followCamera);
         containerBuilder.AddSingleton(_skillStorage);
         containerBuilder.AddSingleton(_skillConteinerUI);

@@ -1,5 +1,5 @@
-using Reflex.Attributes;
 using System.Collections;
+using Reflex.Attributes;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class LevelInitUI : MonoBehaviour, IGameUI
     private Coroutine _coroutine;
     private WaitForSeconds _waitForSeconds;
 
-    [Inject] private IGameProgress _progress;
+    [Inject] private IGameLevel _gameLevel;
     [Inject] private StateMashineUI _stateMashineUI;
 
     private void Awake()
@@ -44,7 +44,7 @@ public class LevelInitUI : MonoBehaviour, IGameUI
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
 
-        _level.text = _progress.GetPlayerProgress().LevelCount.ToString();
+        _level.text = _gameLevel.GetCurrentLevelNumber().ToString();
 
         if (_coroutine == null)
             _coroutine = StartCoroutine(Showing());

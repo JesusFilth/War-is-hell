@@ -20,11 +20,6 @@ public class SkillActive : Skill
 
     private float _currentTime = 0;
 
-    private void Awake()
-    {
-        Stratigy = new ActiveSkillStratigy();
-    }
-
     public override void ExecuteStratigy(PlayerAbilitys abilitys)
     {
         if (Stratigy == null)

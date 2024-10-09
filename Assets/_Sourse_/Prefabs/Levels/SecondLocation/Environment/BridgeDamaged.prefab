@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8308319255086431533}
   - component: {fileID: 5864434202252990787}
   - component: {fileID: 7098945723264861038}
-  - component: {fileID: 5108015373583033269}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Middle
   m_TagString: Untagged
@@ -85,28 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5108015373583033269
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108352836991839988}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: ff95980c46cc58a40ba652291a10474f, type: 3}
 --- !u!1 &138726360865769393
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +95,6 @@ GameObject:
   - component: {fileID: 4063184631055658949}
   - component: {fileID: 665067340489562913}
   - component: {fileID: 6340704347872632895}
-  - component: {fileID: 6270516030333845961}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Ramp (1)
   m_TagString: Untagged
@@ -192,28 +168,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6270516030333845961
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138726360865769393}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1a431f7cde3c1724ab902b29acda4777, type: 3}
 --- !u!1 &1776559486892077352
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +285,6 @@ GameObject:
   - component: {fileID: 271393023680402155}
   - component: {fileID: 7791538297090150984}
   - component: {fileID: 7060435577175922785}
-  - component: {fileID: 975672482197041247}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Ramp
   m_TagString: Untagged
@@ -405,28 +358,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &975672482197041247
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2442612283012313698}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1a431f7cde3c1724ab902b29acda4777, type: 3}
 --- !u!1 &3784071756945064177
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +369,6 @@ GameObject:
   - component: {fileID: 1717640230036147299}
   - component: {fileID: 8816576081276995977}
   - component: {fileID: 8542986024933591200}
-  - component: {fileID: 5013768278103246421}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Damaged_Middle (1)
   m_TagString: Untagged
@@ -513,28 +443,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5013768278103246421
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3784071756945064177}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f61a6e9d6fe9ffe43bc91a33219289ee, type: 3}
 --- !u!1 &4222232830641799041
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +808,6 @@ GameObject:
   - component: {fileID: 503124656526187287}
   - component: {fileID: 1905895114073568744}
   - component: {fileID: 8687020026629075413}
-  - component: {fileID: 4166814970540395588}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Rubble
   m_TagString: Untagged
@@ -973,28 +880,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4166814970540395588
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4969861778853663238}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: f61a6e9d6fe9ffe43bc91a33219289ee, type: 3}
 --- !u!1 &5962060457773789850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +891,6 @@ GameObject:
   - component: {fileID: 409023096922607448}
   - component: {fileID: 6122514825677485165}
   - component: {fileID: 5220440789311657764}
-  - component: {fileID: 5307738459525552005}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Rubble
   m_TagString: Untagged
@@ -1079,28 +963,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5307738459525552005
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5962060457773789850}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: f61a6e9d6fe9ffe43bc91a33219289ee, type: 3}
 --- !u!1 &8206165982414458984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +974,6 @@ GameObject:
   - component: {fileID: 8791170359309168200}
   - component: {fileID: 6508185871270843811}
   - component: {fileID: 1385108393037376063}
-  - component: {fileID: 8729412394636371288}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Damaged_Middle
   m_TagString: Untagged
@@ -1187,28 +1048,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8729412394636371288
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8206165982414458984}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f61a6e9d6fe9ffe43bc91a33219289ee, type: 3}
 --- !u!1 &9171784818071053638
 GameObject:
   m_ObjectHideFlags: 0

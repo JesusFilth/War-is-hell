@@ -1,35 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    public bool IsBusy { get; private set; } = false;
+    public bool IsBusy { get; protected set; } = false;
     public Transform Transform { get; private set; }
-
-    private Enemy _currentEnemy;
 
     private void Awake()
     {
         Transform = transform;
     }
 
-    private void OnDisable()
-    {
-        if (_currentEnemy != null)
-            _currentEnemy.Died -= DieEnemy;
-    }
+    public void ToBusy() => IsBusy = true;
 
-    public void SetEnemy(Enemy enemy)
-    {
-        IsBusy = true;
-        _currentEnemy = enemy;
-        _currentEnemy.Died += DieEnemy;
-    }
-
-    private void DieEnemy(Enemy enemy)
-    {
-        IsBusy = false;
-        enemy.Died -= DieEnemy;
-
-        _currentEnemy = null;
-    }
+    public void ToFree() => IsBusy = false;
 }

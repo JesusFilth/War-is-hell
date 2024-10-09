@@ -13,9 +13,6 @@ public class SkillsEnemyConteiner : MonoBehaviour
     {
         if(other.TryGetComponent(out Enemy enemy))
         {
-            if (enemy.IsDead)
-                return;
-
             AddEnemy(enemy);
         }
     }
@@ -24,9 +21,6 @@ public class SkillsEnemyConteiner : MonoBehaviour
     {
         if(other.TryGetComponent(out Enemy enemy))
         {
-            if (enemy.IsDead)
-                return;
-
             RemoveEnemy(enemy);
         }
     }
@@ -34,20 +28,13 @@ public class SkillsEnemyConteiner : MonoBehaviour
     private void AddEnemy(Enemy enemy)
     {
         _enemys.Add(enemy);
-        enemy.Died += DieEnemy;
     }
 
     private void RemoveEnemy(Enemy enemy)
     {
         if (_enemys.Contains(enemy))
         {
-            enemy.Died -= DieEnemy;
             _enemys.Remove(enemy);
         }
-    }
-
-    private void DieEnemy(Enemy enemy)
-    {
-        RemoveEnemy(enemy);
     }
 }

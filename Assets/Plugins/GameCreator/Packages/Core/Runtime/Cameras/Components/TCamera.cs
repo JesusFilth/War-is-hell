@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using GameCreator.Runtime.Common;
+using System.Collections;
 
 namespace GameCreator.Runtime.Cameras
 {
@@ -31,6 +32,11 @@ namespace GameCreator.Runtime.Cameras
         
         private readonly CameraShakeSustain m_ShakeSustain = new CameraShakeSustain();
         private readonly CameraShakeBurst m_ShakeBurst = new CameraShakeBurst();
+
+        private bool _isLock;
+        private float _lockX;
+        private float _lockY;
+        private Coroutine _lerping;
 
         // PROPERTIES: ----------------------------------------------------------------------------
         
@@ -74,6 +80,12 @@ namespace GameCreator.Runtime.Cameras
         private void OnDisable()
         {
             this.Viewport.OnDisable(this);
+
+            if (_lerping != null)
+            {
+                StopCoroutine(_lerping);
+                _lerping = null;
+            }
         }
 
         // UPDATE METHODS: ------------------------------------------------------------------------
@@ -86,9 +98,21 @@ namespace GameCreator.Runtime.Cameras
             {
                 this.Transition.NormalUpdate();
                 Transform cameraTransform = this.transform;
-            
-                cameraTransform.position = this.Transition.Position;
-                cameraTransform.rotation = this.Transition.Rotation;
+
+                if (_isLock)//my change 08102014
+                {
+                    cameraTransform.position = new Vector3(_lockX, _lockY, this.Transition.Position.z);
+                    cameraTransform.rotation = this.Transition.Rotation;
+                }
+                else
+                {
+                    if(_lerping == null)
+                    {
+                        cameraTransform.position = this.Transition.Position;
+                    }
+
+                    cameraTransform.rotation = this.Transition.Rotation;
+                }
             }
             
             this.UpdateShakeEffect();
@@ -107,6 +131,43 @@ namespace GameCreator.Runtime.Cameras
                 cameraTransform.position = this.Transition.Position;
                 cameraTransform.rotation = this.Transition.Rotation;
             }
+        }
+
+        public void Lock()
+        {
+            _lockX = transform.position.x;
+            _lockY = transform.position.y;
+            _isLock = true;
+        } 
+        public void UnLock()
+        {
+            _isLock = false;
+
+            if (_lerping == null)
+                _lerping = StartCoroutine(Lerping());
+        }
+
+        private IEnumerator Lerping()
+        {
+            const float Speed = 10.0f;
+            const float MinDistance = 0.1f;
+
+            float currentTime = UnityEngine.Time.time;
+            float journeyLength = Vector3.Distance(transform.position, Transition.Position);
+
+            Vector3 startPosition = transform.position;
+
+            while (enabled && Vector3.Distance(transform.position, Transition.Position) > MinDistance)
+            {
+                float distCovered = (UnityEngine.Time.time - currentTime) * Speed;
+                float fractionOfJourney = distCovered / journeyLength;
+
+                transform.position = Vector3.Lerp(startPosition, Transition.Position, fractionOfJourney);
+
+                yield return null;
+            }
+
+            _lerping = null;
         }
 
         private void UpdateShakeEffect()

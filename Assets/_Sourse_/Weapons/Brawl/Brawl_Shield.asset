@@ -30,9 +30,11 @@ MonoBehaviour:
       rid: 7624060967053950997
   m_State:
     m_StateType: 2
-    m_AnimationClip: {fileID: 0}
+    m_AnimationClip:
+      m_Property:
+        rid: 6066312442918731780
     m_RuntimeController: {fileID: 0}
-    m_State: {fileID: 11400000, guid: d5441afcb163d4194ac29afeac80a3d7, type: 2}
+    m_State: {fileID: 11400000, guid: 6264ded1768c7e041bae0fd5831f14cc, type: 2}
     m_AvatarMask: {fileID: 0}
   m_Layer: 6
   m_Speed:
@@ -49,7 +51,7 @@ MonoBehaviour:
       m_Instructions:
         m_Instructions: []
   m_Parry:
-    m_Reaction: {fileID: 11400000, guid: a83000910f9274be2b97a638fa58788b, type: 2}
+    m_Reaction: {fileID: 11400000, guid: b675386738d25f348aba9f2134068710, type: 2}
     m_Effect:
       m_Property:
         rid: 7624061011678987061
@@ -57,7 +59,7 @@ MonoBehaviour:
       m_Instructions:
         m_Instructions: []
   m_Break:
-    m_Reaction: {fileID: 11400000, guid: 0eeb93bce71454f48a05e8bd7b3a7458, type: 2}
+    m_Reaction: {fileID: 11400000, guid: 69ac721ed6bc0b643804105c9bce2790, type: 2}
     m_Effect:
       m_Property:
         rid: 7624060967053951001
@@ -67,6 +69,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 6066312442918731780
+      type: {class: GetAnimationInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: {fileID: 0}
     - rid: 7624060967053950993
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
@@ -89,8 +95,10 @@ MonoBehaviour:
         m_Value: 1
     - rid: 7624060967053950998
       type: {class: GetDecimalConstantOne, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
     - rid: 7624060967053951001
       type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
     - rid: 7624060967053951851
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:

@@ -6,11 +6,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private const string LevelID = "level";
+    private const float DelayDieDestroy = 10f;
 
     [SerializeField] private Traits _traits;
+    [SerializeField] private Transform _skillPoint;
 
-    [Inject] private IGameProgress _progress;
+    [Inject] private IGameLevel _gameLevel;
 
+    public Transform SkillPoint => _skillPoint;
     public bool IsDead { get; private set; }
 
     public event Action<Enemy> Died;
@@ -26,6 +29,9 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        transform.parent = null;
+        Destroy(gameObject, DelayDieDestroy);
+
         IsDead = true;
         Died?.Invoke(this);
     }
@@ -33,6 +39,6 @@ public class Enemy : MonoBehaviour
     private void Initialize()
     {
         RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(LevelID);
-        runtimeStat.AddModifier(ModifierType.Constant, _progress.GetPlayerProgress().LevelCount);
+        runtimeStat.AddModifier(ModifierType.Constant, _gameLevel.GetCurrentLevelNumber());
     }
 }
