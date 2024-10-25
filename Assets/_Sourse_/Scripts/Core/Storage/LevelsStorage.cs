@@ -1,13 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelsStorage : MonoBehaviour,
     ILevelsStorage,
-    IGameLevelSettings
+    IGameLevelSettings,
+    IHeroStorage
 {
     [SerializeField] private LevelLocation[] _levels;
+    [SerializeField] private List<HeroSetting> _heroes;
+    [SerializeField] private LevelSettings _levelSettings;//?
     [SerializeField] private Player _playerPrefab;//?
-    [SerializeField] private LevelSettings _levelSettings;
 
     public LevelLocation GetLevelLocation(int index)
     {
@@ -21,6 +24,8 @@ public class LevelsStorage : MonoBehaviour,
     }
 
     public Player GetPlayerPrefab() => _playerPrefab;//?
+
+    public IReadOnlyList<HeroSetting> GetHeroes() => _heroes;
 
     public LevelSettings GetLevelSettings() => _levelSettings;
 

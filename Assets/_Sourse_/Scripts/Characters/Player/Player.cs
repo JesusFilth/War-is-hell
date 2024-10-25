@@ -22,6 +22,7 @@ public class Player : MonoBehaviour,
     private void Awake()
     {
         Transform = transform;
+        Initialize();
     }
 
     private void OnDisable()
@@ -75,6 +76,11 @@ public class Player : MonoBehaviour,
         _character.Driver.SetPosition(position);
 
         _positionStarting = null;
+    }
+
+    private void Initialize()
+    {
+        //1.выбирает бойца из переменной и загружет его
     }
 
     public void AddSkill_TEST(Skill skill)//temp

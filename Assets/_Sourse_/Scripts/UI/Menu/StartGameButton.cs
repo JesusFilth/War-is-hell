@@ -1,7 +1,7 @@
 using Reflex.Attributes;
 using UnityEngine;
 
-public class StartGameButtonTemp : MonoBehaviour
+public class StartGameButton : MonoBehaviour
 {
     [Inject] private GameStateMashine _stateMashine;
 

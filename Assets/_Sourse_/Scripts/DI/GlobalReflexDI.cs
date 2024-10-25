@@ -11,7 +11,8 @@ public class GlobalReflexDI : MonoBehaviour, IInstaller
         containerBuilder.AddSingleton(
             _levelStorage,
             typeof(ILevelsStorage),
-            typeof(IGameLevelSettings));
+            typeof(IGameLevelSettings),
+            typeof(IHeroStorage));
 
         containerBuilder.AddSingleton(new UserStorage());
         containerBuilder.AddSingleton(new GameStateMashine());
