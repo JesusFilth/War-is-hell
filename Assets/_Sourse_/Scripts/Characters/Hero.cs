@@ -8,4 +8,11 @@ public class Hero : MonoBehaviour
 
     public Character Character => _character;
     public PlayerAbilitys PlayerAbility => _playerAbility;
+
+    public Transform Transform;
+
+    private void Awake()
+    {
+        Transform = transform;
+    }
 }

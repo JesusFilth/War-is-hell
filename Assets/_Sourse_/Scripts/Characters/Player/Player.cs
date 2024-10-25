@@ -1,4 +1,5 @@
 using GameCreator.Runtime.Characters;
+using Reflex.Attributes;
 using System.Collections;
 using UnityEngine;
 
@@ -9,15 +10,19 @@ public class Player : MonoBehaviour,
 {
     private const float DelayPlayerPosition = 1f;
 
-    [SerializeField] private PlayerAbilitys _ability;
-    [SerializeField] private Character _character;
-
-    public Transform Transform { get; private set; }
-    public PlayerProgress Progress { get; private set; } = new();
-    public PlayerAbilitys Abilitys => _ability;
+    //private PlayerAbilitys _ability;//?
+    //private Character _character;//?
 
     private Coroutine _positionStarting;
     private WaitForSeconds _waitStartPosition = new WaitForSeconds(DelayPlayerPosition);
+
+    private Hero _hero;
+
+    [Inject] private IHeroStorage _heroStorage;
+
+    public Transform Transform { get; private set; }
+    public PlayerProgress Progress { get; private set; } = new();
+    //public PlayerAbilitys Abilitys => _hero.PlayerAbility;
 
     private void Awake()
     {
@@ -36,7 +41,7 @@ public class Player : MonoBehaviour,
 
     public Transform GetPlayerPosition()
     {
-        return Transform;
+        return _hero.Transform;
     }
 
     public void AddExpirience(float exp)//??
@@ -46,7 +51,7 @@ public class Player : MonoBehaviour,
 
     public void Resurrect()
     {
-        Abilitys.Resurrect();
+        _hero.PlayerAbility.Resurrect();
     }
 
     public PlayerProgress GetPlayerProgress()
@@ -56,7 +61,7 @@ public class Player : MonoBehaviour,
 
     public PlayerAbilitys GetAbilities()
     {
-        return Abilitys;
+        return _hero.PlayerAbility;
     }
 
     public void SetPosition(Vector3 position)
@@ -73,18 +78,20 @@ public class Player : MonoBehaviour,
     private IEnumerator StartingPosition(Vector3 position)
     {
         yield return _waitStartPosition;
-        _character.Driver.SetPosition(position);
+        _hero.Character.Driver.SetPosition(position);
 
         _positionStarting = null;
     }
 
     private void Initialize()
     {
-        //1.выбирает бойца из переменной и загружет его
+        _hero = Instantiate(_heroStorage.GetCurrentHero().Hero);
+        Transform.SetParent(_hero.transform);
+        Transform.position = Vector3.zero;
     }
 
     public void AddSkill_TEST(Skill skill)//temp
     {
-        skill.ExecuteStratigy(Abilitys);
+        skill.ExecuteStratigy(_hero.PlayerAbility);
     }
 }

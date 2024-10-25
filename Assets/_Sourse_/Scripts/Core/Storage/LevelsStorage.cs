@@ -12,6 +12,8 @@ public class LevelsStorage : MonoBehaviour,
     [SerializeField] private LevelSettings _levelSettings;//?
     [SerializeField] private Player _playerPrefab;//?
 
+    private HeroSetting _currentHero;
+
     public LevelLocation GetLevelLocation(int index)
     {
         if (index < 0)
@@ -24,6 +26,13 @@ public class LevelsStorage : MonoBehaviour,
     }
 
     public Player GetPlayerPrefab() => _playerPrefab;//?
+
+    public void SetCurrentHero(HeroSetting heroSetting)
+    {
+        _currentHero = heroSetting;
+    }
+
+    public HeroSetting GetCurrentHero() => _currentHero;
 
     public IReadOnlyList<HeroSetting> GetHeroes() => _heroes;
 

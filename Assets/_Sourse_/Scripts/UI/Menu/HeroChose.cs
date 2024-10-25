@@ -25,8 +25,7 @@ public class HeroChose : MonoBehaviour
 
     private void Awake()
     {
-        //Initialize();
-        UpdateChoseHero();
+        Initialize();
     }
 
     private void OnEnable()
@@ -55,6 +54,7 @@ public class HeroChose : MonoBehaviour
 
     private void Initialize()
     {
+        _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
         UpdateChoseHero();
     }
 
@@ -67,5 +67,7 @@ public class HeroChose : MonoBehaviour
             materials = null,
             offset = Vector3.zero
         });
+
+        _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
     }
 }
