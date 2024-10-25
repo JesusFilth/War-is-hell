@@ -1,20 +1,25 @@
 using System;
 using GameCreator.Runtime.Characters;
 using Reflex.Attributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HeroChose : MonoBehaviour
 {
     [SerializeField] private Character _character;
+
     [SerializeField] private Button _next;
     [SerializeField] private Button _prev;
+
     [SerializeField] private Button _buy;
-    [SerializeField] private Button _select;
+    [SerializeField] private GameObject _select;
+    [SerializeField] private TMP_Text _price;
 
     private int _currentIndex = 0;
 
     [Inject] private IHeroStorage _heroes;
+    [Inject] private UserStorage _userStorage;
 
     public event Action<HeroSetting> HeroChanged;
 
@@ -23,19 +28,26 @@ public class HeroChose : MonoBehaviour
         Initialize();
     }
 
+    private void Start()
+    {
+        HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
+    }
+
     private void OnEnable()
     {
         _next.onClick.AddListener(Next);
         _prev.onClick.AddListener(Prev);
+        _buy.onClick.AddListener(Buy);
     }
 
     private void OnDisable()
     {
         _next.onClick.RemoveListener(Next);
         _prev.onClick.RemoveListener(Prev);
+        _buy.onClick.RemoveListener(Buy);
     }
 
-    public void Next()
+    private void Next()
     {
         if (_currentIndex == _heroes.GetHeroes().Count - 1)
             return;
@@ -44,7 +56,7 @@ public class HeroChose : MonoBehaviour
         UpdateChoseHero();
     }
 
-    public void Prev()
+    private void Prev()
     {
         if (_currentIndex == 0)
             return;
@@ -53,15 +65,46 @@ public class HeroChose : MonoBehaviour
         UpdateChoseHero();
     }
 
+    private void Buy()
+    {
+        HeroSetting hero = _heroes.GetHeroes()[_currentIndex];
+
+        if (hero.Price > _userStorage.UserGold)
+            return;
+
+        _userStorage.AddGold(-hero.Price);
+        _userStorage.AddHero(hero.Id);
+
+        UpdateButtons(hero);
+    }
+
     private void Initialize()
     {
         _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
         UpdateChoseHero();
     }
 
+    private void UpdateButtons(HeroSetting heroSetting)
+    {
+        if (_userStorage.HasHero(heroSetting.Id))
+        {
+            _buy.gameObject.SetActive(false);
+            _select.SetActive(true);
+
+            _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
+        }
+        else
+        {
+            _price.text = heroSetting.Price.ToString();
+            _buy.gameObject.SetActive(true);
+            _select.SetActive(false);
+        }
+    }
+
     private void UpdateChoseHero()
     {
-        GameObject skin = _heroes.GetHeroes()[_currentIndex].Skin;
+        HeroSetting heroSetting = _heroes.GetHeroes()[_currentIndex];
+        GameObject skin = heroSetting.Skin;
 
         _character.ChangeModel(skin, new Character.ChangeOptions
         {
@@ -69,7 +112,8 @@ public class HeroChose : MonoBehaviour
             offset = Vector3.zero
         });
 
-        _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
+        UpdateButtons(heroSetting);
+        
         HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
     }
 }

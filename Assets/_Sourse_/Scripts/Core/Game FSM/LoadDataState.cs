@@ -63,6 +63,7 @@ public class LoadDataState : IGameState
 
     private UserModel GetDeserialize(string json)
     {
+        Debug.Log("default user");
         return GetDefaultUser();//temp
 
         if (string.IsNullOrEmpty(json))
@@ -78,6 +79,12 @@ public class LoadDataState : IGameState
 
     private UserModel GetDefaultUser()
     {
-        return new UserModel() { Name = "Player", Gold = 100, Score = 0 };
+        return new UserModel()
+        {
+            Name = "Player",
+            Gold = 100,
+            Score = 0,
+            Heroes = new string[] { "0" },
+        };
     }
 }
