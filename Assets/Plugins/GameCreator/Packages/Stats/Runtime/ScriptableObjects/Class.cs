@@ -39,5 +39,10 @@ namespace GameCreator.Runtime.Stats
         
         public AttributeItem GetAttribute(int index) => this.m_Attributes.Get(index);
         public StatItem GetStat(int index) => this.m_Stats.Get(index);
+
+        public StatItem GetStat(string id)
+        {
+            return m_Stats.Get(id);
+        }
     }
 }

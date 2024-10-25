@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using GameCreator.Runtime.Characters;
 using Reflex.Attributes;
 using UnityEngine;
@@ -9,19 +7,16 @@ using UnityEngine.UI;
 public class HeroChose : MonoBehaviour
 {
     [SerializeField] private Character _character;
-
-    //[SerializeField] private Transform _heroseContainer;
-
     [SerializeField] private Button _next;
     [SerializeField] private Button _prev;
     [SerializeField] private Button _buy;
     [SerializeField] private Button _select;
 
-    //private HeroSetting _currentHero;
-    //private Dictionary<string, Hero> _herosModels = new();
     private int _currentIndex = 0;
 
     [Inject] private IHeroStorage _heroes;
+
+    public event Action<HeroSetting> HeroChanged;
 
     private void Awake()
     {
@@ -42,12 +37,18 @@ public class HeroChose : MonoBehaviour
 
     public void Next()
     {
+        if (_currentIndex == _heroes.GetHeroes().Count - 1)
+            return;
+
         _currentIndex = Mathf.Clamp(_currentIndex += 1, 0, _heroes.GetHeroes().Count-1);
         UpdateChoseHero();
     }
 
     public void Prev()
     {
+        if (_currentIndex == 0)
+            return;
+
         _currentIndex = Mathf.Clamp(_currentIndex -= 1, 0, _heroes.GetHeroes().Count-1);
         UpdateChoseHero();
     }
@@ -69,5 +70,6 @@ public class HeroChose : MonoBehaviour
         });
 
         _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
+        HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
     }
 }
