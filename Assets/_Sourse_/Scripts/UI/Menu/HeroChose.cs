@@ -14,6 +14,7 @@ public class HeroChose : MonoBehaviour
 
     [SerializeField] private Button _buy;
     [SerializeField] private GameObject _select;
+    [SerializeField] private GameObject _lock;
     [SerializeField] private TMP_Text _price;
 
     private int _currentIndex = 0;
@@ -90,6 +91,7 @@ public class HeroChose : MonoBehaviour
         {
             _buy.gameObject.SetActive(false);
             _select.SetActive(true);
+            _lock.gameObject.SetActive(false);
 
             _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
         }
@@ -98,6 +100,7 @@ public class HeroChose : MonoBehaviour
             _price.text = heroSetting.Price.ToString();
             _buy.gameObject.SetActive(true);
             _select.SetActive(false);
+            _lock.gameObject.SetActive(true);
         }
     }
 
