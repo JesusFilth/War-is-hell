@@ -10,8 +10,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Traits _traits;
     [SerializeField] private Transform _skillPoint;
+    [SerializeField] private int _score;
 
     [Inject] private IGameLevel _gameLevel;
+    [Inject] private IGameProgress _gameProgress;
 
     public Transform SkillPoint => _skillPoint;
     public bool IsDead { get; private set; }
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        _gameProgress.GetPlayerProgress().AddScore(_score);
         transform.parent = null;
         Destroy(gameObject, DelayDieDestroy);
 

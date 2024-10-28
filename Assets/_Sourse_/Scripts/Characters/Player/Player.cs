@@ -9,10 +9,6 @@ public class Player : MonoBehaviour,
     IPlayerAbilities
 {
     private const float DelayPlayerPosition = 1f;
-
-    //private PlayerAbilitys _ability;//?
-    //private Character _character;//?
-
     private Coroutine _positionStarting;
     private WaitForSeconds _waitStartPosition = new WaitForSeconds(DelayPlayerPosition);
 
@@ -22,7 +18,6 @@ public class Player : MonoBehaviour,
 
     public Transform Transform { get; private set; }
     public PlayerProgress Progress { get; private set; } = new();
-    //public PlayerAbilitys Abilitys => _hero.PlayerAbility;
 
     private void Awake()
     {
