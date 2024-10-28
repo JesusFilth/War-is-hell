@@ -4866,7 +4866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 922297249}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ---- UI ----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12436,6 +12436,7 @@ GameObject:
   - component: {fileID: 585466996}
   - component: {fileID: 4926694817667563829}
   - component: {fileID: 585466995}
+  - component: {fileID: 8770279836715794184}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -12443,6 +12444,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!114 &8770279836715794184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770279836715794183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!23 &8862535060800950052
 MeshRenderer:
   m_ObjectHideFlags: 0

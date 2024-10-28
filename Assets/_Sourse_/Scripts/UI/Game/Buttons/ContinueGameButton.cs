@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Reflex.Attributes;
 
-public class ContinueGameButton : MonoBehaviour
+public class ContinueGameButton : ButtonView
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Inject] private StateMashineUI _stateMashine;
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnClick()
     {
-        
+        _stateMashine.EnterIn<GameLevelUIState>();
     }
 }

@@ -29,6 +29,7 @@ public class StateMashineUI : MonoBehaviour
     private void Awake()
     {
         Initialize();
+        EnterIn<GameLevelUIState>();
     }
 
     public void EnterIn<TState>()
