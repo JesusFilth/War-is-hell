@@ -27,7 +27,7 @@ public class AutorizationButton : MonoBehaviour
     private void OnClick()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-          PlayerAccount.Authorize();
+        PlayerAccount.Authorize();
 
         if(PlayerAccount.IsAuthorized)
             PlayerAccount.RequestPersonalProfileDataPermission();
