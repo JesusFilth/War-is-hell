@@ -2,10 +2,12 @@ using System.Collections;
 using Reflex.Attributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class LevelInitUI : MonoBehaviour, IGameUI
 {
+    [SerializeField] private Image _screen;
     [SerializeField] private TMP_Text _level;
     [SerializeField] private float _delay = 3;
 
@@ -15,6 +17,7 @@ public class LevelInitUI : MonoBehaviour, IGameUI
 
     [Inject] private IGameLevel _gameLevel;
     [Inject] private StateMashineUI _stateMashineUI;
+    [Inject] private ILoadScreens _loadScreens;
 
     private void Awake()
     {
@@ -43,6 +46,8 @@ public class LevelInitUI : MonoBehaviour, IGameUI
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
+
+        _screen.sprite = _loadScreens.GetRandomScreen();
 
         _level.text = _gameLevel.GetCurrentLevelNumber().ToString();
 

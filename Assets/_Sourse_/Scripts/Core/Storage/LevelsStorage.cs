@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelsStorage : MonoBehaviour,
     ILevelsStorage,
     IGameLevelSettings,
-    IHeroStorage
+    IHeroStorage,
+    ILoadScreens
 {
     [SerializeField] private LevelLocation[] _levels;
     [SerializeField] private List<HeroSetting> _heroes;
+    [SerializeField] private Sprite[] _loadScreens;
     [SerializeField] private LevelSettings _levelSettings;//?
     [SerializeField] private Player _playerPrefab;//?
 
@@ -35,6 +38,14 @@ public class LevelsStorage : MonoBehaviour,
     public HeroSetting GetCurrentHero() => _currentHero;
 
     public IReadOnlyList<HeroSetting> GetHeroes() => _heroes;
+
+    public Sprite GetRandomScreen()
+    {
+        if (_loadScreens == null || _loadScreens.Length == 0)
+            throw new ArgumentNullException(nameof(_loadScreens));
+
+        return _loadScreens[Random.Range(0, _loadScreens.Length)];
+    }
 
     public LevelSettings GetLevelSettings() => _levelSettings;
 
