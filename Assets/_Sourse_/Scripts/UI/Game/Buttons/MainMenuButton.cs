@@ -20,6 +20,8 @@ public class MainMenuButton : MonoBehaviour
     private void OnClick()
     {
         _userStorage.AddGold(_progress.GetPlayerProgress().Gold);
+        _userStorage.AddScore(_progress.GetPlayerProgress().Score);
+
         _stateMashine.EnterIn<LoadMainMenuState>();
     }
 }

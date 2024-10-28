@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateMashineUI : MonoBehaviour
 {
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _gameUI;
+    [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _menuUI;
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _skillUI;
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _levelInitUI;
     [SerializeField][SerializeInterface(typeof(IGameUI))] private GameObject _rewardLifeUI;
@@ -46,6 +47,7 @@ public class StateMashineUI : MonoBehaviour
         _states = new Dictionary<Type, GameUIState>()
         {
             [typeof(GameLevelUIState)] = new GameLevelUIState(_gameUI.GetComponent<IGameUI>()),
+            [typeof(GameMenuUIState)] = new GameMenuUIState(_menuUI.GetComponent<IGameUI>()),
             [typeof(LevelInitUIState)] = new LevelInitUIState(_levelInitUI.GetComponent<IGameUI>()),
             [typeof(SkillUIState)] = new SkillUIState(_skillUI.GetComponent<IGameUI>()),
             [typeof(LifeRewardUIState)] = new LifeRewardUIState(_rewardLifeUI.GetComponent<IGameUI>()),
