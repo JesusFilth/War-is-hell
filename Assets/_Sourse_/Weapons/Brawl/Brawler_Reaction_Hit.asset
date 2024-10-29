@@ -26,7 +26,8 @@ MonoBehaviour:
     - rid: 6655073818933985281
   m_OnEnter:
     m_Instructions:
-      m_Instructions: []
+      m_Instructions:
+      - rid: 6066313082743816789
   m_OnExit:
     m_Instructions:
       m_Instructions: []
@@ -36,7 +37,19 @@ MonoBehaviour:
     - rid: 3147619368711226134
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 2
+        m_Value: 1
+    - rid: 6066313082743816789
+      type: {class: InstructionCommonDebugText, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Message:
+          m_Property:
+            rid: 6066313082743816790
+    - rid: 6066313082743816790
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: HiiiiiiiT
     - rid: 6655073804197822464
       type: {class: ReactionItem, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:

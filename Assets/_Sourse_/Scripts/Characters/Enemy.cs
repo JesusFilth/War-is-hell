@@ -31,7 +31,9 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        _gameProgress.GetPlayerProgress().AddScore(_score);
+        if(_gameProgress != null)
+            _gameProgress.GetPlayerProgress().AddScore(_score);
+
         transform.parent = null;
         Destroy(gameObject, DelayDieDestroy);
 
