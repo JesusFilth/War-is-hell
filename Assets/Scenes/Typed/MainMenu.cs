@@ -13,10 +13,10 @@ namespace IJunior.TypedScenes
     using UnityEngine.SceneManagement;
     
     
-    public class Menu_Jes_1 : TypedScene
+    public class MainMenu : TypedScene
     {
         
-        private const string _sceneName = "Menu_Jes_1";
+        private const string _sceneName = "MainMenu";
         
         public static void Load(LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
