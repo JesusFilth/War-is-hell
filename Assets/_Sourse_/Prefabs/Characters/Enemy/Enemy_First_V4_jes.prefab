@@ -878,7 +878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6079057974110361388
 Transform:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,7 @@ MonoBehaviour:
         m_Driver:
           rid: 3147619289330090344
         m_Facing:
-          rid: 3147619289330090345
+          rid: 6066313082286375852
         m_Animim:
           rid: 3147619289330090346
     - rid: 3147619289330090339
@@ -1895,13 +1895,6 @@ MonoBehaviour:
         m_Axonometry:
           m_Axonometry:
             rid: 3147619289330090349
-    - rid: 3147619289330090345
-      type: {class: UnitFacingPivot, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data:
-        m_DirectionFrom: 0
-        m_Axonometry:
-          m_Axonometry:
-            rid: 3147619289330090350
     - rid: 3147619289330090346
       type: {class: UnitAnimimKinematic, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -1923,8 +1916,14 @@ MonoBehaviour:
     - rid: 3147619289330090349
       type: {class: AxonometryNone, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
-    - rid: 3147619289330090350
-      type: {class: AxonometryNone, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+    - rid: 6066313082286375852
+      type: {class: UnitFacingTarget, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Target:
+          m_Property:
+            rid: 6066313082286375853
+    - rid: 6066313082286375853
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
 --- !u!114 &4497229065532554138
 MonoBehaviour:
