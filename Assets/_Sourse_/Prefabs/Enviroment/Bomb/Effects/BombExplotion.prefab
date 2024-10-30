@@ -14263,6 +14263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7270661290447154567}
+  - component: {fileID: 5741888572464750047}
   m_Layer: 0
   m_Name: BombExplotion
   m_TagString: Untagged
@@ -14286,6 +14287,49 @@ Transform:
   - {fileID: 582743234144460914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5741888572464750047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228029159190919444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 6066313104315122352
+  m_TriggerEvent:
+    rid: 6066313104315122351
+  references:
+    version: 2
+    RefIds:
+    - rid: 6066313104315122351
+      type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 6066313104315122352
+      type: {class: InstructionCameraShakeBurst, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Camera:
+          m_Property:
+            rid: 6066313104315122353
+        m_Delay: 0
+        m_Duration: 0.5
+        m_ShakeEffect:
+          m_ShakePosition: 1
+          m_ShakeRotation: 1
+          m_Magnitude: 0.85
+          m_Roughness: 0.9
+          m_Transform: {fileID: 0}
+          m_Radius: 20
+    - rid: 6066313104315122353
+      type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
+      data: 
 --- !u!1 &6226326516108611834
 GameObject:
   m_ObjectHideFlags: 0
