@@ -1,5 +1,4 @@
 using Reflex.Attributes;
-using System;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
@@ -11,8 +10,11 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
-        DIGameConteiner.Instance.InjectRecursive(gameObject);
-        Initialize();
+        if(DIGameConteiner.Instance != null)
+        {
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
+            Initialize();
+        }
     }
 
     private void Initialize()
