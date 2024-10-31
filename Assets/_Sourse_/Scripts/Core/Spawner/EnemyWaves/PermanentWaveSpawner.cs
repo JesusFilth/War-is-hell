@@ -4,11 +4,9 @@ using Random = UnityEngine.Random;
 
 public class PermanentWaveSpawner : WaveSpawner
 {
-    [SerializeField] private int _maxEnemys = 3;
-
     protected override IEnumerator Execute()
     {
-        while(CountEnemysOnBattlefield != _maxEnemys)
+        while(CountEnemysOnBattlefield != Count)
         {
             if (HasEnemys == false)
                 break;

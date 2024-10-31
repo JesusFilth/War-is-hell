@@ -19107,10 +19107,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 14903
+    m_Bits: 14391
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -19143,7 +19143,7 @@ MonoBehaviour:
       type: {class: EventTriggerEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Collider:
-          m_Option: 1
+          m_Option: 0
           m_GameObject:
             m_Property:
               rid: 6066313102912651345

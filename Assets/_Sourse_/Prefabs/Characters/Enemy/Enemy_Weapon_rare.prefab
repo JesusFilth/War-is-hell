@@ -1498,6 +1498,7 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 6066313076358775165
+    - rid: 6066313126350160789
     - rid: 6066313076358775171
     - rid: 6066313076358775175
   references:
@@ -1548,6 +1549,18 @@ MonoBehaviour:
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
+    - rid: 6066313126350160789
+      type: {class: InstructionMeleeStopBlocking, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 6066313126350160791
+    - rid: 6066313126350160791
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 6202020278296552696}
 --- !u!1 &3158179224811323719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 6066313126350160787
     - rid: 6066313076358774918
     - rid: 6066313076358774827
     - rid: 6066313076358775406
@@ -2539,6 +2553,18 @@ MonoBehaviour:
       type: {class: GetGameObjectActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Actions: {fileID: 2481640305739297292}
+    - rid: 6066313126350160787
+      type: {class: InstructionMeleeStartBlocking, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 6066313126350160788
+    - rid: 6066313126350160788
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 6202020278296552696}
 --- !u!114 &1133759299336688892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3042,7 +3068,7 @@ MonoBehaviour:
     - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 1
-        m_Value: 35
+        m_Value: 30
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0

@@ -8,12 +8,17 @@ using Random = UnityEngine.Random;
 
 public abstract class WaveSpawner : MonoBehaviour
 {
-    protected const float DelaySpawn = 0.5f;
+    protected const float DelaySpawn = 0.15f;
 
     [SerializeField] private List<EnemySpawnModel> _enemyModels;
     [SerializeField] private EnemySpawnPoint[] _points;
-    [SerializeField] private int _capasity;
-    [SerializeField] private bool _isUselevelSettings = true;
+    [Space]
+    [SerializeField] private int _minCapasity;
+    [SerializeField] private int _maxCapasity;
+    [Space]
+    [SerializeField] private int _minCount;
+    [SerializeField] private int _maxCount;
+    [Space]
     [SerializeField] private float _experiance = 50;
 
     [Inject] private GameLevelCamera _camera;
@@ -21,6 +26,7 @@ public abstract class WaveSpawner : MonoBehaviour
     [Inject] private IGameLevel _gameLevel;
     [Inject] private IGameLevelSettings _gameLevelSettings;
 
+    protected int Count { get; private set; }
     protected bool HasEnemys => _enemysOnLine.Count > 0;
     protected int CountEnemysOnBattlefield => _enemysOnBattlefield.Count;
 
@@ -28,6 +34,7 @@ public abstract class WaveSpawner : MonoBehaviour
 
     private Dictionary<Enemy, int> _enemysOnLine = new();
     private List<Enemy> _enemysOnBattlefield = new();
+    private int _capasity;
 
     private void OnValidate()
     {
@@ -40,7 +47,8 @@ public abstract class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
-        Initialize();
+        SizeInit();
+        EnemysLineInit();
     }
 
     private void OnDisable()
@@ -105,7 +113,15 @@ public abstract class WaveSpawner : MonoBehaviour
         _player.AddExpirience(_experiance + UPresult);
     }
 
-    private void Initialize()
+    private void SizeInit()
+    {
+        int level = _gameLevel.GetCurrentLevelNumber();
+
+        _capasity = Random.Range(_minCapasity + level, _maxCapasity + level);
+        Count = Random.Range(_minCount + level, _maxCount + level);
+    }
+
+    private void EnemysLineInit()
     {
         float totalWeight = _enemyModels.Sum(spawnModel => spawnModel.Weight);
 
@@ -113,8 +129,9 @@ public abstract class WaveSpawner : MonoBehaviour
         {
             int count = (int)Mathf.Round(spawnModel.Weight / totalWeight * _capasity);
 
-            if(count == 0)
-                count = 1;
+            if (count == 0)
+                continue;
+                //count = 1;//?
 
             _enemysOnLine.Add(spawnModel.Enemy, count);
         }

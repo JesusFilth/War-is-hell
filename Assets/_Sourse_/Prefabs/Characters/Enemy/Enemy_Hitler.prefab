@@ -588,6 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 6066313126350160831
     - rid: 6066313076358774918
     - rid: 6066313076358774827
     - rid: 6066313076358775406
@@ -646,6 +647,18 @@ MonoBehaviour:
       type: {class: GetGameObjectActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Actions: {fileID: 5749944641973415663}
+    - rid: 6066313126350160831
+      type: {class: InstructionMeleeStartBlocking, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 6066313126350160832
+    - rid: 6066313126350160832
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 5532533328402344708}
 --- !u!114 &2357911704775747039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,6 +1588,7 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 6066313076358775165
+    - rid: 6066313126350160833
     - rid: 6066313076358775171
     - rid: 6066313076358775175
   references:
@@ -1625,6 +1639,18 @@ MonoBehaviour:
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
+    - rid: 6066313126350160833
+      type: {class: InstructionMeleeStopBlocking, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 6066313126350160835
+    - rid: 6066313126350160835
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 5532533328402344708}
 --- !u!1 &3602169640688239303
 GameObject:
   m_ObjectHideFlags: 0
