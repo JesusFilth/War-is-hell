@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 6066313076358775159
+    - rid: 6066313130938728679
     - rid: 6066313076358775161
   m_TriggerEvent:
     rid: 6066313076358775153
@@ -185,6 +186,33 @@ MonoBehaviour:
       type: {class: GetGameObjectActions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Actions: {fileID: 451519719545064524}
+    - rid: 6066313130938728679
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Seconds:
+          m_Property:
+            rid: 6066313130938728681
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 6066313130938728681
+      type: {class: GetDecimalRandomRange, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_MinValue:
+          m_Property:
+            rid: 6066313130938728684
+        m_MaxValue:
+          m_Property:
+            rid: 6066313130938728685
+    - rid: 6066313130938728684
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 6066313130938728685
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 3
 --- !u!1 &79672893459013757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,7 +1478,7 @@ MonoBehaviour:
           m_Focus:
             m_InteractionMode:
               rid: 3147619289330090348
-        m_Speed: 2.5
+        m_Speed: 2.2
         m_Rotation:
           m_IsEnabled: 1
           m_Value: 1800
