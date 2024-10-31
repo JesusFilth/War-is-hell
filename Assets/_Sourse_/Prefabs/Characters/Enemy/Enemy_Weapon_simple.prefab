@@ -3347,7 +3347,7 @@ GameObject:
   - component: {fileID: 204238414279480063}
   - component: {fileID: 6487127954673178851}
   m_Layer: 9
-  m_Name: Enemy_Weapon_Slow
+  m_Name: Enemy_Weapon_simple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3564,29 +3564,24 @@ MonoBehaviour:
     - m_String: max_hp
     - m_String: Damage
     - m_String: WeaponDamage
-    - m_String: MaxRandomObservation
     - m_String: maxDurability
     m_Values:
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
-    - m_IsExpanded: 0
+    - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 1
-        m_Value: 50000
-    - m_IsExpanded: 0
+        m_Value: 75
+    - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
-    - m_IsExpanded: 0
+    - m_IsExpanded: 1
       m_ChangeBase:
-        m_IsEnabled: 0
-        m_Value: 1
-    - m_IsExpanded: 0
-      m_ChangeBase:
-        m_IsEnabled: 0
-        m_Value: 1
+        m_IsEnabled: 1
+        m_Value: 25
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0

@@ -39,9 +39,9 @@ public class Player : MonoBehaviour,
         return _hero.Transform;
     }
 
-    public void AddExpirience(float exp)//??
+    public void AddExpirience(float exp)
     {
-        Debug.Log("Add Exp");
+        _hero.PlayerAbility.AddExperience(exp);
     }
 
     public void Resurrect()
@@ -83,10 +83,5 @@ public class Player : MonoBehaviour,
         _hero = Instantiate(_heroStorage.GetCurrentHero().Hero);
         Transform.SetParent(_hero.transform);
         Transform.position = Vector3.zero;
-    }
-
-    public void AddSkill_TEST(Skill skill)//temp
-    {
-        skill.ExecuteStratigy(_hero.PlayerAbility);
     }
 }

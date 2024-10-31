@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 2070641365409321054}
   - component: {fileID: 4237196011938064505}
   m_Layer: 9
-  m_Name: Enemy_First_Slow
+  m_Name: Enemy_First_simple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1560,25 +1560,20 @@ MonoBehaviour:
     - m_String: max_hp
     - m_String: Damage
     - m_String: WeaponDamage
-    - m_String: MaxRandomObservation
     - m_String: maxDurability
     m_Values:
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0
         m_Value: 1
-    - m_IsExpanded: 0
+    - m_IsExpanded: 1
       m_ChangeBase:
-        m_IsEnabled: 0
-        m_Value: 50000
-    - m_IsExpanded: 0
+        m_IsEnabled: 1
+        m_Value: 50
+    - m_IsExpanded: 1
       m_ChangeBase:
-        m_IsEnabled: 0
-        m_Value: 1
-    - m_IsExpanded: 0
-      m_ChangeBase:
-        m_IsEnabled: 0
-        m_Value: 1
+        m_IsEnabled: 1
+        m_Value: 15
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0

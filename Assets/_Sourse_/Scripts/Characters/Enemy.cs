@@ -44,6 +44,6 @@ public class Enemy : MonoBehaviour
     private void Initialize()
     {
         RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(LevelID);
-        runtimeStat.AddModifier(ModifierType.Constant, _gameLevel.GetCurrentLevelNumber());
+        runtimeStat.AddModifier(ModifierType.Constant, _gameLevel.GetCurrentLevelNumber() - 1);
     }
 }

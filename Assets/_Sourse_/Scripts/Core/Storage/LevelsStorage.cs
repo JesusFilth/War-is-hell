@@ -12,8 +12,7 @@ public class LevelsStorage : MonoBehaviour,
     [SerializeField] private LevelLocation[] _levels;
     [SerializeField] private List<HeroSetting> _heroes;
     [SerializeField] private Sprite[] _loadScreens;
-    [SerializeField] private LevelSettings _levelSettings;//?
-    [SerializeField] private Player _playerPrefab;//?
+    [SerializeField] private LevelSettings _levelSettings;
 
     private HeroSetting _currentHero;
 
@@ -27,8 +26,6 @@ public class LevelsStorage : MonoBehaviour,
 
         return _levels[index];
     }
-
-    public Player GetPlayerPrefab() => _playerPrefab;//?
 
     public void SetCurrentHero(HeroSetting heroSetting)
     {
@@ -47,21 +44,8 @@ public class LevelsStorage : MonoBehaviour,
         return _loadScreens[Random.Range(0, _loadScreens.Length)];
     }
 
-    public LevelSettings GetLevelSettings() => _levelSettings;
+    public float GetUpExpForLevelPercent() => _levelSettings.UpExpForLevelPercent;
 
-    public float GetUpEnemyStat() => _levelSettings.UpEnemyStatForLevel;
+    //public LevelSettings GetLevelSettings() => _levelSettings;
 
-    public int GetMinWaveSize() => _levelSettings.MinWaveSize;
-
-    public int GetMaxWaveSize() => _levelSettings.MaxWaveSize;
-
-    public int GetMinSquadEnemy() => _levelSettings.MinSquadEnemy;
-
-    public int GetMaxSquadEnemy() => _levelSettings.MaxSquadEnemy;
-
-    public int GetMinPermonentEnemy() => _levelSettings.MinPermonentEnemy;
-
-    public int GetMaxPermonentEnemy() => _levelSettings.MaxPermonentEnemy;
-
-    public float GetUpExceptionPercent() => _levelSettings.UpExeptionPercentForLevel;
 }

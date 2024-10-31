@@ -1,4 +1,5 @@
 using GameCreator.Runtime.Characters;
+using GameCreator.Runtime.Stats;
 using UnityEngine;
 
 public class Hero : MonoBehaviour

@@ -5,6 +5,7 @@ public class PlayerAbilitys : MonoBehaviour
 {
     private const float ResurectedHP = 10000;
     private const string HealthID = "hp";
+    private const string ExperienceID = "xp";
 
     [SerializeField] private Traits _traits;
     [SerializeField] private ActiveSkillsStorage _skillsStorage;
@@ -39,6 +40,12 @@ public class PlayerAbilitys : MonoBehaviour
     {
         RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(HealthID);
         runtimeAttribute.Value = value;
+    }
+
+    public void AddExperience(float value)
+    {
+        RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(ExperienceID);
+        runtimeStat.Base += value;
     }
 
     public void Resurrect()
