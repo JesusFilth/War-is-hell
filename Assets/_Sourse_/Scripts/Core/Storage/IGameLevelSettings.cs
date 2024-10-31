@@ -1,4 +1,4 @@
 ﻿public interface IGameLevelSettings
 {
-    float GetUpExpForLevelPercent();
+    float GetUpLevelPowerPercent();
 }

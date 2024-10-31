@@ -107,10 +107,10 @@ public abstract class WaveSpawner : MonoBehaviour
         const float MaxPercent = 100;
 
         int level = _gameLevel.GetCurrentLevelNumber();
-        float percentUp = (_gameLevelSettings.GetUpExpForLevelPercent() * level) / MaxPercent;
-        float UPresult = _experiance * percentUp;
+        float percentUp = (_gameLevelSettings.GetUpLevelPowerPercent() * level) / MaxPercent;
+        float upResult = _experiance * percentUp;
 
-        _player.AddExpirience(_experiance + UPresult);
+        _player.AddExpirience(_experiance + upResult);
     }
 
     private void SizeInit()

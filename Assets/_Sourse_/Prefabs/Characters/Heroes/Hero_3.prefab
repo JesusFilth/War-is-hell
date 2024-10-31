@@ -1925,7 +1925,7 @@ MonoBehaviour:
           m_Focus:
             m_InteractionMode:
               rid: 3147619357187637260
-        m_Speed: 3.2
+        m_Speed: 3.5
         m_Rotation:
           m_IsEnabled: 1
           m_Value: 1800
@@ -3279,6 +3279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 6066313126952043469
     - rid: 3147619362806170074
     - rid: 3147619358847795223
   m_TriggerEvent:
@@ -3329,6 +3330,19 @@ MonoBehaviour:
     - rid: 3147619362806170075
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
+    - rid: 6066313126952043469
+      type: {class: InstructionLogicRunConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Conditions:
+          m_Property:
+            rid: 6066313126952043470
+        m_WaitToFinish: 1
+    - rid: 6066313126952043470
+      type: {class: GetGameObjectConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Conditions: {fileID: 8511591186899750660}
 --- !u!1 &7358331824002614290
 GameObject:
   m_ObjectHideFlags: 0

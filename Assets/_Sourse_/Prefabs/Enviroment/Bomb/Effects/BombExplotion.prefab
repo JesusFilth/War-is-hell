@@ -14264,6 +14264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7270661290447154567}
   - component: {fileID: 5741888572464750047}
+  - component: {fileID: 6031738022731320944}
   m_Layer: 0
   m_Name: BombExplotion
   m_TagString: Untagged
@@ -14330,6 +14331,19 @@ MonoBehaviour:
     - rid: 6066313104315122353
       type: {class: GetGameObjectCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data: 
+--- !u!114 &6031738022731320944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228029159190919444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ed858bfcfeeb24c904794b852dc8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 50
 --- !u!1 &6226326516108611834
 GameObject:
   m_ObjectHideFlags: 0
@@ -19165,7 +19179,7 @@ MonoBehaviour:
           m_Operation: 2
           m_Value:
             m_Property:
-              rid: 6066313102912651362
+              rid: 6066313126952042910
     - rid: 6066313102912651347
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
@@ -19173,16 +19187,6 @@ MonoBehaviour:
       type: {class: GetAttributeInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
         m_Attribute: {fileID: 11400000, guid: 9b5707bf8615e96468895005648f1690, type: 2}
-    - rid: 6066313102912651362
-      type: {class: GetDecimalGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: number
-          m_Variable: {fileID: 11400000, guid: 4878f307356bfb54c8c63f1fce0eb475, type: 2}
-          m_Name:
-            m_String: bombDamage
-            m_ID: 1159981585
     - rid: 6066313102912651366
       type: {class: InstructionGameObjectDisableCollider, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -19195,6 +19199,12 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 6226326516108611834}
+    - rid: 6066313126952042910
+      type: {class: GetDecimalReflectionFieldFloat, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Field:
+          m_Component: {fileID: 6031738022731320944}
+          m_Member: _damage
 --- !u!114 &7172200011268604510
 MonoBehaviour:
   m_ObjectHideFlags: 0

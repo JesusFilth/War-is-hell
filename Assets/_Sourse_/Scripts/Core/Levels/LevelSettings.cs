@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelSettings", menuName = "Pig Punch/Level/LevelSettings", order = 2)]
 public class LevelSettings : ScriptableObject
 {
-    [SerializeField] private float _upExpForLevelPercent = 10f;
+    [SerializeField] private float _upLevelPowerPercent = 10f;
 
-    public float UpExpForLevelPercent => _upExpForLevelPercent;
+    public float UpLevelPowerPercent => _upLevelPowerPercent;
 }

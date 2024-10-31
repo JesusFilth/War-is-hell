@@ -44,8 +44,7 @@ public class LevelsStorage : MonoBehaviour,
         return _loadScreens[Random.Range(0, _loadScreens.Length)];
     }
 
-    public float GetUpExpForLevelPercent() => _levelSettings.UpExpForLevelPercent;
+    public float GetUpLevelPowerPercent() => _levelSettings.UpLevelPowerPercent;
 
     //public LevelSettings GetLevelSettings() => _levelSettings;
-
 }
