@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1133958919259812
+--- !u!1 &1574022761074602
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4746521921036858}
-  - component: {fileID: 33270437953809536}
-  - component: {fileID: 23702194392710920}
-  - component: {fileID: -4467601061173259823}
-  - component: {fileID: -5859863326559737328}
-  - component: {fileID: 1390467715689562299}
+  - component: {fileID: 4932160796920990}
+  - component: {fileID: 33027587114674020}
+  - component: {fileID: 23079626019147926}
+  - component: {fileID: -613333083288721782}
+  - component: {fileID: 2396215683438083361}
+  - component: {fileID: -7260309824864078433}
   m_Layer: 0
-  m_Name: Skill_Item_Explotion
+  m_Name: Skill_Item_ResurectedHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4746521921036858
+--- !u!4 &4932160796920990
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133958919259812}
+  m_GameObject: {fileID: 1574022761074602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
@@ -36,21 +36,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33270437953809536
+--- !u!33 &33027587114674020
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133958919259812}
-  m_Mesh: {fileID: 4300000, guid: 1ad08a03ce65d154382e1c1d8bf41cde, type: 3}
---- !u!23 &23702194392710920
+  m_GameObject: {fileID: 1574022761074602}
+  m_Mesh: {fileID: 4300000, guid: 917a0b07e759c0a42b7fc581a56db27e, type: 3}
+--- !u!23 &23079626019147926
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133958919259812}
+  m_GameObject: {fileID: 1574022761074602}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,38 +86,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-4467601061173259823
+--- !u!114 &-613333083288721782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133958919259812}
+  m_GameObject: {fileID: 1574022761074602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc48028f7893c4c4b822032aaa7c5c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2396215683438083361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574022761074602}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0bbbba764489a3408e477f49e71c401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 250
---- !u!114 &-5859863326559737328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133958919259812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc48028f7893c4c4b822032aaa7c5c56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &1390467715689562299
+--- !u!135 &-7260309824864078433
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133958919259812}
+  m_GameObject: {fileID: 1574022761074602}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -131,4 +131,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.3
-  m_Center: {x: 0, y: 0.0010685399, z: 0}
+  m_Center: {x: 0.0032449737, y: -0.00024196506, z: 0.00051109307}

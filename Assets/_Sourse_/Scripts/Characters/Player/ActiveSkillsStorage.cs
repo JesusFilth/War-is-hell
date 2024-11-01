@@ -108,10 +108,8 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     private void Execute(SkillActive skill)
     {
-        Debug.Log("1");
         if (skill.CanActiveEffectForChance())
         {
-            Debug.Log("2");
             Instantiate(skill.Effect);
         }
     }
