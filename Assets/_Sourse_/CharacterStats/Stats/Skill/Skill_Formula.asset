@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eacd27a028494b8f6aee98d9f2be13, type: 3}
   m_Name: Skill_Formula
   m_EditorClassIdentifier: 
-  m_Formula: (table.increment[source.stat[level]]) + source.base[Skill]
+  m_Formula: (table.increment[source.stat[level]]) + source.base[SkillPower]
   m_Table: {fileID: 11400000, guid: 2cd3d8882151d4f43b6912f4783279e9, type: 2}
