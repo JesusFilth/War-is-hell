@@ -15,9 +15,6 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     private void Update()
     {
-        if (_conteiner.HasEnemys == false)
-            return;
-
         if (_skills.Count == 0)
             return;
 
@@ -60,6 +57,9 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     private void Execute(SkillDeadTarget skill)
     {
+        if (_conteiner.HasEnemys == false)
+            return;
+
         for (int i = 0; i < skill.DeadCount; i++)
         {
             if (skill.CanActiveEffectForChance())
@@ -80,6 +80,9 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     private void Execute(SkillEnemyTarget skill)
     {
+        if (_conteiner.HasEnemys == false)
+            return;
+
         for (int i = 0; i < skill.EnemyCount; i++)
         {
             if (skill.CanActiveEffectForChance())
@@ -105,8 +108,10 @@ public class ActiveSkillsStorage : MonoBehaviour
 
     private void Execute(SkillActive skill)
     {
+        Debug.Log("1");
         if (skill.CanActiveEffectForChance())
         {
+            Debug.Log("2");
             Instantiate(skill.Effect);
         }
     }
