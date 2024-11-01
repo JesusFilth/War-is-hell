@@ -13,11 +13,11 @@ public abstract class Skill : ScriptableObject
     public int Level { get; protected set; } = 1;
     public bool IsMaxLevel { get; protected set; }
     public SkillItem Item => _item;
+    public Sprite Icon => _icon;
+    public string Name => _name;
+    public string Description => _description;
 
     protected SkillExecuteStratigy Stratigy = new SkillExecuteStratigy();
-
-    public string Name => _name;
-    public Sprite Icon => _icon;
 
     private void OnValidate()
     {

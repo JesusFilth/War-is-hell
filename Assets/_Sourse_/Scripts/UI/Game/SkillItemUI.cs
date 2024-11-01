@@ -7,9 +7,14 @@ using UnityEngine.UI;
 public class SkillItemUI : MonoBehaviour
 {
     [SerializeField] private Image _icon;
-    [SerializeField] private TMP_Text _name;
+    [SerializeField] private TMP_Text _name;//?
     [SerializeField] private TMP_Text _level;
+    [SerializeField] private TMP_Text _description;
+    [SerializeField] private Image _iconBackground;
     [SerializeField] private Button _button;
+    [Space]
+    [SerializeField] private Color32 _active = Color.red;
+    [SerializeField] private Color32 _passive = Color.blue;
 
     private Skill _currentSkill;
 
@@ -37,8 +42,19 @@ public class SkillItemUI : MonoBehaviour
         if(_currentSkill.Icon != null)
             _icon.sprite = _currentSkill.Icon;
 
-        _name.text = _currentSkill.Name;
+        //_name.text = _currentSkill.Name;
         _level.text = _currentSkill.Level.ToString();
+        _description.text = _currentSkill.Description;
+
+        ChangeColor();
+    }
+
+    private void ChangeColor()
+    {
+        if (_currentSkill is SkillActive active)
+            _iconBackground.color = _active;
+        else if (_currentSkill is SkillPassive passive)
+            _iconBackground.color = _passive;
     }
 
     private void ChoseSkill()
