@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 5178594379753324599
     - rid: 3147619655186120847
     - rid: 3147619655186120849
+    - rid: 6066313130938730202
   references:
     version: 2
     RefIds:
@@ -152,3 +153,16 @@ MonoBehaviour:
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: Knight of Tristan
+    - rid: 6066313130938730202
+      type: {class: StatItem, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_IsHidden: 0
+        m_Stat: {fileID: 11400000, guid: cce1dd3666390da4fb5722a8c516a152, type: 2}
+        m_ChangeBase:
+          m_IsEnabled: 0
+          m_Value: 100
+        m_ChangeFormula:
+          m_IsEnabled: 0
+          m_Value: {fileID: 0}

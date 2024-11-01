@@ -50,6 +50,8 @@ public class ActiveSkillsStorage : MonoBehaviour
             Execute(enemyTarget);
         else if (skill is SkillDeadTarget deadTarget)
             Execute(deadTarget);
+        else if (skill is SkillPlayerTarget playerTarget)
+            Execute(playerTarget);
         else
             Execute(skill); 
 
@@ -87,6 +89,14 @@ public class ActiveSkillsStorage : MonoBehaviour
                 int randomIndex = Random.Range(0, deads.Length);
                 Instantiate(skill.Effect, deads[randomIndex].transform);
             }
+        }
+    }
+
+    private void Execute(SkillPlayerTarget skill)
+    {
+        if (skill.CanActiveEffectForChance())
+        {
+            skill.CreateEffect();
         }
     }
 

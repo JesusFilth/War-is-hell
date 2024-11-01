@@ -8,6 +8,8 @@ public class SkillActive : Skill
     protected const float MaxChance = 100;
     protected const float MinCooldawn = 1;
 
+    [Space]
+    [Header("Skill Active settings")]
     [SerializeField] private SkillEffect _effect;  
     [SerializeField] protected float Cooldawn = 3f;
     [SerializeField] protected float Chance = 50f;

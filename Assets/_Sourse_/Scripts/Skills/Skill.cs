@@ -3,9 +3,12 @@ using UnityEngine;
 
 public abstract class Skill : ScriptableObject
 {
+    [Space]
+    [Header("Skill abstract settings")]
     [SerializeField] private string _name;
     [SerializeField] private Sprite _icon;
     [SerializeField] private SkillItem _item;
+    [SerializeField] [TextArea(3,5)] private string _description;
 
     public int Level { get; protected set; } = 1;
     public bool IsMaxLevel { get; protected set; }

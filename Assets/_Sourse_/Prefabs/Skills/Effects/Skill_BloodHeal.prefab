@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -4731,7 +4731,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.000010013579
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1897464815625332418
 MonoBehaviour:
@@ -4886,7 +4886,7 @@ MonoBehaviour:
     - rid: 5980455541127512323
       type: {class: GetStatInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
-        m_Stat: {fileID: 11400000, guid: 25abbe64b2bcb3446939c8fc9d95db1e, type: 2}
+        m_Stat: {fileID: 11400000, guid: cce1dd3666390da4fb5722a8c516a152, type: 2}
     - rid: 5980455541127512324
       type: {class: InstructionStatsChangeAttribute, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
@@ -4922,7 +4922,7 @@ MonoBehaviour:
     - rid: 5980455541127512329
       type: {class: GetStatInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
-        m_Stat: {fileID: 11400000, guid: 25abbe64b2bcb3446939c8fc9d95db1e, type: 2}
+        m_Stat: {fileID: 11400000, guid: cce1dd3666390da4fb5722a8c516a152, type: 2}
     - rid: 5980455541127512330
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
