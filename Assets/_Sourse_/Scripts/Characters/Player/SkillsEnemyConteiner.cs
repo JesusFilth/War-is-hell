@@ -5,7 +5,7 @@ public class SkillsEnemyConteiner : MonoBehaviour
 {
     public IReadOnlyCollection<Enemy> Enemys => _enemys;
 
-    public bool HasEnemys   => _enemys.Count > 0;
+    public bool HasEnemys => _enemys.Count > 0;
 
     private List<Enemy> _enemys = new();
 
@@ -28,6 +28,7 @@ public class SkillsEnemyConteiner : MonoBehaviour
     private void AddEnemy(Enemy enemy)
     {
         _enemys.Add(enemy);
+        enemy.Destroed += RemoveEnemy;
     }
 
     private void RemoveEnemy(Enemy enemy)
@@ -35,6 +36,7 @@ public class SkillsEnemyConteiner : MonoBehaviour
         if (_enemys.Contains(enemy))
         {
             _enemys.Remove(enemy);
+            enemy.Destroed -= RemoveEnemy;
         }
     }
 }

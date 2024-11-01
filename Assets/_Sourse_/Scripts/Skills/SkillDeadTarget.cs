@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/DeadTarget", order = 2)]
 public class SkillDeadTarget : SkillActive
 {
+    [Space]
+    [Header("Skill Dead Target settings")]
     [SerializeField] private int _deadCount = 1;
     [SerializeField] private int _maxDeadCount;
     [SerializeField] private int _upCountLevel = 3;

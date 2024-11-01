@@ -70,7 +70,10 @@ public class ActiveSkillsStorage : MonoBehaviour
                     continue;
 
                 int randomIndex = Random.Range(0, deads.Length);
-                Instantiate(skill.Effect, deads[randomIndex].SkillPoint);
+                SkillEffect effect = Instantiate(skill.Effect);
+                effect.transform.position = deads[randomIndex].SkillPoint.position;
+
+                Destroy(deads[randomIndex].gameObject);
             }
         }
     }

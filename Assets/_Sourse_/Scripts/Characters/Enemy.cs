@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public bool IsDead { get; private set; }
 
     public event Action<Enemy> Died;
+    public event Action<Enemy> Destroed;
 
     private void Awake()
     {
@@ -27,6 +28,11 @@ public class Enemy : MonoBehaviour
             DIGameConteiner.Instance.InjectRecursive(gameObject);
             Initialize();
         }
+    }
+
+    private void OnDestroy()
+    {
+        Destroed?.Invoke(this);
     }
 
     public void Die()
