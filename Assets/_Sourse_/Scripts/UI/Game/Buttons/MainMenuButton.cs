@@ -1,6 +1,5 @@
+using GameCreator.Runtime.Common;
 using Reflex.Attributes;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class MainMenuButton : ButtonView
 {
