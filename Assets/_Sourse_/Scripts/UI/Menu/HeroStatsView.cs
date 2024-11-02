@@ -7,12 +7,14 @@ public class HeroStatsView : MonoBehaviour
     private const string HPStat = "max_hp";
     private const string DamageStat = "Damage";
     private const string WeaponStat = "WeaponDamage";
+    private const string SkillPowerStat = "SkillPower";
 
     [SerializeField] private HeroChose _heroChose;
     [Space]
     [SerializeField] private TMP_Text _health;
     [SerializeField] private TMP_Text _damage;
     [SerializeField] private TMP_Text _weapon;
+    [SerializeField] private TMP_Text _skillPower;
     [SerializeField] private TMP_Text _description;
 
     private void OnEnable()
@@ -34,10 +36,12 @@ public class HeroStatsView : MonoBehaviour
             StatItem hp = traits.Class.GetStat(HPStat);
             StatItem damage = traits.Class.GetStat(DamageStat);
             StatItem weapon = traits.Class.GetStat(WeaponStat);
+            StatItem skillPower = traits.Class.GetStat(SkillPowerStat);
 
             _health.text = hp.Base.ToString();
             _damage.text = damage.Base.ToString();
             _weapon.text = weapon.Base.ToString();
+            _skillPower.text = skillPower.Base.ToString();
         }
 
         _description.text = heroSetting.Description;

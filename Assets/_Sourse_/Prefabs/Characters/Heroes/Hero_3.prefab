@@ -1079,7 +1079,7 @@ MonoBehaviour:
           m_Focus:
             m_InteractionMode:
               rid: 3147619357187637260
-        m_Speed: 3
+        m_Speed: 3.5
         m_Rotation:
           m_IsEnabled: 1
           m_Value: 1800
@@ -1182,6 +1182,7 @@ MonoBehaviour:
     - m_String: Damage
     - m_String: WeaponDamage
     - m_String: maxDurability
+    - m_String: SkillPower
     m_Values:
     - m_IsExpanded: 0
       m_ChangeBase:
@@ -1207,6 +1208,10 @@ MonoBehaviour:
       m_ChangeBase:
         m_IsEnabled: 1
         m_Value: 5
+    - m_IsExpanded: 0
+      m_ChangeBase:
+        m_IsEnabled: 0
+        m_Value: 1
 --- !u!114 &6283470331780711625
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1344,6 +1344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 7964296036283581416
+    - rid: 7964296036283581418
+    - rid: 7964296036283581422
     - rid: 3147619358847795225
   m_TriggerEvent:
     rid: 3147619358847795219
@@ -1381,6 +1384,55 @@ MonoBehaviour:
     - rid: 3147619358847795226
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
+    - rid: 7964296036283581416
+      type: {class: InstructionMeleeTryCancel, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 7964296036283581417
+    - rid: 7964296036283581417
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7964296036283581418
+      type: {class: InstructionCharacterStopGesture, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 7964296036283581419
+        m_Delay:
+          m_Property:
+            rid: 7964296036283581420
+        m_Transition:
+          m_Property:
+            rid: 7964296036283581421
+    - rid: 7964296036283581419
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7964296036283581420
+      type: {class: GetDecimalConstantZero, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7964296036283581421
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0.10000000149011612
+    - rid: 7964296036283581422
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Seconds:
+          m_Property:
+            rid: 7964296036283581423
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 7964296036283581423
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0.02
 --- !u!114 &4077364694518762863
 MonoBehaviour:
   m_ObjectHideFlags: 0
