@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SkillItemUI : MonoBehaviour
 {
     [SerializeField] private Image _icon;
-    [SerializeField] private TMP_Text _name;//?
     [SerializeField] private TMP_Text _level;
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Image _iconBackground;
@@ -42,8 +41,7 @@ public class SkillItemUI : MonoBehaviour
         if(_currentSkill.Icon != null)
             _icon.sprite = _currentSkill.Icon;
 
-        //_name.text = _currentSkill.Name;
-        _level.text = _currentSkill.Level.ToString();
+        _level.text = (_currentSkill.LevelNumber + 1).ToString();
         _description.text = _currentSkill.Description;
 
         ChangeColor();

@@ -27,13 +27,13 @@ public class SkillActive : Skill
         if (Stratigy == null)
             throw new ArgumentNullException(nameof(Stratigy));
 
+        Level++;
+
         Stratigy.Execute(abilitys, this);
     }
 
     public override void UpSkill()
     {
-        Level++;
-
         Cooldawn = Mathf.Clamp(Cooldawn - _upCooldawnLevel, MinCooldawn, float.MaxValue);
         Chance = Mathf.Clamp(Chance + _upChanceLevel, 0, MaxChance);
 

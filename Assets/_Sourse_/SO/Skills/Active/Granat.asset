@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae7b0c041ab62048a4d0a5810a82bc3, type: 3}
   m_Name: Granat
   m_EditorClassIdentifier: 
+  Level: 0
   _name: "\u0413\u0440\u0430\u043D\u0430\u0442\u043D\u044B\u0435 \u0431\u0443\u0441\u044B"
   _icon: {fileID: 21300000, guid: 355e3d4dcd520d442adea237b459918d, type: 3}
   _item: {fileID: 7336952433753637496, guid: 9d4885aaf6295d143949210592d1395d, type: 3}
@@ -21,10 +22,10 @@ MonoBehaviour:
     \u0432\u0440\u0430\u0433\u0443 \u0432\u0437\u0440\u044B\u0432\u0430\u044E\u0442\u0441\u044F
     \u043D\u0430\u043D\u043E\u0441\u044F \u0443\u0440\u043E\u043D \u043E\u0442 \u0437\u0430\u043A\u043B\u0438\u043D\u0430\u043D\u0438\u044F"
   _effect: {fileID: 6768846731236631962, guid: 2f21c725a543f2e448acd9b1edda1930, type: 3}
-  Cooldawn: 3
-  Chance: 80
-  _upCooldawnLevel: 0.1
-  _upChanceLevel: 2
+  Cooldawn: 5
+  Chance: 50
+  _upCooldawnLevel: 0.35
+  _upChanceLevel: 5
   _effectCount: 1
-  _maxCountEffect: 5
+  _maxCountEffect: 7
   _needLevelForCountUp: 3

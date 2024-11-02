@@ -9161,7 +9161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
-    - rid: 6066312601565397844
+    - rid: 7964296036283580763
   m_TriggerEvent:
     rid: 3147619383621976242
   references:
@@ -9187,26 +9187,33 @@ MonoBehaviour:
       type: {class: InputButtonKeyboardPress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Key: 19
-    - rid: 6066312601565397844
-      type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 7964296036283580763
+      type: {class: InstructionStatsChangeStat, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Method:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 7647789535560446412}
-              m_TargetAssemblyTypeName: Player, Assembly-CSharp
-              m_MethodName: AddExpirience
-              m_Mode: 4
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 25
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
+        m_Target:
+          m_Property:
+            rid: 7964296036283580764
+        m_Stat:
+          m_Property:
+            rid: 7964296036283580765
+        m_Change:
+          m_Operation: 1
+          m_Value:
+            m_Property:
+              rid: 7964296036283580766
+    - rid: 7964296036283580764
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7964296036283580765
+      type: {class: GetStatInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Stat: {fileID: 11400000, guid: f14f4a80732c3064ea7b71560273e2ad, type: 2}
+    - rid: 7964296036283580766
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 100
 --- !u!4 &1934690782
 Transform:
   m_ObjectHideFlags: 0

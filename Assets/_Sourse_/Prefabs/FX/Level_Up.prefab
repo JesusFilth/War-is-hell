@@ -396,7 +396,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 8076551187961024557}
   - component: {fileID: -6878988032963392906}
   m_Layer: 0
-  m_Name: FX_Level_Up
+  m_Name: Level_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -805,6 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 7964296036283580547
     - rid: 6066312491352719928
     - rid: 6066312491352719938
   m_TriggerEvent:
@@ -841,3 +842,44 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 9203208799385083465}
+    - rid: 7964296036283580547
+      type: {class: InstructionGameObjectInstantiate, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 7964296036283580548
+          usePooling: 1
+          size: 1
+          hasDuration: 0
+          duration: 10
+        m_Position:
+          m_Property:
+            rid: 7964296036283580549
+        m_Rotation:
+          m_Property:
+            rid: 7964296036283580550
+        m_Parent:
+          m_Property:
+            rid: 7964296036283580553
+        m_Save:
+          m_Property:
+            rid: 7964296036283580552
+    - rid: 7964296036283580548
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 1624714524768532, guid: f5a202f9f9e3bb4498734c827bd6ac7d, type: 3}
+    - rid: 7964296036283580549
+      type: {class: GetPositionCharactersPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7964296036283580550
+      type: {class: GetRotationCharactersPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Space: 0
+    - rid: 7964296036283580552
+      type: {class: SetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 7964296036283580553
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
