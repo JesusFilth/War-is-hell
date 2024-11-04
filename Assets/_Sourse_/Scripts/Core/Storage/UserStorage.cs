@@ -64,6 +64,11 @@ public class UserStorage
         Save();
     }
 
+    public bool IsOpenSurvivolMode()
+    {
+        return _user.IsOpenSurvival;
+    }
+
     private void UpdatePlayerScore()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
