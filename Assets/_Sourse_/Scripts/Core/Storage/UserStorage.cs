@@ -58,6 +58,12 @@ public class UserStorage
         GoldChanged.Invoke(_user.Gold);
     }
 
+    public void OpenSurvivalMode()
+    {
+        _user.IsOpenSurvival = true;
+        Save();
+    }
+
     private void UpdatePlayerScore()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR

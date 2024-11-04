@@ -85,6 +85,7 @@ public class LoadDataState : IGameState
             Gold = 100,
             Score = 0,
             Heroes = new string[] { "0" },
+            IsOpenSurvival = false,
         };
     }
 }

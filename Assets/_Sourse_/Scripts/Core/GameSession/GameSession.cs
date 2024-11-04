@@ -27,10 +27,26 @@ public class GameSession : MonoBehaviour,
         if (_currentLevel != null)
             Destroy(_currentLevel.gameObject);
 
-        _currentLevel = Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel - 1));
+        _currentLevel = GetLevelLocation();
         _player.SetPosition(_currentLevel.PlayerStartPosition.position);
         _currentLevel.SetPriseSkill(skill);
     }
 
     public int GetCurrentLevelNumber() => _currentNumberLevel;
+
+    public GameMode GetCurrentMode() => _mode;
+
+    private LevelLocation GetLevelLocation()
+    {
+        switch (_mode)
+        {
+            case GameMode.Company:
+                return Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel - 1));
+
+            case GameMode.Survival:
+                return Instantiate(_levelsStorage.GetRandomLevelLocation());
+
+            default : return null;
+        }
+    }
 }

@@ -8,4 +8,5 @@ public class UserModel
     [field: Preserve] public int Gold;
     [field: Preserve] public int Score;
     [field: Preserve] public string[] Heroes;
+    [field: Preserve] public bool IsOpenSurvival;
 }

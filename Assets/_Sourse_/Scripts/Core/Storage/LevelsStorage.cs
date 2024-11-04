@@ -27,6 +27,12 @@ public class LevelsStorage : MonoBehaviour,
         return _levels[index];
     }
 
+    public LevelLocation GetRandomLevelLocation()
+    {
+        int randomIndex = Random.Range(0, _levels.Length);
+        return _levels[randomIndex];
+    }
+
     public void SetCurrentHero(HeroSetting heroSetting)
     {
         _currentHero = heroSetting;
@@ -45,6 +51,4 @@ public class LevelsStorage : MonoBehaviour,
     }
 
     public float GetUpLevelPowerPercent() => _levelSettings.UpLevelPowerPercent;
-
-    //public LevelSettings GetLevelSettings() => _levelSettings;
 }

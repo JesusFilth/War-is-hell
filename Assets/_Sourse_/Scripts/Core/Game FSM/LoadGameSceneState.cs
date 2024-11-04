@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LoadGameSceneState : IGameState<GameMode>
 {
-    public GameMode _gameMode;
+    private GameMode _gameMode;
 
     public void Execute()
     {
