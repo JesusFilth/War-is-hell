@@ -1,11 +1,17 @@
 using IJunior.TypedScenes;
 using UnityEngine;
 
-public class LoadGameSceneState : IGameState
+public class LoadGameSceneState : IGameState<GameMode>
 {
+    public GameMode _gameMode;
+
     public void Execute()
     {
-        Debug.Log("Changed? - Game.Load(null)");
-        GameLevel.Load(null);
+        GameLevel.Load(_gameMode);
+    }
+
+    public void SetParam(GameMode mode)
+    {
+        _gameMode = mode;
     }
 }

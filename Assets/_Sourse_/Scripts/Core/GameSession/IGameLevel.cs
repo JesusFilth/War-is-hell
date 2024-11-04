@@ -2,7 +2,7 @@
 
 public interface IGameLevel
 {
-    void StartGame(IGamePlayer player);
+    void StartGame(IGamePlayer player, GameMode mode);
 
     void LoadNextLevel(Skill skill = null);
 

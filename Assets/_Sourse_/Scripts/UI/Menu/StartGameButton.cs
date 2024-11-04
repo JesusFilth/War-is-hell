@@ -7,6 +7,6 @@ public class StartGameButton : MonoBehaviour
 
     public void StartGame()
     {
-        _stateMashine.EnterIn<LoadGameSceneState>();
+        _stateMashine.EnterIn<LoadGameSceneState, GameMode>(GameMode.Company);
     }
 }
