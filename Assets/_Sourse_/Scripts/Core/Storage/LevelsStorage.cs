@@ -51,4 +51,9 @@ public class LevelsStorage : MonoBehaviour,
     }
 
     public float GetUpLevelPowerPercent() => _levelSettings.UpLevelPowerPercent;
+
+    public int GetLastLevelNumber()
+    {
+        return _levels.Length;
+    }
 }

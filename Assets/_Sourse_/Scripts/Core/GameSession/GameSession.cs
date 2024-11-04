@@ -10,6 +10,8 @@ public class GameSession : MonoBehaviour,
     private IGamePlayer _player;
 
     [Inject] private ILevelsStorage _levelsStorage;
+    [Inject] private UserStorage _usersStorage;
+    [Inject] private StateMashineUI _stateMashineUI;
 
     public void StartGame(IGamePlayer player, GameMode mode)
     {
@@ -22,6 +24,14 @@ public class GameSession : MonoBehaviour,
 
     public void LoadNextLevel(Skill skill = null)
     {
+        if(_mode == GameMode.Company && _levelsStorage.GetLastLevelNumber() == _currentNumberLevel)
+        {
+            Debug.Log("Game Complete - temp");
+            _usersStorage.OpenSurvivalMode();
+            _stateMashineUI.EnterIn<GameOverUIState>();
+            return;
+        }
+
         _currentNumberLevel++;
 
         if (_currentLevel != null)
