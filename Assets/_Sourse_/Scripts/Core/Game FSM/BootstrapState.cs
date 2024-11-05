@@ -18,14 +18,6 @@ public class BootstrapState : IGameState
     {
         await GP_Init.Ready;
         OnPluginReady();
-        Debug.Log("sdk-gp");
-        //#if UNITY_WEBGL && !UNITY_EDITOR
-        //        YandexGamesSdk.CallbackLogging = true;
-        //        CoroutineRunner.Instance.Run(Initialize());
-        //#else
-        //        _stateMashine.EnterIn<LoadDataState>();
-        //#endif
-        //_stateMashine.EnterIn<LoadDataState>();
     }
 
     private void OnPluginReady()
@@ -33,17 +25,4 @@ public class BootstrapState : IGameState
         Debug.Log("Plugin ready");
         _stateMashine.EnterIn<LoadDataState>();
     }
-
-    //private IEnumerator Initialize()
-    //{
-    //    yield return YandexGamesSdk.Initialize(OnInitialized);
-    //}
-
-    //    private void OnInitialized()
-    //    {
-    //#if UNITY_WEBGL && !UNITY_EDITOR
-    //        YandexGamesSdk.GameReady();
-    //#endif
-    //        _stateMashine.EnterIn<LoadDataState>();
-    //    }
 }

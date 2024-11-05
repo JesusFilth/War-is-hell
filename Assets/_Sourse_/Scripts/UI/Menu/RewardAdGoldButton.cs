@@ -7,14 +7,24 @@ public class RewardAdGoldButton : MonoBehaviour
 
     private int _giftCoins;
 
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     public void Show(int coins)
     {
-        _giftCoins = coins;
-#if UNITY_WEBGL && !UNITY_EDITOR
-         Agava.YandexGames.VideoAd.Show(OnOpenCallback,OnRevardCallback, OnCloseCallback);
-#else
-        OnRevardCallback();
-#endif
+//        _giftCoins = coins;
+//#if UNITY_WEBGL && !UNITY_EDITOR
+//         Agava.YandexGames.VideoAd.Show(OnOpenCallback,OnRevardCallback, OnCloseCallback);
+//#else
+//        OnRevardCallback();
+//#endif
     }
 
     private void OnOpenCallback()

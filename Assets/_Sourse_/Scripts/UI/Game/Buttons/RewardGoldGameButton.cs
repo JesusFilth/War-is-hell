@@ -1,6 +1,7 @@
 using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
+using GamePush;
 
 public class RewardGoldGameButton : ButtonView
 {
@@ -8,11 +9,11 @@ public class RewardGoldGameButton : ButtonView
 
     protected override void OnClick()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRevardCallback, OnCloseCallback);
-#else
-        OnRevardCallback();
-#endif
+//#if UNITY_WEBGL && !UNITY_EDITOR
+//        Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRevardCallback, OnCloseCallback);
+//#else
+//        OnRevardCallback();
+//#endif
     }
 
     private void OnOpenCallback()
