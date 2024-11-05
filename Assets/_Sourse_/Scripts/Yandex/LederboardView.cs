@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,28 +23,29 @@ public class LederboardView : MonoBehaviour
 
     private void UpdateData()
     {
-        if (PlayerAccount.IsAuthorized == false)
-            return;
+        Debug.Log("sdk");
+        //if (PlayerAccount.IsAuthorized == false)
+        //    return;
 
         _leaderboardPlayers.Clear();
 
-        Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
-        {
-            foreach (var entry in result.entries)
-            {
-                int rank = entry.rank;
-                int score = entry.score;
-                string name = entry.player.publicName;
+        //Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
+        //{
+        //    foreach (var entry in result.entries)
+        //    {
+        //        int rank = entry.rank;
+        //        int score = entry.score;
+        //        string name = entry.player.publicName;
 
-                //if (string.IsNullOrEmpty(name))
-                //    name = _localizationTranslate.GetAnonymousName();
+        //        //if (string.IsNullOrEmpty(name))
+        //        //    name = _localizationTranslate.GetAnonymousName();
 
-                _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
-            }
+        //        _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
+        //    }
 
-            _leaderboardPlayers.OrderByDescending(player => player.Rank).ToList();
-            //_leaderboadrView.Construct(_leaderboardPlayers.Take(MaxPlayers).ToList());
-        });
+        //    _leaderboardPlayers.OrderByDescending(player => player.Rank).ToList();
+        //    //_leaderboadrView.Construct(_leaderboardPlayers.Take(MaxPlayers).ToList());
+        //});
     }
 
     private void CreateElements()

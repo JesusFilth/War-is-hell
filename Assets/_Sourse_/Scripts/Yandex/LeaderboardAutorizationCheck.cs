@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using UnityEngine;
 
 public class LeaderboardAutorizationCheck : MonoBehaviour
@@ -13,12 +12,13 @@ public class LeaderboardAutorizationCheck : MonoBehaviour
 
     public void Check()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-         if (PlayerAccount.IsAuthorized)
-        {
-            _lederboar.gameObject.SetActive(true);
-            _checkAuth.SetActive(false);
-        }
-#endif
+        Debug.Log("sdk");
+//#if UNITY_WEBGL && !UNITY_EDITOR
+//         if (PlayerAccount.IsAuthorized)
+//        {
+//            _lederboar.gameObject.SetActive(true);
+//            _checkAuth.SetActive(false);
+//        }
+//#endif
     }
 }

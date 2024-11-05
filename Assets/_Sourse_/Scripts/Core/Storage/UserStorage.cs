@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -87,13 +86,14 @@ public class UserStorage
 
     private void Save()
     {
-        string json = JsonUtility.ToJson(_user);
-        PlayerPrefs.SetString(UserKey, json);
-        PlayerPrefs.Save();
+        Debug.Log("sdk");
+//        string json = JsonUtility.ToJson(_user);
+//        PlayerPrefs.SetString(UserKey, json);
+//        PlayerPrefs.Save();
 
-#if UNITY_WEBGL && !UNITY_EDITOR
-        if (PlayerAccount.IsAuthorized)
-            PlayerAccount.SetCloudSaveData(json);
-#endif
+//#if UNITY_WEBGL && !UNITY_EDITOR
+//        if (PlayerAccount.IsAuthorized)
+//            PlayerAccount.SetCloudSaveData(json);
+//#endif
     }
 }

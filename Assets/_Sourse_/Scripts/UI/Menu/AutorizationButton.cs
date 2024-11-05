@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +25,13 @@ public class AutorizationButton : MonoBehaviour
 
     private void OnClick()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        PlayerAccount.Authorize();
+        Debug.Log("sdk");
+//#if UNITY_WEBGL && !UNITY_EDITOR
+//        PlayerAccount.Authorize();
 
-        if(PlayerAccount.IsAuthorized)
-            PlayerAccount.RequestPersonalProfileDataPermission();
-#endif
+//        if(PlayerAccount.IsAuthorized)
+//            PlayerAccount.RequestPersonalProfileDataPermission();
+//#endif
         _autorizationCheck.Check();
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using Agava.YandexGames;
 using UnityEngine;
 
 public class LoadDataState : IGameState
@@ -23,19 +22,21 @@ public class LoadDataState : IGameState
 
     public void Execute()
     {
+        Debug.Log("sdk");
         Load();
     }
 
     private void Load()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            if (PlayerAccount.IsAuthorized)
-                LoadCloud();
-            else
-                LoadPlayerPrefs();
-#else
+        //#if UNITY_WEBGL && !UNITY_EDITOR
+        //            if (PlayerAccount.IsAuthorized)
+        //                LoadCloud();
+        //            else
+        //                LoadPlayerPrefs();
+        //#else
+        //        LoadPlayerPrefs();
+        //#endif
         LoadPlayerPrefs();
-#endif
     }
 
     private void LoadPlayerPrefs()
@@ -46,10 +47,10 @@ public class LoadDataState : IGameState
 
     private void LoadCloud()
     {
-        PlayerAccount.GetCloudSaveData(onSuccessCallback: (json) =>
-        {
-            SetLoadUserData(GetDeserialize(json));
-        });
+        //PlayerAccount.GetCloudSaveData(onSuccessCallback: (json) =>
+        //{
+        //    SetLoadUserData(GetDeserialize(json));
+        //});
     }
 
     private void SetLoadUserData(UserModel user)
