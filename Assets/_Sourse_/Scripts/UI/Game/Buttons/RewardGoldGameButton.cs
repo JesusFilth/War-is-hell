@@ -1,6 +1,5 @@
 using Reflex.Attributes;
 using UnityEngine;
-using UnityEngine.UI;
 using GamePush;
 
 public class RewardGoldGameButton : ButtonView
@@ -9,26 +8,24 @@ public class RewardGoldGameButton : ButtonView
 
     protected override void OnClick()
     {
-//#if UNITY_WEBGL && !UNITY_EDITOR
-//        Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRevardCallback, OnCloseCallback);
-//#else
-//        OnRevardCallback();
-//#endif
+        GP_Ads.ShowRewarded(null, OnRewardedReward, OnRewardedStart, OnRewardedClose);
     }
 
-    private void OnOpenCallback()
+    private void OnRewardedStart()
     {
+        Debug.Log("ON REWARDED: START");
         FocusGame.Instance.Lock();
     }
 
-    private void OnCloseCallback()
-    {
-        FocusGame.Instance.Unlock();
-    }
-
-    private void OnRevardCallback()
+    private void OnRewardedReward(string value)
     {
         _gameProgress.GetPlayerProgress().AddGold(_gameProgress.GetPlayerProgress().Gold);
         gameObject.SetActive(false);
+    }
+
+    private void OnRewardedClose(bool success)
+    {
+        Debug.Log("ON REWARDED: CLOSE");
+        FocusGame.Instance.Unlock();
     }
 }

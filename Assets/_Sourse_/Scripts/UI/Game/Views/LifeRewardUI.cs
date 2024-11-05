@@ -1,4 +1,5 @@
 using GameCreator.Runtime.Common;
+using GamePush;
 using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,11 +60,7 @@ public class LifeRewardUI : MonoBehaviour, IGameUI
 
     private void ShowReward()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRevardCallback, OnCloseCallback);
-#else
-        OnRevardCallback();
-#endif
+        GP_Ads.ShowRewarded(null, OnRevardCallback, OnOpenCallback, OnCloseCallback);
     }
 
     private void ToContinue()
@@ -76,12 +73,12 @@ public class LifeRewardUI : MonoBehaviour, IGameUI
         FocusGame.Instance.Lock();
     }
 
-    private void OnCloseCallback()
+    private void OnCloseCallback(bool success)
     {
         FocusGame.Instance.Unlock();
     }
 
-    private void OnRevardCallback()
+    private void OnRevardCallback(string value)
     {
         _isHasLife = true;
         _player.Resurrect();

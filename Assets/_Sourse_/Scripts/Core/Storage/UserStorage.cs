@@ -70,18 +70,19 @@ public class UserStorage
 
     private void UpdatePlayerScore()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-   if (PlayerAccount.IsAuthorized == false)
-            return;
+        Debug.Log("sdk");
+        //#if UNITY_WEBGL && !UNITY_EDITOR
+        //   if (PlayerAccount.IsAuthorized == false)
+        //            return;
 
-        int score = _user.Score;
+        //        int score = _user.Score;
 
-        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-        {
-            if (result == null || result.score < score)
-                Leaderboard.SetScore(LeaderboardName, score);
-        });
-#endif
+        //        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+        //        {
+        //            if (result == null || result.score < score)
+        //                Leaderboard.SetScore(LeaderboardName, score);
+        //        });
+        //#endif
     }
 
     private void Save()
