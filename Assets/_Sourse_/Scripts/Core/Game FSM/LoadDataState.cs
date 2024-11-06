@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using UnityEngine;
 
 public class LoadDataState : IGameState
@@ -22,71 +23,14 @@ public class LoadDataState : IGameState
 
     public void Execute()
     {
-        Debug.Log("sdk");
         Load();
     }
 
     private void Load()
     {
-        //#if UNITY_WEBGL && !UNITY_EDITOR
-        //            if (PlayerAccount.IsAuthorized)
-        //                LoadCloud();
-        //            else
-        //                LoadPlayerPrefs();
-        //#else
-        //        LoadPlayerPrefs();
-        //#endif
-        LoadPlayerPrefs();
-    }
+        Debug.Log("default heroes");//for test on editor
+        PlayerPrefs.SetString(UserKey, "0-true;1-false;2-false;");
 
-    private void LoadPlayerPrefs()
-    {
-        string json = PlayerPrefs.GetString(UserKey);
-        SetLoadUserData(GetDeserialize(json));
-    }
-
-    private void LoadCloud()
-    {
-        //PlayerAccount.GetCloudSaveData(onSuccessCallback: (json) =>
-        //{
-        //    SetLoadUserData(GetDeserialize(json));
-        //});
-    }
-
-    private void SetLoadUserData(UserModel user)
-    {
-        if (user == null)
-            throw new ArgumentNullException(nameof(user));
-
-        _userStorage.SetUser(user);
         _stateMashine.EnterIn<LoadMainMenuState>();
-    }
-
-    private UserModel GetDeserialize(string json)
-    {
-        Debug.Log("default user");
-        return GetDefaultUser();//temp
-
-        if (string.IsNullOrEmpty(json))
-            return GetDefaultUser();
-
-        UserModel userModel = JsonUtility.FromJson<UserModel>(json);
-
-        if (userModel == null)
-            return GetDefaultUser();
-
-        return userModel;
-    }
-
-    private UserModel GetDefaultUser()
-    {
-        return new UserModel()
-        {
-            Name = "Player",
-            Gold = 100,
-            Score = 0,
-            Heroes = new string[] { "0" },
-            IsOpenSurvival = false,
-        };
     }
 }

@@ -1,64 +1,68 @@
+using Examples.Console;
+using GamePush;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using TMPro;
 using UnityEngine;
+
+[System.Serializable]
+public class LeaderboardFetchData
+{
+    public int score;
+    public string name;
+}
 
 public class LederboardView : MonoBehaviour
 {
-    private const string LeaderboardName = "Leaderboard";
+    private const string LeaderboardName = "best_player";
     private const int MaxElements = 7;
 
     [SerializeField] private LeaderboadElement _prefab;
     [SerializeField] private Transform _conteiner;
 
-    private List<LeaderboardPlayer> _leaderboardPlayers = new();
+    [SerializeField] private TMP_Text _info;
+
+    private List<LeaderboardPlayer> _leaderboardPlayers = new();//?
     private List<LeaderboadElement> _leaderboadElements = new();
 
     private void OnEnable()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        UpdateData();
-        CreateElements();
-#endif
+        GP_Leaderboard.OnFetchSuccess += OnFetchSuccess;
     }
 
-    private void UpdateData()
+    private void OnDisable()
     {
-        Debug.Log("sdk");
-        //if (PlayerAccount.IsAuthorized == false)
-        //    return;
-
-        _leaderboardPlayers.Clear();
-
-        //Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
-        //{
-        //    foreach (var entry in result.entries)
-        //    {
-        //        int rank = entry.rank;
-        //        int score = entry.score;
-        //        string name = entry.player.publicName;
-
-        //        //if (string.IsNullOrEmpty(name))
-        //        //    name = _localizationTranslate.GetAnonymousName();
-
-        //        _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
-        //    }
-
-        //    _leaderboardPlayers.OrderByDescending(player => player.Rank).ToList();
-        //    //_leaderboadrView.Construct(_leaderboardPlayers.Take(MaxPlayers).ToList());
-        //});
+        GP_Leaderboard.OnFetchSuccess -= OnFetchSuccess;
     }
 
-    private void CreateElements()
+    private void Start()
     {
-        ClearElements();
+        GP_Player.Sync();
+        Debug.Log("start leaderboard");
+        Fetch();
+    }
 
-        for (int i = 0; i < MaxElements; i++)
+    private void Fetch() => GP_Leaderboard.Fetch();
+
+    // Результат получения
+    private void OnFetchSuccess(string fetchTag, GP_Data data)
+    {
+        Debug.Log("OnFetchSuccess");
+        var players = data.GetList<LeaderboardFetchData>();
+
+        _info.text += $"count:{players.Count}\n";
+
+        for (int i = 0; i < players.Count; i++)
         {
             LeaderboadElement temp = Instantiate(_prefab, _conteiner);
+
+            _info.text += $"i={i} - name:{players[i].name} - score{players[i].score}\n";
+
             temp.Init(
-                _leaderboardPlayers[i].Rank.ToString(),
-                _leaderboardPlayers[i].Name,
-                _leaderboardPlayers[i].Score.ToString());
+                (i+1).ToString(),
+                players[i].name,
+                players[i].score.ToString());
 
             _leaderboadElements.Add(temp);
         }

@@ -73,8 +73,7 @@ public class HeroChose : MonoBehaviour
         if (hero.Price > _userStorage.UserGold)
             return;
 
-        _userStorage.AddGold(-hero.Price);
-        _userStorage.AddHero(hero.Id);
+        _userStorage.AddHero(hero.Id, -hero.Price);
 
         UpdateButtons(hero);
     }

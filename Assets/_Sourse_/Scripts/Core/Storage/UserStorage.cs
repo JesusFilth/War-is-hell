@@ -1,52 +1,93 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using GamePush;
 
 public class UserStorage
 {
-    private const string UserKey = "User";
-    private const string LeaderboardName = "Leaderboard";
+    private const string GoldKey = "gold";
+    private const string OpenSurvivalKey = "isopensurvival";
+    private const string HeroesKey = "heroes";
 
-    private UserModel _user;
+    private const string UserKey = "User";//temp
+    private const string LeaderboardName = "Leaderboard";//?
 
     public event Action<int> GoldChanged;
-    public int UserGold => _user.Gold;
-
-    public void SetUser(UserModel user)
-    {
-        if (user == null)
-            throw new ArgumentNullException(nameof(user));
-
-        _user = user;
-    }
+    public int UserGold => GP_Player.GetInt(GoldKey);
 
     public bool HasHero(string id)
     {
-        string hero = _user.Heroes.Where(hero => hero == id).FirstOrDefault();
+        string heroes = string.Empty;
 
-        if(string.IsNullOrEmpty(hero))
-            return false;
+#if UNITY_WEBGL && !UNITY_EDITOR
+        heroes = GP_Player.GetString(HeroesKey);
+#else
+        heroes = PlayerPrefs.GetString(UserKey);
+#endif
 
-        return true;
+        const char HeroesSplit = ';';
+        const char HeroInfoSplit = '-';
+        const int ValueIndex = 1;
+
+        string[] heroesInfo = heroes.Split(HeroesSplit);
+
+        int heroIndex = int.Parse(id);
+
+        string[] hero = heroesInfo[heroIndex].Split(HeroInfoSplit);
+
+        if (hero[ValueIndex] == "true")
+            return true;
+
+        return false;
     }
 
     public void AddGold(int value)
     {
-        _user.Gold += value;
-        GoldChanged?.Invoke(_user.Gold);
+        GP_Player.Add(GoldKey,value);
+        GoldChanged?.Invoke(GP_Player.GetInt(GoldKey));
+
         Save();
     }
 
-    public void AddHero(string id)
+    public void AddHero(string id, int price)
     {
-        Array.Resize(ref _user.Heroes, _user.Heroes.Length+1);
-        _user.Heroes[_user.Heroes.Length - 1] = id;
+        string heroes = string.Empty;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        heroes = GP_Player.GetString(HeroesKey);
+#else
+        heroes = PlayerPrefs.GetString(UserKey);
+#endif
+
+        const char HeroesSplit = ';';
+        const char HeroInfoSplit = '-';
+
+        string[] heroesInfo = heroes.Split(HeroesSplit);
+
+        int heroIndex = int.Parse(id);
+
+        heroesInfo[heroIndex] = $"{id}{HeroInfoSplit}true";
+
+        string newInfo = string.Empty;
+
+        foreach(string hero in heroesInfo)
+        {
+            newInfo += $"{hero};";
+        }
+
+        newInfo.Remove(newInfo.Length - 1);
+
+        GP_Player.Add(GoldKey, price);
+        GP_Player.Set(HeroesKey, newInfo);
+
+        GoldChanged?.Invoke(GP_Player.GetInt(GoldKey));
+        Save();
     }
 
     public void AddScore(int score)
     {
-        if(_user.Score < score)
-            _user.Score = score;
+        if (GP_Player.GetScore() < score)
+            GP_Player.SetScore(score);
 
         Save();
         UpdatePlayerScore();
@@ -54,23 +95,23 @@ public class UserStorage
 
     public void UpdateGold()
     {
-        GoldChanged.Invoke(_user.Gold);
+        GoldChanged.Invoke(GP_Player.GetInt(GoldKey));
     }
 
     public void OpenSurvivalMode()
     {
-        _user.IsOpenSurvival = true;
+        GP_Player.SetFlag(OpenSurvivalKey, true);
         Save();
     }
 
     public bool IsOpenSurvivolMode()
     {
-        return _user.IsOpenSurvival;
+        return GP_Player.GetBool(OpenSurvivalKey);
     }
 
-    private void UpdatePlayerScore()
+    private void UpdatePlayerScore()//?
     {
-        Debug.Log("sdk");
+        Debug.Log("sdk-leaderbord");
         //#if UNITY_WEBGL && !UNITY_EDITOR
         //   if (PlayerAccount.IsAuthorized == false)
         //            return;
@@ -87,14 +128,6 @@ public class UserStorage
 
     private void Save()
     {
-        Debug.Log("sdk");
-//        string json = JsonUtility.ToJson(_user);
-//        PlayerPrefs.SetString(UserKey, json);
-//        PlayerPrefs.Save();
-
-//#if UNITY_WEBGL && !UNITY_EDITOR
-//        if (PlayerAccount.IsAuthorized)
-//            PlayerAccount.SetCloudSaveData(json);
-//#endif
+        GP_Player.Sync();
     }
 }
