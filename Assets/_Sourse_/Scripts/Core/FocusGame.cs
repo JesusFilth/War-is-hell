@@ -1,4 +1,3 @@
-using Agava.WebUtility;
 using UnityEngine;
 
 public class FocusGame : MonoBehaviour
@@ -13,18 +12,19 @@ public class FocusGame : MonoBehaviour
         {
             Instance = this;
         }
+        Debug.Log("sdk");
     }
 
     private void OnEnable()
     {
         Application.focusChanged += OnInBackgroundChangeApp;
-        WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+        //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
     }
 
     private void OnDisable()
     {
         Application.focusChanged -= OnInBackgroundChangeApp;
-        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+        //WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
     }
 
     public void Lock()

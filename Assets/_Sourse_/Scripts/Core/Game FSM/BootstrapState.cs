@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
-using Agava.YandexGames;
+using UnityEngine;
+using GamePush;
 
 public class BootstrapState : IGameState
 {
@@ -14,26 +14,15 @@ public class BootstrapState : IGameState
         _stateMashine = stateMashine;
     }
 
-    public void Execute()
+    public async void Execute()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        YandexGamesSdk.CallbackLogging = true;
-        CoroutineRunner.Instance.Run(Initialize());
-#else
-        _stateMashine.EnterIn<LoadDataState>();
-#endif
+        await GP_Init.Ready;
+        OnPluginReady();
     }
 
-    private IEnumerator Initialize()
+    private void OnPluginReady()
     {
-        yield return YandexGamesSdk.Initialize(OnInitialized);
-    }
-
-    private void OnInitialized()
-    {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        YandexGamesSdk.GameReady();
-#endif
+        Debug.Log("Plugin ready");
         _stateMashine.EnterIn<LoadDataState>();
     }
 }

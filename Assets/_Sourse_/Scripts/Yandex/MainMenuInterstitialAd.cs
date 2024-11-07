@@ -1,22 +1,24 @@
-using Agava.YandexGames;
 using UnityEngine;
+using GamePush;
 
 public class MainMenuInterstitialAd : MonoBehaviour
 {
     private void Start()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        InterstitialAd.Show(OnOpenAdCallback, OnCloseAdCallback);
-#endif
+        ShowFullscreen();
     }
 
-    private void OnOpenAdCallback()
-    {
+    public void ShowFullscreen() => GP_Ads.ShowFullscreen(OnFullscreenStart, OnFullscreenClose);
+
+    private void OnFullscreenStart()
+    { 
+        Debug.Log("ON FULLSCREEN START");
         FocusGame.Instance.Lock();
-    }
+    } 
 
-    private void OnCloseAdCallback(bool wasShown)
+    private void OnFullscreenClose(bool success)
     {
+        Debug.Log("ON FULLSCREEN CLOSE");
         FocusGame.Instance.Unlock();
     }
 }

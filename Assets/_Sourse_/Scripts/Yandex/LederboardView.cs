@@ -1,64 +1,51 @@
-using Agava.YandexGames;
+using GamePush;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class LederboardView : MonoBehaviour
 {
-    private const string LeaderboardName = "Leaderboard";
+    private const string AnanimusName = "Ananimus";
+    private const string LeaderboardName = "best_player";
     private const int MaxElements = 7;
 
     [SerializeField] private LeaderboadElement _prefab;
     [SerializeField] private Transform _conteiner;
 
-    private List<LeaderboardPlayer> _leaderboardPlayers = new();
     private List<LeaderboadElement> _leaderboadElements = new();
 
     private void OnEnable()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        UpdateData();
-        CreateElements();
-#endif
+        GP_Leaderboard.OnFetchSuccess += OnFetchSuccess;
     }
 
-    private void UpdateData()
+    private void OnDisable()
     {
-        if (PlayerAccount.IsAuthorized == false)
-            return;
-
-        _leaderboardPlayers.Clear();
-
-        Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
-        {
-            foreach (var entry in result.entries)
-            {
-                int rank = entry.rank;
-                int score = entry.score;
-                string name = entry.player.publicName;
-
-                //if (string.IsNullOrEmpty(name))
-                //    name = _localizationTranslate.GetAnonymousName();
-
-                _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
-            }
-
-            _leaderboardPlayers.OrderByDescending(player => player.Rank).ToList();
-            //_leaderboadrView.Construct(_leaderboardPlayers.Take(MaxPlayers).ToList());
-        });
+        GP_Leaderboard.OnFetchSuccess -= OnFetchSuccess;
     }
 
-    private void CreateElements()
+    private void Start()
     {
-        ClearElements();
+        Fetch();
+    }
 
-        for (int i = 0; i < MaxElements; i++)
+    private void Fetch() => GP_Leaderboard.Fetch();
+
+    private void OnFetchSuccess(string fetchTag, GP_Data data)
+    {
+        var players = data.GetList<LeaderboardFetchData>();
+
+        for (int i = 0; i < players.Count; i++)
         {
             LeaderboadElement temp = Instantiate(_prefab, _conteiner);
+
+            if (string.IsNullOrEmpty(players[i].name))
+                players[i].name = AnanimusName;
+
             temp.Init(
-                _leaderboardPlayers[i].Rank.ToString(),
-                _leaderboardPlayers[i].Name,
-                _leaderboardPlayers[i].Score.ToString());
+                (i+1).ToString(),
+                players[i].name,
+                players[i].score.ToString(),
+                players[i].avatar);
 
             _leaderboadElements.Add(temp);
         }

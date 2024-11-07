@@ -1,4 +1,5 @@
 using GameCreator.Runtime.Variables;
+using GamePush;
 using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,10 +7,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class RewardBonusStartGameButton : MonoBehaviour
 {
-    private const float BonusHP = 50;
     private const string ValueBonusName = "bonus";
 
     [SerializeField] private GlobalNameVariables _bonus;
+    [SerializeField] private float _bonusHP = 50;
 
     private Button _button;
 
@@ -32,11 +33,7 @@ public class RewardBonusStartGameButton : MonoBehaviour
 
     private void OnClick()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-         Agava.YandexGames.VideoAd.Show(OnOpenCallback,OnRevardCallback, OnCloseCallback);
-#else
-        OnRevardCallback();
-#endif
+        GP_Ads.ShowRewarded(null, OnRevardCallback, OnOpenCallback, OnCloseCallback);
     }
 
     private void OnOpenCallback()
@@ -44,14 +41,14 @@ public class RewardBonusStartGameButton : MonoBehaviour
         FocusGame.Instance.Lock();
     }
 
-    private void OnCloseCallback()
+    private void OnCloseCallback(bool success)
     {
         FocusGame.Instance.Unlock();
     }
 
-    private void OnRevardCallback()
+    private void OnRevardCallback(string value)
     {
-        _bonus.Set(ValueBonusName,  BonusHP);
+        _bonus.Set(ValueBonusName, _bonusHP);
         _stateMashine.EnterIn<LoadGameSceneState>();
     }
 }

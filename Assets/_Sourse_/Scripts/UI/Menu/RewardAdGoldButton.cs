@@ -1,3 +1,4 @@
+using GamePush;
 using Reflex.Attributes;
 using UnityEngine;
 
@@ -5,30 +6,23 @@ public class RewardAdGoldButton : MonoBehaviour
 {
     [Inject] private UserStorage _userStorage;
 
-    private int _giftCoins;
+    public void ShowRewarded(int coin) => GP_Ads.ShowRewarded(coin.ToString(), OnRewardedReward, OnRewardedStart, OnRewardedClose);
 
-    public void Show(int coins)
+    private void OnRewardedStart()
     {
-        _giftCoins = coins;
-#if UNITY_WEBGL && !UNITY_EDITOR
-         Agava.YandexGames.VideoAd.Show(OnOpenCallback,OnRevardCallback, OnCloseCallback);
-#else
-        OnRevardCallback();
-#endif
-    }
-
-    private void OnOpenCallback()
-    {
+        Debug.Log("ON REWARDED: START");
         FocusGame.Instance.Lock();
     }
 
-    private void OnCloseCallback()
+    private void OnRewardedReward(string value)
     {
-        FocusGame.Instance.Unlock();
+        int coin = int.Parse(value);
+        _userStorage.AddGold(coin);
     }
 
-    private void OnRevardCallback()
+    private void OnRewardedClose(bool success)
     {
-        _userStorage.AddGold(_giftCoins);
+        Debug.Log("ON REWARDED: CLOSE");
+        FocusGame.Instance.Unlock();
     }
 }
