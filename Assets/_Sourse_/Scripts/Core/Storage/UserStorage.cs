@@ -1,6 +1,4 @@
 using System;
-using System.Linq;
-using UnityEngine;
 using GamePush;
 
 public class UserStorage
@@ -10,13 +8,16 @@ public class UserStorage
     private const string HeroesKey = "heroes";
 
     private const string UserKey = "User";//temp
-    private const string LeaderboardName = "Leaderboard";//?
 
     public event Action<int> GoldChanged;
     public int UserGold => GP_Player.GetInt(GoldKey);
 
     public bool HasHero(string id)
     {
+        const char HeroesSplit = ';';
+        const char HeroInfoSplit = '-';
+        const int ValueIndex = 1;
+
         string heroes = string.Empty;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -24,10 +25,6 @@ public class UserStorage
 #else
         heroes = PlayerPrefs.GetString(UserKey);
 #endif
-
-        const char HeroesSplit = ';';
-        const char HeroInfoSplit = '-';
-        const int ValueIndex = 1;
 
         string[] heroesInfo = heroes.Split(HeroesSplit);
 
@@ -51,6 +48,9 @@ public class UserStorage
 
     public void AddHero(string id, int price)
     {
+        const char HeroesSplit = ';';
+        const char HeroInfoSplit = '-';
+
         string heroes = string.Empty;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -58,9 +58,6 @@ public class UserStorage
 #else
         heroes = PlayerPrefs.GetString(UserKey);
 #endif
-
-        const char HeroesSplit = ';';
-        const char HeroInfoSplit = '-';
 
         string[] heroesInfo = heroes.Split(HeroesSplit);
 
@@ -90,7 +87,6 @@ public class UserStorage
             GP_Player.SetScore(score);
 
         Save();
-        UpdatePlayerScore();
     }
 
     public void UpdateGold()
@@ -107,23 +103,6 @@ public class UserStorage
     public bool IsOpenSurvivolMode()
     {
         return GP_Player.GetBool(OpenSurvivalKey);
-    }
-
-    private void UpdatePlayerScore()//?
-    {
-        Debug.Log("sdk-leaderbord");
-        //#if UNITY_WEBGL && !UNITY_EDITOR
-        //   if (PlayerAccount.IsAuthorized == false)
-        //            return;
-
-        //        int score = _user.Score;
-
-        //        Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-        //        {
-        //            if (result == null || result.score < score)
-        //                Leaderboard.SetScore(LeaderboardName, score);
-        //        });
-        //#endif
     }
 
     private void Save()

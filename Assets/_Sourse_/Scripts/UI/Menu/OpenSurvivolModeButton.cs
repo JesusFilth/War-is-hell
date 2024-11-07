@@ -12,6 +12,7 @@ public class OpenSurvivolModeButton : MonoBehaviour
     private void Awake()
     {
         _button = GetComponent<Button>();
+        Initialize();
     }
 
     private void Initialize()
