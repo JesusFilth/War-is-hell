@@ -1,4 +1,5 @@
 using Reflex.Attributes;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,22 +11,20 @@ public class CurrentGameMode : MonoBehaviour
 
     public GameMode CurrentMode { get; private set; } = GameMode.Company;
 
+    public event Action<GameMode> ModeChanged;
+
     private void Awake()
     {
         Initialize();
     }
 
-    public void ToSurvivolMode()
+    public void SetGameMode(GameMode gameMode)
     {
-        CurrentMode = GameMode.Survival;
+        CurrentMode = gameMode;
+        ModeChanged?.Invoke(CurrentMode);
     }
 
-    public void ToCompanyMode()
-    {
-        CurrentMode = GameMode.Company;
-    }
-
-    private void UpdateTextMode()
+    private void UpdateTextMode()//?
     {
         _modeText.text = CurrentMode.ToString();
     }

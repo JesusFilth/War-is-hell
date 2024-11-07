@@ -16,6 +16,7 @@ public class HeroStatsView : MonoBehaviour
     [SerializeField] private TMP_Text _weapon;
     [SerializeField] private TMP_Text _skillPower;
     [SerializeField] private TMP_Text _description;
+    [SerializeField] private TMP_Text _name;
 
     private void OnEnable()
     {
