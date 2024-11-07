@@ -31,6 +31,8 @@ public class HeroStatsView : MonoBehaviour
     private void UpdateData(HeroSetting heroSetting)
     {
         Hero hero = heroSetting.Hero;
+
+        _name.text = heroSetting.Name;
         
         if(hero.gameObject.TryGetComponent(out Traits traits))
         {
