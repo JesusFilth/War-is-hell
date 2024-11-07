@@ -9,21 +9,4 @@ public class LeaderboardOpenButton : ButtonView
     {
         GP_Leaderboard.Open();
     }
-
-
-    //private async void Actions()
-    //{
-    //    await Test();
-    //}
-
-    //private async Task Test()
-    //{
-    //    await Task.Run(() => 
-    //    {
-    //        Thread.Sleep(3000);
-    //    }
-    //    );
-
-    //    Debug.Log("end");
-    //}
 }
