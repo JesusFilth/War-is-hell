@@ -1,18 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
+using GamePush;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSettingsView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private const string SectetKey = "secretCode"; 
+
+    [SerializeField] private GameObject _mainUi;
+
+    [SerializeField] private Button _close;
+    [SerializeField] private Button _save;
+    [SerializeField] private Button _copy;
+
+    [SerializeField] private TMP_InputField _name;
+    [SerializeField] private TMP_InputField _secretKey;
+
+    private void Awake()
     {
-        
+        Initialize();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        _close.onClick.AddListener(OnClose);
+        _save.onClick.AddListener(OnClose);
+        _copy.onClick.AddListener(OnCopy);
+    }
+
+    private void OnDisable()
+    {
+        _close.onClick.RemoveListener(OnClose);
+        _save.onClick.RemoveListener(OnClose);
+        _copy.onClick.RemoveListener(OnCopy);
+    }
+
+    private void Initialize()
+    {
+        string name = GP_Player.GetName();
+
+        if (string.IsNullOrEmpty(name))
+            _name.text = name;
+
+        _secretKey.text = GP_Player.GetString(SectetKey);
+    }
+
+    private void OnSave()
+    {
+        if (_name.text == string.Empty)
+            return;
+
+        if (_name.text == GP_Player.GetName())
+            return;
+
+        GP_Player.SetName(_name.text);
+    }
+
+    private void OnClose()
+    {
+        _mainUi.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    private void OnCopy()
+    {
+        GUIUtility.systemCopyBuffer = _secretKey.text;
     }
 }

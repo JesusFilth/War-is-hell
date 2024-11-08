@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSettingButton : MonoBehaviour
+public class PlayerSettingButton : ButtonView
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _mainUi;
+    [SerializeField] private GameObject _settingUi;
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnClick()
     {
-        
+        _mainUi.SetActive(false);
+        _settingUi.SetActive(true);
     }
 }
