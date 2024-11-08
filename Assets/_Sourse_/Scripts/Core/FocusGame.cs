@@ -1,3 +1,4 @@
+using GamePush;
 using UnityEngine;
 
 public class FocusGame : MonoBehaviour
@@ -29,6 +30,8 @@ public class FocusGame : MonoBehaviour
 
     public void Lock()
     {
+        GP_Game.IsPaused();
+
         MuteAudio(true);
         PauseGame(true);
 
@@ -37,6 +40,8 @@ public class FocusGame : MonoBehaviour
 
     public void Unlock()
     {
+        GP_Game.GameReady();
+
         _isLock = false;
 
         MuteAudio(false);

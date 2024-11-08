@@ -11,7 +11,8 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _score;
     [SerializeField] private TMP_Text _rank;
-    [SerializeField] private Button _authBtn;
+    [SerializeField] private Button _logIn;
+    [SerializeField] private Button _logOut;
 
     private Coroutine _avatarLoading;
 
@@ -22,20 +23,26 @@ public class PlayerView : MonoBehaviour
 
     private void OnEnable()
     {
-        _authBtn.onClick.AddListener(OnClickAutorization);
+        _logIn.onClick.AddListener(OnLogIn);
+        _logOut.onClick.AddListener(OnLogOut);
 
         GP_Leaderboard.OnFetchPlayerRatingSuccess += OnFetchPlayerRatingSuccess;
         GP_Player.OnLoginComplete += OnLoginComplete;
         GP_Player.OnLoginError += OnLoginError;
+
+        GP_Player.OnLogoutComplete += OnLoginComplete;
     }
 
     private void OnDisable()
     {
-        _authBtn.onClick.RemoveListener(OnClickAutorization);
+        _logIn.onClick.RemoveListener(OnLogIn);
+        _logOut.onClick.RemoveListener(OnLogOut);
 
         GP_Leaderboard.OnFetchPlayerRatingSuccess -= OnFetchPlayerRatingSuccess;
         GP_Player.OnLoginComplete -= OnLoginComplete;
         GP_Player.OnLoginError -= OnLoginError;
+
+        GP_Player.OnLogoutComplete -= OnLoginComplete;
 
         if (_avatarLoading != null)
         {
@@ -47,10 +54,22 @@ public class PlayerView : MonoBehaviour
     private void Initialize()
     {
         _score.text = GP_Player.GetScore().ToString();
-        _name.text = GP_Player.GetName().ToString();
+
+        string name = GP_Player.GetName().ToString();
+
+        if (string.IsNullOrEmpty(name) == false)
+            _name.name = name;
 
         if (GP_Player.IsLoggedIn())
-            _authBtn.gameObject.SetActive(false);
+        {
+            _logIn.gameObject.SetActive(false);
+            _logOut.gameObject.SetActive(true);
+        }
+        else
+        {
+            _logIn.gameObject.SetActive(true);
+            _logOut.gameObject.SetActive(false);
+        }
 
         FetchPlayerRating();
 
@@ -82,10 +101,15 @@ public class PlayerView : MonoBehaviour
         _rank.text = position.ToString();
     }
 
-    private void OnClickAutorization()
+    private void OnLogIn()
     {
         GP_Player.Login();
     }
+    private void OnLogOut()
+    {
+        GP_Player.Logout();
+    }
+
 
     private IEnumerator LoadingImage(string imageUrl)
     {
