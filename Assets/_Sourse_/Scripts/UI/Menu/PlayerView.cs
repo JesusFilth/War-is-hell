@@ -16,11 +16,6 @@ public class PlayerView : MonoBehaviour
 
     private Coroutine _avatarLoading;
 
-    private void Awake()
-    {
-        Initialize();
-    }
-
     private void OnEnable()
     {
         _logIn.onClick.AddListener(OnLogIn);
@@ -31,6 +26,8 @@ public class PlayerView : MonoBehaviour
         GP_Player.OnLoginError += OnLoginError;
 
         GP_Player.OnLogoutComplete += OnLoginComplete;
+
+        Initialize();
     }
 
     private void OnDisable()

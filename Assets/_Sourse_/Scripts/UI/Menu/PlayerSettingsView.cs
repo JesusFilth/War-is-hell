@@ -39,7 +39,7 @@ public class PlayerSettingsView : MonoBehaviour
     {
         string name = GP_Player.GetName();
 
-        if (string.IsNullOrEmpty(name))
+        if (string.IsNullOrEmpty(name) == false)
             _name.text = name;
 
         _secretKey.text = GP_Player.GetString(SectetKey);
@@ -54,6 +54,9 @@ public class PlayerSettingsView : MonoBehaviour
             return;
 
         GP_Player.SetName(_name.text);
+        GP_Player.Sync();
+
+        OnClose();
     }
 
     private void OnClose()
@@ -64,6 +67,8 @@ public class PlayerSettingsView : MonoBehaviour
 
     private void OnCopy()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
         GUIUtility.systemCopyBuffer = _secretKey.text;
+#endif
     }
 }
