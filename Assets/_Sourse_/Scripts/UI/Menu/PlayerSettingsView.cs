@@ -67,9 +67,6 @@ public class PlayerSettingsView : MonoBehaviour
 
     private void OnCopy()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
         GUIUtility.systemCopyBuffer = _secretKey.text;
-#endif
-        WebGLCopyAndPasteAPI.passCopyToBrowser(_secretKey.text);
     }
 }
