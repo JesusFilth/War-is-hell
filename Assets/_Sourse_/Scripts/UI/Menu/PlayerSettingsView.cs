@@ -24,14 +24,14 @@ public class PlayerSettingsView : MonoBehaviour
     private void OnEnable()
     {
         _close.onClick.AddListener(OnClose);
-        _save.onClick.AddListener(OnClose);
+        _save.onClick.AddListener(OnSave);
         _copy.onClick.AddListener(OnCopy);
     }
 
     private void OnDisable()
     {
         _close.onClick.RemoveListener(OnClose);
-        _save.onClick.RemoveListener(OnClose);
+        _save.onClick.RemoveListener(OnSave);
         _copy.onClick.RemoveListener(OnCopy);
     }
 

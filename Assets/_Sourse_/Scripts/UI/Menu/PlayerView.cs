@@ -55,10 +55,10 @@ public class PlayerView : MonoBehaviour
     {
         _score.text = GP_Player.GetScore().ToString();
 
-        string name = GP_Player.GetName().ToString();
+        string name = GP_Player.GetName();
 
         if (string.IsNullOrEmpty(name) == false)
-            _name.name = name;
+            _name.text = name;
 
         if (GP_Player.IsLoggedIn())
         {
