@@ -5,8 +5,7 @@ using UnityEngine;
 public class LederboardView : MonoBehaviour
 {
     private const string AnanimusName = "Ananimus";
-    private const string LeaderboardName = "best_player";
-    private const int MaxElements = 7;
+    private const int MaxElements = 5;
 
     [SerializeField] private LeaderboadElement _prefab;
     [SerializeField] private Transform _conteiner;
@@ -28,7 +27,7 @@ public class LederboardView : MonoBehaviour
         Fetch();
     }
 
-    private void Fetch() => GP_Leaderboard.Fetch();
+    private void Fetch() => GP_Leaderboard.Fetch("","score",Order.DESC,MaxElements);
 
     private void OnFetchSuccess(string fetchTag, GP_Data data)
     {

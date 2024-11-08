@@ -4284,7 +4284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5614034df8168f54b85fb7fd8f373e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _closeMessage: {fileID: 0}
 --- !u!1 &900723949
 GameObject:
   m_ObjectHideFlags: 0
@@ -8435,7 +8434,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1632271540}
         m_TargetAssemblyTypeName: RewardAdGoldButton, Assembly-CSharp
-        m_MethodName: Show
+        m_MethodName: ShowRewarded
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
