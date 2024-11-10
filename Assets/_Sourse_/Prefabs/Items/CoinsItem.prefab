@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2115953312855827549}
   - component: {fileID: 7057338117865770132}
   - component: {fileID: 80824934104292971}
+  - component: {fileID: 8305024151788934525}
   m_Layer: 0
   m_Name: CoinsItem
   m_TagString: Untagged
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c334c402e7c26d418be9b2d1289d805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actions: {fileID: 8305024151788934525}
   _count: 10
 --- !u!114 &80824934104292971
 MonoBehaviour:
@@ -165,3 +167,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 150
+--- !u!114 &8305024151788934525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590360726982118625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280989d249f9b482d890a5f97137f44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 5739815949209436957
+  references:
+    version: 2
+    RefIds:
+    - rid: 5739815949209436957
+      type: {class: InstructionCommonAudioSFXPlay, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_AudioClip:
+          m_Property:
+            rid: 5739815949209436958
+        m_WaitToComplete: 0
+        m_Config:
+          m_Volume: 1
+          m_Pitch: {x: 1, y: 1}
+          m_TransitionIn: 0
+          m_UpdateMode: 0
+          m_SpatialBlend: 0
+          m_Target:
+            m_Property:
+              rid: 5739815949209436959
+    - rid: 5739815949209436958
+      type: {class: GetAudioClip, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: {fileID: 8300000, guid: d4c1822275399d342bd67ef3b58dd9bc, type: 3}
+    - rid: 5739815949209436959
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 

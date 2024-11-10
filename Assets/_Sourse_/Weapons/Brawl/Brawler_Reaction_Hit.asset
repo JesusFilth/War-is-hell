@@ -26,7 +26,8 @@ MonoBehaviour:
     - rid: 6655073818933985281
   m_OnEnter:
     m_Instructions:
-      m_Instructions: []
+      m_Instructions:
+      - rid: 5739815971598893873
   m_OnExit:
     m_Instructions:
       m_Instructions: []
@@ -37,6 +38,39 @@ MonoBehaviour:
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 1
+    - rid: 5739815971598893873
+      type: {class: InstructionCommonAudioSFXPlay, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_AudioClip:
+          m_Property:
+            rid: 5739815971598893877
+        m_WaitToComplete: 0
+        m_Config:
+          m_Volume: 1
+          m_Pitch: {x: 0.8, y: 1.2}
+          m_TransitionIn: 0
+          m_UpdateMode: 0
+          m_SpatialBlend: 0
+          m_Target:
+            m_Property:
+              rid: 5739815971598893875
+    - rid: 5739815971598893875
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739815971598893877
+      type: {class: GetAudioClipGlobalList, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: audio-clip
+          m_Variable: {fileID: 11400000, guid: 0cf18ed3272412b4fb361e5da17f5680, type: 2}
+          m_Select:
+            rid: 5739815971598893879
+    - rid: 5739815971598893879
+      type: {class: GetPickRandom, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data: 
     - rid: 6655073804197822464
       type: {class: ReactionItem, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:

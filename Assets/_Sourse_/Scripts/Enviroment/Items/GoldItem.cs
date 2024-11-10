@@ -19,7 +19,7 @@ public class GoldItem : Item
         if(other.TryGetComponent(out Player player))
         {
             player.AddGold(_count);
-            Destroy(gameObject);
+            Destroy();
         }
     }
 
