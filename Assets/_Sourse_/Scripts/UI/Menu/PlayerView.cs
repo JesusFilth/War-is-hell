@@ -22,10 +22,10 @@ public class PlayerView : MonoBehaviour
         _logOut.onClick.AddListener(OnLogOut);
 
         GP_Leaderboard.OnFetchPlayerRatingSuccess += OnFetchPlayerRatingSuccess;
-        GP_Player.OnLoginComplete += OnLoginComplete;
-        GP_Player.OnLoginError += OnLoginError;
+        GP_Player.OnLoginComplete += Initialize;
+        GP_Player.OnLogoutComplete += Initialize;
 
-        GP_Player.OnLogoutComplete += OnLoginComplete;
+        GP_Player.OnLoginError += OnLoginError;
 
         Initialize();
     }
@@ -36,10 +36,10 @@ public class PlayerView : MonoBehaviour
         _logOut.onClick.RemoveListener(OnLogOut);
 
         GP_Leaderboard.OnFetchPlayerRatingSuccess -= OnFetchPlayerRatingSuccess;
-        GP_Player.OnLoginComplete -= OnLoginComplete;
-        GP_Player.OnLoginError -= OnLoginError;
+        GP_Player.OnLoginComplete -= Initialize;
+        GP_Player.OnLogoutComplete -= Initialize;
 
-        GP_Player.OnLogoutComplete -= OnLoginComplete;
+        GP_Player.OnLoginError -= OnLoginError;
 
         if (_avatarLoading != null)
         {
@@ -59,7 +59,7 @@ public class PlayerView : MonoBehaviour
         if (GP_Player.IsLoggedIn())
         {
             _logIn.gameObject.SetActive(false);
-            _logOut.gameObject.SetActive(true);
+            _logOut.gameObject.SetActive(GP_Platform.IsLogoutAvailable());
         }
         else
         {
@@ -78,11 +78,6 @@ public class PlayerView : MonoBehaviour
     {
         if (_avatarLoading == null)
             _avatarLoading = StartCoroutine(LoadingImage(GP_Player.GetAvatarUrl()));
-    }
-
-    private void OnLoginComplete()
-    {
-        Initialize();
     }
 
     private void OnLoginError()
@@ -105,7 +100,6 @@ public class PlayerView : MonoBehaviour
     {
         GP_Player.Logout();
     }
-
 
     private IEnumerator LoadingImage(string imageUrl)
     {
