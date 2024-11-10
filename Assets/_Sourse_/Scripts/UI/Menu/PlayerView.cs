@@ -51,7 +51,6 @@ public class PlayerView : MonoBehaviour
     private void Initialize()
     {
         _score.text = GP_Player.GetScore().ToString();
-
         string name = GP_Player.GetName();
 
         if (string.IsNullOrEmpty(name) == false)

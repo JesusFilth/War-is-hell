@@ -13,6 +13,8 @@ public class BackgroundSound : MonoBehaviour
 
     private void Awake()
     {
+        transform.parent = null;
+
         if (Instance == null)
         {
             Instance = this;

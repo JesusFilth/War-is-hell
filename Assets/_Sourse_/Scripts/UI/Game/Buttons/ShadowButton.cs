@@ -4,34 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class ShadowButton : MonoBehaviour
+public class ShadowButton : ButtonView
 {
-    private const string On = "вкл";
-    private const string Off = "выкл";
-
     [SerializeField] private Light _light;
-    [SerializeField] private TMP_Text _text;
+    [SerializeField] private GameObject _on;
+    [SerializeField] private GameObject _off;
 
-    private Button _button;
     private bool _isAcrive = true;
 
-    private void Awake()
-    {
-        _button = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(Click);
-    }
-
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(Click);
-    }
-
-    private void Click()
+    protected override void OnClick()
     {
         _isAcrive = !_isAcrive;
         UpdateLight();
@@ -40,6 +21,8 @@ public class ShadowButton : MonoBehaviour
     private void UpdateLight()
     {
         _light.shadows = _isAcrive ? LightShadows.Hard : LightShadows.None;
-        _text.text = _isAcrive ? Off : On;
+
+        _on.SetActive(!_isAcrive);
+        _off.SetActive(_isAcrive);
     }
 }
