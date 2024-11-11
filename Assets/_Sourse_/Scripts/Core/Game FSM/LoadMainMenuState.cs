@@ -4,6 +4,6 @@ public class LoadMainMenuState : IGameState
 {
     public void Execute()
     {
-        MainMenu.Load();
+        GameMainMenu.Load();
     }
 }
