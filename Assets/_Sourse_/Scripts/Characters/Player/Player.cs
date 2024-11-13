@@ -82,6 +82,6 @@ public class Player : MonoBehaviour,
     {
         _hero = Instantiate(_heroStorage.GetCurrentHero().Hero);
         Transform.SetParent(_hero.transform);
-        Transform.position = Vector3.zero;
+        Transform.localPosition = Vector3.zero;
     }
 }

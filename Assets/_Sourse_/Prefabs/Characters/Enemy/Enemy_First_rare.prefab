@@ -2616,6 +2616,7 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 5739815972820222224
+    - rid: 5739816041974857736
     - rid: 3147619311979593899
     - rid: 3147619311979593901
     - rid: 3147619358847796178
@@ -2784,6 +2785,24 @@ MonoBehaviour:
             rid: 5739815972820222232
     - rid: 5739815972820222232
       type: {class: GetPickRandom, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816041974857736
+      type: {class: InstructionCharacterRemoveCandidateTarget, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 5739816041974857739
+        m_Target:
+          m_Property:
+            rid: 5739816041974857740
+    - rid: 5739816041974857739
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 3462118357868789773}
+    - rid: 5739816041974857740
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
     - rid: 5980455540685537996
       type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
