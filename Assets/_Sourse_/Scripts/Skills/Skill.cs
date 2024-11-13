@@ -1,3 +1,4 @@
+using GamePush;
 using System;
 using UnityEngine;
 
@@ -9,7 +10,11 @@ public abstract class Skill : ScriptableObject
     [SerializeField] private string _name;
     [SerializeField] private Sprite _icon;
     [SerializeField] private SkillItem _item;
-    [SerializeField] [TextArea(3,5)] private string _description;
+    [SerializeField] [TextArea(3,5)] private string _russianDescription;
+    [SerializeField] [TextArea(3,5)] private string _englishDescription;
+    [SerializeField] [TextArea(3,5)] private string _turkishDescription;
+
+    private string _description;
 
     public int LevelNumber => Level;
     public bool IsMaxLevel { get; protected set; }
@@ -19,6 +24,28 @@ public abstract class Skill : ScriptableObject
     public string Description => _description;
 
     protected SkillExecuteStratigy Stratigy = new SkillExecuteStratigy();
+
+    private void Awake()
+    {
+        Language languageCode = GP_Language.Current();
+        ChangeLanguage(languageCode);
+    }
+
+    private void ChangeLanguage(Language languageCode)
+    {
+        switch (languageCode)
+        {
+            case Language.English:
+                _description = _englishDescription;
+                break;
+            case Language.Turkish:
+                _description = _turkishDescription;
+                break;
+            case Language.Russian:
+                _description = _russianDescription;
+                break;
+        }
+    }
 
     private void OnValidate()
     {

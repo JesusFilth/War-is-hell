@@ -32,7 +32,7 @@ public class HeroSetting : ScriptableObject
         ChangeLanguage(languageCode);
     }
 
-    public void ChangeLanguage(Language languageCode)
+    private void ChangeLanguage(Language languageCode)
     {
         switch (languageCode)
         {

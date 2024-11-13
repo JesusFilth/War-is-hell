@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 928ae0e0808898440ac4dd7b0e21c98a, type: 3}
   m_Name: BodyExplotion
@@ -21,6 +21,16 @@ MonoBehaviour:
     \u0443\u0440\u043E\u043D \u043E\u0442 \u0441\u0438\u043B\u044B \u0437\u0430\u043A\u043B\u0438\u043D\u0430\u043D\u0438\u044F
     \u0432\u0441\u0435 \u0432\u0440\u043E\u0433\u0430\u043C \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435
     \u0432\u0437\u0440\u044B\u0432\u0430"
+  _russianDescription: "\u0412\u0437\u0440\u044B\u0432\u0430\u0435\u0442 \u0442\u0440\u0443\u043F\u044B
+    \u0432\u0440\u0430\u0433\u043E\u0432 \u043D\u0430\u043D\u043E\u0441\u044F \u0434\u0432\u043E\u0439\u043D\u043E\u0439
+    \u0443\u0440\u043E\u043D \u043E\u0442 \u0441\u0438\u043B\u044B \u0437\u0430\u043A\u043B\u0438\u043D\u0430\u043D\u0438\u044F
+    \u0432\u0441\u0435 \u0432\u0440\u043E\u0433\u0430\u043C \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435
+    \u0432\u0437\u0440\u044B\u0432\u0430"
+  _englishDescription: Explodes enemy corpses, dealing double spell damage to all
+    enemies within the blast radius.
+  _turkishDescription: "D\xFC\u015Fmanlar\u0131n cesetlerini patlat\u0131r ve patlama
+    yar\u0131\xE7ap\u0131ndaki t\xFCm d\xFC\u015Fmanlara b\xFCy\xFCn\xFCn g\xFCc\xFCnden
+    iki kat hasar verir."
   _effect: {fileID: 6990705723118473971, guid: a2aa0b1e2cd6d92499c9d72656c1fa7b, type: 3}
   Cooldawn: 3
   Chance: 50
