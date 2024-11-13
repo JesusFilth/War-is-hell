@@ -9,8 +9,7 @@ public class Hero : MonoBehaviour
 
     public Character Character => _character;
     public PlayerAbilitys PlayerAbility => _playerAbility;
-
-    public Transform Transform;
+    public Transform Transform { get; private set; }
 
     private void Awake()
     {
