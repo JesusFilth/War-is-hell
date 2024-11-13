@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class SkillPassive : Skill
 {
     [SerializeField] protected float Value;
+    [SerializeField] protected float UpValue = 5;
     [SerializeField] protected float MaxValue = 10;
 
     public override void ExecuteStratigy(PlayerAbilitys abilitys)
@@ -19,7 +20,7 @@ public abstract class SkillPassive : Skill
     public override void UpSkill()
     {
         Level++;
-        Value++;
+        Value += UpValue;
 
         CheckMaxLevel();
     }

@@ -5916,23 +5916,11 @@ MonoBehaviour:
           m_Property:
             rid: 5386062650796670995
         m_Change:
-          m_Operation: 0
+          m_Operation: 1
           m_Value:
             m_Property:
-              rid: 4340017060664574345
+              rid: 5739816037418270900
     - rid: 4340017060664574337
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data: 
-    - rid: 4340017060664574345
-      type: {class: GetDecimalAttributeMaxValue, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
-      data:
-        m_Traits:
-          m_Property:
-            rid: 4340017060664574346
-        m_Attribute:
-          m_Property:
-            rid: 5386062650796670998
-    - rid: 4340017060664574346
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
     - rid: 5386062650796670995
@@ -5943,10 +5931,6 @@ MonoBehaviour:
       type: {class: GetStatInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
       data:
         m_Stat: {fileID: 11400000, guid: cbf0cb2229fd646dd8f831c2fc670538, type: 2}
-    - rid: 5386062650796670998
-      type: {class: GetAttributeInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
-      data:
-        m_Attribute: {fileID: 11400000, guid: 4cf7ae5caa4804d0ea2548dceac15ffb, type: 2}
     - rid: 5739815971598893120
       type: {class: InstructionCommonAudioSFXPlay, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -5972,6 +5956,22 @@ MonoBehaviour:
     - rid: 5739815971598893122
       type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
+    - rid: 5739816037418270900
+      type: {class: GetDecimalStatValue, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Traits:
+          m_Property:
+            rid: 5739816037418270901
+        m_Stat:
+          m_Property:
+            rid: 5739816037418270902
+    - rid: 5739816037418270901
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816037418270902
+      type: {class: GetStatInstance, ns: GameCreator.Runtime.Stats, asm: GameCreator.Runtime.Stats}
+      data:
+        m_Stat: {fileID: 11400000, guid: cce1dd3666390da4fb5722a8c516a152, type: 2}
 --- !u!222 &1008235797256716686
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6045,6 +6045,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3599cd5b4c5e83f4a8603afc089c39be, type: 2}
   - {fileID: 11400000, guid: 08c783a87fa569b489f691ce94f25985, type: 2}
   - {fileID: 11400000, guid: b324773dd802a5e4291e78c7f363dc64, type: 2}
+  - {fileID: 11400000, guid: a187f6adca002ae49b61edb50eb1916e, type: 2}
 --- !u!222 &1124012062320209952
 CanvasRenderer:
   m_ObjectHideFlags: 0
