@@ -7,17 +7,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c2a662012e68d74780ec28520fb7904, type: 3}
   m_Name: Hero_1
   m_EditorClassIdentifier: 
   _id: 0
-  _name: Soldate
+  _russianName: "\u0421\u043E\u043B\u0434\u0430\u0442"
+  _englishName: Soldier
+  _turkishName: Asker
   _hero: {fileID: 2472601587910802905, guid: 6430e814222ea9e48a7d2008b40703de, type: 3}
   _skin: {fileID: 1781282677531552, guid: e6b13a5bf4b200449b883566f883fa57, type: 3}
   _price: 0
-  _description: "\u041F\u043E\u0432\u044B\u0448\u0435\u043D\u043D\u043E\u0435 \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435
-    \u0443\u0440\u043E\u043D\u0430 \u043E\u0440\u0443\u0436\u0438\u0435\u043C \u043F\u0440\u0438
-    \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0438 \u043D\u043E\u0432\u043E\u0433\u043E
-    \u0443\u0440\u043E\u0432\u043D\u044F"
+  _russianDescription: "\u041F\u043E\u0432\u044B\u0448\u0435\u043D\u043D\u043E\u0435
+    \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430
+    \u043E\u0440\u0443\u0436\u0438\u0435\u043C \u043F\u0440\u0438 \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0438
+    \u043D\u043E\u0432\u043E\u0433\u043E \u0443\u0440\u043E\u0432\u043D\u044F."
+  _englishDescription: Increased weapon damage increase upon leveling up.
+  _turkishDescription: "Seviye atlad\u0131k\xE7a silah hasar\u0131 artar."
