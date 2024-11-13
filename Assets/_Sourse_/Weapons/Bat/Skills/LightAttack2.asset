@@ -123,7 +123,6 @@ MonoBehaviour:
       - rid: 4340017104564519075
       - rid: 3147619678547869900
       - rid: 3147619678547869908
-      - rid: 3147619678547869912
   <EditorModelPath>k__BackingField: 
   references:
     version: 2
@@ -194,40 +193,6 @@ MonoBehaviour:
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 1
-    - rid: 3147619678547869912
-      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 3147619678547869913
-        m_From:
-          m_Property:
-            rid: 3147619678547869914
-    - rid: 3147619678547869913
-      type: {class: SetBoolLocalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: boolean
-          m_Variable:
-            rid: 3147619678547869915
-          m_Name:
-            m_String: isHit
-            m_ID: -1235987232
-    - rid: 3147619678547869914
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 1
-    - rid: 3147619678547869915
-      type: {class: PropertyGetGameObject, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Property:
-          rid: 3147619678547869916
-    - rid: 3147619678547869916
-      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data: 
     - rid: 4340017088909803639
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:

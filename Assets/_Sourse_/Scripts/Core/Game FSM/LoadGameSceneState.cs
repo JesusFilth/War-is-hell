@@ -1,5 +1,4 @@
 using IJunior.TypedScenes;
-using UnityEngine;
 
 public class LoadGameSceneState : IGameState<GameMode>
 {
