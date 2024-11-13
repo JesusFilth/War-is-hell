@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8291102574810654789}
   - component: {fileID: 1897464815625332418}
   - component: {fileID: -6757537564237346592}
+  - component: {fileID: 4080253476772422233}
   m_Layer: 0
   m_Name: Skill_BloodHeal
   m_TagString: Untagged
@@ -4938,3 +4939,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d915d58067c29cb45994df1b6a413262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4080253476772422233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489431029902184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnlyDeactivate: 0
