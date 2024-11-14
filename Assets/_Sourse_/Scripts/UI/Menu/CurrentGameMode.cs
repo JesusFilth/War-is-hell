@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class CurrentGameMode : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _modeText;
-
     [Inject] private UserStorage _userStorage;
 
     public GameMode CurrentMode { get; private set; } = GameMode.Company;
@@ -15,19 +13,13 @@ public class CurrentGameMode : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Survival mode");
-        //Initialize();
+        Initialize();
     }
 
     public void SetGameMode(GameMode gameMode)
     {
         CurrentMode = gameMode;
         ModeChanged?.Invoke(CurrentMode);
-    }
-
-    private void UpdateTextMode()//?
-    {
-        _modeText.text = CurrentMode.ToString();
     }
 
     private void Initialize()

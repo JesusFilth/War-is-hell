@@ -7,6 +7,7 @@ public class GameModeButton : ButtonView
     [SerializeField] private GameObject _focus;
 
     [Inject] private CurrentGameMode _currentGameMode;
+    [Inject] private UserStorage _userStorage;
 
     protected override void OnEnable()
     {
@@ -32,6 +33,9 @@ public class GameModeButton : ButtonView
 
     protected override void OnClick()
     {
+        if (_userStorage.IsOpenSurvivolMode() == false)
+            return;
+
         _currentGameMode.SetGameMode(_mode);
     }
 

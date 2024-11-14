@@ -21,7 +21,7 @@ public class OpenSurvivolModeButton : MonoBehaviour
         _button = GetComponent<Button>();
         _showingTime = new WaitForSeconds(_messageDelay);
 
-        Initialize();
+        //Initialize();
     }
 
     private void OnEnable()
@@ -40,6 +40,15 @@ public class OpenSurvivolModeButton : MonoBehaviour
         }
     }
 
+    public void OnClick()
+    {
+        if (_userStorage.IsOpenSurvivolMode())
+            return;
+
+        if (_showing == null)
+            _showing = StartCoroutine(Showing());
+    }
+
     private IEnumerator Showing()
     {
         _message.gameObject.SetActive(true);
@@ -48,12 +57,6 @@ public class OpenSurvivolModeButton : MonoBehaviour
 
         _message.gameObject.SetActive(false);
         _showing = null;
-    }
-
-    private void OnClick()
-    {
-        if (_showing == null)
-            _showing = StartCoroutine(Showing());
     }
 
     private void Initialize()
