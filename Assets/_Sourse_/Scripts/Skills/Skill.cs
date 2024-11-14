@@ -25,16 +25,7 @@ public abstract class Skill : ScriptableObject
 
     protected SkillExecuteStratigy Stratigy = new SkillExecuteStratigy();
 
-    private void Awake()
-    {
-        if (Application.isPlaying == false)
-            return;
-
-        Language languageCode = GP_Language.Current();
-        ChangeLanguage(languageCode);
-    }
-
-    private void ChangeLanguage(Language languageCode)
+    public void ChangeLanguage(Language languageCode)
     {
         switch (languageCode)
         {

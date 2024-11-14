@@ -10,6 +10,11 @@ public class LocalizationInitialize : MonoBehaviour
 
     [SerializeField] private LeanLocalization _leanLocalization;
 
+    private void Awake()
+    {
+        ChangeLenguage();
+    }
+
     private void ChangeLenguage()
     {
         Language language = GP_Language.Current();

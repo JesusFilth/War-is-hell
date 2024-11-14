@@ -1,4 +1,5 @@
 using GameCreator.Runtime.Stats;
+using GamePush;
 using TMPro;
 using UnityEngine;
 
@@ -30,6 +31,8 @@ public class HeroStatsView : MonoBehaviour
 
     private void UpdateData(HeroSetting heroSetting)
     {
+        heroSetting.ChangeLanguage(GP_Language.Current());
+
         Hero hero = heroSetting.Hero;
 
         _name.text = heroSetting.Name;

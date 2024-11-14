@@ -1,4 +1,5 @@
 using System;
+using GamePush;
 using Reflex.Attributes;
 using TMPro;
 using UnityEngine;
@@ -38,6 +39,8 @@ public class SkillItemUI : MonoBehaviour
 
     private void UpdateData()
     {
+        _currentSkill.ChangeLanguage(GP_Language.Current());
+
         if(_currentSkill.Icon != null)
             _icon.sprite = _currentSkill.Icon;
 
