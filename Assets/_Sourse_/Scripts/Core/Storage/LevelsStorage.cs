@@ -56,4 +56,6 @@ public class LevelsStorage : MonoBehaviour,
     {
         return _levels.Length;
     }
+
+    public float GetExperianceForSurvivol() => _levelSettings.ExperianceForSurvivol;
 }

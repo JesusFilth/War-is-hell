@@ -108,6 +108,10 @@ public abstract class WaveSpawner : MonoBehaviour
 
         int level = _gameLevel.GetCurrentLevelNumber();
         float percentUp = (_gameLevelSettings.GetUpLevelPowerPercent() * level) / MaxPercent;
+
+        if (_gameLevel.GetCurrentMode() == GameMode.Survival)
+            _experiance = _gameLevelSettings.GetExperianceForSurvivol();
+
         float upResult = _experiance * percentUp;
 
         _player.AddExpirience(_experiance + upResult);
