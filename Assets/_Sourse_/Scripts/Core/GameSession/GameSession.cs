@@ -1,9 +1,12 @@
 ﻿using Reflex.Attributes;
+using System;
 using UnityEngine;
 
 public class GameSession : MonoBehaviour,
     IGameLevel
 {
+    [SerializeField] private InputView _inputView;
+
     private LevelLocation _currentLevel;
     private GameMode _mode;
     private int _currentNumberLevel = 1;
@@ -40,6 +43,8 @@ public class GameSession : MonoBehaviour,
         _currentLevel = GetLevelLocation();
         _player.SetPosition(_currentLevel.PlayerStartPosition.position);
         _currentLevel.SetPriseSkill(skill);
+
+        _inputView.Off();
     }
 
     public int GetCurrentLevelNumber() => _currentNumberLevel;

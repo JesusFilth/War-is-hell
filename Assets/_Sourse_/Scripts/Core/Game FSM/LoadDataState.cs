@@ -28,8 +28,8 @@ public class LoadDataState : IGameState
 
     private void Load()
     {
-        Debug.Log("default heroes");//for test on editor
-        PlayerPrefs.SetString(UserKey, "0-true;1-false;2-false;");
+        //Debug.Log("default heroes");//for test on editor
+        //PlayerPrefs.SetString(UserKey, "0-true;1-false;2-false;");
 
         _stateMashine.EnterIn<LoadMainMenuState>();
     }
