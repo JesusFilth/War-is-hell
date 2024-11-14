@@ -1,5 +1,5 @@
-using GamePush;
 using System;
+using GamePush;
 using UnityEngine;
 
 public abstract class Skill : ScriptableObject
@@ -27,6 +27,9 @@ public abstract class Skill : ScriptableObject
 
     private void Awake()
     {
+        if (Application.isPlaying == false)
+            return;
+
         Language languageCode = GP_Language.Current();
         ChangeLanguage(languageCode);
     }

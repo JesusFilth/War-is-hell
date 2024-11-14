@@ -28,6 +28,9 @@ public class HeroSetting : ScriptableObject
 
     private void Awake()
     {
+        if (Application.isPlaying == false)
+            return;
+
         Language languageCode = GP_Language.Current();
         ChangeLanguage(languageCode);
     }
