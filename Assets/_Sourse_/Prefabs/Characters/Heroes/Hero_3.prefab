@@ -1085,7 +1085,7 @@ MonoBehaviour:
           m_Value: 1800
         m_Mass: 80
         m_Height: 2
-        m_Radius: 0.2
+        m_Radius: 0.3
         m_GravityUpwards: -9.81
         m_GravityDownwards: -9.81
         m_TerminalVelocity: -53
@@ -1274,7 +1274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 7137428208569745638}
   _playerAbility: {fileID: 1433246507858400506}
-  Transform: {fileID: 0}
 --- !u!1 &4021057423825320174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2252,18 @@ PrefabInstance:
     - target: {fileID: 2421485986815803348, guid: 8362acb8e504f624bb9ce604485db852, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466877257857200538, guid: 8362acb8e504f624bb9ce604485db852, type: 3}
+      propertyPath: managedReferences[3147619724280987862].m_Variable.m_Variable
+      value: 
+      objectReference: {fileID: 6283470331780711625}
+    - target: {fileID: 7865817001004850034, guid: 8362acb8e504f624bb9ce604485db852, type: 3}
+      propertyPath: managedReferences[3147619633887445114].m_Variable.m_Variable
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865817001004850034, guid: 8362acb8e504f624bb9ce604485db852, type: 3}
+      propertyPath: managedReferences[3147619633887445120].m_Variable.m_Variable
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

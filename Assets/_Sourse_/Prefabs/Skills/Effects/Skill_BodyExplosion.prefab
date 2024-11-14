@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4734550481549411954}
   - component: {fileID: 312912901023126782}
   - component: {fileID: 1099172619653491812}
+  - component: {fileID: 2874149046267461920}
   m_Layer: 0
   m_Name: Skill_BodyExplosion
   m_TagString: Untagged
@@ -4853,6 +4854,19 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 1277154925287174}
+--- !u!114 &2874149046267461920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277154925287174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnlyDeactivate: 0
 --- !u!1001 &3563432849948939
 PrefabInstance:
   m_ObjectHideFlags: 0

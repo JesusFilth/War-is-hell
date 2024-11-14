@@ -407,7 +407,7 @@ MonoBehaviour:
     - rid: 6066313130938728976
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 0.05
+        m_Value: 0.02
 --- !u!1 &3518433436983573368
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +521,9 @@ MonoBehaviour:
         m_InstructionList:
           m_Instructions:
           - rid: 3147619724280988045
+          - rid: 5739816035855893349
+          - rid: 5739816035855893354
+          - rid: 5739816035855893356
     - rid: 3147619724280988022
       type: {class: ConditionMathCompareIntegers, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -588,6 +591,67 @@ MonoBehaviour:
           rid: 3147619724280988051
     - rid: 3147619724280988051
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816035855893349
+      type: {class: InstructionMeleeUnequipWeapon, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 5739816035855893350
+        m_Weapon:
+          m_Property:
+            rid: 5739816035855893352
+    - rid: 5739816035855893350
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816035855893352
+      type: {class: GetWeaponMeleeCharacter, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Character:
+          m_Property:
+            rid: 5739816035855893353
+    - rid: 5739816035855893353
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816035855893354
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Seconds:
+          m_Property:
+            rid: 5739816035855893355
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 5739816035855893355
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0.1
+    - rid: 5739816035855893356
+      type: {class: InstructionMeleeEquipWeapon, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 5739816035855893357
+        m_Weapon:
+          m_Property:
+            rid: 5739816035855893358
+        m_Model:
+          m_Property:
+            rid: 5739816035855893359
+    - rid: 5739816035855893357
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816035855893358
+      type: {class: GetWeaponMeleeInstance, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
+      data:
+        m_Weapon: {fileID: 11400000, guid: 2177e7cf19c93b046aabd6ad1f311e48, type: 2}
+    - rid: 5739816035855893359
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
 --- !u!1 &5094103205136830860
 GameObject:

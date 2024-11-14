@@ -383,7 +383,7 @@ MonoBehaviour:
     - rid: 6066313076358775170
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 1.5
+        m_Value: 1
     - rid: 6066313076358775171
       type: {class: InstructionMeleeInputExecute, ns: GameCreator.Runtime.Melee, asm: GameCreator.Runtime.Melee}
       data:
@@ -400,7 +400,7 @@ MonoBehaviour:
     - rid: 6066313076358775174
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 0.5
+        m_Value: 0.3
     - rid: 6066313076358775175
       type: {class: InstructionLogicRestartInstructions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -1516,7 +1516,7 @@ MonoBehaviour:
           m_Value: 1800
         m_Mass: 80
         m_Height: 2
-        m_Radius: 0.2
+        m_Radius: 0.3
         m_GravityUpwards: -9.81
         m_GravityDownwards: -9.81
         m_TerminalVelocity: -53
@@ -1629,7 +1629,7 @@ MonoBehaviour:
     - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 1
-        m_Value: 50
+        m_Value: 75
     - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 1
@@ -3179,6 +3179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 5739816041974857760
     - rid: 5739815972820222252
     - rid: 3147619311979593899
     - rid: 3147619311979593901
@@ -3348,6 +3349,24 @@ MonoBehaviour:
       data: 
     - rid: 5739815972820222255
       type: {class: GetPickRandom, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data: 
+    - rid: 5739816041974857760
+      type: {class: InstructionCharacterRemoveCandidateTarget, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 5739816041974857761
+        m_Target:
+          m_Property:
+            rid: 5739816041974857762
+    - rid: 5739816041974857761
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 3579580378853372379}
+    - rid: 5739816041974857762
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data: 
     - rid: 5980455540685537996
       type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}

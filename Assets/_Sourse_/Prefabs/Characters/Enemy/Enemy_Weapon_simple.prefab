@@ -1724,6 +1724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 5739816041974857826
     - rid: 5739815972820222321
     - rid: 3147619311979593899
     - rid: 3147619311979593901
@@ -1895,6 +1896,28 @@ MonoBehaviour:
     - rid: 5739815972820222324
       type: {class: GetPickRandom, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data: 
+    - rid: 5739816036921508372
+      type: {class: GetRotationSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Space: 1
+    - rid: 5739816041974857826
+      type: {class: InstructionCharacterRemoveCandidateTarget, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 5739816041974857827
+        m_Target:
+          m_Property:
+            rid: 5739816041974857828
+    - rid: 5739816041974857827
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 3991098221787364462}
+    - rid: 5739816041974857828
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data: 
     - rid: 5980455540685537996
       type: {class: InstructionLogicCallMethod, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -1991,7 +2014,7 @@ MonoBehaviour:
             rid: 6066313082286375896
         m_Rotation:
           m_Property:
-            rid: 6066313082286375897
+            rid: 5739816036921508372
         m_Parent:
           m_Property:
             rid: 6066313082286375898
@@ -2008,13 +2031,6 @@ MonoBehaviour:
         m_Character:
           m_Property:
             rid: 6066313082286375900
-    - rid: 6066313082286375897
-      type: {class: GetRotationCharacter, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data:
-        m_Character:
-          m_Property:
-            rid: 6066313082286375901
-        m_Space: 0
     - rid: 6066313082286375898
       type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
@@ -2022,10 +2038,6 @@ MonoBehaviour:
       type: {class: SetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data: 
     - rid: 6066313082286375900
-      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
-      data:
-        m_Character: {fileID: 3991098221787364462}
-    - rid: 6066313082286375901
       type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
         m_Character: {fileID: 3991098221787364462}
@@ -3554,7 +3566,7 @@ MonoBehaviour:
           m_Value: 1800
         m_Mass: 80
         m_Height: 2
-        m_Radius: 0.3
+        m_Radius: 0.35
         m_GravityUpwards: -9.81
         m_GravityDownwards: -9.81
         m_TerminalVelocity: -53
@@ -3667,7 +3679,7 @@ MonoBehaviour:
     - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 1
-        m_Value: 75
+        m_Value: 100
     - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 0
@@ -3675,7 +3687,7 @@ MonoBehaviour:
     - m_IsExpanded: 1
       m_ChangeBase:
         m_IsEnabled: 1
-        m_Value: 15
+        m_Value: 10
     - m_IsExpanded: 0
       m_ChangeBase:
         m_IsEnabled: 0

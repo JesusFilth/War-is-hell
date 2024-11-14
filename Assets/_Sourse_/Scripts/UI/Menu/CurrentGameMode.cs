@@ -15,7 +15,8 @@ public class CurrentGameMode : MonoBehaviour
 
     private void Awake()
     {
-        Initialize();
+        Debug.Log("Survival mode");
+        //Initialize();
     }
 
     public void SetGameMode(GameMode gameMode)
