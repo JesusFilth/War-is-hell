@@ -81,15 +81,15 @@ public class PlayerStatsUI : MonoBehaviour, IGameUI
     {
         Traits traits = _playerAbilities.GetAbilities().Traits;
 
-        StatItem hp = traits.Class.GetStat(HPStat);
-        StatItem damage = traits.Class.GetStat(DamageStat);
-        StatItem weapon = traits.Class.GetStat(WeaponStat);
-        StatItem skillPower = traits.Class.GetStat(SkillPowerStat);
+        var hp = traits.RuntimeStats.Get(HPStat); 
+        var damage = traits.RuntimeStats.Get(DamageStat);
+        var weapon = traits.RuntimeStats.Get(WeaponStat);
+        var skillPower = traits.RuntimeStats.Get(SkillPowerStat);
 
-        _health.text = hp.Base.ToString();
-        _damage.text = damage.Base.ToString();
-        _weapon.text = weapon.Base.ToString();
-        _skillPower.text = skillPower.Base.ToString();
+        _health.text = hp.Value.ToString();
+        _damage.text = damage.Value.ToString();
+        _weapon.text = weapon.Value.ToString();
+        _skillPower.text = skillPower.Value.ToString();
     }
 
     private void ClearConteiner()
