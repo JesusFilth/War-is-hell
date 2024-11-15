@@ -8,7 +8,6 @@ public class StartGameButton : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Survival mode: " + _currentGameMode.CurrentMode);
         _stateMashine.EnterIn<LoadGameSceneState, GameMode>(_currentGameMode.CurrentMode);
     }
 }

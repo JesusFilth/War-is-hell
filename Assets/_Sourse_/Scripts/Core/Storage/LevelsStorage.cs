@@ -38,7 +38,13 @@ public class LevelsStorage : MonoBehaviour,
         _currentHero = heroSetting;
     }
 
-    public HeroSetting GetCurrentHero() => _currentHero;
+    public HeroSetting GetCurrentHero() 
+    {
+        if (_currentHero == null)
+            _currentHero = _heroes[0];
+
+        return _currentHero;
+    }
 
     public IReadOnlyList<HeroSetting> GetHeroes() => _heroes;
 
