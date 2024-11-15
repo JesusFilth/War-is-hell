@@ -8,6 +8,8 @@ public class ActiveSkillsStorage : MonoBehaviour
     [SerializeField] private SkillsEnemyConteiner _conteiner;
     [SerializeField] private List<SkillActive> _skills = new();
 
+    public IReadOnlyList<SkillActive> Skills => _skills;
+
     private void Awake()
     {
         Initialize();

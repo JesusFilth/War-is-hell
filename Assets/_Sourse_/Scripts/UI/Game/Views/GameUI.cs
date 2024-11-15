@@ -1,3 +1,4 @@
+using GameCreator.Runtime.Common;
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
@@ -25,5 +26,6 @@ public class GameUI : MonoBehaviour, IGameUI
         _canvasGroup.interactable = true;
 
         Time.timeScale = 1;
+        TimeManager.Instance.SetTimeScale(1, 5);
     }
 }

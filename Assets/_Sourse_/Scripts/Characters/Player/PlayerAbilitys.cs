@@ -11,6 +11,7 @@ public class PlayerAbilitys : MonoBehaviour
     [SerializeField] private ActiveSkillsStorage _skillsStorage;
 
     public ActiveSkillsStorage SkillsStorage => _skillsStorage;
+    public Traits Traits => _traits;
 
     private void OnValidate()
     {

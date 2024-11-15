@@ -21,7 +21,7 @@ public class SkillsConteinerUI : MonoBehaviour, IGameUI
 
     private void OnValidate()
     {
-        if(_skillItems.Length!=MaxSkill)
+        if(_skillItems.Length != MaxSkill)
             _skillItems = new SkillItemUI[MaxSkill];
     }
 
@@ -56,7 +56,7 @@ public class SkillsConteinerUI : MonoBehaviour, IGameUI
 
         for (int i = 0; i <_skillItems.Length; i++)
         {
-            _skillItems[i].Init(skills[i]);
+            _skillItems[i].Init(skills[i], 1);
         }
     }
 }

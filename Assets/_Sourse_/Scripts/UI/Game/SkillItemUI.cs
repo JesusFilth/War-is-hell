@@ -31,20 +31,20 @@ public class SkillItemUI : MonoBehaviour
         _button.onClick.RemoveListener(ChoseSkill);
     }
 
-    public void Init(Skill skill)
+    public void Init(Skill skill, int nextLevel = 0)
     {
         _currentSkill = skill;
-        UpdateData();
+        UpdateData(nextLevel);
     }
 
-    private void UpdateData()
+    private void UpdateData(int nextLevel)
     {
         _currentSkill.ChangeLanguage(GP_Language.Current());
 
         if(_currentSkill.Icon != null)
             _icon.sprite = _currentSkill.Icon;
 
-        _level.text = (_currentSkill.LevelNumber + 1).ToString();
+        _level.text = (_currentSkill.LevelNumber + nextLevel).ToString();
         _description.text = _currentSkill.Description;
 
         ChangeColor();
