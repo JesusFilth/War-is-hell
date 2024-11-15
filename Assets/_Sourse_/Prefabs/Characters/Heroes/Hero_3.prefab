@@ -970,6 +970,7 @@ GameObject:
   - component: {fileID: 2976951216503620692}
   - component: {fileID: 6283470331780711625}
   - component: {fileID: 1229219110227892501}
+  - component: {fileID: -1868497228638947258}
   m_Layer: 8
   m_Name: Hero_3
   m_TagString: Player
@@ -1082,7 +1083,7 @@ MonoBehaviour:
         m_Speed: 3.5
         m_Rotation:
           m_IsEnabled: 1
-          m_Value: 1800
+          m_Value: 5000
         m_Mass: 80
         m_Height: 2
         m_Radius: 0.3
@@ -1274,6 +1275,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 7137428208569745638}
   _playerAbility: {fileID: 1433246507858400506}
+--- !u!114 &-1868497228638947258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013224071020180761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b493a3e7b22f67d48b0ee4a061508c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actions: {fileID: 2797658965124463971}
 --- !u!1 &4021057423825320174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,6 +2284,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8362acb8e504f624bb9ce604485db852, type: 3}
+--- !u!114 &2797658965124463971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5561437911467157481, guid: 8362acb8e504f624bb9ce604485db852, type: 3}
+  m_PrefabInstance: {fileID: 7781510219536652938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280989d249f9b482d890a5f97137f44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5361433092864091486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2421485986815803348, guid: 8362acb8e504f624bb9ce604485db852, type: 3}

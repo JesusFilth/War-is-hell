@@ -45,6 +45,11 @@ namespace GameCreator.Runtime.Characters
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
+        public bool IsInputActive()
+        {
+            return m_Player.IsInputActive();
+        }
+
         public void ChangePreset(Character character, IKernelPreset preset)
         {
             this.ChangePlayer(character, preset.MakePlayer);

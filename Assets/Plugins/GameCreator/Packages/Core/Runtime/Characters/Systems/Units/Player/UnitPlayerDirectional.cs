@@ -46,6 +46,11 @@ namespace GameCreator.Runtime.Characters
             this.Character.Motion?.MoveToDirection(Vector3.zero, Space.World, 0);
         }
 
+        public override bool IsInputActive()
+        {
+            return m_InputMove.Read() != Vector2.zero;
+        }
+
         // UPDATE METHODS: ------------------------------------------------------------------------
 
         public override void OnUpdate()
@@ -54,12 +59,12 @@ namespace GameCreator.Runtime.Characters
             this.m_InputMove.OnUpdate();
 
             this.InputDirection = Vector3.zero;
-            
+         
             if (!this.Character.IsPlayer) return;
             Vector3 inputMovement = this.m_IsControllable 
                 ? this.m_InputMove.Read()
                 : Vector2.zero;
-            
+
             this.InputDirection = this.GetMoveDirection(inputMovement);
             float speed = this.Character.Motion?.LinearSpeed ?? 0f;
             

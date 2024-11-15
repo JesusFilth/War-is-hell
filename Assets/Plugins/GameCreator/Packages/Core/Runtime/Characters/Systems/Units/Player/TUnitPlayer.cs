@@ -65,5 +65,7 @@ namespace GameCreator.Runtime.Characters
 
         public virtual void OnDrawGizmos(Character character)
         { }
+
+        public virtual bool IsInputActive() => false;
     }
 }
