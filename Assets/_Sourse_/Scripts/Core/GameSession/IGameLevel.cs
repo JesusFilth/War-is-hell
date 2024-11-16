@@ -7,4 +7,6 @@
     int GetCurrentLevelNumber();
 
     GameMode GetCurrentMode();
+
+    bool IsCompanyCompleted();
 }

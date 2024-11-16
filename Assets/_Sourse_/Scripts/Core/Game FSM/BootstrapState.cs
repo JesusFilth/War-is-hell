@@ -22,7 +22,6 @@ public class BootstrapState : IGameState
 
     private void OnPluginReady()
     {
-        Debug.Log("Plugin ready");
         _stateMashine.EnterIn<LoadDataState>();
     }
 }

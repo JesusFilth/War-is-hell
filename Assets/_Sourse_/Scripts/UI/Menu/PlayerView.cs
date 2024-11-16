@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
 {
+    private const string AnanimNameRU = "Аноним";
+    private const string AnanimNameEU = "Anonymous";
+    private const string AnanimNameTR = "Anonim";
+
     [SerializeField] private RawImage _avatar;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _score;
@@ -48,6 +52,11 @@ public class PlayerView : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Initialize();
+    }
+
     private void Initialize()
     {
         _score.text = GP_Player.GetScore().ToString();
@@ -55,6 +64,8 @@ public class PlayerView : MonoBehaviour
 
         if (string.IsNullOrEmpty(name) == false)
             _name.text = name;
+        else
+            _name.text = GetAnonymousName();
 
         if (GP_Player.IsLoggedIn())
         {
@@ -72,6 +83,25 @@ public class PlayerView : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
         LoadAvatar();
 #endif
+    }
+
+    private string GetAnonymousName()
+    {
+        Language language = GP_Language.Current();
+
+        switch (language)
+        {
+            case Language.English:
+                return AnanimNameEU;
+
+            case Language.Russian:
+                return AnanimNameRU;
+
+            case Language.Turkish:
+                return AnanimNameTR;
+        }
+
+        return null;
     }
 
     private void LoadAvatar()

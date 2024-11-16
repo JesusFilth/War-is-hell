@@ -11,6 +11,7 @@ public class GameSession : MonoBehaviour,
     private GameMode _mode;
     private int _currentNumberLevel = 1;
     private IGamePlayer _player;
+    private bool _isCompanyCompleted = false;
 
     [Inject] private ILevelsStorage _levelsStorage;
     [Inject] private UserStorage _usersStorage;
@@ -30,6 +31,7 @@ public class GameSession : MonoBehaviour,
         if(_mode == GameMode.Company && _levelsStorage.GetLastLevelNumber() == _currentNumberLevel)
         {
             Debug.Log("Game Complete - temp");
+            _isCompanyCompleted = true;
             _usersStorage.OpenSurvivalMode();
             _stateMashineUI.EnterIn<GameOverUIState>();
             return;
@@ -46,6 +48,8 @@ public class GameSession : MonoBehaviour,
 
         _inputView.Off();
     }
+
+    public bool IsCompanyCompleted() => _isCompanyCompleted;
 
     public int GetCurrentLevelNumber() => _currentNumberLevel;
 
