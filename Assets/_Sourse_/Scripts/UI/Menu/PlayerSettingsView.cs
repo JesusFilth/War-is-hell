@@ -2,6 +2,7 @@ using GamePush;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using WebGLSupport;
 
 public class PlayerSettingsView : MonoBehaviour
 {
@@ -48,10 +49,16 @@ public class PlayerSettingsView : MonoBehaviour
     private void OnSave()
     {
         if (_name.text == string.Empty)
+        {
+            OnClose();
             return;
+        }
 
         if (_name.text == GP_Player.GetName())
+        {
+            OnClose();
             return;
+        }
 
         GP_Player.SetName(_name.text);
         GP_Player.Sync();
