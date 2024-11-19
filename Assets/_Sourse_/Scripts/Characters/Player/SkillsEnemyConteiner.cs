@@ -1,42 +1,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillsEnemyConteiner : MonoBehaviour
+namespace Sourse.Scripts.Characters.Player
 {
-    public IReadOnlyCollection<Enemy> Enemys => _enemys;
-
-    public bool HasEnemys => _enemys.Count > 0;
-
-    private List<Enemy> _enemys = new();
-
-    private void OnTriggerEnter(Collider other)
+    public class SkillsEnemyConteiner : MonoBehaviour
     {
-        if(other.TryGetComponent(out Enemy enemy))
+        public IReadOnlyCollection<Enemy> Enemys => _enemys;
+
+        public bool HasEnemys => _enemys.Count > 0;
+
+        private List<Enemy> _enemys = new();
+
+        private void OnTriggerEnter(Collider other)
         {
-            AddEnemy(enemy);
+            if(other.TryGetComponent(out Enemy enemy))
+            {
+                AddEnemy(enemy);
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.TryGetComponent(out Enemy enemy))
+        private void OnTriggerExit(Collider other)
         {
-            RemoveEnemy(enemy);
+            if(other.TryGetComponent(out Enemy enemy))
+            {
+                RemoveEnemy(enemy);
+            }
         }
-    }
 
-    private void AddEnemy(Enemy enemy)
-    {
-        _enemys.Add(enemy);
-        enemy.Destroed += RemoveEnemy;
-    }
-
-    private void RemoveEnemy(Enemy enemy)
-    {
-        if (_enemys.Contains(enemy))
+        private void AddEnemy(Enemy enemy)
         {
-            _enemys.Remove(enemy);
-            enemy.Destroed -= RemoveEnemy;
+            _enemys.Add(enemy);
+            enemy.Destroed += RemoveEnemy;
+        }
+
+        private void RemoveEnemy(Enemy enemy)
+        {
+            if (_enemys.Contains(enemy))
+            {
+                _enemys.Remove(enemy);
+                enemy.Destroed -= RemoveEnemy;
+            }
         }
     }
 }

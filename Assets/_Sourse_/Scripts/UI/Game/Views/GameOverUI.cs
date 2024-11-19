@@ -1,42 +1,48 @@
 using GameCreator.Runtime.Common;
 using Reflex.Attributes;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.Core.Storage;
+using Sourse.Scripts.UI.Game.FMS;
 using UnityEngine;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class GameOverUI : MonoBehaviour, IGameUI
+namespace Sourse.Scripts.UI.Game.Views
 {
-    [SerializeField] private GameObject _completedCompany;
-
-    private CanvasGroup _canvasGroup;
-
-    [Inject] private UserStorage _userStorage;
-    [Inject] private IGameProgress _gameProgress;
-    [Inject] private IGameLevel _level;
-
-    private void Awake()
+    [RequireComponent(typeof(CanvasGroup))]
+    public class GameOverUI : MonoBehaviour, IGameUI
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        Hide();
-    }
+        [SerializeField] private GameObject _completedCompany;
 
-    public void Hide()
-    {
-        _canvasGroup.alpha = 0;
-        _canvasGroup.interactable = false;
-        _canvasGroup.blocksRaycasts = false;
-    }
+        private CanvasGroup _canvasGroup;
 
-    public void Show()
-    {
-        _canvasGroup.alpha = 1;
-        _canvasGroup.interactable = true;
-        _canvasGroup.blocksRaycasts = true;
+        [Inject] private UserStorage _userStorage;
+        [Inject] private IGameProgress _gameProgress;
+        [Inject] private IGameLevel _level;
 
-        TimeManager.Instance.SetTimeScale(0, 5);
+        private void Awake()
+        {
+            _canvasGroup = GetComponent<CanvasGroup>();
+            Hide();
+        }
 
-        if(_level.IsCompanyCompleted())
-            _completedCompany.SetActive(true);
+        public void Hide()
+        {
+            _canvasGroup.alpha = 0;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+        }
 
-        _userStorage.AddScore(_gameProgress.GetPlayerProgress().Score);
+        public void Show()
+        {
+            _canvasGroup.alpha = 1;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+
+            TimeManager.Instance.SetTimeScale(0, 5);
+
+            if(_level.IsCompanyCompleted())
+                _completedCompany.SetActive(true);
+
+            _userStorage.AddScore(_gameProgress.GetPlayerProgress().Score);
+        }
     }
 }

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Sourse.Scripts.Core.GameSession;
+
 namespace IJunior.TypedScenes
 {
     using UnityEngine.SceneManagement;

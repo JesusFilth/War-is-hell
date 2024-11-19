@@ -1,27 +1,29 @@
 using System;
-using UnityEngine;
 using GamePush;
 
-public class BootstrapState : IGameState
+namespace Sourse.Scripts.Core.Game_FSM
 {
-    private readonly GameStateMashine _stateMashine;
-
-    public BootstrapState(GameStateMashine stateMashine)
+    public class BootstrapState : IGameState
     {
-        if (stateMashine == null)
-            throw new ArgumentNullException(nameof(stateMashine));
+        private readonly GameStateMashine _stateMashine;
 
-        _stateMashine = stateMashine;
-    }
+        public BootstrapState(GameStateMashine stateMashine)
+        {
+            if (stateMashine == null)
+                throw new ArgumentNullException(nameof(stateMashine));
 
-    public async void Execute()
-    {
-        await GP_Init.Ready;
-        OnPluginReady();
-    }
+            _stateMashine = stateMashine;
+        }
 
-    private void OnPluginReady()
-    {
-        _stateMashine.EnterIn<LoadDataState>();
+        public async void Execute()
+        {
+            await GP_Init.Ready;
+            OnPluginReady();
+        }
+
+        private void OnPluginReady()
+        {
+            _stateMashine.EnterIn<LoadDataState>();
+        }
     }
 }

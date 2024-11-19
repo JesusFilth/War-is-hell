@@ -1,28 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ShadowButton : ButtonView
+namespace Sourse.Scripts.UI.Game.Buttons
 {
-    [SerializeField] private Light _light;
-    [SerializeField] private GameObject _on;
-    [SerializeField] private GameObject _off;
-
-    private bool _isAcrive = true;
-
-    protected override void OnClick()
+    public class ShadowButton : ButtonView
     {
-        _isAcrive = !_isAcrive;
-        UpdateLight();
-    }
+        [SerializeField] private Light _light;
+        [SerializeField] private GameObject _on;
+        [SerializeField] private GameObject _off;
 
-    private void UpdateLight()
-    {
-        _light.shadows = _isAcrive ? LightShadows.Hard : LightShadows.None;
+        private bool _isAcrive = true;
 
-        _on.SetActive(!_isAcrive);
-        _off.SetActive(_isAcrive);
+        protected override void OnClick()
+        {
+            _isAcrive = !_isAcrive;
+            UpdateLight();
+        }
+
+        private void UpdateLight()
+        {
+            _light.shadows = _isAcrive ? LightShadows.Hard : LightShadows.None;
+
+            _on.SetActive(!_isAcrive);
+            _off.SetActive(_isAcrive);
+        }
     }
 }

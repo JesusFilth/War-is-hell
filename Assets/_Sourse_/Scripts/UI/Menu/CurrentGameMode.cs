@@ -1,29 +1,34 @@
-using Reflex.Attributes;
 using System;
+using Reflex.Attributes;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-public class CurrentGameMode : MonoBehaviour
+namespace Sourse.Scripts.UI.Menu
 {
-    [Inject] private UserStorage _userStorage;
-
-    public GameMode CurrentMode { get; private set; } = GameMode.Company;
-
-    public event Action<GameMode> ModeChanged;
-
-    private void Awake()
+    public class CurrentGameMode : MonoBehaviour
     {
-        Initialize();
-    }
+        [Inject] private UserStorage _userStorage;
 
-    public void SetGameMode(GameMode gameMode)
-    {
-        CurrentMode = gameMode;
-        ModeChanged?.Invoke(CurrentMode);
-    }
+        public GameMode CurrentMode { get; private set; } = GameMode.Company;
 
-    private void Initialize()
-    {
-        if(_userStorage.IsOpenSurvivolMode())
-            CurrentMode = GameMode.Survival;
+        public event Action<GameMode> ModeChanged;
+
+        private void Awake()
+        {
+            Initialize();
+        }
+
+        public void SetGameMode(GameMode gameMode)
+        {
+            CurrentMode = gameMode;
+            ModeChanged?.Invoke(CurrentMode);
+        }
+
+        private void Initialize()
+        {
+            if(_userStorage.IsOpenSurvivolMode())
+                CurrentMode = GameMode.Survival;
+        }
     }
 }

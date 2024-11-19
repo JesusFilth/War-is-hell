@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class GameLevelMainSound : MonoBehaviour
+namespace Sourse.Scripts.Sound
 {
-    private void Start()
+    public class GameLevelMainSound : MonoBehaviour
     {
-        BackgroundSound.Instance.PlayGameLevelSound();
+        private void Start()
+        {
+            BackgroundSound.Instance.PlayGameLevelSound();
+        }
     }
 }

@@ -1,12 +1,16 @@
 using Reflex.Core;
+using Sourse.Scripts.UI.Menu;
 using UnityEngine;
 
-public class MainMenuReflexDI : MonoBehaviour, IInstaller
+namespace Sourse.Scripts.DI
 {
-    [SerializeField] private CurrentGameMode _currentGameMode;
-
-    public void InstallBindings(ContainerBuilder containerBuilder)
+    public class MainMenuReflexDI : MonoBehaviour, IInstaller
     {
-        containerBuilder.AddSingleton(_currentGameMode);
+        [SerializeField] private CurrentGameMode _currentGameMode;
+
+        public void InstallBindings(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.AddSingleton(_currentGameMode);
+        }
     }
 }

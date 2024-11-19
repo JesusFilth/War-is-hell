@@ -2,82 +2,84 @@ using GamePush;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using WebGLSupport;
 
-public class PlayerSettingsView : MonoBehaviour
+namespace Sourse.Scripts.UI.Menu
 {
-    private const string SectetKey = "secretCode"; 
-
-    [SerializeField] private GameObject _mainUi;
-
-    [SerializeField] private Button _close;
-    [SerializeField] private Button _save;
-    [SerializeField] private Button _copy;
-
-    [SerializeField] private TMP_InputField _name;
-    [SerializeField] private TMP_InputField _secretKey;
-
-    private void Awake()
+    public class PlayerSettingsView : MonoBehaviour
     {
-        Initialize();
-    }
+        private const string SectetKey = "secretCode"; 
 
-    private void OnEnable()
-    {
-        _close.onClick.AddListener(OnClose);
-        _save.onClick.AddListener(OnSave);
-        _copy.onClick.AddListener(OnCopy);
-    }
+        [SerializeField] private GameObject _mainUi;
 
-    private void OnDisable()
-    {
-        _close.onClick.RemoveListener(OnClose);
-        _save.onClick.RemoveListener(OnSave);
-        _copy.onClick.RemoveListener(OnCopy);
-    }
+        [SerializeField] private Button _close;
+        [SerializeField] private Button _save;
+        [SerializeField] private Button _copy;
 
-    private void Initialize()
-    {
-        string name = GP_Player.GetName();
+        [SerializeField] private TMP_InputField _name;
+        [SerializeField] private TMP_InputField _secretKey;
 
-        if (string.IsNullOrEmpty(name) == false)
-            _name.text = name;
-
-        _secretKey.text = GP_Player.GetString(SectetKey);
-    }
-
-    private void OnSave()
-    {
-        if (_name.text == string.Empty)
+        private void Awake()
         {
-            OnClose();
-            return;
+            Initialize();
         }
 
-        if (_name.text == GP_Player.GetName())
+        private void OnEnable()
         {
-            OnClose();
-            return;
+            _close.onClick.AddListener(OnClose);
+            _save.onClick.AddListener(OnSave);
+            _copy.onClick.AddListener(OnCopy);
         }
 
-        GP_Player.SetName(_name.text);
-        GP_Player.Sync();
+        private void OnDisable()
+        {
+            _close.onClick.RemoveListener(OnClose);
+            _save.onClick.RemoveListener(OnSave);
+            _copy.onClick.RemoveListener(OnCopy);
+        }
 
-        OnClose();
-    }
+        private void Initialize()
+        {
+            string name = GP_Player.GetName();
 
-    private void OnClose()
-    {
-        _mainUi.SetActive(true);
-        gameObject.SetActive(false);
-    }
+            if (string.IsNullOrEmpty(name) == false)
+                _name.text = name;
 
-    private void OnCopy()
-    {
-        GUIUtility.systemCopyBuffer = _secretKey.text;
+            _secretKey.text = GP_Player.GetString(SectetKey);
+        }
+
+        private void OnSave()
+        {
+            if (_name.text == string.Empty)
+            {
+                OnClose();
+                return;
+            }
+
+            if (_name.text == GP_Player.GetName())
+            {
+                OnClose();
+                return;
+            }
+
+            GP_Player.SetName(_name.text);
+            GP_Player.Sync();
+
+            OnClose();
+        }
+
+        private void OnClose()
+        {
+            _mainUi.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
+        private void OnCopy()
+        {
+            GUIUtility.systemCopyBuffer = _secretKey.text;
 
 //#if UNITY_WEBGL && !UNITY_EDITOR
 //        WebGLCopyAndPasteAPI.CopyText(_secretKey.text);
 //#endif
+        }
     }
 }

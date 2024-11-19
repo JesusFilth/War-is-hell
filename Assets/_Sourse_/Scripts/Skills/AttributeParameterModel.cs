@@ -1,13 +1,16 @@
 ﻿using GameCreator.Runtime.Stats;
 
-public struct AttributeParameterModel
+namespace Sourse.Scripts.Skills
 {
-    public Attribute Attribute { get; private set; }
-    public float Value { get; private set; }
-
-    public AttributeParameterModel(Attribute attribute, float value)
+    public struct AttributeParameterModel
     {
-        Attribute = attribute;
-        Value = value;
+        public Attribute Attribute { get; private set; }
+        public float Value { get; private set; }
+
+        public AttributeParameterModel(Attribute attribute, float value)
+        {
+            Attribute = attribute;
+            Value = value;
+        }
     }
 }

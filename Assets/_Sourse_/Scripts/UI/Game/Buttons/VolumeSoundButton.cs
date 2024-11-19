@@ -1,48 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sourse.Scripts.Sound;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class VolumeSoundButton : ButtonView
+namespace Sourse.Scripts.UI.Game.Buttons
 {
-    [SerializeField] private GameObject _on;
-    [SerializeField] private GameObject _off;
-
-    protected override void OnEnable()
+    public class VolumeSoundButton : ButtonView
     {
-        base.OnEnable();
+        [SerializeField] private GameObject _on;
+        [SerializeField] private GameObject _off;
 
-        if (BackgroundSound.Instance.IsPlaying)
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            if (BackgroundSound.Instance.IsPlaying)
+            {
+                _off.SetActive(true);
+                _on.SetActive(false);
+            }
+            else
+            {
+                _off.SetActive(false);
+                _on.SetActive(true);
+            }
+        }
+
+        protected override void OnClick()
+        {
+            if (BackgroundSound.Instance.IsPlaying)
+                Off();
+            else
+                On();
+        }
+
+        private void On()
         {
             _off.SetActive(true);
             _on.SetActive(false);
+            BackgroundSound.Instance.OnVolume();
         }
-        else
+
+        private void Off()
         {
             _off.SetActive(false);
             _on.SetActive(true);
+            BackgroundSound.Instance.OffVolume();
         }
-    }
-
-    protected override void OnClick()
-    {
-        if (BackgroundSound.Instance.IsPlaying)
-            Off();
-        else
-            On();
-    }
-
-    private void On()
-    {
-        _off.SetActive(true);
-        _on.SetActive(false);
-        BackgroundSound.Instance.OnVolume();
-    }
-
-    private void Off()
-    {
-        _off.SetActive(false);
-        _on.SetActive(true);
-        BackgroundSound.Instance.OffVolume();
     }
 }

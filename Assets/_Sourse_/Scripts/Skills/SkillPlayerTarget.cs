@@ -1,46 +1,50 @@
-﻿using UnityEngine;
+﻿using Sourse.Scripts.Skills.SkillEffects;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/PlayerTarget", order = 2)]
-public class SkillPlayerTarget : SkillActive
+namespace Sourse.Scripts.Skills
 {
-    [Space]
-    [Header("Skill Player Target settings")]
-    [SerializeField] private int _effectCount = 1;
-    [SerializeField] private int _maxCountEffect = 5;
-    [SerializeField] private int _needLevelForCountUp = 3;
-
-    private int _currentCount = 0;
-    public int EffectCount => _effectCount;
-
-    public bool IsFull => _effectCount == _currentCount;
-
-    public void CreateEffect()
+    [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/PlayerTarget", order = 2)]
+    public class SkillPlayerTarget : SkillActive
     {
-        if (IsFull)
-            return;
+        [Space]
+        [Header("Skill Player Target settings")]
+        [SerializeField] private int _effectCount = 1;
+        [SerializeField] private int _maxCountEffect = 5;
+        [SerializeField] private int _needLevelForCountUp = 3;
 
-        SkillEffect effect = Instantiate(Effect);
-        effect.Destroed += DestroyEffect;
-        _currentCount++;
-    }
+        private int _currentCount = 0;
+        public int EffectCount => _effectCount;
 
-    private void DestroyEffect(SkillEffect effect)
-    {
-        _currentCount--;
-        effect.Destroed -= DestroyEffect;
-    }
+        public bool IsFull => _effectCount == _currentCount;
 
-    public override void UpSkill()
-    {
-        if (Level % _needLevelForCountUp == 0)
-            _effectCount = Mathf.Clamp(_effectCount + 1, 0, _maxCountEffect);
+        public void CreateEffect()
+        {
+            if (IsFull)
+                return;
 
-        base.UpSkill();
-    }
+            SkillEffect effect = Instantiate(Effect);
+            effect.Destroed += DestroyEffect;
+            _currentCount++;
+        }
 
-    protected override void CheckMaxLevel()
-    {
-        if (Cooldawn == MinCooldawn && Chance == MaxChance && _effectCount == _maxCountEffect)
-            IsMaxLevel = true;
+        private void DestroyEffect(SkillEffect effect)
+        {
+            _currentCount--;
+            effect.Destroed -= DestroyEffect;
+        }
+
+        public override void UpSkill()
+        {
+            if (Level % _needLevelForCountUp == 0)
+                _effectCount = Mathf.Clamp(_effectCount + 1, 0, _maxCountEffect);
+
+            base.UpSkill();
+        }
+
+        protected override void CheckMaxLevel()
+        {
+            if (Cooldawn == MinCooldawn && Chance == MaxChance && _effectCount == _maxCountEffect)
+                IsMaxLevel = true;
+        }
     }
 }

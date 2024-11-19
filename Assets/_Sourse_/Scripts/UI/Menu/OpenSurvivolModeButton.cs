@@ -1,69 +1,73 @@
-using Reflex.Attributes;
 using System.Collections;
+using Reflex.Attributes;
+using Sourse.Scripts.Core.Storage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class OpenSurvivolModeButton : MonoBehaviour
+namespace Sourse.Scripts.UI.Menu
 {
-    [SerializeField] private float _messageDelay = 2;
-    [SerializeField] private TMP_Text _message;
-
-    private Button _button;
-    private Coroutine _showing;
-    private WaitForSeconds _showingTime;
-
-    [Inject] private UserStorage _userStorage;
-
-    private void Awake()
+    [RequireComponent(typeof(Button))]
+    public class OpenSurvivolModeButton : MonoBehaviour
     {
-        _button = GetComponent<Button>();
-        _showingTime = new WaitForSeconds(_messageDelay);
+        [SerializeField] private float _messageDelay = 2;
+        [SerializeField] private TMP_Text _message;
 
-        //Initialize();
-    }
+        private Button _button;
+        private Coroutine _showing;
+        private WaitForSeconds _showingTime;
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnClick);
-    }
+        [Inject] private UserStorage _userStorage;
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnClick);
-
-        if (_showing != null)
+        private void Awake()
         {
-            StopCoroutine(_showing);
+            _button = GetComponent<Button>();
+            _showingTime = new WaitForSeconds(_messageDelay);
+
+            //Initialize();
+        }
+
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnClick);
+        }
+
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnClick);
+
+            if (_showing != null)
+            {
+                StopCoroutine(_showing);
+                _showing = null;
+            }
+        }
+
+        public void OnClick()
+        {
+            if (_userStorage.IsOpenSurvivolMode())
+                return;
+
+            if (_showing == null)
+                _showing = StartCoroutine(Showing());
+        }
+
+        private IEnumerator Showing()
+        {
+            _message.gameObject.SetActive(true);
+
+            yield return _showingTime;
+
+            _message.gameObject.SetActive(false);
             _showing = null;
         }
-    }
 
-    public void OnClick()
-    {
-        if (_userStorage.IsOpenSurvivolMode())
-            return;
-
-        if (_showing == null)
-            _showing = StartCoroutine(Showing());
-    }
-
-    private IEnumerator Showing()
-    {
-        _message.gameObject.SetActive(true);
-
-        yield return _showingTime;
-
-        _message.gameObject.SetActive(false);
-        _showing = null;
-    }
-
-    private void Initialize()
-    {
-        if(_userStorage.IsOpenSurvivolMode() == false)
+        private void Initialize()
         {
-            _button.interactable = false;
+            if(_userStorage.IsOpenSurvivolMode() == false)
+            {
+                _button.interactable = false;
+            }
         }
     }
 }

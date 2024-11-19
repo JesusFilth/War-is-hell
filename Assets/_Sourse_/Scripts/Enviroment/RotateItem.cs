@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class RotateItem : MonoBehaviour
+namespace Sourse.Scripts.Enviroment
 {
-    [SerializeField] private float _speed = 250f;
-
-    private Transform _transform;
-
-    private void Awake()
+    public class RotateItem : MonoBehaviour
     {
-        _transform = transform;
-    }
+        [SerializeField] private float _speed = 250f;
 
-    private void Update()
-    {
-        _transform.Rotate(Vector3.up, _speed * Time.deltaTime);
+        private Transform _transform;
+
+        private void Awake()
+        {
+            _transform = transform;
+        }
+
+        private void Update()
+        {
+            _transform.Rotate(Vector3.up, _speed * Time.deltaTime);
+        }
     }
 }

@@ -1,31 +1,35 @@
 using GameCreator.Runtime.Common;
+using Sourse.Scripts.UI.Game.FMS;
 using UnityEngine;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class GameUI : MonoBehaviour, IGameUI
+namespace Sourse.Scripts.UI.Game.Views
 {
-    private CanvasGroup _canvasGroup;
-
-    private void Awake()
+    [RequireComponent(typeof(CanvasGroup))]
+    public class GameUI : MonoBehaviour, IGameUI
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        Hide();
-    }
+        private CanvasGroup _canvasGroup;
 
-    public void Hide()
-    {
-        _canvasGroup.alpha = 0;
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.interactable = false;
-    }
+        private void Awake()
+        {
+            _canvasGroup = GetComponent<CanvasGroup>();
+            Hide();
+        }
 
-    public void Show()
-    {
-        _canvasGroup.alpha = 1;
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.interactable = true;
+        public void Hide()
+        {
+            _canvasGroup.alpha = 0;
+            _canvasGroup.blocksRaycasts = false;
+            _canvasGroup.interactable = false;
+        }
 
-        Time.timeScale = 1;
-        TimeManager.Instance.SetTimeScale(1, 5);
+        public void Show()
+        {
+            _canvasGroup.alpha = 1;
+            _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.interactable = true;
+
+            Time.timeScale = 1;
+            TimeManager.Instance.SetTimeScale(1, 5);
+        }
     }
 }

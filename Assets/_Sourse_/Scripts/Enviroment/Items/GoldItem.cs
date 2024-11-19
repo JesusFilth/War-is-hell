@@ -1,36 +1,44 @@
 using Reflex.Attributes;
+using Sourse.Scripts.Characters.Player;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.Core.Spawner;
+using Sourse.Scripts.Core.Storage;
+using Sourse.Scripts.DI;
 using UnityEngine;
 
-public class GoldItem : Item
+namespace Sourse.Scripts.Enviroment.Items
 {
-    [SerializeField] private int _count;
-
-    [Inject] private IGameLevel _level;
-    [Inject] private IGameLevelSettings _gameLevelSettings;
-
-    private void Start()
+    public class GoldItem : Item
     {
-        DIGameConteiner.Instance.InjectRecursive(gameObject);
-        Initialize();
-    }
+        [SerializeField] private int _count;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.TryGetComponent(out Player player))
+        [Inject] private IGameLevel _level;
+        [Inject] private IGameLevelSettings _gameLevelSettings;
+
+        private void Start()
         {
-            player.AddGold(_count);
-            Destroy();
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
+            Initialize();
         }
-    }
 
-    private void Initialize()
-    {
-        const float MaxPercent = 100;
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.TryGetComponent(out Player player))
+            {
+                player.AddGold(_count);
+                Destroy();
+            }
+        }
 
-        int level = _level.GetCurrentLevelNumber();
-        float percentUp = (_gameLevelSettings.GetUpLevelPowerPercent() * level) / MaxPercent;
-        float upResult = _count * percentUp;
+        private void Initialize()
+        {
+            const float MaxPercent = 100;
 
-        _count = _count + (int)upResult;
+            int level = _level.GetCurrentLevelNumber();
+            float percentUp = (_gameLevelSettings.GetUpLevelPowerPercent() * level) / MaxPercent;
+            float upResult = _count * percentUp;
+
+            _count = _count + (int)upResult;
+        }
     }
 }

@@ -1,21 +1,26 @@
 using Reflex.Core;
+using Sourse.Scripts.Core.Game_FSM;
+using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-public class GlobalReflexDI : MonoBehaviour, IInstaller
+namespace Sourse.Scripts.DI
 {
-    [SerializeField] private LevelsStorage _levelStorage;
-    [SerializeField] private UserStorage _userStorage;
-
-    public void InstallBindings(ContainerBuilder containerBuilder)
+    public class GlobalReflexDI : MonoBehaviour, IInstaller
     {
-        containerBuilder.AddSingleton(
-            _levelStorage,
-            typeof(ILevelsStorage),
-            typeof(IGameLevelSettings),
-            typeof(IHeroStorage),
-            typeof(ILoadScreens));
+        [SerializeField] private LevelsStorage _levelStorage;
+        [SerializeField] private UserStorage _userStorage;
 
-        containerBuilder.AddSingleton(new UserStorage());
-        containerBuilder.AddSingleton(new GameStateMashine());
+        public void InstallBindings(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.AddSingleton(
+                _levelStorage,
+                typeof(ILevelsStorage),
+                typeof(IGameLevelSettings),
+                typeof(IHeroStorage),
+                typeof(ILoadScreens));
+
+            containerBuilder.AddSingleton(new UserStorage());
+            containerBuilder.AddSingleton(new GameStateMashine());
+        }
     }
 }

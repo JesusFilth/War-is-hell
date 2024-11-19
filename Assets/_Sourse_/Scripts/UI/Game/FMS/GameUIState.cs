@@ -1,18 +1,21 @@
 using System;
 
-public abstract class GameUIState
+namespace Sourse.Scripts.UI.Game.FMS
 {
-    private IGameUI _view;
-
-    public GameUIState(IGameUI view)
+    public abstract class GameUIState
     {
-        if(view == null)
-            throw new ArgumentNullException(nameof(view));
+        private IGameUI _view;
 
-        _view = view;
+        public GameUIState(IGameUI view)
+        {
+            if(view == null)
+                throw new ArgumentNullException(nameof(view));
+
+            _view = view;
+        }
+
+        public virtual void Open() => _view.Show();
+
+        public virtual void Close() => _view.Hide();
     }
-
-    public virtual void Open() => _view.Show();
-
-    public virtual void Close() => _view.Hide();
 }

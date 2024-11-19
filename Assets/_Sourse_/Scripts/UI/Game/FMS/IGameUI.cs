@@ -1,6 +1,9 @@
-public interface IGameUI
+namespace Sourse.Scripts.UI.Game.FMS
 {
-    public void Show();
+    public interface IGameUI
+    {
+        public void Show();
 
-    public void Hide();
+        public void Hide();
+    }
 }

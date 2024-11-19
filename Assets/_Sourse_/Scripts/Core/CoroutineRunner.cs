@@ -1,32 +1,35 @@
 using System.Collections;
 using UnityEngine;
 
-public class CoroutineRunner : MonoBehaviour
+namespace Sourse.Scripts.Core
 {
-    private IEnumerator _currentCoroutine;
-
-    public static CoroutineRunner Instance { get; private set; }
-
-    private void Awake()
+    public class CoroutineRunner : MonoBehaviour
     {
-        if (Instance == null)
+        private IEnumerator _currentCoroutine;
+
+        public static CoroutineRunner Instance { get; private set; }
+
+        private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
         }
-    }
 
-    private void OnDisable()
-    {
-        if (_currentCoroutine != null)
+        private void OnDisable()
         {
-            StopCoroutine(_currentCoroutine);
-            _currentCoroutine = null;
+            if (_currentCoroutine != null)
+            {
+                StopCoroutine(_currentCoroutine);
+                _currentCoroutine = null;
+            }
         }
-    }
 
-    public void Run(IEnumerator coroutine)
-    {
-        _currentCoroutine = coroutine;
-        StartCoroutine(_currentCoroutine);
+        public void Run(IEnumerator coroutine)
+        {
+            _currentCoroutine = coroutine;
+            StartCoroutine(_currentCoroutine);
+        }
     }
 }

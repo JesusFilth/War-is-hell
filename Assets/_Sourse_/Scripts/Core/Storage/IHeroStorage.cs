@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using Sourse.Scripts.Characters;
 
-public interface IHeroStorage
+namespace Sourse.Scripts.Core.Storage
 {
-    IReadOnlyList<HeroSetting> GetHeroes();
-    void SetCurrentHero(HeroSetting heroSetting);
+    public interface IHeroStorage
+    {
+        IReadOnlyList<HeroSetting> GetHeroes();
+        void SetCurrentHero(HeroSetting heroSetting);
 
-    HeroSetting GetCurrentHero();
+        HeroSetting GetCurrentHero();
+    }
 }

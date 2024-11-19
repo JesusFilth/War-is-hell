@@ -1,8 +1,13 @@
-﻿public interface ILevelsStorage
+﻿using Sourse.Scripts.Enviroment.Levels;
+
+namespace Sourse.Scripts.Core.Storage
 {
-    LevelLocation GetLevelLocation(int index);
+    public interface ILevelsStorage
+    {
+        LevelLocation GetLevelLocation(int index);
 
-    LevelLocation GetRandomLevelLocation();
+        LevelLocation GetRandomLevelLocation();
 
-    int GetLastLevelNumber();
+        int GetLastLevelNumber();
+    }
 }

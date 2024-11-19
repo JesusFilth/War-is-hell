@@ -1,13 +1,18 @@
 using Reflex.Attributes;
+using Sourse.Scripts.Core.Game_FSM;
+using Sourse.Scripts.Core.GameSession;
 using UnityEngine;
 
-public class StartGameButton : MonoBehaviour
+namespace Sourse.Scripts.UI.Menu
 {
-    [Inject] private GameStateMashine _stateMashine;
-    [Inject] private CurrentGameMode _currentGameMode;
-
-    public void StartGame()
+    public class StartGameButton : MonoBehaviour
     {
-        _stateMashine.EnterIn<LoadGameSceneState, GameMode>(_currentGameMode.CurrentMode);
+        [Inject] private GameStateMashine _stateMashine;
+        [Inject] private CurrentGameMode _currentGameMode;
+
+        public void StartGame()
+        {
+            _stateMashine.EnterIn<LoadGameSceneState, GameMode>(_currentGameMode.CurrentMode);
+        }
     }
 }

@@ -1,118 +1,123 @@
 using System.Collections.Generic;
 using System.Linq;
+using Sourse.Scripts.Skills;
+using Sourse.Scripts.Skills.SkillEffects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ActiveSkillsStorage : MonoBehaviour
+namespace Sourse.Scripts.Characters.Player
 {
-    [SerializeField] private SkillsEnemyConteiner _conteiner;
-    [SerializeField] private List<SkillActive> _skills = new();
-
-    public IReadOnlyList<SkillActive> Skills => _skills;
-
-    private void Awake()
+    public class ActiveSkillsStorage : MonoBehaviour
     {
-        Initialize();
-    }
+        [SerializeField] private SkillsEnemyConteiner _conteiner;
+        [SerializeField] private List<SkillActive> _skills = new();
 
-    private void Update()
-    {
-        if (_skills.Count == 0)
-            return;
+        public IReadOnlyList<SkillActive> Skills => _skills;
 
-        foreach (SkillActive skill in _skills)
+        private void Awake()
         {
-            if (skill.IsCooldawn == false)
-                ChoseExecute(skill);
+            Initialize();
         }
-    }
 
-    public void AddSkill(SkillActive skillActive)
-    {
-        if(_skills.Contains(skillActive))
-            skillActive.UpSkill();
-        else
-            _skills.Add(skillActive);
-    }
-
-    private void Initialize()
-    {
-        for (int i = 0; i < _skills.Count; i++)
+        private void Update()
         {
-            _skills[i] = Instantiate(_skills[i]);
+            if (_skills.Count == 0)
+                return;
+
+            foreach (SkillActive skill in _skills)
+            {
+                if (skill.IsCooldawn == false)
+                    ChoseExecute(skill);
+            }
         }
-    }
 
-    private void ChoseExecute(SkillActive skill)
-    {
-        if (skill is SkillEnemyTarget enemyTarget)
-            Execute(enemyTarget);
-        else if (skill is SkillDeadTarget deadTarget)
-            Execute(deadTarget);
-        else if (skill is SkillPlayerTarget playerTarget)
-            Execute(playerTarget);
-        else
-            Execute(skill); 
+        public void AddSkill(SkillActive skillActive)
+        {
+            if(_skills.Contains(skillActive))
+                skillActive.UpSkill();
+            else
+                _skills.Add(skillActive);
+        }
 
-        skill.Active();
-    }
+        private void Initialize()
+        {
+            for (int i = 0; i < _skills.Count; i++)
+            {
+                _skills[i] = Instantiate(_skills[i]);
+            }
+        }
 
-    private void Execute(SkillDeadTarget skill)
-    {
-        if (_conteiner.HasEnemys == false)
-            return;
+        private void ChoseExecute(SkillActive skill)
+        {
+            if (skill is SkillEnemyTarget enemyTarget)
+                Execute(enemyTarget);
+            else if (skill is SkillDeadTarget deadTarget)
+                Execute(deadTarget);
+            else if (skill is SkillPlayerTarget playerTarget)
+                Execute(playerTarget);
+            else
+                Execute(skill); 
 
-        for (int i = 0; i < skill.DeadCount; i++)
+            skill.Active();
+        }
+
+        private void Execute(SkillDeadTarget skill)
+        {
+            if (_conteiner.HasEnemys == false)
+                return;
+
+            for (int i = 0; i < skill.DeadCount; i++)
+            {
+                if (skill.CanActiveEffectForChance())
+                {
+                    Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead).ToArray();
+
+                    if (deads == null || deads.Length == 0)
+                        continue;
+
+                    int randomIndex = Random.Range(0, deads.Length);
+                    SkillEffect effect = Instantiate(skill.Effect);
+                    effect.transform.position = deads[randomIndex].SkillPoint.position;
+
+                    Destroy(deads[randomIndex].gameObject);
+                }
+            }
+        }
+
+        private void Execute(SkillEnemyTarget skill)
+        {
+            if (_conteiner.HasEnemys == false)
+                return;
+
+            for (int i = 0; i < skill.EnemyCount; i++)
+            {
+                if (skill.CanActiveEffectForChance())
+                {
+                    Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead == false).ToArray();
+
+                    if (deads == null || deads.Length == 0)
+                        continue;
+
+                    int randomIndex = Random.Range(0, deads.Length);
+                    Instantiate(skill.Effect, deads[randomIndex].transform);
+                }
+            }
+        }
+
+        private void Execute(SkillPlayerTarget skill)
         {
             if (skill.CanActiveEffectForChance())
             {
-                Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead).ToArray();
-
-                if (deads == null || deads.Length == 0)
-                    continue;
-
-                int randomIndex = Random.Range(0, deads.Length);
-                SkillEffect effect = Instantiate(skill.Effect);
-                effect.transform.position = deads[randomIndex].SkillPoint.position;
-
-                Destroy(deads[randomIndex].gameObject);
+                skill.CreateEffect();
             }
         }
-    }
 
-    private void Execute(SkillEnemyTarget skill)
-    {
-        if (_conteiner.HasEnemys == false)
-            return;
-
-        for (int i = 0; i < skill.EnemyCount; i++)
+        private void Execute(SkillActive skill)
         {
             if (skill.CanActiveEffectForChance())
             {
-                Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead == false).ToArray();
-
-                if (deads == null || deads.Length == 0)
-                    continue;
-
-                int randomIndex = Random.Range(0, deads.Length);
-                Instantiate(skill.Effect, deads[randomIndex].transform);
+                Instantiate(skill.Effect);
             }
-        }
-    }
-
-    private void Execute(SkillPlayerTarget skill)
-    {
-        if (skill.CanActiveEffectForChance())
-        {
-            skill.CreateEffect();
-        }
-    }
-
-    private void Execute(SkillActive skill)
-    {
-        if (skill.CanActiveEffectForChance())
-        {
-            Instantiate(skill.Effect);
         }
     }
 }

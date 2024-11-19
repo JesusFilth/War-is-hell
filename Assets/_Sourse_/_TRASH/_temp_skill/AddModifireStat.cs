@@ -1,4 +1,7 @@
 ﻿using System;
+using Sourse.Scripts.Characters.Player;
+using Sourse.Scripts.Skills;
+
 public class AddModifireStat : ISkillStratigy
 {
     public void Execute(PlayerAbilitys abilitys, StatParameterModel statModel)

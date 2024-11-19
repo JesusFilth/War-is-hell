@@ -1,5 +1,8 @@
-﻿public interface IGameLevelSettings
+﻿namespace Sourse.Scripts.Core.Storage
 {
-    float GetUpLevelPowerPercent();
-    float GetExperianceForSurvivol();
+    public interface IGameLevelSettings
+    {
+        float GetUpLevelPowerPercent();
+        float GetExperianceForSurvivol();
+    }
 }

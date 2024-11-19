@@ -1,55 +1,60 @@
 using System;
 using GameCreator.Runtime.Stats;
 using Reflex.Attributes;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.DI;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+namespace Sourse.Scripts.Characters
 {
-    private const string LevelID = "level";
-    private const float DelayDieDestroy = 10f;
-
-    [SerializeField] private Traits _traits;
-    [SerializeField] private Transform _skillPoint;
-    [SerializeField] private int _score;
-
-    [Inject] private IGameLevel _gameLevel;
-    [Inject] private IGameProgress _gameProgress;
-
-    public Transform SkillPoint => _skillPoint;
-    public bool IsDead { get; private set; }
-
-    public event Action<Enemy> Died;
-    public event Action<Enemy> Destroed;
-
-    private void Awake()
+    public class Enemy : MonoBehaviour
     {
-        if(DIGameConteiner.Instance != null)
+        private const string LevelID = "level";
+        private const float DelayDieDestroy = 10f;
+
+        [SerializeField] private Traits _traits;
+        [SerializeField] private Transform _skillPoint;
+        [SerializeField] private int _score;
+
+        [Inject] private IGameLevel _gameLevel;
+        [Inject] private IGameProgress _gameProgress;
+
+        public Transform SkillPoint => _skillPoint;
+        public bool IsDead { get; private set; }
+
+        public event Action<Enemy> Died;
+        public event Action<Enemy> Destroed;
+
+        private void Awake()
         {
-            DIGameConteiner.Instance.InjectRecursive(gameObject);
-            Initialize();
+            if(DIGameConteiner.Instance != null)
+            {
+                DIGameConteiner.Instance.InjectRecursive(gameObject);
+                Initialize();
+            }
         }
-    }
 
-    private void OnDestroy()
-    {
-        Destroed?.Invoke(this);
-    }
+        private void OnDestroy()
+        {
+            Destroed?.Invoke(this);
+        }
 
-    public void Die()
-    {
-        if(_gameProgress != null)
-            _gameProgress.GetPlayerProgress().AddScore(_score);
+        public void Die()
+        {
+            if(_gameProgress != null)
+                _gameProgress.GetPlayerProgress().AddScore(_score);
 
-        transform.parent = null;
-        Destroy(gameObject, DelayDieDestroy);
+            transform.parent = null;
+            Destroy(gameObject, DelayDieDestroy);
 
-        IsDead = true;
-        Died?.Invoke(this);
-    }
+            IsDead = true;
+            Died?.Invoke(this);
+        }
 
-    private void Initialize()
-    {
-        RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(LevelID);
-        runtimeStat.AddModifier(ModifierType.Constant, _gameLevel.GetCurrentLevelNumber() - 1);
+        private void Initialize()
+        {
+            RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(LevelID);
+            runtimeStat.AddModifier(ModifierType.Constant, _gameLevel.GetCurrentLevelNumber() - 1);
+        }
     }
 }

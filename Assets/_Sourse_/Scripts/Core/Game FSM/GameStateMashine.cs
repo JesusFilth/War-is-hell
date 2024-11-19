@@ -1,40 +1,44 @@
 using System;
 using System.Collections.Generic;
+using Sourse.Scripts.Core.Storage;
 
-public class GameStateMashine
+namespace Sourse.Scripts.Core.Game_FSM
 {
-    private Dictionary<Type, IGameState> _states;
-    private IGameState _currentState;
-
-    public void Init(UserStorage userStorage)
+    public class GameStateMashine
     {
-        _states = new Dictionary<Type, IGameState>()
-        {
-            [typeof(BootstrapState)] = new BootstrapState(this),
-            [typeof(LoadDataState)] = new LoadDataState(this, userStorage),
-            [typeof(LoadMainMenuState)] = new LoadMainMenuState(),
-            [typeof(LoadGameSceneState)] = new LoadGameSceneState(),
-        };
-    }
+        private Dictionary<Type, IGameState> _states;
+        private IGameState _currentState;
 
-    public void EnterIn<TState>()
-            where TState : IGameState
-    {
-        if (_states.TryGetValue(typeof(TState), out IGameState state))
+        public void Init(UserStorage userStorage)
         {
-            _currentState = state;
-            _currentState.Execute();
+            _states = new Dictionary<Type, IGameState>()
+            {
+                [typeof(BootstrapState)] = new BootstrapState(this),
+                [typeof(LoadDataState)] = new LoadDataState(this, userStorage),
+                [typeof(LoadMainMenuState)] = new LoadMainMenuState(),
+                [typeof(LoadGameSceneState)] = new LoadGameSceneState(),
+            };
         }
-    }
 
-    public void EnterIn<TState, TParam>(TParam param)
-        where TState : IGameState<TParam>
-    {
-        if(_states.TryGetValue(typeof(TState), out IGameState state))
+        public void EnterIn<TState>()
+            where TState : IGameState
         {
-            _currentState = state;
-            ((IGameState<TParam>)_currentState).SetParam(param);
-            _currentState.Execute();
+            if (_states.TryGetValue(typeof(TState), out IGameState state))
+            {
+                _currentState = state;
+                _currentState.Execute();
+            }
+        }
+
+        public void EnterIn<TState, TParam>(TParam param)
+            where TState : IGameState<TParam>
+        {
+            if(_states.TryGetValue(typeof(TState), out IGameState state))
+            {
+                _currentState = state;
+                ((IGameState<TParam>)_currentState).SetParam(param);
+                _currentState.Execute();
+            }
         }
     }
 }

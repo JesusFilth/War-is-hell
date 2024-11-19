@@ -1,40 +1,45 @@
 using GameCreator.Runtime.Common;
 using Reflex.Attributes;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.UI.Game.FMS;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class MenuUI : MonoBehaviour, IGameUI
+namespace Sourse.Scripts.UI.Game.Views
 {
-    [SerializeField] private TMP_Text _levelNumber;
-
-    private CanvasGroup _canvasGroup;
-
-    [Inject] private IGameLevel _level;
-
-    private void Awake()
+    [RequireComponent(typeof(CanvasGroup))]
+    public class MenuUI : MonoBehaviour, IGameUI
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        Hide();
-    }
+        [SerializeField] private TMP_Text _levelNumber;
 
-    public void Hide()
-    {
-        _canvasGroup.alpha = 0;
-        _canvasGroup.interactable = false;
-        _canvasGroup.blocksRaycasts = false;
+        private CanvasGroup _canvasGroup;
 
-        TimeManager.Instance.SetTimeScale(1, 5);
-    }
+        [Inject] private IGameLevel _level;
 
-    public void Show()
-    {
-        _canvasGroup.alpha = 1;
-        _canvasGroup.interactable = true;
-        _canvasGroup.blocksRaycasts = true;
+        private void Awake()
+        {
+            _canvasGroup = GetComponent<CanvasGroup>();
+            Hide();
+        }
 
-        _levelNumber.text = _level.GetCurrentLevelNumber().ToString();
+        public void Hide()
+        {
+            _canvasGroup.alpha = 0;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
 
-        TimeManager.Instance.SetTimeScale(0, 5);
+            TimeManager.Instance.SetTimeScale(1, 5);
+        }
+
+        public void Show()
+        {
+            _canvasGroup.alpha = 1;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+
+            _levelNumber.text = _level.GetCurrentLevelNumber().ToString();
+
+            TimeManager.Instance.SetTimeScale(0, 5);
+        }
     }
 }

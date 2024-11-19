@@ -1,121 +1,126 @@
 using System;
 using GameCreator.Runtime.Characters;
 using Reflex.Attributes;
+using Sourse.Scripts.Characters;
+using Sourse.Scripts.Core.Storage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroChose : MonoBehaviour
+namespace Sourse.Scripts.UI.Menu
 {
-    [SerializeField] private Character _character;
-
-    [SerializeField] private Button _next;
-    [SerializeField] private Button _prev;
-
-    [SerializeField] private Button _buy;
-    [SerializeField] private GameObject _select;
-    [SerializeField] private GameObject _lock;
-    [SerializeField] private TMP_Text _price;
-
-    private int _currentIndex = 0;
-
-    [Inject] private IHeroStorage _heroes;
-    [Inject] private UserStorage _userStorage;
-
-    public event Action<HeroSetting> HeroChanged;
-
-    private void Awake()
+    public class HeroChose : MonoBehaviour
     {
-        Initialize();
-    }
+        [SerializeField] private Character _character;
 
-    private void Start()
-    {
-        HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
-    }
+        [SerializeField] private Button _next;
+        [SerializeField] private Button _prev;
 
-    private void OnEnable()
-    {
-        _next.onClick.AddListener(Next);
-        _prev.onClick.AddListener(Prev);
-        _buy.onClick.AddListener(Buy);
-    }
+        [SerializeField] private Button _buy;
+        [SerializeField] private GameObject _select;
+        [SerializeField] private GameObject _lock;
+        [SerializeField] private TMP_Text _price;
 
-    private void OnDisable()
-    {
-        _next.onClick.RemoveListener(Next);
-        _prev.onClick.RemoveListener(Prev);
-        _buy.onClick.RemoveListener(Buy);
-    }
+        private int _currentIndex = 0;
 
-    private void Next()
-    {
-        if (_currentIndex == _heroes.GetHeroes().Count - 1)
-            return;
+        [Inject] private IHeroStorage _heroes;
+        [Inject] private UserStorage _userStorage;
 
-        _currentIndex = Mathf.Clamp(_currentIndex += 1, 0, _heroes.GetHeroes().Count-1);
-        UpdateChoseHero();
-    }
+        public event Action<HeroSetting> HeroChanged;
 
-    private void Prev()
-    {
-        if (_currentIndex == 0)
-            return;
-
-        _currentIndex = Mathf.Clamp(_currentIndex -= 1, 0, _heroes.GetHeroes().Count-1);
-        UpdateChoseHero();
-    }
-
-    private void Buy()
-    {
-        HeroSetting hero = _heroes.GetHeroes()[_currentIndex];
-
-        if (hero.Price > _userStorage.UserGold)
-            return;
-
-        _userStorage.AddHero(hero.Id, -hero.Price);
-
-        UpdateButtons(hero);
-    }
-
-    private void Initialize()
-    {
-        _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
-        UpdateChoseHero();
-    }
-
-    private void UpdateButtons(HeroSetting heroSetting)
-    {
-        if (_userStorage.HasHero(heroSetting.Id))
+        private void Awake()
         {
-            _buy.gameObject.SetActive(false);
-            _select.SetActive(true);
-            _lock.gameObject.SetActive(false);
+            Initialize();
+        }
 
+        private void Start()
+        {
+            HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
+        }
+
+        private void OnEnable()
+        {
+            _next.onClick.AddListener(Next);
+            _prev.onClick.AddListener(Prev);
+            _buy.onClick.AddListener(Buy);
+        }
+
+        private void OnDisable()
+        {
+            _next.onClick.RemoveListener(Next);
+            _prev.onClick.RemoveListener(Prev);
+            _buy.onClick.RemoveListener(Buy);
+        }
+
+        private void Next()
+        {
+            if (_currentIndex == _heroes.GetHeroes().Count - 1)
+                return;
+
+            _currentIndex = Mathf.Clamp(_currentIndex += 1, 0, _heroes.GetHeroes().Count-1);
+            UpdateChoseHero();
+        }
+
+        private void Prev()
+        {
+            if (_currentIndex == 0)
+                return;
+
+            _currentIndex = Mathf.Clamp(_currentIndex -= 1, 0, _heroes.GetHeroes().Count-1);
+            UpdateChoseHero();
+        }
+
+        private void Buy()
+        {
+            HeroSetting hero = _heroes.GetHeroes()[_currentIndex];
+
+            if (hero.Price > _userStorage.UserGold)
+                return;
+
+            _userStorage.AddHero(hero.Id, -hero.Price);
+
+            UpdateButtons(hero);
+        }
+
+        private void Initialize()
+        {
             _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
+            UpdateChoseHero();
         }
-        else
+
+        private void UpdateButtons(HeroSetting heroSetting)
         {
-            _price.text = heroSetting.Price.ToString();
-            _buy.gameObject.SetActive(true);
-            _select.SetActive(false);
-            _lock.gameObject.SetActive(true);
+            if (_userStorage.HasHero(heroSetting.Id))
+            {
+                _buy.gameObject.SetActive(false);
+                _select.SetActive(true);
+                _lock.gameObject.SetActive(false);
+
+                _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
+            }
+            else
+            {
+                _price.text = heroSetting.Price.ToString();
+                _buy.gameObject.SetActive(true);
+                _select.SetActive(false);
+                _lock.gameObject.SetActive(true);
+            }
         }
-    }
 
-    private void UpdateChoseHero()
-    {
-        HeroSetting heroSetting = _heroes.GetHeroes()[_currentIndex];
-        GameObject skin = heroSetting.Skin;
-
-        _character.ChangeModel(skin, new Character.ChangeOptions
+        private void UpdateChoseHero()
         {
-            materials = null,
-            offset = Vector3.zero
-        });
+            HeroSetting heroSetting = _heroes.GetHeroes()[_currentIndex];
+            GameObject skin = heroSetting.Skin;
 
-        UpdateButtons(heroSetting);
+            _character.ChangeModel(skin, new Character.ChangeOptions
+            {
+                materials = null,
+                offset = Vector3.zero
+            });
+
+            UpdateButtons(heroSetting);
         
-        HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
+            HeroChanged?.Invoke(_heroes.GetHeroes()[_currentIndex]);
+        }
     }
 }

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class MainMenuSound : MonoBehaviour
+namespace Sourse.Scripts.Sound
 {
-    private void Start()
+    public class MainMenuSound : MonoBehaviour
     {
-        BackgroundSound.Instance.PlayMainMenuSound();
+        private void Start()
+        {
+            BackgroundSound.Instance.PlayMainMenuSound();
+        }
     }
 }

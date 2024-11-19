@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public abstract class ButtonView : MonoBehaviour
+namespace Sourse.Scripts.UI.Game.Buttons
 {
-    private Button _button;
+    [RequireComponent(typeof(Button))]
+    public abstract class ButtonView : MonoBehaviour
+    {
+        private Button _button;
 
-    protected virtual void Awake() => _button = GetComponent<Button>();
+        protected virtual void Awake() => _button = GetComponent<Button>();
 
-    protected virtual void OnEnable() => _button.onClick.AddListener(OnClick);
+        protected virtual void OnEnable() => _button.onClick.AddListener(OnClick);
 
-    protected virtual void OnDisable() => _button.onClick.RemoveListener(OnClick);
+        protected virtual void OnDisable() => _button.onClick.RemoveListener(OnClick);
 
-    protected abstract void OnClick();
+        protected abstract void OnClick();
+    }
 }

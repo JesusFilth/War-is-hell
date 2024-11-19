@@ -1,33 +1,37 @@
 using System;
+using Sourse.Scripts.Characters.Player;
 using UnityEngine;
 
-public abstract class SkillPassive : Skill
+namespace Sourse.Scripts.Skills
 {
-    [SerializeField] protected float Value;
-    [SerializeField] protected float UpValue = 5;
-    [SerializeField] protected float MaxValue = 10;
-
-    public override void ExecuteStratigy(PlayerAbilitys abilitys)
+    public abstract class SkillPassive : Skill
     {
-        throw new NotImplementedException();
-    }
+        [SerializeField] protected float Value;
+        [SerializeField] protected float UpValue = 5;
+        [SerializeField] protected float MaxValue = 10;
 
-    public override string GetDescription()
-    {
-        return $"+ {Value + Level} {Name}";
-    }
+        public override void ExecuteStratigy(PlayerAbilitys abilitys)
+        {
+            throw new NotImplementedException();
+        }
 
-    public override void UpSkill()
-    {
-        Level++;
-        Value += UpValue;
+        public override string GetDescription()
+        {
+            return $"+ {Value + Level} {Name}";
+        }
 
-        CheckMaxLevel();
-    }
+        public override void UpSkill()
+        {
+            Level++;
+            Value += UpValue;
 
-    protected override void CheckMaxLevel()
-    {
-        if(Value == MaxValue)
-            IsMaxLevel = true;
+            CheckMaxLevel();
+        }
+
+        protected override void CheckMaxLevel()
+        {
+            if(Value == MaxValue)
+                IsMaxLevel = true;
+        }
     }
 }

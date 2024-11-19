@@ -1,30 +1,36 @@
 using Reflex.Attributes;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.Core.Storage;
+using Sourse.Scripts.DI;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+namespace Sourse.Scripts.Enviroment
 {
-    [SerializeField] private float _damage;
-
-    [Inject] private IGameLevel _level;
-    [Inject] private IGameLevelSettings _gameLevelSettings;
-
-    private void Start()
+    public class Bomb : MonoBehaviour
     {
-        if(DIGameConteiner.Instance != null)
+        [SerializeField] private float _damage;
+
+        [Inject] private IGameLevel _level;
+        [Inject] private IGameLevelSettings _gameLevelSettings;
+
+        private void Start()
         {
-            DIGameConteiner.Instance.InjectRecursive(gameObject);
-            Initialize();
+            if(DIGameConteiner.Instance != null)
+            {
+                DIGameConteiner.Instance.InjectRecursive(gameObject);
+                Initialize();
+            }
         }
-    }
 
-    private void Initialize()
-    {
-        const float MaxPercent = 100;
+        private void Initialize()
+        {
+            const float MaxPercent = 100;
 
-        int level = _level.GetCurrentLevelNumber();
-        float percentUp = (_gameLevelSettings.GetUpLevelPowerPercent() * level) / MaxPercent;
-        float upResult = _damage * percentUp;
+            int level = _level.GetCurrentLevelNumber();
+            float percentUp = (_gameLevelSettings.GetUpLevelPowerPercent() * level) / MaxPercent;
+            float upResult = _damage * percentUp;
 
-        _damage = _damage + upResult;
+            _damage = _damage + upResult;
+        }
     }
 }

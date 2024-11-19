@@ -1,14 +1,18 @@
 using Reflex.Attributes;
+using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadingGameView : MonoBehaviour
+namespace Sourse.Scripts.UI
 {
-    [SerializeField] private Image _screen;
-
-    [Inject] private ILoadScreens _loadScreens;
-    private void Awake()
+    public class LoadingGameView : MonoBehaviour
     {
-        _screen.sprite = _loadScreens.GetRandomScreen();
+        [SerializeField] private Image _screen;
+
+        [Inject] private ILoadScreens _loadScreens;
+        private void Awake()
+        {
+            _screen.sprite = _loadScreens.GetRandomScreen();
+        }
     }
 }

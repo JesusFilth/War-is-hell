@@ -1,13 +1,16 @@
 ﻿using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+namespace Sourse.Scripts.Core.Spawner
 {
-    [SerializeField] private Actions _actions;
-
-    protected virtual void Destroy()
+    public class Item : MonoBehaviour
     {
-        _actions?.Invoke();
-        Destroy(gameObject);
+        [SerializeField] private Actions _actions;
+
+        protected virtual void Destroy()
+        {
+            _actions?.Invoke();
+            Destroy(gameObject);
+        }
     }
 }

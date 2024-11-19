@@ -1,27 +1,30 @@
-using UnityEngine;
+using Sourse.Scripts.Characters;
 
-public class EnemySpawnPoint : SpawnPoint
+namespace Sourse.Scripts.Core.Spawner
 {
-    private Enemy _currentEnemy;
-
-    private void OnDisable()
+    public class EnemySpawnPoint : SpawnPoint
     {
-        if (_currentEnemy != null)
-            _currentEnemy.Died -= DieEnemy;
-    }
+        private Enemy _currentEnemy;
 
-    public void SetEnemy(Enemy enemy)
-    {
-        ToBusy();
-        _currentEnemy = enemy;
-        _currentEnemy.Died += DieEnemy;
-    }
+        private void OnDisable()
+        {
+            if (_currentEnemy != null)
+                _currentEnemy.Died -= DieEnemy;
+        }
 
-    private void DieEnemy(Enemy enemy)
-    {
-        ToFree();
-        enemy.Died -= DieEnemy;
+        public void SetEnemy(Enemy enemy)
+        {
+            ToBusy();
+            _currentEnemy = enemy;
+            _currentEnemy.Died += DieEnemy;
+        }
 
-        _currentEnemy = null;
+        private void DieEnemy(Enemy enemy)
+        {
+            ToFree();
+            enemy.Died -= DieEnemy;
+
+            _currentEnemy = null;
+        }
     }
 }

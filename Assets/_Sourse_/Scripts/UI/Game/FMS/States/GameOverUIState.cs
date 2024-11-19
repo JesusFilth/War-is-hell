@@ -1,8 +1,11 @@
-﻿public class GameOverUIState : GameUIState
+﻿namespace Sourse.Scripts.UI.Game.FMS.States
 {
-    public GameOverUIState(IGameUI view)
-        : base(view)
+    public class GameOverUIState : GameUIState
     {
+        public GameOverUIState(IGameUI view)
+            : base(view)
+        {
 
+        }
     }
 }

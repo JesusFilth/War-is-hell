@@ -1,32 +1,33 @@
 using System;
+using Sourse.Scripts.Core.Storage;
 
-public class LoadDataState : IGameState
+namespace Sourse.Scripts.Core.Game_FSM
 {
-    private readonly GameStateMashine _stateMashine;
-    private readonly UserStorage _userStorage;
-
-    public LoadDataState(GameStateMashine stateMashine, UserStorage userStorage)
+    public class LoadDataState : IGameState
     {
-        if (stateMashine == null)
-            throw new ArgumentNullException(nameof(stateMashine));
+        private readonly GameStateMashine _stateMashine;
+        private readonly UserStorage _userStorage;
 
-        if (userStorage == null)
-            throw new ArgumentNullException(nameof(userStorage));
+        public LoadDataState(GameStateMashine stateMashine, UserStorage userStorage)
+        {
+            if (stateMashine == null)
+                throw new ArgumentNullException(nameof(stateMashine));
 
-        _stateMashine = stateMashine;
-        _userStorage = userStorage;
-    }
+            if (userStorage == null)
+                throw new ArgumentNullException(nameof(userStorage));
 
-    public void Execute()
-    {
-        Load();
-    }
+            _stateMashine = stateMashine;
+            _userStorage = userStorage;
+        }
 
-    private void Load()
-    {
-        _stateMashine.EnterIn<LoadMainMenuState>();
+        public void Execute()
+        {
+            Load();
+        }
 
-        //GameMode mode = _userStorage.IsOpenSurvivolMode() ? GameMode.Survival : GameMode.Company;
-        //_stateMashine.EnterIn<LoadGameSceneState, GameMode>(mode);
+        private void Load()
+        {
+            _stateMashine.EnterIn<LoadMainMenuState>();
+        }
     }
 }

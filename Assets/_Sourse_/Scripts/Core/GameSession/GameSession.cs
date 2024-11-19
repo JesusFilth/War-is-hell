@@ -1,71 +1,79 @@
 ﻿using Reflex.Attributes;
-using System;
+using Sourse.Scripts.Core.Storage;
+using Sourse.Scripts.Enviroment.Levels;
+using Sourse.Scripts.Skills;
+using Sourse.Scripts.UI.Game;
+using Sourse.Scripts.UI.Game.FMS;
+using Sourse.Scripts.UI.Game.FMS.States;
 using UnityEngine;
 
-public class GameSession : MonoBehaviour,
-    IGameLevel
+namespace Sourse.Scripts.Core.GameSession
 {
-    [SerializeField] private InputView _inputView;
-
-    private LevelLocation _currentLevel;
-    private GameMode _mode;
-    private int _currentNumberLevel = 1;
-    private IGamePlayer _player;
-    private bool _isCompanyCompleted = false;
-
-    [Inject] private ILevelsStorage _levelsStorage;
-    [Inject] private UserStorage _usersStorage;
-    [Inject] private StateMashineUI _stateMashineUI;
-
-    public void StartGame(IGamePlayer player, GameMode mode)
+    public class GameSession : MonoBehaviour,
+        IGameLevel
     {
-        _player = player;
-        _mode = mode;
+        [SerializeField] private InputView _inputView;
 
-        _currentLevel = Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel-1));
-        _player.SetPosition(_currentLevel.PlayerStartPosition.position);
-    }
+        private LevelLocation _currentLevel;
+        private GameMode _mode;
+        private int _currentNumberLevel = 1;
+        private IGamePlayer _player;
+        private bool _isCompanyCompleted = false;
 
-    public void LoadNextLevel(Skill skill = null)
-    {
-        if(_mode == GameMode.Company && _levelsStorage.GetLastLevelNumber() == _currentNumberLevel)
+        [Inject] private ILevelsStorage _levelsStorage;
+        [Inject] private UserStorage _usersStorage;
+        [Inject] private StateMashineUI _stateMashineUI;
+
+        public void StartGame(IGamePlayer player, GameMode mode)
         {
-            Debug.Log("Game Complete - temp");
-            _isCompanyCompleted = true;
-            _usersStorage.OpenSurvivalMode();
-            _stateMashineUI.EnterIn<GameOverUIState>();
-            return;
+            _player = player;
+            _mode = mode;
+
+            _currentLevel = Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel-1));
+            _player.SetPosition(_currentLevel.PlayerStartPosition.position);
         }
 
-        _currentNumberLevel++;
-
-        if (_currentLevel != null)
-            Destroy(_currentLevel.gameObject);
-
-        _currentLevel = GetLevelLocation();
-        _player.SetPosition(_currentLevel.PlayerStartPosition.position);
-        _currentLevel.SetPriseSkill(skill);
-
-        _inputView.Off();
-    }
-
-    public bool IsCompanyCompleted() => _isCompanyCompleted;
-
-    public int GetCurrentLevelNumber() => _currentNumberLevel;
-
-    public GameMode GetCurrentMode() => _mode;
-
-    private LevelLocation GetLevelLocation()
-    {
-        switch (_mode)
+        public void LoadNextLevel(Skill skill = null)
         {
-            case GameMode.Company:
-                return Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel - 1));
+            if(_mode == GameMode.Company && _levelsStorage.GetLastLevelNumber() == _currentNumberLevel)
+            {
+                Debug.Log("Game Complete - temp");
+                _isCompanyCompleted = true;
+                _usersStorage.OpenSurvivalMode();
+                _stateMashineUI.EnterIn<GameOverUIState>();
+                return;
+            }
 
-            case GameMode.Survival:
-                return Instantiate(_levelsStorage.GetRandomLevelLocation());
+            _currentNumberLevel++;
 
-            default : return null;
+            if (_currentLevel != null)
+                Destroy(_currentLevel.gameObject);
+
+            _currentLevel = GetLevelLocation();
+            _player.SetPosition(_currentLevel.PlayerStartPosition.position);
+            _currentLevel.SetPriseSkill(skill);
+
+            _inputView.Off();
+        }
+
+        public bool IsCompanyCompleted() => _isCompanyCompleted;
+
+        public int GetCurrentLevelNumber() => _currentNumberLevel;
+
+        public GameMode GetCurrentMode() => _mode;
+
+        private LevelLocation GetLevelLocation()
+        {
+            switch (_mode)
+            {
+                case GameMode.Company:
+                    return Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel - 1));
+
+                case GameMode.Survival:
+                    return Instantiate(_levelsStorage.GetRandomLevelLocation());
+
+                default : return null;
+            }
         }
     }
 }

@@ -1,66 +1,69 @@
 using System;
 using UnityEngine;
 
-public class BackgroundSound : MonoBehaviour
+namespace Sourse.Scripts.Sound
 {
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _mainMenu;
-    [SerializeField] private AudioClip _gameLevel;
-
-    public static BackgroundSound Instance { get; private set; }
-
-    public bool IsPlaying => AudioListener.volume == 1;
-
-    private void Awake()
+    public class BackgroundSound : MonoBehaviour
     {
-        transform.parent = null;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _mainMenu;
+        [SerializeField] private AudioClip _gameLevel;
 
-        if (Instance == null)
+        public static BackgroundSound Instance { get; private set; }
+
+        public bool IsPlaying => AudioListener.volume == 1;
+
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            transform.parent = null;
+
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
         }
-    }
 
-    public void PlayClip(AudioClip clip)
-    {
-        if (clip == null)
-            throw new ArgumentNullException(nameof(clip));
+        public void PlayClip(AudioClip clip)
+        {
+            if (clip == null)
+                throw new ArgumentNullException(nameof(clip));
 
-        if (IsPlaying == false)
-            return;
+            if (IsPlaying == false)
+                return;
 
-        _audioSource.Stop();
-        _audioSource.clip = clip;
-        _audioSource.Play();
-    }
+            _audioSource.Stop();
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
 
-    public void PlayMainMenuSound()
-    {
-        _audioSource.clip = _mainMenu;
-        _audioSource.Play();
-    }
+        public void PlayMainMenuSound()
+        {
+            _audioSource.clip = _mainMenu;
+            _audioSource.Play();
+        }
 
-    public void PlayGameLevelSound()
-    {
-        _audioSource.clip = _gameLevel;
-        _audioSource.Play();
-    }
+        public void PlayGameLevelSound()
+        {
+            _audioSource.clip = _gameLevel;
+            _audioSource.Play();
+        }
 
-    public void Stop()
-    {
-        _audioSource.Stop();
-    }
+        public void Stop()
+        {
+            _audioSource.Stop();
+        }
 
-    public void OnVolume()
-    {
-        AudioListener.volume = 1;
-        _audioSource.Play();
-    }
+        public void OnVolume()
+        {
+            AudioListener.volume = 1;
+            _audioSource.Play();
+        }
 
-    public void OffVolume()
-    {
-        AudioListener.volume = 0;
-        _audioSource.Stop();
+        public void OffVolume()
+        {
+            AudioListener.volume = 0;
+            _audioSource.Stop();
+        }
     }
 }

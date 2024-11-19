@@ -1,17 +1,21 @@
 using GameCreator.Runtime.Characters;
+using Sourse.Scripts.Characters.Player;
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+namespace Sourse.Scripts.Characters
 {
-    [SerializeField] private Character _character;
-    [SerializeField] private PlayerAbilitys _playerAbility;
-
-    public Character Character => _character;
-    public PlayerAbilitys PlayerAbility => _playerAbility;
-    public Transform Transform { get; private set; }
-
-    private void Awake()
+    public class Hero : MonoBehaviour
     {
-        Transform = transform;
+        [SerializeField] private Character _character;
+        [SerializeField] private PlayerAbilitys _playerAbility;
+
+        public Character Character => _character;
+        public PlayerAbilitys PlayerAbility => _playerAbility;
+        public Transform Transform { get; private set; }
+
+        private void Awake()
+        {
+            Transform = transform;
+        }
     }
 }

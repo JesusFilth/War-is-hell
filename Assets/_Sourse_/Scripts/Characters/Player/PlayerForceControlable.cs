@@ -2,25 +2,28 @@ using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Character))]
-public class PlayerForceControlable : MonoBehaviour
+namespace Sourse.Scripts.Characters.Player
 {
-    [SerializeField] private Actions _actions;
-
-    private Character _character;
-    bool _isMoving = false;
-
-    private void Awake()
+    [RequireComponent(typeof(Character))]
+    public class PlayerForceControlable : MonoBehaviour
     {
-        _character = GetComponent<Character>();
+        [SerializeField] private Actions _actions;
 
-        if(_character.IsPlayer == false)
-            enabled = false;
-    }
+        private Character _character;
+        bool _isMoving = false;
 
-    private void Update()
-    {
-        if(_character.Kernel.IsInputActive())
-            _actions?.Invoke();
+        private void Awake()
+        {
+            _character = GetComponent<Character>();
+
+            if(_character.IsPlayer == false)
+                enabled = false;
+        }
+
+        private void Update()
+        {
+            if(_character.Kernel.IsInputActive())
+                _actions?.Invoke();
+        }
     }
 }

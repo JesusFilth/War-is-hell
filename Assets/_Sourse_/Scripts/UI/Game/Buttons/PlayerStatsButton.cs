@@ -1,11 +1,16 @@
 using Reflex.Attributes;
+using Sourse.Scripts.UI.Game.FMS;
+using Sourse.Scripts.UI.Game.FMS.States;
 
-public class PlayerStatsButton : ButtonView
+namespace Sourse.Scripts.UI.Game.Buttons
 {
-    [Inject] private StateMashineUI _mashineUI;
-
-    protected override void OnClick()
+    public class PlayerStatsButton : ButtonView
     {
-        _mashineUI.EnterIn<PlayerStatsUIState>();
+        [Inject] private StateMashineUI _mashineUI;
+
+        protected override void OnClick()
+        {
+            _mashineUI.EnterIn<PlayerStatsUIState>();
+        }
     }
 }

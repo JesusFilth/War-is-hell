@@ -1,4 +1,9 @@
-﻿public interface IPlayerAbilities
+﻿using Sourse.Scripts.Characters.Player;
+
+namespace Sourse.Scripts.Core.GameSession
 {
-    PlayerAbilitys GetAbilities();
+    public interface IPlayerAbilities
+    {
+        PlayerAbilitys GetAbilities();
+    }
 }

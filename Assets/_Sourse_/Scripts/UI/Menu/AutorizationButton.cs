@@ -1,48 +1,51 @@
+using GamePush;
 using UnityEngine;
 using UnityEngine.UI;
-using GamePush;
 
-[RequireComponent(typeof(Button))]
-public class AutorizationButton : MonoBehaviour
+namespace Sourse.Scripts.UI.Menu
 {
-    private Button _button;
-
-    private void Awake()
+    [RequireComponent(typeof(Button))]
+    public class AutorizationButton : MonoBehaviour
     {
-        _button = GetComponent<Button>();
+        private Button _button;
 
-        //if(GP_Player.IsLoggedIn())
-        //    _button.gameObject.SetActive(false);
-    }
+        private void Awake()
+        {
+            _button = GetComponent<Button>();
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnClick);
+            //if(GP_Player.IsLoggedIn())
+            //    _button.gameObject.SetActive(false);
+        }
 
-        GP_Player.OnLoginComplete += OnLoginComplete;
-        GP_Player.OnLoginError += OnLoginError;
-    }
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnClick);
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnClick);
+            GP_Player.OnLoginComplete += OnLoginComplete;
+            GP_Player.OnLoginError += OnLoginError;
+        }
 
-        GP_Player.OnLoginComplete -= OnLoginComplete;
-        GP_Player.OnLoginError -= OnLoginError;
-    }
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnClick);
 
-    private void OnClick()
-    {
-        GP_Player.Login();
-    }
+            GP_Player.OnLoginComplete -= OnLoginComplete;
+            GP_Player.OnLoginError -= OnLoginError;
+        }
 
-    private void OnLoginComplete()
-    {
-        _button.gameObject.SetActive(false);
-    }
+        private void OnClick()
+        {
+            GP_Player.Login();
+        }
 
-    private void OnLoginError()
-    {
-        Debug.Log("LogoutError");
+        private void OnLoginComplete()
+        {
+            _button.gameObject.SetActive(false);
+        }
+
+        private void OnLoginError()
+        {
+            Debug.Log("LogoutError");
+        }
     }
 }

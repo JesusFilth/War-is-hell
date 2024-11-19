@@ -2,34 +2,37 @@ using System;
 using GameCreator.Runtime.Cameras;
 using UnityEngine;
 
-public class GameLevelCamera : MonoBehaviour
+namespace Sourse.Scripts.Core.Camera
 {
-    [SerializeField] private ShotCamera _shotCamera;
-    [SerializeField] private MainCamera _mainCamera;
-
-    public void On()
+    public class GameLevelCamera : MonoBehaviour
     {
-        _mainCamera.UnLock();
-    }
+        [SerializeField] private ShotCamera _shotCamera;
+        [SerializeField] private MainCamera _mainCamera;
 
-    public void Off()
-    {
-        _mainCamera.Lock();
-    }
+        public void On()
+        {
+            _mainCamera.UnLock();
+        }
 
-    private void OnValidate()
-    {
-        if (_shotCamera == null)
-            throw new ArgumentNullException(nameof(_shotCamera));
-    }
+        public void Off()
+        {
+            _mainCamera.Lock();
+        }
 
-    public void SetDistance(Vector3 offset)
-    {
-        ShotTypeFollow cameraType = _shotCamera.ShotType as ShotTypeFollow;
+        private void OnValidate()
+        {
+            if (_shotCamera == null)
+                throw new ArgumentNullException(nameof(_shotCamera));
+        }
 
-        if (cameraType != null)
-            cameraType.Follow.Distance = offset;
-        else
-            throw new InvalidCastException(nameof(cameraType));
+        public void SetDistance(Vector3 offset)
+        {
+            ShotTypeFollow cameraType = _shotCamera.ShotType as ShotTypeFollow;
+
+            if (cameraType != null)
+                cameraType.Follow.Distance = offset;
+            else
+                throw new InvalidCastException(nameof(cameraType));
+        }
     }
 }

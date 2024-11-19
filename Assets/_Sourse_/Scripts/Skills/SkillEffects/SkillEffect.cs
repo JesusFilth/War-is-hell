@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class SkillEffect : MonoBehaviour
+namespace Sourse.Scripts.Skills.SkillEffects
 {
-    public event Action<SkillEffect> Destroed;
-
-    private void OnDestroy()
+    public class SkillEffect : MonoBehaviour
     {
-        Destroed?.Invoke(this);
+        public event Action<SkillEffect> Destroed;
+
+        private void OnDestroy()
+        {
+            Destroed?.Invoke(this);
+        }
     }
 }

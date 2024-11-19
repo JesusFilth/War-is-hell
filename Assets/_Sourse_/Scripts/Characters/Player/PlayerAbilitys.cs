@@ -1,56 +1,60 @@
 using GameCreator.Runtime.Stats;
+using Sourse.Scripts.Skills;
 using UnityEngine;
 
-public class PlayerAbilitys : MonoBehaviour
+namespace Sourse.Scripts.Characters.Player
 {
-    private const float ResurectedHP = 10000;
-    private const string HealthID = "hp";
-    private const string ExperienceID = "xp";
-
-    [SerializeField] private Traits _traits;
-    [SerializeField] private ActiveSkillsStorage _skillsStorage;
-
-    public ActiveSkillsStorage SkillsStorage => _skillsStorage;
-    public Traits Traits => _traits;
-
-    private void OnValidate()
+    public class PlayerAbilitys : MonoBehaviour
     {
-        if (_traits == null)
-            throw new System.ArgumentNullException(nameof(_traits));
+        private const float ResurectedHP = 10000;
+        private const string HealthID = "hp";
+        private const string ExperienceID = "xp";
 
-        if(_skillsStorage == null)
-            throw new System.ArgumentNullException(nameof(_skillsStorage));
-    }
+        [SerializeField] private Traits _traits;
+        [SerializeField] private ActiveSkillsStorage _skillsStorage;
 
-    public void AddModifier(StatParameterModel statModel)
-    {
-        RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(statModel.Stat.ID);
-        runtimeStat.AddModifier(statModel.Type, statModel.Value);
-    }
+        public ActiveSkillsStorage SkillsStorage => _skillsStorage;
+        public Traits Traits => _traits;
 
-    public void AddModifier(AttributeParameterModel attributeModel)
-    {
-        RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(attributeModel.Attribute.ID);
-        runtimeAttribute.Value = Mathf.Clamp(
-            (float)runtimeAttribute.Value + attributeModel.Value,
-            (float)runtimeAttribute.MinValue,
-            (float)runtimeAttribute.MaxValue);
-    }
+        private void OnValidate()
+        {
+            if (_traits == null)
+                throw new System.ArgumentNullException(nameof(_traits));
 
-    public void AddHealth(float value)
-    {
-        RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(HealthID);
-        runtimeAttribute.Value = value;
-    }
+            if(_skillsStorage == null)
+                throw new System.ArgumentNullException(nameof(_skillsStorage));
+        }
 
-    public void AddExperience(float value)
-    {
-        RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(ExperienceID);
-        runtimeStat.Base += value;
-    }
+        public void AddModifier(StatParameterModel statModel)
+        {
+            RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(statModel.Stat.ID);
+            runtimeStat.AddModifier(statModel.Type, statModel.Value);
+        }
 
-    public void Resurrect()
-    {
-        AddHealth(ResurectedHP);
+        public void AddModifier(AttributeParameterModel attributeModel)
+        {
+            RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(attributeModel.Attribute.ID);
+            runtimeAttribute.Value = Mathf.Clamp(
+                (float)runtimeAttribute.Value + attributeModel.Value,
+                (float)runtimeAttribute.MinValue,
+                (float)runtimeAttribute.MaxValue);
+        }
+
+        public void AddHealth(float value)
+        {
+            RuntimeAttributeData runtimeAttribute = _traits.RuntimeAttributes.Get(HealthID);
+            runtimeAttribute.Value = value;
+        }
+
+        public void AddExperience(float value)
+        {
+            RuntimeStatData runtimeStat = _traits.RuntimeStats.Get(ExperienceID);
+            runtimeStat.Base += value;
+        }
+
+        public void Resurrect()
+        {
+            AddHealth(ResurectedHP);
+        }
     }
 }

@@ -4,52 +4,55 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ItemSpawner : MonoBehaviour
+namespace Sourse.Scripts.Core.Spawner
 {
-    [SerializeField] private List<ItemSpawnModel> _itemModels;
-    [SerializeField] private SpawnPoint[] _points;
-    [SerializeField] private int _capasity;
-
-    private Dictionary<Item, int> _items = new();
-
-    private void Start()
+    public class ItemSpawner : MonoBehaviour
     {
-        Initialize();
-        Create();
-    }
+        [SerializeField] private List<ItemSpawnModel> _itemModels;
+        [SerializeField] private SpawnPoint[] _points;
+        [SerializeField] private int _capasity;
 
-    private void Initialize()
-    {
-        float totalWeight = _itemModels.Sum(spawnModel => spawnModel.Weight);
+        private Dictionary<Item, int> _items = new();
 
-        foreach (ItemSpawnModel spawnModel in _itemModels)
+        private void Start()
         {
-            int count = (int)Mathf.Round(spawnModel.Weight / totalWeight * _capasity);
-
-            _items.Add(spawnModel.Item, count);
+            Initialize();
+            Create();
         }
-    }
 
-    private void Create()
-    {
-        foreach (var item in _items)
+        private void Initialize()
         {
-            for (int i = 0; i < item.Value; i++)
+            float totalWeight = _itemModels.Sum(spawnModel => spawnModel.Weight);
+
+            foreach (ItemSpawnModel spawnModel in _itemModels)
             {
-                SpawnPoint freePoint = GetRandomFreePoint();
-                freePoint.ToBusy();
-                Item temp = Instantiate(item.Key, freePoint.Transform, false);
+                int count = (int)Mathf.Round(spawnModel.Weight / totalWeight * _capasity);
+
+                _items.Add(spawnModel.Item, count);
             }
         }
-    }
 
-    private SpawnPoint GetRandomFreePoint()
-    {
-        SpawnPoint[] freePoints = _points.Where(point => point.IsBusy == false).ToArray();
+        private void Create()
+        {
+            foreach (var item in _items)
+            {
+                for (int i = 0; i < item.Value; i++)
+                {
+                    SpawnPoint freePoint = GetRandomFreePoint();
+                    freePoint.ToBusy();
+                    Item temp = Instantiate(item.Key, freePoint.Transform, false);
+                }
+            }
+        }
 
-        if (freePoints == null || freePoints.Length == 0)
-            throw new ArgumentNullException(nameof(freePoints));
+        private SpawnPoint GetRandomFreePoint()
+        {
+            SpawnPoint[] freePoints = _points.Where(point => point.IsBusy == false).ToArray();
 
-        return freePoints[Random.Range(0, freePoints.Length)];
+            if (freePoints == null || freePoints.Length == 0)
+                throw new ArgumentNullException(nameof(freePoints));
+
+            return freePoints[Random.Range(0, freePoints.Length)];
+        }
     }
 }

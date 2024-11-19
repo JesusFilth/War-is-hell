@@ -1,36 +1,39 @@
 using GameCreator.Runtime.Characters;
 using UnityEngine;
 
-public class RotateAroundPlayer : MonoBehaviour
+namespace Sourse.Scripts.Skills.SkillEffects
 {
-    [SerializeField] private float _speed = 40f;
-    [SerializeField] private float _distance = 1f;
-
-    private float _currentAngle = 0f;
-    private Transform _transform;
-    private Transform _target;
-
-    private void Awake()
+    public class RotateAroundPlayer : MonoBehaviour
     {
-        _transform = transform;
-        _target = GetGameObjectPlayer.Create().EditorValue.transform;
-    }
+        [SerializeField] private float _speed = 40f;
+        [SerializeField] private float _distance = 1f;
 
-    private void Update()
-    {
-        if (_target == null)
-            return;
+        private float _currentAngle = 0f;
+        private Transform _transform;
+        private Transform _target;
 
-        _currentAngle += _speed * Time.deltaTime;
+        private void Awake()
+        {
+            _transform = transform;
+            _target = GetGameObjectPlayer.Create().EditorValue.transform;
+        }
 
-        float radians = _currentAngle * Mathf.Deg2Rad;
-        Vector3 newPosition = new Vector3(
-            _target.position.x + Mathf.Cos(radians) * _distance,
-            _target.position.y,
-            _target.position.z + Mathf.Sin(radians) * _distance
-        );
+        private void Update()
+        {
+            if (_target == null)
+                return;
 
-        _transform.position = newPosition;
-        _transform.LookAt(_target);
+            _currentAngle += _speed * Time.deltaTime;
+
+            float radians = _currentAngle * Mathf.Deg2Rad;
+            Vector3 newPosition = new Vector3(
+                _target.position.x + Mathf.Cos(radians) * _distance,
+                _target.position.y,
+                _target.position.z + Mathf.Sin(radians) * _distance
+            );
+
+            _transform.position = newPosition;
+            _transform.LookAt(_target);
+        }
     }
 }

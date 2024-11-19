@@ -1,12 +1,17 @@
 using Reflex.Attributes;
+using Sourse.Scripts.UI.Game.FMS;
+using Sourse.Scripts.UI.Game.FMS.States;
 using UnityEngine;
 
-public class GameOver : MonoBehaviour
+namespace Sourse.Scripts.Core
 {
-    [Inject] private StateMashineUI _uI;
-
-    public void OpenWindow()
+    public class GameOver : MonoBehaviour
     {
-        _uI.EnterIn<LifeRewardUIState>();
+        [Inject] private StateMashineUI _uI;
+
+        public void OpenWindow()
+        {
+            _uI.EnterIn<LifeRewardUIState>();
+        }
     }
 }

@@ -1,17 +1,21 @@
 ﻿using GameCreator.Runtime.Stats;
+using Sourse.Scripts.Characters.Player;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Attribute", order = 2)]
-public class SkillAttribute : SkillPassive
+namespace Sourse.Scripts.Skills
 {
-    [SerializeField] private Attribute _attribute;
-
-    public override void ExecuteStratigy(PlayerAbilitys abilitys)
+    [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Attribute", order = 2)]
+    public class SkillAttribute : SkillPassive
     {
-        if (Stratigy == null)
-            throw new System.ArgumentNullException(nameof(Stratigy));
+        [SerializeField] private Attribute _attribute;
 
-        Stratigy.Execute(abilitys, new AttributeParameterModel(_attribute, Value));
-        UpSkill();
+        public override void ExecuteStratigy(PlayerAbilitys abilitys)
+        {
+            if (Stratigy == null)
+                throw new System.ArgumentNullException(nameof(Stratigy));
+
+            Stratigy.Execute(abilitys, new AttributeParameterModel(_attribute, Value));
+            UpSkill();
+        }
     }
 }

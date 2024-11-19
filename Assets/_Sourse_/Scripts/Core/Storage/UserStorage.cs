@@ -2,112 +2,115 @@ using System;
 using GamePush;
 using UnityEngine;
 
-public class UserStorage
+namespace Sourse.Scripts.Core.Storage
 {
-    private const string GoldKey = "gold";
-    private const string OpenSurvivalKey = "isopensurvival";
-    private const string HeroesKey = "heroes";
-
-    private const string UserKey = "User";//temp
-
-    public event Action<int> GoldChanged;
-    public int UserGold => GP_Player.GetInt(GoldKey);
-
-    public bool HasHero(string id)
+    public class UserStorage
     {
-        const char HeroesSplit = ';';
-        const char HeroInfoSplit = '-';
-        const int ValueIndex = 1;
+        private const string GoldKey = "gold";
+        private const string OpenSurvivalKey = "isopensurvival";
+        private const string HeroesKey = "heroes";
 
-        string heroes = string.Empty;
+        private const string UserKey = "User";//temp
 
-#if UNITY_WEBGL && !UNITY_EDITOR
-        heroes = GP_Player.GetString(HeroesKey);
-#else
-        heroes = PlayerPrefs.GetString(UserKey);
-#endif
+        public event Action<int> GoldChanged;
+        public int UserGold => GP_Player.GetInt(GoldKey);
 
-        string[] heroesInfo = heroes.Split(HeroesSplit);
-
-        int heroIndex = int.Parse(id);
-
-        string[] hero = heroesInfo[heroIndex].Split(HeroInfoSplit);
-
-        if (hero[ValueIndex] == "true")
-            return true;
-
-        return false;
-    }
-
-    public void AddGold(int value)
-    {
-        GP_Player.Add(GoldKey,value);
-        GoldChanged?.Invoke(GP_Player.GetInt(GoldKey));
-
-        Save();
-    }
-
-    public void AddHero(string id, int price)
-    {
-        const char HeroesSplit = ';';
-        const char HeroInfoSplit = '-';
-
-        string heroes = string.Empty;
-
-#if UNITY_WEBGL && !UNITY_EDITOR
-        heroes = GP_Player.GetString(HeroesKey);
-#else
-        heroes = PlayerPrefs.GetString(UserKey);
-#endif
-
-        string[] heroesInfo = heroes.Split(HeroesSplit);
-
-        int heroIndex = int.Parse(id);
-
-        heroesInfo[heroIndex] = $"{id}{HeroInfoSplit}true";
-
-        string newInfo = string.Empty;
-
-        foreach(string hero in heroesInfo)
+        public bool HasHero(string id)
         {
-            newInfo += $"{hero};";
+            const char HeroesSplit = ';';
+            const char HeroInfoSplit = '-';
+            const int ValueIndex = 1;
+
+            string heroes = string.Empty;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        heroes = GP_Player.GetString(HeroesKey);
+#else
+            heroes = PlayerPrefs.GetString(UserKey);
+#endif
+
+            string[] heroesInfo = heroes.Split(HeroesSplit);
+
+            int heroIndex = int.Parse(id);
+
+            string[] hero = heroesInfo[heroIndex].Split(HeroInfoSplit);
+
+            if (hero[ValueIndex] == "true")
+                return true;
+
+            return false;
         }
 
-        newInfo.Remove(newInfo.Length - 1);
+        public void AddGold(int value)
+        {
+            GP_Player.Add(GoldKey,value);
+            GoldChanged?.Invoke(GP_Player.GetInt(GoldKey));
 
-        GP_Player.Add(GoldKey, price);
-        GP_Player.Set(HeroesKey, newInfo);
+            Save();
+        }
 
-        GoldChanged?.Invoke(GP_Player.GetInt(GoldKey));
-        Save();
-    }
+        public void AddHero(string id, int price)
+        {
+            const char HeroesSplit = ';';
+            const char HeroInfoSplit = '-';
 
-    public void AddScore(int score)
-    {
-        if (GP_Player.GetScore() < score)
-            GP_Player.SetScore(score);
+            string heroes = string.Empty;
 
-        Save();
-    }
+#if UNITY_WEBGL && !UNITY_EDITOR
+        heroes = GP_Player.GetString(HeroesKey);
+#else
+            heroes = PlayerPrefs.GetString(UserKey);
+#endif
 
-    public void UpdateGold()
-    {
-        GoldChanged.Invoke(GP_Player.GetInt(GoldKey));
-    }
+            string[] heroesInfo = heroes.Split(HeroesSplit);
 
-    public void OpenSurvivalMode()
-    {
-        GP_Player.SetFlag(OpenSurvivalKey, true);
-        Save();
-    }
+            int heroIndex = int.Parse(id);
 
-    public bool IsOpenSurvivolMode()
-    {
-        return GP_Player.GetBool(OpenSurvivalKey);
-    }
+            heroesInfo[heroIndex] = $"{id}{HeroInfoSplit}true";
 
-    private void Save()
-    {
-        GP_Player.Sync();
+            string newInfo = string.Empty;
+
+            foreach(string hero in heroesInfo)
+            {
+                newInfo += $"{hero};";
+            }
+
+            newInfo.Remove(newInfo.Length - 1);
+
+            GP_Player.Add(GoldKey, price);
+            GP_Player.Set(HeroesKey, newInfo);
+
+            GoldChanged?.Invoke(GP_Player.GetInt(GoldKey));
+            Save();
+        }
+
+        public void AddScore(int score)
+        {
+            if (GP_Player.GetScore() < score)
+                GP_Player.SetScore(score);
+
+            Save();
+        }
+
+        public void UpdateGold()
+        {
+            GoldChanged.Invoke(GP_Player.GetInt(GoldKey));
+        }
+
+        public void OpenSurvivalMode()
+        {
+            GP_Player.SetFlag(OpenSurvivalKey, true);
+            Save();
+        }
+
+        public bool IsOpenSurvivolMode()
+        {
+            return GP_Player.GetBool(OpenSurvivalKey);
+        }
+
+        private void Save()
+        {
+            GP_Player.Sync();
+        }
     }
 }

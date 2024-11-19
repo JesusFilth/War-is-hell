@@ -1,38 +1,41 @@
+using GamePush;
 using Lean.Localization;
 using UnityEngine;
-using GamePush;
 
-public class LocalizationInitialize : MonoBehaviour
+namespace Sourse.Scripts.Core.Localization
 {
-    private const string EnglishCode = "English";
-    private const string RussinCode = "Russian";
-    private const string TurkishCode = "Turkish";
-
-    [SerializeField] private LeanLocalization _leanLocalization;
-
-    private void Awake()
+    public class LocalizationInitialize : MonoBehaviour
     {
-        ChangeLenguage();
-    }
+        private const string EnglishCode = "English";
+        private const string RussinCode = "Russian";
+        private const string TurkishCode = "Turkish";
 
-    private void ChangeLenguage()
-    {
-        Language language = GP_Language.Current();
+        [SerializeField] private LeanLocalization _leanLocalization;
 
-        switch (language)
+        private void Awake()
         {
-            case Language.English:
-                _leanLocalization.SetCurrentLanguage(EnglishCode);
-                break;
-            case Language.Russian:
-                _leanLocalization.SetCurrentLanguage(RussinCode);
-                break;
-            case Language.Turkish:
-                _leanLocalization.SetCurrentLanguage(TurkishCode);
-                break;
-            default:
-                _leanLocalization.SetCurrentLanguage(EnglishCode);
-                break;
+            ChangeLenguage();
+        }
+
+        private void ChangeLenguage()
+        {
+            Language language = GP_Language.Current();
+
+            switch (language)
+            {
+                case Language.English:
+                    _leanLocalization.SetCurrentLanguage(EnglishCode);
+                    break;
+                case Language.Russian:
+                    _leanLocalization.SetCurrentLanguage(RussinCode);
+                    break;
+                case Language.Turkish:
+                    _leanLocalization.SetCurrentLanguage(TurkishCode);
+                    break;
+                default:
+                    _leanLocalization.SetCurrentLanguage(EnglishCode);
+                    break;
+            }
         }
     }
 }

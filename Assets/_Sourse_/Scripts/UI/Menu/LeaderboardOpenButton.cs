@@ -1,12 +1,13 @@
 using GamePush;
-using System.Threading;
-using System.Threading.Tasks;
-using UnityEngine;
+using Sourse.Scripts.UI.Game.Buttons;
 
-public class LeaderboardOpenButton : ButtonView
+namespace Sourse.Scripts.UI.Menu
 {
-    protected override void OnClick()
+    public class LeaderboardOpenButton : ButtonView
     {
-        GP_Leaderboard.Open();
+        protected override void OnClick()
+        {
+            GP_Leaderboard.Open();
+        }
     }
 }

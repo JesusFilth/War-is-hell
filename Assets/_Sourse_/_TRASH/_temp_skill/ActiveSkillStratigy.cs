@@ -1,4 +1,6 @@
 ﻿using System;
+using Sourse.Scripts.Characters.Player;
+using Sourse.Scripts.Skills;
 
 public class ActiveSkillStratigy : ISkillStratigy
 {

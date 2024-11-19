@@ -1,78 +1,81 @@
 using GamePush;
 using UnityEngine;
 
-public class FocusGame : MonoBehaviour
+namespace Sourse.Scripts.Core
 {
-    private bool _isLock;
-
-    public static FocusGame Instance { get; private set; }
-
-    private void Awake()
+    public class FocusGame : MonoBehaviour
     {
-        if (Instance == null)
+        private bool _isLock;
+
+        public static FocusGame Instance { get; private set; }
+
+        private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            Debug.Log("sdk");
         }
-        Debug.Log("sdk");
-    }
 
-    private void OnEnable()
-    {
-        Application.focusChanged += OnInBackgroundChangeApp;
-        //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
-    }
+        private void OnEnable()
+        {
+            Application.focusChanged += OnInBackgroundChangeApp;
+            //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+        }
 
-    private void OnDisable()
-    {
-        Application.focusChanged -= OnInBackgroundChangeApp;
-        //WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
-    }
+        private void OnDisable()
+        {
+            Application.focusChanged -= OnInBackgroundChangeApp;
+            //WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+        }
 
-    public void Lock()
-    {
-        GP_Game.IsPaused();
+        public void Lock()
+        {
+            GP_Game.IsPaused();
 
-        MuteAudio(true);
-        PauseGame(true);
+            MuteAudio(true);
+            PauseGame(true);
 
-        _isLock = true;
-    }
+            _isLock = true;
+        }
 
-    public void Unlock()
-    {
-        GP_Game.GameReady();
+        public void Unlock()
+        {
+            GP_Game.GameReady();
 
-        _isLock = false;
+            _isLock = false;
 
-        MuteAudio(false);
-        PauseGame(false);
-    }
+            MuteAudio(false);
+            PauseGame(false);
+        }
 
-    private void MuteAudio(bool value)
-    {
-        if (_isLock)
-            return;
+        private void MuteAudio(bool value)
+        {
+            if (_isLock)
+                return;
 
-        AudioListener.pause = value;
-    }
+            AudioListener.pause = value;
+        }
 
-    private void PauseGame(bool value)
-    {
-        if (_isLock)
-            return;
+        private void PauseGame(bool value)
+        {
+            if (_isLock)
+                return;
 
-        Time.timeScale = value ? 0 : 1;
-    }
+            Time.timeScale = value ? 0 : 1;
+        }
 
-    private void OnInBackgroundChangeApp(bool value)
-    {
-        MuteAudio(!value);
-        PauseGame(!value);
-    }
+        private void OnInBackgroundChangeApp(bool value)
+        {
+            MuteAudio(!value);
+            PauseGame(!value);
+        }
 
-    private void OnInBackgroundChangeWeb(bool value)
-    {
-        MuteAudio(value);
-        PauseGame(value);
+        private void OnInBackgroundChangeWeb(bool value)
+        {
+            MuteAudio(value);
+            PauseGame(value);
+        }
     }
 }

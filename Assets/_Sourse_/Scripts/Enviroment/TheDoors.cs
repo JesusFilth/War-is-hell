@@ -1,46 +1,52 @@
 using System;
 using Reflex.Attributes;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.Core.Storage;
+using Sourse.Scripts.Skills;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TheDoors : MonoBehaviour
+namespace Sourse.Scripts.Enviroment
 {
-    [SerializeField] private Door[] _doors;
-
-    [Inject] private SkillStorage _skillStorage;
-    [Inject] private ILevelsStorage _levelsStorage;
-    [Inject] private IGameLevel _gameLevel;
-
-    private void Start()
+    public class TheDoors : MonoBehaviour
     {
-        Initialize();
-    }
+        [SerializeField] private Door[] _doors;
 
-    private void Initialize()
-    {
-        if (_doors == null || _doors.Length == 0)
-            throw new ArgumentNullException(nameof(_doors));
+        [Inject] private SkillStorage _skillStorage;
+        [Inject] private ILevelsStorage _levelsStorage;
+        [Inject] private IGameLevel _gameLevel;
 
-        if(_gameLevel.GetCurrentMode() == GameMode.Company)
+        private void Start()
         {
-            if(_levelsStorage.GetLastLevelNumber() == _gameLevel.GetCurrentLevelNumber())
-            {
-                int randomIndexDoor = Random.Range(0, _doors.Length);
-
-                for (int i = 0; i < _doors.Length; i++)
-                {
-                    _doors[i].gameObject.SetActive(randomIndexDoor == i);
-                }
-
-                return;
-            }
+            Initialize();
         }
 
-        Skill[] skills = _skillStorage.GetRandomSkills(_doors.Length);
-
-        for (int i = 0; i < skills.Length; i++)
+        private void Initialize()
         {
-            _doors[i].SetSkill(skills[i]);
+            if (_doors == null || _doors.Length == 0)
+                throw new ArgumentNullException(nameof(_doors));
+
+            if(_gameLevel.GetCurrentMode() == GameMode.Company)
+            {
+                if(_levelsStorage.GetLastLevelNumber() == _gameLevel.GetCurrentLevelNumber())
+                {
+                    int randomIndexDoor = Random.Range(0, _doors.Length);
+
+                    for (int i = 0; i < _doors.Length; i++)
+                    {
+                        _doors[i].gameObject.SetActive(randomIndexDoor == i);
+                    }
+
+                    return;
+                }
+            }
+
+            Skill[] skills = _skillStorage.GetRandomSkills(_doors.Length);
+
+            for (int i = 0; i < skills.Length; i++)
+            {
+                _doors[i].SetSkill(skills[i]);
+            }
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿public interface IGameProgress
+﻿using Sourse.Scripts.Characters.Player;
+
+namespace Sourse.Scripts.Core.GameSession
 {
-    PlayerProgress GetPlayerProgress();
+    public interface IGameProgress
+    {
+        PlayerProgress GetPlayerProgress();
+    }
 }

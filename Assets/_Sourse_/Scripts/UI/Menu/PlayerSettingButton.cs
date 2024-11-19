@@ -1,13 +1,17 @@
+using Sourse.Scripts.UI.Game.Buttons;
 using UnityEngine;
 
-public class PlayerSettingButton : ButtonView
+namespace Sourse.Scripts.UI.Menu
 {
-    [SerializeField] private GameObject _mainUi;
-    [SerializeField] private GameObject _settingUi;
-
-    protected override void OnClick()
+    public class PlayerSettingButton : ButtonView
     {
-        _mainUi.SetActive(false);
-        _settingUi.SetActive(true);
+        [SerializeField] private GameObject _mainUi;
+        [SerializeField] private GameObject _settingUi;
+
+        protected override void OnClick()
+        {
+            _mainUi.SetActive(false);
+            _settingUi.SetActive(true);
+        }
     }
 }

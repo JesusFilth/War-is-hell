@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class InputView : MonoBehaviour
+namespace Sourse.Scripts.UI.Game
 {
-    public void Off()
+    public class InputView : MonoBehaviour
     {
-        gameObject.SetActive(false);
+        public void Off()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -1,19 +1,22 @@
 using System.Collections;
 using UnityEngine;
 
-public class SquadWaveSpawner : WaveSpawner
+namespace Sourse.Scripts.Core.Spawner.EnemyWaves
 {
-    protected override IEnumerator Execute()
+    public class SquadWaveSpawner : WaveSpawner
     {
-        if(CountEnemysOnBattlefield == 0)
+        protected override IEnumerator Execute()
         {
-            for (int i = 0; i < Count; i++)
+            if(CountEnemysOnBattlefield == 0)
             {
-                Create();
-                yield return new WaitForSeconds(DelaySpawn);
+                for (int i = 0; i < Count; i++)
+                {
+                    Create();
+                    yield return new WaitForSeconds(DelaySpawn);
+                }
             }
-        }
 
-        Executing = null;
+            Executing = null;
+        }
     }
 }

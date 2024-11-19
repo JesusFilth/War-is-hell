@@ -18,12 +18,12 @@ namespace IJunior.TypedScenes
         
         private const string _sceneName = "GameLevel";
         
-        public static void Load(GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static void Load(Sourse.Scripts.Core.GameSession.GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             LoadScene(_sceneName, loadSceneMode, argument);
         }
         
-        public static UnityEngine.AsyncOperation LoadAsync(GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static UnityEngine.AsyncOperation LoadAsync(Sourse.Scripts.Core.GameSession.GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             return LoadScene(_sceneName, loadSceneMode, argument);
         }

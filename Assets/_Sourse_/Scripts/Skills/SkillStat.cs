@@ -1,19 +1,23 @@
 ﻿using System;
 using GameCreator.Runtime.Stats;
+using Sourse.Scripts.Characters.Player;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Stat", order = 2)]
-public class SkillStat : SkillPassive
+namespace Sourse.Scripts.Skills
 {
-    [SerializeField] private ModifierType _type = ModifierType.Constant;
-    [SerializeField] private Stat _stat;
-
-    public override void ExecuteStratigy(PlayerAbilitys abilitys)
+    [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Stat", order = 2)]
+    public class SkillStat : SkillPassive
     {
-        if (Stratigy == null)
-            throw new ArgumentNullException(nameof(Stratigy));
+        [SerializeField] private ModifierType _type = ModifierType.Constant;
+        [SerializeField] private Stat _stat;
 
-        Stratigy.Execute(abilitys, new StatParameterModel(_stat, _type, Value));
-        UpSkill();
+        public override void ExecuteStratigy(PlayerAbilitys abilitys)
+        {
+            if (Stratigy == null)
+                throw new ArgumentNullException(nameof(Stratigy));
+
+            Stratigy.Execute(abilitys, new StatParameterModel(_stat, _type, Value));
+            UpSkill();
+        }
     }
 }

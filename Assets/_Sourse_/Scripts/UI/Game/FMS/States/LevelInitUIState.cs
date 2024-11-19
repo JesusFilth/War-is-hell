@@ -1,7 +1,10 @@
-public class LevelInitUIState : GameUIState
+namespace Sourse.Scripts.UI.Game.FMS.States
 {
-    public LevelInitUIState(IGameUI view)
-        : base(view)
+    public class LevelInitUIState : GameUIState
     {
+        public LevelInitUIState(IGameUI view)
+            : base(view)
+        {
+        }
     }
 }

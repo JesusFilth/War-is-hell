@@ -1,16 +1,20 @@
 using IJunior.TypedScenes;
+using Sourse.Scripts.Core.GameSession;
 
-public class LoadGameSceneState : IGameState<GameMode>
+namespace Sourse.Scripts.Core.Game_FSM
 {
-    private GameMode _gameMode;
-
-    public void Execute()
+    public class LoadGameSceneState : IGameState<GameMode>
     {
-        GameLevel.Load(_gameMode);
-    }
+        private GameMode _gameMode;
 
-    public void SetParam(GameMode mode)
-    {
-        _gameMode = mode;
+        public void Execute()
+        {
+            GameLevel.Load(_gameMode);
+        }
+
+        public void SetParam(GameMode mode)
+        {
+            _gameMode = mode;
+        }
     }
 }

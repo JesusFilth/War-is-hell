@@ -1,5 +1,8 @@
-﻿public enum GameMode
+﻿namespace Sourse.Scripts.Core.GameSession
 {
-    Company,
-    Survival
+    public enum GameMode
+    {
+        Company,
+        Survival
+    }
 }

@@ -1,7 +1,10 @@
-﻿public class LifeRewardUIState : GameUIState
+﻿namespace Sourse.Scripts.UI.Game.FMS.States
 {
-    public LifeRewardUIState(IGameUI view)
-        : base(view)
+    public class LifeRewardUIState : GameUIState
     {
+        public LifeRewardUIState(IGameUI view)
+            : base(view)
+        {
+        }
     }
 }

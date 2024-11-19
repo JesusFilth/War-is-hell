@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
-public interface IGamePlayer
+namespace Sourse.Scripts.Core.GameSession
 {
-    Transform GetPlayerPosition();
+    public interface IGamePlayer
+    {
+        Transform GetPlayerPosition();
 
-    void SetPosition(Vector3 position);
+        void SetPosition(Vector3 position);
 
-    void AddExpirience(float exp);
+        void AddExpirience(float exp);
 
-    void Resurrect();
+        void Resurrect();
+    }
 }

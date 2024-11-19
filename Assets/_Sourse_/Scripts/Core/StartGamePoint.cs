@@ -1,14 +1,19 @@
 using Reflex.Attributes;
+using Sourse.Scripts.Core.Game_FSM;
+using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-public class StartGamePoint : MonoBehaviour
+namespace Sourse.Scripts.Core
 {
-    [Inject] private GameStateMashine _stateMashine;
-    [Inject] private UserStorage _userStorage;
-
-    private void Start()
+    public class StartGamePoint : MonoBehaviour
     {
-        _stateMashine.Init(_userStorage);
-        _stateMashine.EnterIn<BootstrapState>();
+        [Inject] private GameStateMashine _stateMashine;
+        [Inject] private UserStorage _userStorage;
+
+        private void Start()
+        {
+            _stateMashine.Init(_userStorage);
+            _stateMashine.EnterIn<BootstrapState>();
+        }
     }
 }

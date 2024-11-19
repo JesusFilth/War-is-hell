@@ -1,12 +1,17 @@
-﻿public interface IGameLevel
+﻿using Sourse.Scripts.Skills;
+
+namespace Sourse.Scripts.Core.GameSession
 {
-    void StartGame(IGamePlayer player, GameMode mode);
+    public interface IGameLevel
+    {
+        void StartGame(IGamePlayer player, GameMode mode);
 
-    void LoadNextLevel(Skill skill = null);
+        void LoadNextLevel(Skill skill = null);
 
-    int GetCurrentLevelNumber();
+        int GetCurrentLevelNumber();
 
-    GameMode GetCurrentMode();
+        GameMode GetCurrentMode();
 
-    bool IsCompanyCompleted();
+        bool IsCompanyCompleted();
+    }
 }

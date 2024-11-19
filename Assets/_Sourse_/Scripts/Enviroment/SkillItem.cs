@@ -1,31 +1,38 @@
 using Reflex.Attributes;
+using Sourse.Scripts.Characters.Player;
+using Sourse.Scripts.Core.GameSession;
+using Sourse.Scripts.DI;
+using Sourse.Scripts.Skills;
 using UnityEngine;
 
-public class SkillItem : MonoBehaviour
+namespace Sourse.Scripts.Enviroment
 {
-    private Skill _currentSkill;
-
-    [Inject] private IPlayerAbilities _playerAbilities;
-
-    private void Awake()
+    public class SkillItem : MonoBehaviour
     {
-        DIGameConteiner.Instance.InjectRecursive(gameObject);
-    }
+        private Skill _currentSkill;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.TryGetComponent(out Player player))
+        [Inject] private IPlayerAbilities _playerAbilities;
+
+        private void Awake()
         {
-            if (_currentSkill == null)
-                return;
-
-            _currentSkill.ExecuteStratigy(_playerAbilities.GetAbilities());
-            Destroy(gameObject);
+            DIGameConteiner.Instance.InjectRecursive(gameObject);
         }
-    }
 
-    public void Buinding(Skill skill)
-    {
-        _currentSkill = skill;
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.TryGetComponent(out Player player))
+            {
+                if (_currentSkill == null)
+                    return;
+
+                _currentSkill.ExecuteStratigy(_playerAbilities.GetAbilities());
+                Destroy(gameObject);
+            }
+        }
+
+        public void Buinding(Skill skill)
+        {
+            _currentSkill = skill;
+        }
     }
 }

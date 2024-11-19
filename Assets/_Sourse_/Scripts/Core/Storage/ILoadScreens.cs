@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public interface ILoadScreens
+namespace Sourse.Scripts.Core.Storage
 {
-    Sprite GetRandomScreen();
+    public interface ILoadScreens
+    {
+        Sprite GetRandomScreen();
+    }
 }

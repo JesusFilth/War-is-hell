@@ -1,20 +1,22 @@
 using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class PermanentWaveSpawner : WaveSpawner
+namespace Sourse.Scripts.Core.Spawner.EnemyWaves
 {
-    protected override IEnumerator Execute()
+    public class PermanentWaveSpawner : WaveSpawner
     {
-        while(CountEnemysOnBattlefield != Count)
+        protected override IEnumerator Execute()
         {
-            if (HasEnemys == false)
-                break;
+            while(CountEnemysOnBattlefield != Count)
+            {
+                if (HasEnemys == false)
+                    break;
 
-            Create();
-            yield return new WaitForSeconds(DelaySpawn);
+                Create();
+                yield return new WaitForSeconds(DelaySpawn);
+            }
+
+            Executing = null;
         }
-
-        Executing = null;
     }
 }

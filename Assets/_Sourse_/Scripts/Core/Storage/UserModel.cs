@@ -1,12 +1,15 @@
 using System;
 using UnityEngine.Scripting;
 
-[Serializable]
-public class UserModel
+namespace Sourse.Scripts.Core.Storage
 {
-    [field: Preserve] public string Name;
-    [field: Preserve] public int Gold;
-    [field: Preserve] public int Score;
-    [field: Preserve] public string[] Heroes;
-    [field: Preserve] public bool IsOpenSurvival;
+    [Serializable]
+    public class UserModel
+    {
+        [field: Preserve] public string Name;
+        [field: Preserve] public int Gold;
+        [field: Preserve] public int Score;
+        [field: Preserve] public string[] Heroes;
+        [field: Preserve] public bool IsOpenSurvival;
+    }
 }
