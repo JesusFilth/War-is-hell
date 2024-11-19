@@ -33,7 +33,7 @@ namespace Sourse.Scripts.Core.Game_FSM
         public void EnterIn<TState, TParam>(TParam param)
             where TState : IGameState<TParam>
         {
-            if(_states.TryGetValue(typeof(TState), out IGameState state))
+            if (_states.TryGetValue(typeof(TState), out IGameState state))
             {
                 _currentState = state;
                 ((IGameState<TParam>)_currentState).SetParam(param);

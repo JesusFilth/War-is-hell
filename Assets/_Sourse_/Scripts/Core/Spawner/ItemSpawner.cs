@@ -12,7 +12,7 @@ namespace Sourse.Scripts.Core.Spawner
         [SerializeField] private SpawnPoint[] _points;
         [SerializeField] private int _capasity;
 
-        private Dictionary<Item, int> _items = new();
+        private Dictionary<Item, int> _items = new ();
 
         private void Start()
         {

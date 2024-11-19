@@ -128,6 +128,7 @@ namespace Sourse.Scripts.UI.Menu
         {
             GP_Player.Login();
         }
+
         private void OnLogOut()
         {
             GP_Player.Logout();

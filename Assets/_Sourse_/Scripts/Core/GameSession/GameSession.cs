@@ -1,4 +1,5 @@
-﻿using Reflex.Attributes;
+﻿using System;
+using Reflex.Attributes;
 using Sourse.Scripts.Core.Storage;
 using Sourse.Scripts.Enviroment.Levels;
 using Sourse.Scripts.Skills;
@@ -29,15 +30,14 @@ namespace Sourse.Scripts.Core.GameSession
             _player = player;
             _mode = mode;
 
-            _currentLevel = Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel-1));
+            _currentLevel = Instantiate(_levelsStorage.GetLevelLocation(_currentNumberLevel - 1));
             _player.SetPosition(_currentLevel.PlayerStartPosition.position);
         }
 
         public void LoadNextLevel(Skill skill = null)
         {
-            if(_mode == GameMode.Company && _levelsStorage.GetLastLevelNumber() == _currentNumberLevel)
+            if (_mode == GameMode.Company && _levelsStorage.GetLastLevelNumber() == _currentNumberLevel)
             {
-                Debug.Log("Game Complete - temp");
                 _isCompanyCompleted = true;
                 _usersStorage.OpenSurvivalMode();
                 _stateMashineUI.EnterIn<GameOverUIState>();
@@ -71,9 +71,9 @@ namespace Sourse.Scripts.Core.GameSession
 
                 case GameMode.Survival:
                     return Instantiate(_levelsStorage.GetRandomLevelLocation());
-
-                default : return null;
             }
+
+            throw new InvalidOperationException(nameof(_mode));
         }
     }
 }
