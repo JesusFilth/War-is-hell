@@ -141,7 +141,6 @@ namespace Sourse.Scripts.Core.Spawner.EnemyWaves
 
                 if (count == 0)
                     continue;
-                //count = 1;//?
 
                 _enemysOnLine.Add(spawnModel.Enemy, count);
             }

@@ -28,15 +28,6 @@ namespace Sourse.Scripts.Characters
         public string Description => _description;
         public int Price => _price;
 
-        private void Awake()
-        {
-            //if (Application.isPlaying == false)
-            //    return;
-
-            //Language languageCode = GP_Language.Current();
-            //ChangeLanguage(languageCode);
-        }
-
         public void ChangeLanguage(Language languageCode)
         {
             switch (languageCode)
