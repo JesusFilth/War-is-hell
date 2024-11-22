@@ -4,6 +4,7 @@
 В проекте использовались: Reflex DI, GamePush, FSM, Lean Localization, Simple Toon Pro, Game Creator 2.
 
 Война - это ад!
+
 ![chad_22d1d585167e4f5cbe5f32a2238ed3b5_2](https://github.com/user-attachments/assets/89e06824-dee9-47cc-a768-08085db05304)
 
 ![Скриншот 21-11-2024 091208](https://github.com/user-attachments/assets/d285cf13-508c-4798-aa85-dd2ef0e871a0)
