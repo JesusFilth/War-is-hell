@@ -14,7 +14,6 @@ namespace Sourse.Scripts.UI.Menu
 
         private void OnRewardedStart()
         {
-            Debug.Log("ON REWARDED: START");
             FocusGame.Instance.Lock();
         }
 
@@ -26,7 +25,6 @@ namespace Sourse.Scripts.UI.Menu
 
         private void OnRewardedClose(bool success)
         {
-            Debug.Log("ON REWARDED: CLOSE");
             FocusGame.Instance.Unlock();
         }
     }

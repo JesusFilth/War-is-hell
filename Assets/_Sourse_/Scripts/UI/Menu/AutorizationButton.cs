@@ -12,9 +12,6 @@ namespace Sourse.Scripts.UI.Menu
         private void Awake()
         {
             _button = GetComponent<Button>();
-
-            //if(GP_Player.IsLoggedIn())
-            //    _button.gameObject.SetActive(false);
         }
 
         private void OnEnable()

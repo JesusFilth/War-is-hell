@@ -15,13 +15,11 @@ namespace Sourse.Scripts.SDK
 
         private void OnFullscreenStart()
         { 
-            Debug.Log("ON FULLSCREEN START");
             FocusGame.Instance.Lock();
         } 
 
         private void OnFullscreenClose(bool success)
         {
-            Debug.Log("ON FULLSCREEN CLOSE");
             FocusGame.Instance.Unlock();
         }
     }

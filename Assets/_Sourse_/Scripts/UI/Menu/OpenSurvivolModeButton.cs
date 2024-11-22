@@ -23,8 +23,6 @@ namespace Sourse.Scripts.UI.Menu
         {
             _button = GetComponent<Button>();
             _showingTime = new WaitForSeconds(_messageDelay);
-
-            //Initialize();
         }
 
         private void OnEnable()
