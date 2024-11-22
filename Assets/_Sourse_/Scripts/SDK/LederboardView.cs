@@ -6,6 +6,7 @@ namespace Sourse.Scripts.SDK
 {
     public class LederboardView : MonoBehaviour
     {
+        private const string Score = "score";
         private const string AnanimusName = "Ananimus";
         private const int MaxElements = 5;
 
@@ -29,7 +30,7 @@ namespace Sourse.Scripts.SDK
             Fetch();
         }
 
-        private void Fetch() => GP_Leaderboard.Fetch("","score",Order.DESC,MaxElements);
+        private void Fetch() => GP_Leaderboard.Fetch("", Score, Order.DESC,MaxElements);
 
         private void OnFetchSuccess(string fetchTag, GP_Data data)
         {
@@ -49,14 +50,6 @@ namespace Sourse.Scripts.SDK
                     players[i].avatar);
 
                 _leaderboadElements.Add(temp);
-            }
-        }
-
-        private void ClearElements()
-        {
-            foreach (LeaderboadElement element in _leaderboadElements)
-            {
-                Destroy(element.gameObject);
             }
         }
     }

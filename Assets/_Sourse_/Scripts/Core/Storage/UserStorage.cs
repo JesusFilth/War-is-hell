@@ -10,7 +10,7 @@ namespace Sourse.Scripts.Core.Storage
         private const string OpenSurvivalKey = "isopensurvival";
         private const string HeroesKey = "heroes";
 
-        private const string UserKey = "User";//temp
+        private const string UserKey = "User";
 
         public event Action<int> GoldChanged;
         public int UserGold => GP_Player.GetInt(GoldKey);

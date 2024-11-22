@@ -15,19 +15,16 @@ namespace Sourse.Scripts.Core
             {
                 Instance = this;
             }
-            Debug.Log("sdk");
         }
 
         private void OnEnable()
         {
             Application.focusChanged += OnInBackgroundChangeApp;
-            //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
 
         private void OnDisable()
         {
             Application.focusChanged -= OnInBackgroundChangeApp;
-            //WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
         }
 
         public void Lock()
