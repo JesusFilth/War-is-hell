@@ -1,8 +1,6 @@
 Игра представляет собой гибрид жанров Beat ’em up в 3d пространстве и упрощенный roguelike.
 Военный файтинг, где игроку предстоит расправляться с волнами фрицев, открывать и улучшать свои навыки.
 
-В проекте использовались: Reflex DI, GamePush, FSM, Lean Localization, Simple Toon Pro, Game Creator 2.
-
 Война - это ад!
 
 ![chad_22d1d585167e4f5cbe5f32a2238ed3b5_2](https://github.com/user-attachments/assets/89e06824-dee9-47cc-a768-08085db05304)
