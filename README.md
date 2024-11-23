@@ -4,6 +4,7 @@
 Военный файтинг, где игроку предстоит расправляться с волнами фрицев, открывать и улучшать свои навыки.
 
 Война - это ад!
+
 ![chad_22d1d585167e4f5cbe5f32a2238ed3b5_2](https://github.com/user-attachments/assets/a27fbfd0-4c31-442b-a04c-6794d7c648d0)
 
 ![Скриншот 21-11-2024 091208](https://github.com/user-attachments/assets/805610e7-85ce-41aa-bbbc-a030d95f6862)
