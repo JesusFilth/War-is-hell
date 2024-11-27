@@ -9,20 +9,20 @@ namespace Sourse.Scripts.Core.Spawner
         private void OnDisable()
         {
             if (_currentEnemy != null)
-                _currentEnemy.Died -= DieEnemy;
+                _currentEnemy.Died -= OnDieEnemy;
         }
 
         public void SetEnemy(Enemy enemy)
         {
             ToBusy();
             _currentEnemy = enemy;
-            _currentEnemy.Died += DieEnemy;
+            _currentEnemy.Died += OnDieEnemy;
         }
 
-        private void DieEnemy(Enemy enemy)
+        private void OnDieEnemy(Enemy enemy)
         {
             ToFree();
-            enemy.Died -= DieEnemy;
+            enemy.Died -= OnDieEnemy;
 
             _currentEnemy = null;
         }

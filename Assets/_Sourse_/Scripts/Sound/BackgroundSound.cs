@@ -24,19 +24,6 @@ namespace Sourse.Scripts.Sound
             }
         }
 
-        public void PlayClip(AudioClip clip)
-        {
-            if (clip == null)
-                throw new ArgumentNullException(nameof(clip));
-
-            if (IsPlaying == false)
-                return;
-
-            _audioSource.Stop();
-            _audioSource.clip = clip;
-            _audioSource.Play();
-        }
-
         public void PlayMainMenuSound()
         {
             _audioSource.clip = _mainMenu;
@@ -47,11 +34,6 @@ namespace Sourse.Scripts.Sound
         {
             _audioSource.clip = _gameLevel;
             _audioSource.Play();
-        }
-
-        public void Stop()
-        {
-            _audioSource.Stop();
         }
 
         public void OnVolume()

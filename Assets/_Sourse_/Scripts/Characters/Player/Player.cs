@@ -37,11 +37,6 @@ namespace Sourse.Scripts.Characters.Player
             }
         }
 
-        public Transform GetPlayerPosition()
-        {
-            return _hero.Transform;
-        }
-
         public void AddExpirience(float exp)
         {
             _hero.PlayerAbility.AddExperience(exp);

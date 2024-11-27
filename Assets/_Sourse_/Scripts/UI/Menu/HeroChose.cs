@@ -94,7 +94,7 @@ namespace Sourse.Scripts.UI.Menu
             {
                 _buy.gameObject.SetActive(false);
                 _select.SetActive(true);
-                _lock.gameObject.SetActive(false);
+                _lock.SetActive(false);
 
                 _heroes.SetCurrentHero(_heroes.GetHeroes()[_currentIndex]);
             }
@@ -103,7 +103,7 @@ namespace Sourse.Scripts.UI.Menu
                 _price.text = heroSetting.Price.ToString();
                 _buy.gameObject.SetActive(true);
                 _select.SetActive(false);
-                _lock.gameObject.SetActive(true);
+                _lock.SetActive(true);
             }
         }
 

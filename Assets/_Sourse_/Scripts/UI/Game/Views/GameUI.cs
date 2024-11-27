@@ -17,19 +17,25 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            _canvasGroup.alpha = 0;
+            const float AlphaHide = 1;
+
+            _canvasGroup.alpha = AlphaHide;
             _canvasGroup.blocksRaycasts = false;
             _canvasGroup.interactable = false;
         }
 
         public void Show()
         {
-            _canvasGroup.alpha = 1;
+            const int LayerTime = 5;
+            const float TimeScale = 1;
+            const float AlphaShow = 1;
+
+            _canvasGroup.alpha = AlphaShow;
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = true;
 
             Time.timeScale = 1;
-            TimeManager.Instance.SetTimeScale(1, 5);
+            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
         }
     }
 }

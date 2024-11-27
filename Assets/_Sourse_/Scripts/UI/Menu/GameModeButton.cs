@@ -46,9 +46,7 @@ namespace Sourse.Scripts.UI.Menu
 
         private void UpdateFrame(GameMode mode)
         {
-            bool isActive = mode == _mode ? true : false;
-
-            _focus.SetActive(isActive);
+            _focus.SetActive(mode == _mode);
         }
     }
 }

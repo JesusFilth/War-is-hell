@@ -5,7 +5,6 @@ namespace Sourse.Scripts.UI.Game.FMS.States
         public GameLevelUIState(IGameUI view)
             : base(view)
         {
-
         }
     }
 }

@@ -22,7 +22,6 @@ namespace Sourse.Scripts.UI.Menu
             _button.onClick.AddListener(OnClick);
 
             GP_Player.OnLoginComplete += OnLoginComplete;
-            GP_Player.OnLoginError += OnLoginError;
         }
 
         private void OnDisable()
@@ -30,7 +29,6 @@ namespace Sourse.Scripts.UI.Menu
             _button.onClick.RemoveListener(OnClick);
 
             GP_Player.OnLoginComplete -= OnLoginComplete;
-            GP_Player.OnLoginError -= OnLoginError;
         }
 
         private void OnClick()
@@ -41,11 +39,6 @@ namespace Sourse.Scripts.UI.Menu
         private void OnLoginComplete()
         {
             _button.gameObject.SetActive(false);
-        }
-
-        private void OnLoginError()
-        {
-            Debug.Log("LogoutError");
         }
     }
 }

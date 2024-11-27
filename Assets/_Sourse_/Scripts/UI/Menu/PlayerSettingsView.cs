@@ -76,10 +76,6 @@ namespace Sourse.Scripts.UI.Menu
         private void OnCopy()
         {
             GUIUtility.systemCopyBuffer = _secretKey.text;
-
-//#if UNITY_WEBGL && !UNITY_EDITOR
-//        WebGLCopyAndPasteAPI.CopyText(_secretKey.text);
-//#endif
         }
     }
 }

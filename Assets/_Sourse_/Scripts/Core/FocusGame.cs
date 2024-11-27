@@ -68,11 +68,5 @@ namespace Sourse.Scripts.Core
             MuteAudio(!value);
             PauseGame(!value);
         }
-
-        private void OnInBackgroundChangeWeb(bool value)
-        {
-            MuteAudio(value);
-            PauseGame(value);
-        }
     }
 }

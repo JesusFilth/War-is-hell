@@ -24,15 +24,15 @@ namespace Sourse.Scripts.UI.Menu
 
         private void OnEnable()
         {
-            _heroChose.HeroChanged += UpdateData;
+            _heroChose.HeroChanged += OnUpdateData;
         }
 
         private void OnDisable()
         {
-            _heroChose.HeroChanged -= UpdateData;
+            _heroChose.HeroChanged -= OnUpdateData;
         }
 
-        private void UpdateData(HeroSetting heroSetting)
+        private void OnUpdateData(HeroSetting heroSetting)
         {
             heroSetting.ChangeLanguage(GP_Language.Current());
 

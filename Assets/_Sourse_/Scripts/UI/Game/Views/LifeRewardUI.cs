@@ -42,26 +42,34 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            _canvasGroup.alpha = 0;
+            const float AlphaHide = 0;
+            const int LayerTime = 5;
+            const float TimeScale = 1;
+
+            _canvasGroup.alpha = AlphaHide;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
 
-            TimeManager.Instance.SetTimeScale(1, 5);
+            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
         }
 
         public void Show()
         {
+            const float AlphaShow = 1;
+            const int LayerTime = 5;
+            const float TimeScale = 0;
+
             if (_isHasLife)
             {
                 _gameUI.EnterIn<GameOverUIState>();
                 return;
             }
 
-            _canvasGroup.alpha = 1;
+            _canvasGroup.alpha = AlphaShow;
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
 
-            TimeManager.Instance.SetTimeScale(0, 5);
+            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
         }
 
         private void ShowReward()

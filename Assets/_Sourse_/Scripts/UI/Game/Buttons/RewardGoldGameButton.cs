@@ -17,7 +17,6 @@ namespace Sourse.Scripts.UI.Game.Buttons
 
         private void OnRewardedStart()
         {
-            Debug.Log("ON REWARDED: START");
             FocusGame.Instance.Lock();
         }
 
@@ -29,7 +28,6 @@ namespace Sourse.Scripts.UI.Game.Buttons
 
         private void OnRewardedClose(bool success)
         {
-            Debug.Log("ON REWARDED: CLOSE");
             FocusGame.Instance.Unlock();
         }
     }

@@ -13,16 +13,16 @@ namespace Sourse.Scripts.UI.Menu
 
         private void OnEnable()
         {
-            _userStorage.GoldChanged += UpdateData;
+            _userStorage.GoldChanged += OnUpdateData;
             _userStorage.UpdateGold();
         }
 
         private void OnDisable()
         {
-            _userStorage.GoldChanged -= UpdateData;
+            _userStorage.GoldChanged -= OnUpdateData;
         }
 
-        private void UpdateData(int gold)
+        private void OnUpdateData(int gold)
         {
             _gold.text = gold.ToString();
         } 

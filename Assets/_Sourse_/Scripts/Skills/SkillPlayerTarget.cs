@@ -13,7 +13,6 @@ namespace Sourse.Scripts.Skills
         [SerializeField] private int _needLevelForCountUp = 3;
 
         private int _currentCount = 0;
-        public int EffectCount => _effectCount;
 
         public bool IsFull => _effectCount == _currentCount;
 

@@ -61,13 +61,5 @@ namespace Sourse.Scripts.UI.Menu
             _message.gameObject.SetActive(false);
             _showing = null;
         }
-
-        private void Initialize()
-        {
-            if(_userStorage.IsOpenSurvivolMode() == false)
-            {
-                _button.interactable = false;
-            }
-        }
     }
 }
