@@ -24,22 +24,23 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-
-            TimeManager.Instance.SetTimeScale(1, 5);
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
+            SetCanvasVisibility(true);
 
             _levelNumber.text = _level.GetCurrentLevelNumber().ToString();
 
             TimeManager.Instance.SetTimeScale(0, 5);
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

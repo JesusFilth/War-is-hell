@@ -42,22 +42,12 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            const float AlphaHide = 0;
-            const int LayerTime = 5;
-            const float TimeScale = 1;
-
-            _canvasGroup.alpha = AlphaHide;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-
-            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
-            const float AlphaShow = 1;
             const int LayerTime = 5;
-            const float TimeScale = 0;
 
             if (_isHasLife)
             {
@@ -65,11 +55,16 @@ namespace Sourse.Scripts.UI.Game.Views
                 return;
             }
 
-            _canvasGroup.alpha = AlphaShow;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
+            SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
+            TimeManager.Instance.SetTimeScale(0, LayerTime);
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
 
         private void ShowReward()

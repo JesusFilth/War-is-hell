@@ -26,29 +26,28 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            const float AlphaHide = 0;
-
-            _canvasGroup.alpha = AlphaHide;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
             const int LayerTime = 5;
-            const float TimeScale = 0;
-            const float AlphaShow = 1;
 
-            _canvasGroup.alpha = AlphaShow;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
+            SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
+            TimeManager.Instance.SetTimeScale(0, LayerTime);
 
             if(_level.IsCompanyCompleted())
                 _completedCompany.SetActive(true);
 
             _userStorage.AddScore(_gameProgress.GetPlayerProgress().Score);
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

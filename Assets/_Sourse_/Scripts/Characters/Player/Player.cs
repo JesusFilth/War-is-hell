@@ -28,6 +28,12 @@ namespace Sourse.Scripts.Characters.Player
             Initialize();
         }
 
+        private void Start()
+        {
+            Progress.UpdateGold();
+            Progress.UpdateScore();
+        }
+
         private void OnDisable()
         {
             if (_positionStarting != null)
@@ -37,7 +43,7 @@ namespace Sourse.Scripts.Characters.Player
             }
         }
 
-        public void AddExpirience(float exp)
+        public void AddExperience(float exp)
         {
             _hero.PlayerAbility.AddExperience(exp);
         }
@@ -52,7 +58,7 @@ namespace Sourse.Scripts.Characters.Player
             return Progress;
         }
 
-        public PlayerAbilitys GetAbilities()
+        public PlayerAbilities GetAbilities()
         {
             return _hero.PlayerAbility;
         }

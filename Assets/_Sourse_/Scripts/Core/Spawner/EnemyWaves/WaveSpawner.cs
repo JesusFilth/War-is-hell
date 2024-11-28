@@ -120,7 +120,7 @@ namespace Sourse.Scripts.Core.Spawner.EnemyWaves
 
             float upResult = _experiance * percentUp;
 
-            _player.AddExpirience(_experiance + upResult);
+            _player.AddExperience(_experiance + upResult);
         }
 
         private void SizeInit()

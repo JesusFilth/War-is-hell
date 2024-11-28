@@ -51,27 +51,26 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            const float AlphaHide = 0;
-
-            _canvasGroup.alpha = AlphaHide;
-            _canvasGroup.blocksRaycasts = false;
-            _canvasGroup.interactable = false;
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
             const int LayerTime = 5;
-            const float TimeScale = 0;
-            const float AlphaShow = 1;
 
-            _canvasGroup.alpha = AlphaShow;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
+            SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
+            TimeManager.Instance.SetTimeScale(0, LayerTime);
 
             UpdateSkills();
             UpdateStats();
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
 
         private void UpdateSkills()

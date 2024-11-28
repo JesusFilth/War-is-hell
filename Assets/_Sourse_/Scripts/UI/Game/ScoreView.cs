@@ -14,13 +14,11 @@ namespace Sourse.Scripts.UI.Game
         private void OnEnable()
         {
             _progress.GetPlayerProgress().ScoreChanged += OnUpdateData;
-            _progress.GetPlayerProgress().UpdateScore();
         }
 
         private void OnDisable()
         {
-            if (_progress.GetPlayerProgress() != null)
-                _progress.GetPlayerProgress().ScoreChanged -= OnUpdateData;
+            _progress.GetPlayerProgress().ScoreChanged -= OnUpdateData;
         }
 
         private void OnUpdateData(int score)

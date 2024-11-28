@@ -4,6 +4,6 @@ namespace Sourse.Scripts.Core.GameSession
 {
     public interface IPlayerAbilities
     {
-        PlayerAbilitys GetAbilities();
+        PlayerAbilities GetAbilities();
     }
 }

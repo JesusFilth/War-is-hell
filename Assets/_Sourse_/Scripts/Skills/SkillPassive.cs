@@ -10,7 +10,7 @@ namespace Sourse.Scripts.Skills
         [SerializeField] protected float UpValue = 5;
         [SerializeField] protected float MaxValue = 10;
 
-        public override void ExecuteStratigy(PlayerAbilitys abilitys)
+        public override void ExecuteStratigy(PlayerAbilities abilitys)
         {
             throw new NotImplementedException();
         }

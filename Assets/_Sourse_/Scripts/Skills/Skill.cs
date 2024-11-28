@@ -51,7 +51,7 @@ namespace Sourse.Scripts.Skills
                 throw new ArgumentNullException(nameof(_item));
         }
 
-        public abstract void ExecuteStratigy(PlayerAbilitys abilitys);
+        public abstract void ExecuteStratigy(PlayerAbilities abilitys);
 
         public abstract void UpSkill();
 

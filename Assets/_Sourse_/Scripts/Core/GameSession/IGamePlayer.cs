@@ -6,7 +6,7 @@ namespace Sourse.Scripts.Core.GameSession
     {
         void SetPosition(Vector3 position);
 
-        void AddExpirience(float exp);
+        void AddExperience(float exp);
 
         void Resurrect();
     }

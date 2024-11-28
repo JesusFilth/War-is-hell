@@ -38,29 +38,18 @@ namespace Sourse.Scripts.UI.Game.Views
         public void Show()
         {
             const int LayerTime = 5;
-            const float TimeScale = 0;
-            const float AlphaShow = 1;
 
-            _canvasGroup.alpha = AlphaShow;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
+            SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
+            TimeManager.Instance.SetTimeScale(1, LayerTime);
 
             UpdateData();
         }
 
         public void Hide()
         {
-            const int LayerTime = 5;
-            const float TimeScale = 1;
-            const float AlphaHide = 0;
+            SetCanvasVisibility(false);
 
-            _canvasGroup.alpha = AlphaHide;
-            _canvasGroup.blocksRaycasts = false;
-            _canvasGroup.interactable = false;
-
-            TimeManager.Instance.SetTimeScale(TimeScale, LayerTime);
         }
 
         public void UpdateData()
@@ -71,6 +60,13 @@ namespace Sourse.Scripts.UI.Game.Views
             {
                 _skillItems[i].Init(skills[i], 1);
             }
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

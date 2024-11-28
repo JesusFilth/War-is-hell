@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Sourse.Scripts.Sound
@@ -27,25 +26,29 @@ namespace Sourse.Scripts.Sound
         public void PlayMainMenuSound()
         {
             _audioSource.clip = _mainMenu;
-            _audioSource.Play();
+            Play();
         }
 
         public void PlayGameLevelSound()
         {
             _audioSource.clip = _gameLevel;
-            _audioSource.Play();
+            Play();
         }
 
         public void OnVolume()
         {
             AudioListener.volume = 1;
-            _audioSource.Play();
+            Play();
         }
 
         public void OffVolume()
         {
             AudioListener.volume = 0;
-            _audioSource.Stop();
+            Stop();
         }
+
+        private void Play() => _audioSource.Play();
+
+        private void Stop() => _audioSource.Stop();
     }
 }
