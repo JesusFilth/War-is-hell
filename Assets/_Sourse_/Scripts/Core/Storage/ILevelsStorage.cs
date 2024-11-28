@@ -1,6 +1,6 @@
-﻿using Sourse.Scripts.Enviroment.Levels;
+﻿using Enviroment.Levels;
 
-namespace Sourse.Scripts.Core.Storage
+namespace Core.Storage
 {
     public interface ILevelsStorage
     {

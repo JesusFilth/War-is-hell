@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Sourse.Scripts.Sound
+namespace Sound
 {
     public class BackgroundSound : MonoBehaviour
     {
@@ -24,46 +23,32 @@ namespace Sourse.Scripts.Sound
             }
         }
 
-        public void PlayClip(AudioClip clip)
-        {
-            if (clip == null)
-                throw new ArgumentNullException(nameof(clip));
-
-            if (IsPlaying == false)
-                return;
-
-            _audioSource.Stop();
-            _audioSource.clip = clip;
-            _audioSource.Play();
-        }
-
         public void PlayMainMenuSound()
         {
             _audioSource.clip = _mainMenu;
-            _audioSource.Play();
+            Play();
         }
 
         public void PlayGameLevelSound()
         {
             _audioSource.clip = _gameLevel;
-            _audioSource.Play();
-        }
-
-        public void Stop()
-        {
-            _audioSource.Stop();
+            Play();
         }
 
         public void OnVolume()
         {
             AudioListener.volume = 1;
-            _audioSource.Play();
+            Play();
         }
 
         public void OffVolume()
         {
             AudioListener.volume = 0;
-            _audioSource.Stop();
+            Stop();
         }
+
+        private void Play() => _audioSource.Play();
+
+        private void Stop() => _audioSource.Stop();
     }
 }

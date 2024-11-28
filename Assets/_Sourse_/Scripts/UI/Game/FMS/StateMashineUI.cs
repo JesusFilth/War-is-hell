@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Sourse.Scripts.Core;
-using Sourse.Scripts.UI.Game.FMS.States;
+using Core;
+using UI.Game.FMS.States;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.FMS
+namespace UI.Game.FMS
 {
     public class StateMashineUI : MonoBehaviour
     {

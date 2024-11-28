@@ -1,8 +1,8 @@
+using Core;
 using GamePush;
-using Sourse.Scripts.Core;
 using UnityEngine;
 
-namespace Sourse.Scripts.SDK
+namespace SDK
 {
     public class MainMenuInterstitialAd : MonoBehaviour
     {

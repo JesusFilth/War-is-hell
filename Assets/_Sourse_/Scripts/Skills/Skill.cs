@@ -1,10 +1,10 @@
 using System;
+using Characters.Player;
+using Enviroment;
 using GamePush;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Enviroment;
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     public abstract class Skill : ScriptableObject
     {
@@ -51,7 +51,7 @@ namespace Sourse.Scripts.Skills
                 throw new ArgumentNullException(nameof(_item));
         }
 
-        public abstract void ExecuteStratigy(PlayerAbilitys abilitys);
+        public abstract void ExecuteStratigy(PlayerAbilities abilitys);
 
         public abstract void UpSkill();
 

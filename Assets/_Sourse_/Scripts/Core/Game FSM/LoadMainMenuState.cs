@@ -1,6 +1,6 @@
 using IJunior.TypedScenes;
 
-namespace Sourse.Scripts.Core.Game_FSM
+namespace Core.Game_FSM
 {
     public class LoadMainMenuState : IGameState
     {

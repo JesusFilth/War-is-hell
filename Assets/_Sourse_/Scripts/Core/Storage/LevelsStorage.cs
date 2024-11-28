@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Sourse.Scripts.Characters;
-using Sourse.Scripts.Enviroment.Levels;
+using Characters;
+using Enviroment.Levels;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Core.Storage
+namespace Core.Storage
 {
     public class LevelsStorage : MonoBehaviour,
         ILevelsStorage,

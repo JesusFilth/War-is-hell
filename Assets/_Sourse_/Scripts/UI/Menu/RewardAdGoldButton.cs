@@ -1,10 +1,10 @@
+using Core;
+using Core.Storage;
 using GamePush;
 using Reflex.Attributes;
-using Sourse.Scripts.Core;
-using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class RewardAdGoldButton : MonoBehaviour
     {

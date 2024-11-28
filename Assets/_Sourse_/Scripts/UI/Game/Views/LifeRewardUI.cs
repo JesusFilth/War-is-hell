@@ -1,14 +1,14 @@
+using Core;
+using Core.GameSession;
 using GameCreator.Runtime.Common;
 using GamePush;
 using Reflex.Attributes;
-using Sourse.Scripts.Core;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class LifeRewardUI : MonoBehaviour, IGameUI
@@ -42,26 +42,29 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-
-            TimeManager.Instance.SetTimeScale(1, 5);
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
+            const int LayerTime = 5;
+
             if (_isHasLife)
             {
                 _gameUI.EnterIn<GameOverUIState>();
                 return;
             }
 
-            _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
+            SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(0, 5);
+            TimeManager.Instance.SetTimeScale(0, LayerTime);
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
 
         private void ShowReward()

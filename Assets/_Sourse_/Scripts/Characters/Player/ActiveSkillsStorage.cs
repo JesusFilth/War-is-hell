@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.Skills.SkillEffects;
+using Skills;
+using Skills.SkillEffects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class ActiveSkillsStorage : MonoBehaviour
     {
@@ -27,7 +27,7 @@ namespace Sourse.Scripts.Characters.Player
             foreach (SkillActive skill in _skills)
             {
                 if (skill.IsCooldawn == false)
-                    ChoseExecute(skill);
+                    ChoiceExecute(skill);
             }
         }
 
@@ -42,12 +42,10 @@ namespace Sourse.Scripts.Characters.Player
         private void Initialize()
         {
             for (int i = 0; i < _skills.Count; i++)
-            {
                 _skills[i] = Instantiate(_skills[i]);
-            }
         }
 
-        private void ChoseExecute(SkillActive skill)
+        private void ChoiceExecute(SkillActive skill)
         {
             if (skill is SkillEnemyTarget enemyTarget)
                 Execute(enemyTarget);
@@ -61,45 +59,49 @@ namespace Sourse.Scripts.Characters.Player
             skill.Active();
         }
 
+        private bool TryGetRandomEnemyTarget(bool isAlive, out Enemy enemy)
+        {
+            enemy = null;
+
+            if (_conteiner.HasEnemys == false)
+                return false;
+
+            Enemy[] targets = _conteiner.Enemys.Where(enemy => enemy.IsDead == isAlive).ToArray();
+
+            if (targets.Length == 0)
+                return false;
+
+            enemy = targets[Random.Range(0, targets.Length)];
+
+            return true;
+        }
+
         private void Execute(SkillDeadTarget skill)
         {
-            if (_conteiner.HasEnemys == false)
-                return;
-
             for (int i = 0; i < skill.DeadCount; i++)
             {
-                if (skill.CanActiveEffectForChance())
+                if (skill.CanActiveEffectForChance() == false)
+                    continue;
+
+                if(TryGetRandomEnemyTarget(false, out Enemy target))
                 {
-                    Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead).ToArray();
-
-                    if (deads == null || deads.Length == 0)
-                        continue;
-
-                    int randomIndex = Random.Range(0, deads.Length);
                     SkillEffect effect = Instantiate(skill.Effect);
-                    effect.transform.position = deads[randomIndex].SkillPoint.position;
-
-                    Destroy(deads[randomIndex].gameObject);
+                    effect.transform.position = target.SkillPoint.position;
+                    Destroy(target.gameObject);
                 }
             }
         }
 
         private void Execute(SkillEnemyTarget skill)
         {
-            if (_conteiner.HasEnemys == false)
-                return;
-
             for (int i = 0; i < skill.EnemyCount; i++)
             {
-                if (skill.CanActiveEffectForChance())
+                if (skill.CanActiveEffectForChance() == false)
+                    return;
+
+                if (TryGetRandomEnemyTarget(false, out Enemy target))
                 {
-                    Enemy[] deads = _conteiner.Enemys.Where(enemy => enemy.IsDead == false).ToArray();
-
-                    if (deads == null || deads.Length == 0)
-                        continue;
-
-                    int randomIndex = Random.Range(0, deads.Length);
-                    Instantiate(skill.Effect, deads[randomIndex].transform);
+                    Instantiate(skill.Effect, target.transform);
                 }
             }
         }
@@ -107,17 +109,13 @@ namespace Sourse.Scripts.Characters.Player
         private void Execute(SkillPlayerTarget skill)
         {
             if (skill.CanActiveEffectForChance())
-            {
                 skill.CreateEffect();
-            }
         }
 
         private void Execute(SkillActive skill)
         {
             if (skill.CanActiveEffectForChance())
-            {
                 Instantiate(skill.Effect);
-            }
         }
     }
 }

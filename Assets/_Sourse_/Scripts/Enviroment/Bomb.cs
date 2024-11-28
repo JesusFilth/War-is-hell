@@ -1,10 +1,10 @@
+using Core.GameSession;
+using Core.Storage;
+using DI;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.DI;
 using UnityEngine;
 
-namespace Sourse.Scripts.Enviroment
+namespace Enviroment
 {
     public class Bomb : MonoBehaviour
     {

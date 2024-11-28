@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.Enviroment
+namespace Enviroment
 {
     public class RotateItem : MonoBehaviour
     {

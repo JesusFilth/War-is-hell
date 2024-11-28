@@ -1,14 +1,14 @@
 using System.Collections;
+using Core.GameSession;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
 using TMPro;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class LevelInitUI : MonoBehaviour, IGameUI
@@ -42,16 +42,12 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.blocksRaycasts = false;
-            _canvasGroup.interactable = false;
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
+            SetCanvasVisibility(true);
 
             _screen.sprite = _loadScreens.GetRandomScreen();
 
@@ -67,6 +63,13 @@ namespace Sourse.Scripts.UI.Game.Views
 
             _stateMashineUI.EnterIn<GameLevelUIState>();
             _coroutine = null;
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

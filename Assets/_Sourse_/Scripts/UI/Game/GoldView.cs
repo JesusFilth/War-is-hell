@@ -1,9 +1,9 @@
+using Core.GameSession;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
 using TMPro;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game
+namespace UI.Game
 {
     public class GoldView : MonoBehaviour
     {
@@ -13,17 +13,15 @@ namespace Sourse.Scripts.UI.Game
 
         private void OnEnable()
         {
-            _progress.GetPlayerProgress().GoldChanged += UpdateData;
-            _progress.GetPlayerProgress().UpdateGold();
+            _progress.GetPlayerProgress().GoldChanged += OnUpdateData;
         }
 
         private void OnDisable()
         {
-            if(_progress.GetPlayerProgress() != null)
-                _progress.GetPlayerProgress().GoldChanged -= UpdateData;
+            _progress.GetPlayerProgress().GoldChanged -= OnUpdateData;
         }
 
-        private void UpdateData(int gold)
+        private void OnUpdateData(int gold)
         {
             _gold.text = gold.ToString();
         }

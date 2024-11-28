@@ -1,7 +1,7 @@
 using GamePush;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core
+namespace Core
 {
     public class FocusGame : MonoBehaviour
     {
@@ -67,12 +67,6 @@ namespace Sourse.Scripts.Core
         {
             MuteAudio(!value);
             PauseGame(!value);
-        }
-
-        private void OnInBackgroundChangeWeb(bool value)
-        {
-            MuteAudio(value);
-            PauseGame(value);
         }
     }
 }

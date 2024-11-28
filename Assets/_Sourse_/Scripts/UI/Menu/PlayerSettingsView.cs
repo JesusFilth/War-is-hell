@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class PlayerSettingsView : MonoBehaviour
     {
@@ -76,10 +76,6 @@ namespace Sourse.Scripts.UI.Menu
         private void OnCopy()
         {
             GUIUtility.systemCopyBuffer = _secretKey.text;
-
-//#if UNITY_WEBGL && !UNITY_EDITOR
-//        WebGLCopyAndPasteAPI.CopyText(_secretKey.text);
-//#endif
         }
     }
 }

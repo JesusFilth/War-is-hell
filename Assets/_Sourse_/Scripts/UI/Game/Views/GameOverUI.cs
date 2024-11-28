@@ -1,11 +1,11 @@
+using Core.GameSession;
+using Core.Storage;
 using GameCreator.Runtime.Common;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.UI.Game.FMS;
+using UI.Game.FMS;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class GameOverUI : MonoBehaviour, IGameUI
@@ -26,23 +26,28 @@ namespace Sourse.Scripts.UI.Game.Views
 
         public void Hide()
         {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
+            SetCanvasVisibility(false);
         }
 
         public void Show()
         {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
+            const int LayerTime = 5;
 
-            TimeManager.Instance.SetTimeScale(0, 5);
+            SetCanvasVisibility(true);
+
+            TimeManager.Instance.SetTimeScale(0, LayerTime);
 
             if(_level.IsCompanyCompleted())
                 _completedCompany.SetActive(true);
 
             _userStorage.AddScore(_gameProgress.GetPlayerProgress().Score);
+        }
+
+        private void SetCanvasVisibility(bool isActive)
+        {
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.interactable = isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

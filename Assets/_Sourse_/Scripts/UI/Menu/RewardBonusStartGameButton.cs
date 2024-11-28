@@ -1,12 +1,12 @@
+using Core;
+using Core.Game_FSM;
 using GameCreator.Runtime.Variables;
 using GamePush;
 using Reflex.Attributes;
-using Sourse.Scripts.Core;
-using Sourse.Scripts.Core.Game_FSM;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     [RequireComponent(typeof(Button))]
     public class RewardBonusStartGameButton : MonoBehaviour

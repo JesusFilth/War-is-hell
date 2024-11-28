@@ -1,6 +1,6 @@
-﻿using Sourse.Scripts.Skills;
+﻿using Skills;
 
-namespace Sourse.Scripts.Core.GameSession
+namespace Core.GameSession
 {
     public interface IGameLevel
     {

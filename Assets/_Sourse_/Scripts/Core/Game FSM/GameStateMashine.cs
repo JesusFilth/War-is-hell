@@ -1,20 +1,19 @@
 using System;
 using System.Collections.Generic;
-using Sourse.Scripts.Core.Storage;
 
-namespace Sourse.Scripts.Core.Game_FSM
+namespace Core.Game_FSM
 {
     public class GameStateMashine
     {
         private Dictionary<Type, IGameState> _states;
         private IGameState _currentState;
 
-        public void Init(UserStorage userStorage)
+        public void Init()
         {
             _states = new Dictionary<Type, IGameState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this),
-                [typeof(LoadDataState)] = new LoadDataState(this, userStorage),
+                [typeof(LoadDataState)] = new LoadDataState(this),
                 [typeof(LoadMainMenuState)] = new LoadMainMenuState(),
                 [typeof(LoadGameSceneState)] = new LoadGameSceneState(),
             };

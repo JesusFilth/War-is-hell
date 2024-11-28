@@ -1,6 +1,6 @@
-﻿using Sourse.Scripts.Characters.Player;
+﻿using Characters.Player;
 
-namespace Sourse.Scripts.Core.GameSession
+namespace Core.GameSession
 {
     public interface IGameProgress
     {

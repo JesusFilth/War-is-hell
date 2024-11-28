@@ -1,20 +1,20 @@
-﻿using Sourse.Scripts.Characters.Player;
+﻿using Characters.Player;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     public class SkillExecuteStratigy
     {
-        public void Execute(PlayerAbilitys abilitys, StatParameterModel statModel)
+        public void Execute(PlayerAbilities abilitys, StatParameterModel statModel)
         {
             abilitys.AddModifier(statModel);
         }
 
-        public void Execute(PlayerAbilitys abilitys, AttributeParameterModel attributeModel)
+        public void Execute(PlayerAbilities abilitys, AttributeParameterModel attributeModel)
         {
             abilitys.AddModifier(attributeModel);
         }
 
-        public void Execute(PlayerAbilitys abilitys, SkillActive skill)
+        public void Execute(PlayerAbilities abilitys, SkillActive skill)
         {
             abilitys.SkillsStorage.AddSkill(skill);
         }

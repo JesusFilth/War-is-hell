@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills.SkillEffects
+namespace Skills.SkillEffects
 {
     public class SkillEffect : MonoBehaviour
     {

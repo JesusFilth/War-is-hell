@@ -1,4 +1,4 @@
-﻿namespace Sourse.Scripts.Core.Storage
+﻿namespace Core.Storage
 {
     public interface IGameLevelSettings
     {

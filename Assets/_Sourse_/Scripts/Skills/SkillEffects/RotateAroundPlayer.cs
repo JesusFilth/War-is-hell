@@ -1,7 +1,7 @@
 using GameCreator.Runtime.Characters;
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills.SkillEffects
+namespace Skills.SkillEffects
 {
     public class RotateAroundPlayer : MonoBehaviour
     {

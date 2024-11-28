@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.Enviroment.Levels
+namespace Enviroment.Levels
 {
     [CreateAssetMenu(fileName = "LevelSettings", menuName = "Pig Punch/Level/LevelSettings", order = 2)]
     public class LevelSettings : ScriptableObject

@@ -1,6 +1,6 @@
 ﻿using GameCreator.Runtime.Stats;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     public struct AttributeParameterModel
     {

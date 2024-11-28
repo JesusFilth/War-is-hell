@@ -1,12 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class PlayerProgress
     {
         public int Score { get; private set; } = 0;
-
         public int Gold { get; private set; }
 
         public event Action<int> GoldChanged;

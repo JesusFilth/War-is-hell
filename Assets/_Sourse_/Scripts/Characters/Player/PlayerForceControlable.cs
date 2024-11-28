@@ -2,7 +2,7 @@ using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     [RequireComponent(typeof(Character))]
     public class PlayerForceControlable : MonoBehaviour

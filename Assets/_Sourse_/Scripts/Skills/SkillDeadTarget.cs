@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/DeadTarget", order = 2)]
     public class SkillDeadTarget : SkillActive

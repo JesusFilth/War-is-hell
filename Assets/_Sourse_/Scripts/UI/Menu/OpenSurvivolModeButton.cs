@@ -1,11 +1,11 @@
 using System.Collections;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Storage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     [RequireComponent(typeof(Button))]
     public class OpenSurvivolModeButton : MonoBehaviour
@@ -58,14 +58,6 @@ namespace Sourse.Scripts.UI.Menu
 
             _message.gameObject.SetActive(false);
             _showing = null;
-        }
-
-        private void Initialize()
-        {
-            if(_userStorage.IsOpenSurvivolMode() == false)
-            {
-                _button.interactable = false;
-            }
         }
     }
 }

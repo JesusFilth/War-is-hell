@@ -1,9 +1,9 @@
+using Core.GameSession;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
 using TMPro;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game
+namespace UI.Game
 {
     public class ScoreView : MonoBehaviour
     {
@@ -13,17 +13,15 @@ namespace Sourse.Scripts.UI.Game
 
         private void OnEnable()
         {
-            _progress.GetPlayerProgress().ScoreChanged += UpdateData;
-            _progress.GetPlayerProgress().UpdateScore();
+            _progress.GetPlayerProgress().ScoreChanged += OnUpdateData;
         }
 
         private void OnDisable()
         {
-            if (_progress.GetPlayerProgress() != null)
-                _progress.GetPlayerProgress().ScoreChanged -= UpdateData;
+            _progress.GetPlayerProgress().ScoreChanged -= OnUpdateData;
         }
 
-        private void UpdateData(int score)
+        private void OnUpdateData(int score)
         {
             _score.text = score.ToString();
         }

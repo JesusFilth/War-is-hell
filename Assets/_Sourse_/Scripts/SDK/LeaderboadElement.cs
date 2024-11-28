@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.SDK
+namespace SDK
 {
     public class LeaderboadElement : MonoBehaviour
     {
@@ -54,11 +54,7 @@ namespace Sourse.Scripts.SDK
             {
                 yield return www.SendWebRequest();
 
-                if (www.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.LogError("Error: " + www.error);
-                }
-                else
+                if (www.result == UnityWebRequest.Result.Success)
                 {
                     Texture2D texture = DownloadHandlerTexture.GetContent(www);
                     _icon.texture = texture;

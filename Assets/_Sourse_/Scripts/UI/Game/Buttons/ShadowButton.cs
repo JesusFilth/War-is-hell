@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Buttons
+namespace UI.Game.Buttons
 {
     public class ShadowButton : ButtonView
     {

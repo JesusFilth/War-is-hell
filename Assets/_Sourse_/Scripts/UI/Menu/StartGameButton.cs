@@ -1,9 +1,9 @@
+using Core.Game_FSM;
+using Core.GameSession;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Game_FSM;
-using Sourse.Scripts.Core.GameSession;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class StartGameButton : MonoBehaviour
     {

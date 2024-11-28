@@ -2,7 +2,7 @@ using GamePush;
 using Lean.Localization;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Localization
+namespace Core.Localization
 {
     public class LocalizationInitialize : MonoBehaviour
     {

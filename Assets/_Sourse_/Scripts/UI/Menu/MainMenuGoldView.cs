@@ -1,9 +1,9 @@
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Storage;
 using TMPro;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class MainMenuGoldView : MonoBehaviour
     {

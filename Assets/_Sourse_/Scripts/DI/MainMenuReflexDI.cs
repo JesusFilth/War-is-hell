@@ -1,8 +1,8 @@
 using Reflex.Core;
-using Sourse.Scripts.UI.Menu;
+using UI.Menu;
 using UnityEngine;
 
-namespace Sourse.Scripts.DI
+namespace DI
 {
     public class MainMenuReflexDI : MonoBehaviour, IInstaller
     {

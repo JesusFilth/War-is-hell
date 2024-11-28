@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Spawner.EnemyWaves
+namespace Core.Spawner.EnemyWaves
 {
     public class PermanentWaveSpawner : WaveSpawner
     {

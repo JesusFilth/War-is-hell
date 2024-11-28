@@ -1,11 +1,11 @@
 using System;
+using Characters.Player;
+using Core.GameSession;
 using Reflex.Attributes;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Skills;
+using Skills;
 using UnityEngine;
 
-namespace Sourse.Scripts.Enviroment
+namespace Enviroment
 {
     public class Door : MonoBehaviour
     {

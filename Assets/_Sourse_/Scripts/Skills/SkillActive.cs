@@ -1,10 +1,10 @@
 using System;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Skills.SkillEffects;
+using Characters.Player;
+using Skills.SkillEffects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Active", order = 2)]
     public class SkillActive : Skill
@@ -14,9 +14,10 @@ namespace Sourse.Scripts.Skills
 
         [Space]
         [Header("Skill Active settings")]
-        [SerializeField] private SkillEffect _effect;  
         [SerializeField] protected float Cooldawn = 3f;
         [SerializeField] protected float Chance = 50f;
+
+        [SerializeField] private SkillEffect _effect;  
         [SerializeField] private float _upCooldawnLevel = 0.1f;
         [SerializeField] private float _upChanceLevel = 2f;
 
@@ -26,7 +27,7 @@ namespace Sourse.Scripts.Skills
 
         private float _currentTime = 0;
 
-        public override void ExecuteStratigy(PlayerAbilitys abilitys)
+        public override void ExecuteStratigy(PlayerAbilities abilitys)
         {
             if (Stratigy == null)
                 throw new ArgumentNullException(nameof(Stratigy));

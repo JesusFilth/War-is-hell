@@ -1,12 +1,12 @@
+using Characters.Player;
+using Core.GameSession;
+using Core.Spawner;
+using Core.Storage;
+using DI;
 using Reflex.Attributes;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Spawner;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.DI;
 using UnityEngine;
 
-namespace Sourse.Scripts.Enviroment.Items
+namespace Enviroment.Items
 {
     public class GoldItem : Item
     {

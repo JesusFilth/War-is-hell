@@ -1,10 +1,9 @@
+using Core;
+using Core.GameSession;
 using GamePush;
 using Reflex.Attributes;
-using Sourse.Scripts.Core;
-using Sourse.Scripts.Core.GameSession;
-using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Buttons
+namespace UI.Game.Buttons
 {
     public class RewardGoldGameButton : ButtonView
     {
@@ -17,7 +16,6 @@ namespace Sourse.Scripts.UI.Game.Buttons
 
         private void OnRewardedStart()
         {
-            Debug.Log("ON REWARDED: START");
             FocusGame.Instance.Lock();
         }
 
@@ -29,7 +27,6 @@ namespace Sourse.Scripts.UI.Game.Buttons
 
         private void OnRewardedClose(bool success)
         {
-            Debug.Log("ON REWARDED: CLOSE");
             FocusGame.Instance.Unlock();
         }
     }

@@ -1,7 +1,7 @@
 ﻿using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Spawner
+namespace Core.Spawner
 {
     public class Item : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using GamePush;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters
+namespace Characters
 {
     [CreateAssetMenu(fileName = "Hero", menuName = "Pig Punch/HeroSetting", order = 2)]
     public class HeroSetting : ScriptableObject

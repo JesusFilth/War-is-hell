@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.Sound
+namespace Sound
 {
     public class GameLevelMainSound : MonoBehaviour
     {

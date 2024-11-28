@@ -1,10 +1,10 @@
 using System.Collections;
+using Core.GameSession;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class Player : MonoBehaviour,
         IGamePlayer,
@@ -28,6 +28,12 @@ namespace Sourse.Scripts.Characters.Player
             Initialize();
         }
 
+        private void Start()
+        {
+            Progress.UpdateGold();
+            Progress.UpdateScore();
+        }
+
         private void OnDisable()
         {
             if (_positionStarting != null)
@@ -37,12 +43,7 @@ namespace Sourse.Scripts.Characters.Player
             }
         }
 
-        public Transform GetPlayerPosition()
-        {
-            return _hero.Transform;
-        }
-
-        public void AddExpirience(float exp)
+        public void AddExperience(float exp)
         {
             _hero.PlayerAbility.AddExperience(exp);
         }
@@ -57,7 +58,7 @@ namespace Sourse.Scripts.Characters.Player
             return Progress;
         }
 
-        public PlayerAbilitys GetAbilities()
+        public PlayerAbilities GetAbilities()
         {
             return _hero.PlayerAbility;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class PlayerView : MonoBehaviour
     {
@@ -31,8 +31,6 @@ namespace Sourse.Scripts.UI.Menu
             GP_Player.OnLoginComplete += Initialize;
             GP_Player.OnLogoutComplete += Initialize;
 
-            GP_Player.OnLoginError += OnLoginError;
-
             Initialize();
         }
 
@@ -44,8 +42,6 @@ namespace Sourse.Scripts.UI.Menu
             GP_Leaderboard.OnFetchPlayerRatingSuccess -= OnFetchPlayerRatingSuccess;
             GP_Player.OnLoginComplete -= Initialize;
             GP_Player.OnLogoutComplete -= Initialize;
-
-            GP_Player.OnLoginError -= OnLoginError;
 
             if (_avatarLoading != null)
             {
@@ -112,11 +108,6 @@ namespace Sourse.Scripts.UI.Menu
                 _avatarLoading = StartCoroutine(LoadingImage(GP_Player.GetAvatarUrl()));
         }
 
-        private void OnLoginError()
-        {
-            Debug.Log("LogoutError");
-        }
-
         private void FetchPlayerRating() => GP_Leaderboard.FetchPlayerRating();
 
         private void OnFetchPlayerRatingSuccess(string fetchTag, int position)
@@ -140,11 +131,7 @@ namespace Sourse.Scripts.UI.Menu
             {
                 yield return www.SendWebRequest();
 
-                if (www.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.LogError("Error: " + www.error);
-                }
-                else
+                if (www.result == UnityWebRequest.Result.Success)
                 {
                     Texture2D texture = DownloadHandlerTexture.GetContent(www);
                     _avatar.texture = texture;
