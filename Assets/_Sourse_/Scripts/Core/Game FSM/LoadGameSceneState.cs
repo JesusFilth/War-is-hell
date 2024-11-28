@@ -1,7 +1,7 @@
+using Core.GameSession;
 using IJunior.TypedScenes;
-using Sourse.Scripts.Core.GameSession;
 
-namespace Sourse.Scripts.Core.Game_FSM
+namespace Core.Game_FSM
 {
     public class LoadGameSceneState : IGameState<GameMode>
     {

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.Skills.SkillEffects;
+using Skills;
+using Skills.SkillEffects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class ActiveSkillsStorage : MonoBehaviour
     {

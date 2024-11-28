@@ -1,8 +1,8 @@
 using System;
-using Sourse.Scripts.Characters;
+using Characters;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Spawner.EnemyWaves
+namespace Core.Spawner.EnemyWaves
 {
     [Serializable]
     public class EnemySpawnModel

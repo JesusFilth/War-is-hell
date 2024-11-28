@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class SkillsEnemyConteiner : MonoBehaviour
     {

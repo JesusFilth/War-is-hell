@@ -1,12 +1,12 @@
 using System;
+using Core.GameSession;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.Skills;
+using Skills;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Enviroment
+namespace Enviroment
 {
     public class TheDoors : MonoBehaviour
     {

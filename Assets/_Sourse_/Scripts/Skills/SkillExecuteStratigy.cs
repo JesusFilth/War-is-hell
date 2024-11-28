@@ -1,6 +1,6 @@
-﻿using Sourse.Scripts.Characters.Player;
+﻿using Characters.Player;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     public class SkillExecuteStratigy
     {

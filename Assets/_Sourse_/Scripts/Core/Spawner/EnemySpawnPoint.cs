@@ -1,6 +1,6 @@
-using Sourse.Scripts.Characters;
+using Characters;
 
-namespace Sourse.Scripts.Core.Spawner
+namespace Core.Spawner
 {
     public class EnemySpawnPoint : SpawnPoint
     {

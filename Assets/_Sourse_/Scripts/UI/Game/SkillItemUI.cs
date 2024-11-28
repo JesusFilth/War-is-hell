@@ -1,15 +1,15 @@
 using System;
+using Core.GameSession;
 using GamePush;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using Skills;
 using TMPro;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Game
+namespace UI.Game
 {
     public class SkillItemUI : MonoBehaviour
     {

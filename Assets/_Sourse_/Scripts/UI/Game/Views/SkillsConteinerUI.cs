@@ -1,11 +1,11 @@
 using GameCreator.Runtime.Common;
 using Reflex.Attributes;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using Skills;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class SkillsConteinerUI : MonoBehaviour, IGameUI

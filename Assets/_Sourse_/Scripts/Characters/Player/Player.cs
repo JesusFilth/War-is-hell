@@ -1,10 +1,10 @@
 using System.Collections;
+using Core.GameSession;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class Player : MonoBehaviour,
         IGamePlayer,

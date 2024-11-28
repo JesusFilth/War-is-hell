@@ -2,7 +2,7 @@ using GamePush;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     [RequireComponent(typeof(Button))]
     public class AutorizationButton : MonoBehaviour

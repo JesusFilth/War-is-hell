@@ -1,15 +1,15 @@
+using Core.GameSession;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Stats;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using Skills;
 using TMPro;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class PlayerStatsUI : MonoBehaviour, IGameUI

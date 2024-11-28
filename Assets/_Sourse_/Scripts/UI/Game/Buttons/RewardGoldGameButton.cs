@@ -1,10 +1,9 @@
+using Core;
+using Core.GameSession;
 using GamePush;
 using Reflex.Attributes;
-using Sourse.Scripts.Core;
-using Sourse.Scripts.Core.GameSession;
-using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Buttons
+namespace UI.Game.Buttons
 {
     public class RewardGoldGameButton : ButtonView
     {

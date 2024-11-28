@@ -1,10 +1,10 @@
 using System;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Skills.SkillEffects;
+using Characters.Player;
+using Skills.SkillEffects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Active", order = 2)]
     public class SkillActive : Skill

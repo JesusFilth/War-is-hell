@@ -1,8 +1,8 @@
 using Reflex.Attributes;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 
-namespace Sourse.Scripts.UI.Game.Buttons
+namespace UI.Game.Buttons
 {
     public class ContinueGameButton : ButtonView
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core
+namespace Core
 {
     public class SerializeInterfaceAttribute : PropertyAttribute
     {

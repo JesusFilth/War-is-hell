@@ -1,13 +1,13 @@
+using Characters.Player;
+using Core.Camera;
+using Core.GameSession;
 using Reflex.Core;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Core.Camera;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.Views;
+using Skills;
+using UI.Game.FMS;
+using UI.Game.Views;
 using UnityEngine;
 
-namespace Sourse.Scripts.DI
+namespace DI
 {
     public class GameReflexDI : MonoBehaviour, IInstaller
     {

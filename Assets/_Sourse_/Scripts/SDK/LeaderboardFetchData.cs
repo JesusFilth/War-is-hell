@@ -1,4 +1,4 @@
-﻿namespace Sourse.Scripts.SDK
+﻿namespace SDK
 {
     [System.Serializable]
     public class LeaderboardFetchData

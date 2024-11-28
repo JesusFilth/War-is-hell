@@ -1,11 +1,11 @@
 using System;
+using Core.GameSession;
+using DI;
 using GameCreator.Runtime.Stats;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.DI;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters
+namespace Characters
 {
     public class Enemy : MonoBehaviour
     {

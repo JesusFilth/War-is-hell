@@ -1,13 +1,13 @@
 using System;
+using Characters;
+using Core.Storage;
 using GameCreator.Runtime.Characters;
 using Reflex.Attributes;
-using Sourse.Scripts.Characters;
-using Sourse.Scripts.Core.Storage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class HeroChose : MonoBehaviour
     {

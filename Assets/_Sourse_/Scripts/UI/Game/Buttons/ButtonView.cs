@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Game.Buttons
+namespace UI.Game.Buttons
 {
     [RequireComponent(typeof(Button))]
     public abstract class ButtonView : MonoBehaviour

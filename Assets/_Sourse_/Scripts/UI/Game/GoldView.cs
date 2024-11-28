@@ -1,9 +1,9 @@
+using Core.GameSession;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
 using TMPro;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game
+namespace UI.Game
 {
     public class GoldView : MonoBehaviour
     {

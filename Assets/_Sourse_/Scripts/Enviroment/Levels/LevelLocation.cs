@@ -1,13 +1,13 @@
+using Core.Camera;
+using DI;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Camera;
-using Sourse.Scripts.DI;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using Skills;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Enviroment.Levels
+namespace Enviroment.Levels
 {
     public class LevelLocation : MonoBehaviour
     {

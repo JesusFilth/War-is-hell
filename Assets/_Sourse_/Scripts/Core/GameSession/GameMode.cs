@@ -1,4 +1,4 @@
-﻿namespace Sourse.Scripts.Core.GameSession
+﻿namespace Core.GameSession
 {
     public enum GameMode
     {

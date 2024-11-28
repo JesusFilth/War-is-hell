@@ -1,9 +1,9 @@
 using Reflex.Attributes;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core
+namespace Core
 {
     public class GameOver : MonoBehaviour
     {

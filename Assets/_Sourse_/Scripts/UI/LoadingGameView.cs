@@ -1,9 +1,9 @@
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI
+namespace UI
 {
     public class LoadingGameView : MonoBehaviour
     {

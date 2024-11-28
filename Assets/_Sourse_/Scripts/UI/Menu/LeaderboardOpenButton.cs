@@ -1,7 +1,7 @@
 using GamePush;
-using Sourse.Scripts.UI.Game.Buttons;
+using UI.Game.Buttons;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class LeaderboardOpenButton : ButtonView
     {

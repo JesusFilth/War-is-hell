@@ -1,6 +1,6 @@
 using System;
 
-namespace Sourse.Scripts.UI.Game.FMS
+namespace UI.Game.FMS
 {
     public abstract class GameUIState
     {

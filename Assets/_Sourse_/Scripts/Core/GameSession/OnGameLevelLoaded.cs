@@ -1,9 +1,9 @@
+using DI;
 using IJunior.TypedScenes;
 using Reflex.Attributes;
-using Sourse.Scripts.DI;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.GameSession
+namespace Core.GameSession
 {
     public class OnGameLevelLoaded : MonoBehaviour, ISceneLoadHandler<GameMode>
     {

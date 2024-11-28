@@ -2,7 +2,7 @@ using System;
 using GamePush;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Storage
+namespace Core.Storage
 {
     public class UserStorage
     {

@@ -1,7 +1,7 @@
-﻿using Sourse.Scripts.Skills.SkillEffects;
+﻿using Skills.SkillEffects;
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/PlayerTarget", order = 2)]
     public class SkillPlayerTarget : SkillActive

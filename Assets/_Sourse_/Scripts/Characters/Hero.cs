@@ -1,8 +1,8 @@
+using Characters.Player;
 using GameCreator.Runtime.Characters;
-using Sourse.Scripts.Characters.Player;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters
+namespace Characters
 {
     public class Hero : MonoBehaviour
     {

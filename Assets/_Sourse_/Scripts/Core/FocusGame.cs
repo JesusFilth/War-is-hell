@@ -1,7 +1,7 @@
 using GamePush;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core
+namespace Core
 {
     public class FocusGame : MonoBehaviour
     {

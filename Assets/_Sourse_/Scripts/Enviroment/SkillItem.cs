@@ -1,11 +1,11 @@
+using Characters.Player;
+using Core.GameSession;
+using DI;
 using Reflex.Attributes;
-using Sourse.Scripts.Characters.Player;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.DI;
-using Sourse.Scripts.Skills;
+using Skills;
 using UnityEngine;
 
-namespace Sourse.Scripts.Enviroment
+namespace Enviroment
 {
     public class SkillItem : MonoBehaviour
     {

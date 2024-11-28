@@ -2,15 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Characters;
+using Core.Camera;
+using Core.GameSession;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Characters;
-using Sourse.Scripts.Core.Camera;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Core.Spawner.EnemyWaves
+namespace Core.Spawner.EnemyWaves
 {
     public abstract class WaveSpawner : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Sourse.Scripts.Characters;
+using Characters;
 
-namespace Sourse.Scripts.Core.Storage
+namespace Core.Storage
 {
     public interface IHeroStorage
     {

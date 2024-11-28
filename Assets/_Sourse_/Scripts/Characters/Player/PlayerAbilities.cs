@@ -1,8 +1,8 @@
 using GameCreator.Runtime.Stats;
-using Sourse.Scripts.Skills;
+using Skills;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class PlayerAbilities : MonoBehaviour
     {

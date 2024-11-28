@@ -1,14 +1,14 @@
 ﻿using System;
+using Core.Storage;
+using Enviroment.Levels;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.Enviroment.Levels;
-using Sourse.Scripts.Skills;
-using Sourse.Scripts.UI.Game;
-using Sourse.Scripts.UI.Game.FMS;
-using Sourse.Scripts.UI.Game.FMS.States;
+using Skills;
+using UI.Game;
+using UI.Game.FMS;
+using UI.Game.FMS.States;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.GameSession
+namespace Core.GameSession
 {
     public class GameSession : MonoBehaviour,
         IGameLevel

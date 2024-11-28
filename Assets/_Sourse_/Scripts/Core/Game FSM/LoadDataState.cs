@@ -1,6 +1,6 @@
 using System;
 
-namespace Sourse.Scripts.Core.Game_FSM
+namespace Core.Game_FSM
 {
     public class LoadDataState : IGameState
     {

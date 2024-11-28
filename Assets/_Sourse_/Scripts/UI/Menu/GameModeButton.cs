@@ -1,10 +1,10 @@
+using Core.GameSession;
+using Core.Storage;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.Core.Storage;
-using Sourse.Scripts.UI.Game.Buttons;
+using UI.Game.Buttons;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class GameModeButton : ButtonView
     {

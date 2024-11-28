@@ -1,9 +1,9 @@
+using Core.Game_FSM;
+using Core.Storage;
 using Reflex.Core;
-using Sourse.Scripts.Core.Game_FSM;
-using Sourse.Scripts.Core.Storage;
 using UnityEngine;
 
-namespace Sourse.Scripts.DI
+namespace DI
 {
     public class GlobalReflexDI : MonoBehaviour, IInstaller
     {

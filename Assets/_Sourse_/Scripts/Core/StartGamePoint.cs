@@ -1,8 +1,8 @@
+using Core.Game_FSM;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.Game_FSM;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core
+namespace Core
 {
     public class StartGamePoint : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-using Sourse.Scripts.Sound;
+using Sound;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Buttons
+namespace UI.Game.Buttons
 {
     public class VolumeSoundButton : ButtonView
     {

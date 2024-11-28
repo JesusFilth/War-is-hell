@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Spawner
+namespace Core.Spawner
 {
     [Serializable]
     public class ItemSpawnModel

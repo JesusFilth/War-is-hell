@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Core.Spawner
+namespace Core.Spawner
 {
     public class ItemSpawner : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using GamePush;
 using UnityEngine;
 
-namespace Sourse.Scripts.SDK
+namespace SDK
 {
     public class LederboardView : MonoBehaviour
     {

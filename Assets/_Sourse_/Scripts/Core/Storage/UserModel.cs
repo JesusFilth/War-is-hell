@@ -1,7 +1,7 @@
 using System;
 using UnityEngine.Scripting;
 
-namespace Sourse.Scripts.Core.Storage
+namespace Core.Storage
 {
     [Serializable]
     public class UserModel

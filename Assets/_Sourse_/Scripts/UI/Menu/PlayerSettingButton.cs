@@ -1,7 +1,7 @@
-using Sourse.Scripts.UI.Game.Buttons;
+using UI.Game.Buttons;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class PlayerSettingButton : ButtonView
     {

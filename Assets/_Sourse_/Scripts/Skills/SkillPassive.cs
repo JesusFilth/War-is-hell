@@ -1,8 +1,8 @@
 using System;
-using Sourse.Scripts.Characters.Player;
+using Characters.Player;
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     public abstract class SkillPassive : Skill
     {

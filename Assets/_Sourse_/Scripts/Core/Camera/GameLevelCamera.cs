@@ -2,7 +2,7 @@ using System;
 using GameCreator.Runtime.Cameras;
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Camera
+namespace Core.Camera
 {
     public class GameLevelCamera : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class PlayerView : MonoBehaviour
     {

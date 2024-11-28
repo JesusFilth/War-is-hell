@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     public class SkillStorage : MonoBehaviour
     {

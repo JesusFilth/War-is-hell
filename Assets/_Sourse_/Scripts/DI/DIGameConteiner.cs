@@ -3,7 +3,7 @@ using Reflex.Extensions;
 using Reflex.Injectors;
 using UnityEngine;
 
-namespace Sourse.Scripts.DI
+namespace DI
 {
     public class DIGameConteiner : MonoBehaviour
     {

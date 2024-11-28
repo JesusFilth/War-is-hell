@@ -1,4 +1,4 @@
-﻿namespace Sourse.Scripts.UI.Game.FMS.States
+﻿namespace UI.Game.FMS.States
 {
     public class GameMenuUIState : GameUIState
     {

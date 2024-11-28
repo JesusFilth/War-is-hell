@@ -1,4 +1,4 @@
-namespace Sourse.Scripts.UI.Game.FMS
+namespace UI.Game.FMS
 {
     public interface IGameUI
     {

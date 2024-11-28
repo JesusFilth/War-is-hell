@@ -1,11 +1,11 @@
+using Core.GameSession;
 using GameCreator.Runtime.Common;
 using Reflex.Attributes;
-using Sourse.Scripts.Core.GameSession;
-using Sourse.Scripts.UI.Game.FMS;
 using TMPro;
+using UI.Game.FMS;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class MenuUI : MonoBehaviour, IGameUI

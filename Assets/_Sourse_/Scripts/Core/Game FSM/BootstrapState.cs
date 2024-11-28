@@ -1,7 +1,7 @@
 using System;
 using GamePush;
 
-namespace Sourse.Scripts.Core.Game_FSM
+namespace Core.Game_FSM
 {
     public class BootstrapState : IGameState
     {

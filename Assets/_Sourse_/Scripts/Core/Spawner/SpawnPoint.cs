@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.Core.Spawner
+namespace Core.Spawner
 {
     public class SpawnPoint : MonoBehaviour
     {

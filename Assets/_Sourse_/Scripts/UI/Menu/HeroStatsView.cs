@@ -1,10 +1,10 @@
+using Characters;
 using GameCreator.Runtime.Stats;
 using GamePush;
-using Sourse.Scripts.Characters;
 using TMPro;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class HeroStatsView : MonoBehaviour
     {

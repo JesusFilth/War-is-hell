@@ -1,9 +1,9 @@
 ﻿using System;
+using Characters.Player;
 using GameCreator.Runtime.Stats;
-using Sourse.Scripts.Characters.Player;
 using UnityEngine;
 
-namespace Sourse.Scripts.Skills
+namespace Skills
 {
     [CreateAssetMenu(fileName = "Skill", menuName = "Pig Punch/Skills/Stat", order = 2)]
     public class SkillStat : SkillPassive

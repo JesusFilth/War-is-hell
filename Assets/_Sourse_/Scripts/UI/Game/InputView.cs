@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game
+namespace UI.Game
 {
     public class InputView : MonoBehaviour
     {

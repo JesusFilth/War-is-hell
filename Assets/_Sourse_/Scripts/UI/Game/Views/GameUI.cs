@@ -1,8 +1,8 @@
 using GameCreator.Runtime.Common;
-using Sourse.Scripts.UI.Game.FMS;
+using UI.Game.FMS;
 using UnityEngine;
 
-namespace Sourse.Scripts.UI.Game.Views
+namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class GameUI : MonoBehaviour, IGameUI

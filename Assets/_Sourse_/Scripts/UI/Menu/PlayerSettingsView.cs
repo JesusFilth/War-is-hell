@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sourse.Scripts.UI.Menu
+namespace UI.Menu
 {
     public class PlayerSettingsView : MonoBehaviour
     {

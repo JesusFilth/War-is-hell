@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Sourse.Scripts.Characters.Player
+namespace Characters.Player
 {
     public class PlayerProgress
     {
