@@ -14,8 +14,8 @@ namespace UI.Game.FMS
             _view = view;
         }
 
-        public virtual void Open() => _view.Show();
+        public void Open() => _view.Show();
 
-        public virtual void Close() => _view.Hide();
+        public void Close() => _view.Hide();
     }
 }

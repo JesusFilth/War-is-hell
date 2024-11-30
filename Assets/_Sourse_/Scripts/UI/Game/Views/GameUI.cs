@@ -22,12 +22,10 @@ namespace UI.Game.Views
 
         public void Show()
         {
-            const int LayerTime = 5;
-
             SetCanvasVisibility(true);
 
             Time.timeScale = 1;
-            TimeManager.Instance.SetTimeScale(1, LayerTime);
+            TimeManager.Instance.SetTimeScale(1);
         }
 
         private void SetCanvasVisibility(bool isActive)

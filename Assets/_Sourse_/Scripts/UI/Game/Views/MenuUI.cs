@@ -33,7 +33,7 @@ namespace UI.Game.Views
 
             _levelNumber.text = _level.GetCurrentLevelNumber().ToString();
 
-            TimeManager.Instance.SetTimeScale(0, 5);
+            TimeManager.Instance.SetTimeScale(0);
         }
 
         private void SetCanvasVisibility(bool isActive)

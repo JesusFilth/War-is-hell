@@ -47,8 +47,6 @@ namespace UI.Game.Views
 
         public void Show()
         {
-            const int LayerTime = 5;
-
             if (_isHasLife)
             {
                 _gameUI.EnterIn<GameOverUIState>();
@@ -57,7 +55,7 @@ namespace UI.Game.Views
 
             SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(0, LayerTime);
+            TimeManager.Instance.SetTimeScale(0);
         }
 
         private void SetCanvasVisibility(bool isActive)

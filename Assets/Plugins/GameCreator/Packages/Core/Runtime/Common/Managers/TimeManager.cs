@@ -76,7 +76,7 @@ namespace GameCreator.Runtime.Common
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public void SetTimeScale(float timeScale, int layer)
+        public void SetTimeScale(float timeScale, int layer = 1)
         {
             this.SetTimeScale(timeScale, -1f, layer);
         }

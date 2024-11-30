@@ -5,7 +5,6 @@ namespace UI.Game.FMS.States
         public SkillUIState(IGameUI view)
             : base(view)
         {
-
         }
     }
 }
