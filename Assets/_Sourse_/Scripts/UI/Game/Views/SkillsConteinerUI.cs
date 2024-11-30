@@ -37,11 +37,9 @@ namespace UI.Game.Views
 
         public void Show()
         {
-            const int LayerTime = 5;
-
             SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(1, LayerTime);
+            TimeManager.Instance.SetTimeScale(1);
 
             UpdateData();
         }

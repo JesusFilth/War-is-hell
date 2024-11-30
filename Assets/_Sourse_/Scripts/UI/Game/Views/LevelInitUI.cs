@@ -25,7 +25,7 @@ namespace UI.Game.Views
         [Inject] private StateMashineUI _stateMashineUI;
         [Inject] private ILoadScreens _loadScreens;
 
-        private void Awake()
+        private void Awake(
         {
             _canvasGroup = GetComponent<CanvasGroup>();
             _waitForSeconds = new WaitForSeconds(_delay);

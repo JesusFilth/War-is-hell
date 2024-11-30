@@ -5,7 +5,6 @@
         public GameOverUIState(IGameUI view)
             : base(view)
         {
-
         }
     }
 }

@@ -31,11 +31,9 @@ namespace UI.Game.Views
 
         public void Show()
         {
-            const int LayerTime = 5;
-
             SetCanvasVisibility(true);
 
-            TimeManager.Instance.SetTimeScale(0, LayerTime);
+            TimeManager.Instance.SetTimeScale(0);
 
             if(_level.IsCompanyCompleted())
                 _completedCompany.SetActive(true);

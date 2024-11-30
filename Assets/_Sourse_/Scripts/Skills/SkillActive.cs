@@ -45,7 +45,7 @@ namespace Skills
             CheckMaxLevel();
         }
 
-        public virtual void Active()
+        public void Active()
         {
             _currentTime = Time.time;
         }

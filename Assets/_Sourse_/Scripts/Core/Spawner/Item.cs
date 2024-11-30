@@ -7,7 +7,7 @@ namespace Core.Spawner
     {
         [SerializeField] private Actions _actions;
 
-        protected virtual void Destroy()
+        protected void Destroy()
         {
             _actions?.Invoke();
             Destroy(gameObject);
