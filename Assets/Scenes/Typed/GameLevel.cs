@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Core.GameSession;
-
 namespace IJunior.TypedScenes
 {
     using UnityEngine.SceneManagement;
@@ -20,12 +18,12 @@ namespace IJunior.TypedScenes
         
         private const string _sceneName = "GameLevel";
         
-        public static void Load(GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static void Load(Core.GameSession.GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             LoadScene(_sceneName, loadSceneMode, argument);
         }
         
-        public static UnityEngine.AsyncOperation LoadAsync(GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static UnityEngine.AsyncOperation LoadAsync(Core.GameSession.GameMode argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             return LoadScene(_sceneName, loadSceneMode, argument);
         }
