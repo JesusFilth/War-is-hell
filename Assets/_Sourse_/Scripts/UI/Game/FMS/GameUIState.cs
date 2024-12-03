@@ -1,12 +1,13 @@
 using System;
+using UI.Game.Views;
 
 namespace UI.Game.FMS
 {
     public abstract class GameUIState
     {
-        private IGameUI _view;
+        private GameView _view;
 
-        public GameUIState(IGameUI view)
+        public GameUIState(GameView view)
         {
             if(view == null)
                 throw new ArgumentNullException(nameof(view));

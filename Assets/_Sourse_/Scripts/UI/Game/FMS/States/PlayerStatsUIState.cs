@@ -1,8 +1,10 @@
-﻿namespace UI.Game.FMS.States
+﻿using UI.Game.Views;
+
+namespace UI.Game.FMS.States
 {
     public class PlayerStatsUIState : GameUIState
     {
-        public PlayerStatsUIState(IGameUI view)
+        public PlayerStatsUIState(GameView view)
             : base(view)
         {
         }

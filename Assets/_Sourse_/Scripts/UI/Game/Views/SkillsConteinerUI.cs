@@ -7,22 +7,15 @@ using UnityEngine;
 
 namespace UI.Game.Views
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class SkillsConteinerUI : MonoBehaviour, IGameUI
+    public class SkillsConteinerUI : GameView
     {
         private const int MaxSkill = 3;
 
         [SerializeField] private SkillItemUI[] _skillItems = new SkillItemUI[MaxSkill];
 
-        private CanvasGroup _canvasGroup;
-
         [Inject] private SkillStorage _skillStorage;
         [Inject] private StateMashineUI _stateMashineUI;
 
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
 
         private void OnValidate()
         {
@@ -30,12 +23,7 @@ namespace UI.Game.Views
                 _skillItems = new SkillItemUI[MaxSkill];
         }
 
-        public void Open()
-        {
-            _stateMashineUI.EnterIn<SkillUIState>();
-        }
-
-        public void Show()
+        public override void Show()
         {
             SetCanvasVisibility(true);
 
@@ -44,10 +32,14 @@ namespace UI.Game.Views
             UpdateData();
         }
 
-        public void Hide()
+        public override void Hide()
         {
             SetCanvasVisibility(false);
+        }
 
+        public void Open()
+        {
+            _stateMashineUI.EnterIn<SkillUIState>();
         }
 
         public void UpdateData()
@@ -58,13 +50,6 @@ namespace UI.Game.Views
             {
                 _skillItems[i].Init(skills[i], 1);
             }
-        }
-
-        private void SetCanvasVisibility(bool isActive)
-        {
-            _canvasGroup.alpha = isActive ? 1 : 0;
-            _canvasGroup.interactable = isActive;
-            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

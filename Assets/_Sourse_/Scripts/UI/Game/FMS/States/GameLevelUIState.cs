@@ -1,8 +1,10 @@
+using UI.Game.Views;
+
 namespace UI.Game.FMS.States
 {
     public class GameLevelUIState : GameUIState
     {
-        public GameLevelUIState(IGameUI view)
+        public GameLevelUIState(GameView view)
             : base(view)
         {
         }

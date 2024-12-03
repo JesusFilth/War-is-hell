@@ -28,12 +28,6 @@ namespace Characters.Player
             Initialize();
         }
 
-        private void Start()
-        {
-            Progress.UpdateGold();
-            Progress.UpdateScore();
-        }
-
         private void OnDisable()
         {
             if (_positionStarting != null)

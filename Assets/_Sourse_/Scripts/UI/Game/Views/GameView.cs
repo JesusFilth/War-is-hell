@@ -1,11 +1,9 @@
-using GameCreator.Runtime.Common;
-using UI.Game.FMS;
 using UnityEngine;
 
 namespace UI.Game.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class GameUI : MonoBehaviour, IGameUI
+    public abstract class GameView : MonoBehaviour
     {
         private CanvasGroup _canvasGroup;
 
@@ -15,20 +13,11 @@ namespace UI.Game.Views
             Hide();
         }
 
-        public void Hide()
-        {
-            SetCanvasVisibility(false);
-        }
+        public abstract void Hide();
 
-        public void Show()
-        {
-            SetCanvasVisibility(true);
+        public abstract void Show();
 
-            Time.timeScale = 1;
-            TimeManager.Instance.SetTimeScale(1);
-        }
-
-        private void SetCanvasVisibility(bool isActive)
+        protected void SetCanvasVisibility(bool isActive)
         {
             _canvasGroup.alpha = isActive ? 1 : 0;
             _canvasGroup.interactable = isActive;

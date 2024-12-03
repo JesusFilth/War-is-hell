@@ -10,14 +10,12 @@ using UnityEngine.UI;
 
 namespace UI.Game.Views
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class LevelInitUI : MonoBehaviour, IGameUI
+    public class LevelInitUI : GameView
     {
         [SerializeField] private Image _screen;
         [SerializeField] private TMP_Text _level;
         [SerializeField] private float _delay = 3;
 
-        private CanvasGroup _canvasGroup;
         private Coroutine _coroutine;
         private WaitForSeconds _waitForSeconds;
 
@@ -25,9 +23,8 @@ namespace UI.Game.Views
         [Inject] private StateMashineUI _stateMashineUI;
         [Inject] private ILoadScreens _loadScreens;
 
-        private void Awake()
+        private void OnEnable()
         {
-            _canvasGroup = GetComponent<CanvasGroup>();
             _waitForSeconds = new WaitForSeconds(_delay);
         }
 
@@ -40,17 +37,16 @@ namespace UI.Game.Views
             }
         }
 
-        public void Hide()
+        public override void Hide()
         {
             SetCanvasVisibility(false);
         }
 
-        public void Show()
+        public override void Show()
         {
             SetCanvasVisibility(true);
 
             _screen.sprite = _loadScreens.GetRandomScreen();
-
             _level.text = _gameLevel.GetCurrentLevelNumber().ToString();
 
             if (_coroutine == null)
@@ -63,13 +59,6 @@ namespace UI.Game.Views
 
             _stateMashineUI.EnterIn<GameLevelUIState>();
             _coroutine = null;
-        }
-
-        private void SetCanvasVisibility(bool isActive)
-        {
-            _canvasGroup.alpha = isActive ? 1 : 0;
-            _canvasGroup.interactable = isActive;
-            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

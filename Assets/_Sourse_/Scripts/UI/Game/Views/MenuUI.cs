@@ -7,40 +7,24 @@ using UnityEngine;
 
 namespace UI.Game.Views
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class MenuUI : MonoBehaviour, IGameUI
+    public class MenuUI : GameView
     {
         [SerializeField] private TMP_Text _levelNumber;
 
-        private CanvasGroup _canvasGroup;
-
         [Inject] private IGameLevel _level;
 
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-            Hide();
-        }
-
-        public void Hide()
+        public override void Hide()
         {
             SetCanvasVisibility(false);
         }
 
-        public void Show()
+        public override void Show()
         {
             SetCanvasVisibility(true);
 
             _levelNumber.text = _level.GetCurrentLevelNumber().ToString();
 
             TimeManager.Instance.SetTimeScale(0);
-        }
-
-        private void SetCanvasVisibility(bool isActive)
-        {
-            _canvasGroup.alpha = isActive ? 1 : 0;
-            _canvasGroup.interactable = isActive;
-            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }
