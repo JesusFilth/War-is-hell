@@ -11,8 +11,7 @@ using UnityEngine.UI;
 
 namespace UI.Game.Views
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class PlayerStatsUI : MonoBehaviour, IGameUI
+    public class PlayerStatsUI : GameView
     {
         private const string HPStat = "max_hp";
         private const string DamageStat = "Damage";
@@ -28,16 +27,8 @@ namespace UI.Game.Views
         [SerializeField] private TMP_Text _weapon;
         [SerializeField] private TMP_Text _skillPower;
 
-        private CanvasGroup _canvasGroup;
-
         [Inject] private IPlayerAbilities _playerAbilities;
         [Inject] private StateMashineUI _stateMashineUI;
-
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-            Hide();
-        }
 
         private void OnEnable()
         {
@@ -49,12 +40,12 @@ namespace UI.Game.Views
             _close.onClick.RemoveListener(OnClickClose);
         }
 
-        public void Hide()
+        public override void Hide()
         {
             SetCanvasVisibility(false);
         }
 
-        public void Show()
+        public override void Show()
         {
             SetCanvasVisibility(true);
 
@@ -62,13 +53,6 @@ namespace UI.Game.Views
 
             UpdateSkills();
             UpdateStats();
-        }
-
-        private void SetCanvasVisibility(bool isActive)
-        {
-            _canvasGroup.alpha = isActive ? 1 : 0;
-            _canvasGroup.interactable = isActive;
-            _canvasGroup.blocksRaycasts = isActive;
         }
 
         private void UpdateSkills()

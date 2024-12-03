@@ -10,23 +10,15 @@ using UnityEngine.UI;
 
 namespace UI.Game.Views
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class LifeRewardUI : MonoBehaviour, IGameUI
+    public class LifeRewardUI : GameView
     {
         [SerializeField] private Button _rewardBtn;
         [SerializeField] private Button _continueBtn;
 
-        private CanvasGroup _canvasGroup;
         private bool _isHasLife;
 
         [Inject] private StateMashineUI _gameUI;
         [Inject] private IGamePlayer _player;
-
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-            Hide();
-        }
 
         private void OnEnable()
         {
@@ -40,12 +32,12 @@ namespace UI.Game.Views
             _continueBtn.onClick.RemoveListener(ToContinue);
         }
 
-        public void Hide()
+        public override void Hide()
         {
             SetCanvasVisibility(false);
         }
 
-        public void Show()
+        public override void Show()
         {
             if (_isHasLife)
             {
@@ -56,13 +48,6 @@ namespace UI.Game.Views
             SetCanvasVisibility(true);
 
             TimeManager.Instance.SetTimeScale(0);
-        }
-
-        private void SetCanvasVisibility(bool isActive)
-        {
-            _canvasGroup.alpha = isActive ? 1 : 0;
-            _canvasGroup.interactable = isActive;
-            _canvasGroup.blocksRaycasts = isActive;
         }
 
         private void ShowReward()
